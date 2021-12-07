@@ -1,3 +1,6 @@
+import "./App.css";
+
+import { Container, Grid } from "@mui/material";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -26,16 +29,17 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <Header />
-          <div>
-            <Switch>
-              <Route path="/" exact component={Homepage} />
+
+          <Switch>
+            <Route path="/" exact component={Homepage} />
+            <div className="container">
               <Route path="/Gio-hang" exact component={CartPage} />
               <Route path="/Thanh-toan" exact component={PaymentPage} />
               <Route path="/Tai-khoan/:child" exact component={AccountPage} />
-              <Route path="/:path" exact component={ProductsResultPage} />
+              <Route path="/Ket-qua/:path" exact component={ProductsResultPage} />
               <Route path="/id/:id" exact component={ProductDetailPage} />
-            </Switch>
-          </div>
+            </div>
+          </Switch>
         </Router>
       </ThemeProvider>
     </>

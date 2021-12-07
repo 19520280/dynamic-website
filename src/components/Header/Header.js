@@ -7,7 +7,7 @@ import Topbar from "./Topbar";
 
 function Header() {
   return (
-    <AppBar  elevation={0} >
+    <AppBar  elevation={0} position="static">
       <Stack direction="column" >
         <Topbar />
         <Navbar />
