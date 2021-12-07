@@ -44,4 +44,50 @@ export const pages = [
       },
     ],
   },
+  {
+    title: "Quần",
+    path: "/Quan",
+    menu: [
+      {
+        title: "Quần dài | Pants",
+        path: "/Quan-dai",
+      },
+      {
+        title: "Quần ngắn | Shorts",
+        path: "/Quan-ngan",
+      },
+    ],
+  },
+  {
+    title: "Phụ kiện",
+    path: "/Phu-kien",
+    menu: [
+      {
+        title: "Ba lô | Backpacks",
+        path: "/Ba-lo",
+      },
+      {
+        title: "Túi | Bag",
+        path: "/Tui",
+      },
+      {
+        title: "Ví | Wallet",
+        path: "/Vi",
+      },
+      {
+        title: "Nón | Cap",
+        path: "/Non",
+      },
+    ],
+  },
+  {
+    title: "Blog",
+    path: "/Blog",
+    menu: [],
+  },
+  {
+    title: "Liên hệ",
+    path: "/Lien-he",
+    menu: [],
+  },
 ];
