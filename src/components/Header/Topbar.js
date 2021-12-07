@@ -1,22 +1,18 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import "./Header.css";
 
 import Logo from "../../assets/images/Logo.png";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import {
-  AppBar,
   TextField,
   Box,
   InputAdornment,
   Avatar,
   Stack,
   Badge,
+  IconButton
 } from "@mui/material";
 
 function Topbar() {
