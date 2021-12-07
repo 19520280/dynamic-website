@@ -18,10 +18,10 @@ import {
 function Topbar() {
   return (
     <Stack direction="row" className="topbar">
-      <Box component="div" sx={{ display: "inline", flex: 2 }}>
+      <Box component="div" sx={{ display: "inline", flex: 1 }}>
         <img src={Logo} />
       </Box>
-      <Stack direction="row" spacing={2} sx={{ flex: 1 }}>
+      <Stack direction="row" spacing={2} sx={{ flex: 2 }}  justifyContent="flex-end">
         <Box component="form" noValidate autoComplete="off">
           <TextField
             focused
@@ -36,7 +36,7 @@ function Topbar() {
                 color: "white",
                 borderRadius: "30px",
                 height: "36px",
-                width: "360px",
+                width: "auto",
                 fontSize: "14px",
                 padding: "8px",
               },

@@ -10,12 +10,13 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { pages } from "../../dataSources/Pages";
-import MenuButton from "./Button/MenuButton";
+import MenuButton from "../Buttons/MenuButton";
 
 function Navbar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  /* #region  responsive */
   const [openMenu, setOpenMenu] = useState(false);
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
@@ -49,6 +50,8 @@ function Navbar() {
       }
     }
   };
+  /* #endregion */
+
   return (
     <Box
       sx={{

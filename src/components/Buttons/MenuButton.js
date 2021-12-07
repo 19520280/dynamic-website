@@ -8,22 +8,29 @@ import {
   MenuItem,
   Divider,
   Paper,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function MenuButton({ page }) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  /* #region  Normal */
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const open = Boolean(anchorEl) && !isMobile;
   const history = useHistory();
 
   const handleOver = (event) => {
-    console.log("Open");
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    console.log("Close");
     setAnchorEl(null);
   };
+  /* #endregion */
 
+  
   //   const handleClick =(path) =>{
   //     handleClose();
   //     history.push("/");
@@ -37,6 +44,7 @@ function MenuButton({ page }) {
         aria-haspopup="true"
         // onClick={}
         onMouseOver={handleOver}
+        endIcon={(page.menu.length && !isMobile) ? <KeyboardArrowDownIcon /> : null}
       >
         {page.title}
       </Button>
