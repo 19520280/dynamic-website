@@ -1,16 +1,17 @@
-import React, { useState } from "react";
 import "./Header.css";
+
 import {
   Box,
-  Button,
-  Stack,
   IconButton,
-  useTheme,
+  Stack,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
+import React, { useState } from "react";
+
+import MenuButton from "./MenuButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { pages } from "../../dataSources/Pages";
-import MenuButton from "../Buttons/MenuButton";
+import { navbar } from "../../dataSources/Pages";
 
 function Navbar() {
   const theme = useTheme();
@@ -21,6 +22,7 @@ function Navbar() {
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
   };
+  
   const CustomStack = (content) => {
     if (isMobile) {
       return (
@@ -59,20 +61,8 @@ function Navbar() {
       }}
       className="navbar"
     >
-      {/* <Stack direction="row" spacing={6}>
-        {isMobile ? (
-          <IconButton
-            size="large"
-            edge="start"
-            color="primary"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-        ) : null} */}
       {CustomStack(
-        pages.map((page, index) => <MenuButton key={index} page={page} />)
+        navbar.map((page, index) => <MenuButton key={index} page={page} />)
       )}
       {/* </Stack> */}
     </Box>

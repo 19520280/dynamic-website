@@ -4,3 +4,6 @@
 .navbar{
     padding: 8px 80px 8px 80px;
 }
+.nav-link{
+text-decoration: none;
+}

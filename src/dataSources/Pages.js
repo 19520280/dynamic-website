@@ -1,4 +1,4 @@
-export const pages = [
+export const navbar = [
   {
     title: "Best seller",
     path: "/Best-seller",

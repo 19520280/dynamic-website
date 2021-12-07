@@ -1,7 +1,9 @@
 import * as React from "react";
-import Topbar from "./Topbar";
+
+import { AppBar, Divider, Stack } from "@mui/material";
+
 import Navbar from "./Navbar";
-import { Stack, AppBar,Divider } from "@mui/material";
+import Topbar from "./Topbar";
 
 function Header() {
   return (

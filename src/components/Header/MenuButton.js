@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import "./Header.css";
+
 import {
-  Box,
   Button,
-  Stack,
   Menu,
   MenuItem,
-  Divider,
   Paper,
-  useTheme,
+  Stack,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
+import { Link, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function MenuButton({ page }) {
@@ -30,21 +31,17 @@ function MenuButton({ page }) {
   };
   /* #endregion */
 
-  
-  //   const handleClick =(path) =>{
-  //     handleClose();
-  //     history.push("/");
-  //   }
-
   return (
     <>
       <Button
         variant="text"
         aria-controls={`${page.title}-page`}
         aria-haspopup="true"
-        // onClick={}
-        onMouseOver={handleOver}
-        endIcon={(page.menu.length && !isMobile) ? <KeyboardArrowDownIcon /> : null}
+        onClick={() => history.push(page.path)}
+        onMouseEnter={handleOver}
+        endIcon={
+          page.menu.length && !isMobile ? <KeyboardArrowDownIcon /> : null
+        }
       >
         {page.title}
       </Button>
@@ -69,7 +66,13 @@ function MenuButton({ page }) {
         >
           <Paper sx={{ p: "8px", borderColor: "secondary" }} variant="outlined">
             {page.menu.map((item, key) => (
-              <MenuItem key={key} onClick={handleClose} href={item.path}>
+              <MenuItem
+                key={key}
+                onClick={() => {
+                  handleClose();
+                  history.push(item.path);
+                }}
+              >
                 {item.title}
               </MenuItem>
             ))}
