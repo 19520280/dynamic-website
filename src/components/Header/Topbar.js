@@ -21,12 +21,8 @@ function Topbar() {
   const history = useHistory();
   return (
     <Stack direction="row" className="topbar">
-      <Box
-        component="div"
-        sx={{ display: "inline", flex: 1 }}
-        onClick={() => history.push("/")}
-      >
-        <img src={Logo} />
+      <Box component="div" sx={{ display: "inline", flex: 1 }}>
+        <img src={Logo} onClick={() => history.push("/")} />
       </Box>
       <Stack
         direction="row"
