@@ -9,6 +9,8 @@ const imgMonarchButterflys14 =
   require("../assets/images/products/monarch-butterfly-t-shirt-white/ee6bc2f9bdace98730ae3e35121451b7.jpg").default;
 const imgMonarchButterflys21 =
   require("../assets/images/products/monarch-butterfly-t-shirt-white/monarch-butterflys-bla-3-w.jpg").default;
+const imgMonarchButterflys22 =
+  require("../assets/images/products/monarch-butterfly-t-shirt-white/a22b713b26867294015df4a094326574.jpg").default;
 /* #endregion */
 
 export const product = {
@@ -40,7 +42,7 @@ export const products = [
         imgMonarchButterflys13,
         imgMonarchButterflys14,
       ],
-      [imgMonarchButterflys21],
+      [imgMonarchButterflys21, imgMonarchButterflys22],
     ],
     newTag: true,
     giaCu: 300000,
