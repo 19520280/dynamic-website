@@ -12,7 +12,7 @@ const ColorButton = ({ color, selected, setSelected, only }) => {
     border: "1px solid",
     borderRadius: "50%",
     borderColor:
-      only && color === selected && active
+      only && color === selected
         ? "primary"
         : !only && active
         ? "primary"
@@ -31,7 +31,7 @@ const ColorButton = ({ color, selected, setSelected, only }) => {
   return (
     <BootstrapButton
       onClick={() => {
-        if (!active) {
+        if (!active || only) {
           setSelected(color);
         } else {
           setSelected(null);
