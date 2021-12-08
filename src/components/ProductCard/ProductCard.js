@@ -24,7 +24,7 @@ const ProductCard = () => {
   console.log('selected product card', selected);
   return (
     <Card className="custom-card">
-      <CardMedia component="img" height="140" image={product.imgs[0][0]} />
+      <CardMedia component="img" height="100%" image={product.imgs[0][0]} />
       <CardContent>
         <Typography
           gutterBottom
@@ -60,7 +60,7 @@ const ProductCard = () => {
           colors={product.mauSacs}
           selected={selected}
           setSelected={setSelected}
-          only={false}
+          only={true}
         />
       </CardActions>
     </Card>
