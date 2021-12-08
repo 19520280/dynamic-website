@@ -24,7 +24,7 @@ const theme = createTheme({
   text:{
     primary:"#303537",
     secondary:"#5E6669",
-  }
+  },
 });
 
 function App() {
