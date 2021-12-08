@@ -1,9 +1,18 @@
-.topbar{
-    padding: 22px 80px 22px 80px;
+.topbar {
+  padding: 22px 80px 22px 80px;
 }
-.navbar{
-    padding: 8px 80px 8px 80px;
+.navbar {
+  padding: 8px 80px 8px 80px;
 }
-.nav-link{
-text-decoration: none;
+.nav-link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 960px) {
+  .topbar {
+    padding: 22px 40px 22px 40px;
+  }
+  .navbar {
+    padding: 8px 40px 8px 40px;
+  }
 }

@@ -7,15 +7,21 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Stack,
   Typography,
 } from "@mui/material";
+import React, { useState } from "react";
 
-import React from "react";
+import ColorButton from "./../Buttons/ColorButton";
+import ColorButtonGroup from "../Buttons/ColorButtonGroup";
+import numberWithCommas from "./../../utils/numberWithCommas";
 import { products } from "../../dataSources/Products";
 
 const product = products[0];
 
 const ProductCard = () => {
+  const [selected, setSelected] = useState(product.mauSacs[0]);
+  console.log('selected product card', selected);
   return (
     <Card className="custom-card">
       <CardMedia component="img" height="140" image={product.imgs[0][0]} />
@@ -24,35 +30,38 @@ const ProductCard = () => {
           gutterBottom
           variant="subtitle1"
           component="div"
-          color="text.secondary"
           className="name"
         >
           {product.ten}
         </Typography>
-        <CardActions>
+        <Stack direction="row" spacing={1}>
           {product.giaCu ? (
             <Typography
-              gutterBottom
-              variant="subtitle1"
-              component="div"
               className="old-price"
+              gutterBottom
+              component="div"
+              color="text.secondary"
             >
-              {product.giaCu}
+              {numberWithCommas(product.giaCu)}
             </Typography>
           ) : null}
           <Typography
             gutterBottom
-            variant="subtitle1"
             component="div"
+            sx={{ fontWeight: "medium" }}
             className="price"
           >
-            {product.gia}
+            {numberWithCommas(product.giaCu)}
           </Typography>
-        </CardActions>
+        </Stack>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+      <CardActions disableSpacing>
+        <ColorButtonGroup
+          colors={product.mauSacs}
+          selected={selected}
+          setSelected={setSelected}
+          only={false}
+        />
       </CardActions>
     </Card>
   );
