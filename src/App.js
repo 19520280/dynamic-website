@@ -37,7 +37,7 @@ function App() {
           <Breadcrumbs/>
           <Switch>
             <Route path="/" exact component={Homepage} />
-            <div className="container">
+            <div className="containermain">
               <Route path="/Gio-hang" exact component={CartPage} />
               <Route path="/Thanh-toan" exact component={PaymentPage} />
               <Route path="/Tai-khoan/:child" exact component={AccountPage} />

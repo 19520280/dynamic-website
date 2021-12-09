@@ -35,7 +35,7 @@ const Breadcrumb = (props) => {
               ? "Liên hệ"
               : name == "Ao-thun"
               ? "Áo thun"
-              : name == "Ao-khac"
+              : name == "Ao-khoac"
               ? "Áo khoác"
               : name == "Ao-trum-dau"
               ? "Áo trùm đầu"

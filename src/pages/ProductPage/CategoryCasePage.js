@@ -1,13 +1,13 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import Breadcrumnbs from '../../components/Breadcrumbs/Breadcrumbs'
-
+import Filter from './Filter'
 const CategoryCasePage = () => {
     const location = useLocation();
     console.log(location.pathname);
   
     return (
         <div>
+        <Filter></Filter>
         </div>
     )
 }

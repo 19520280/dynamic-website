@@ -6,7 +6,6 @@ import { Circle } from "@mui/icons-material";
 const ColorButton = ({ color, selected, setSelected, only }) => {
   const [active, setActive] = useState(color === selected);
 
-  console.log("ColorButton", selected);
   const BootstrapButton = styled(Button)({
     backgroundColor: "transparent",
     border: "1px solid",
