@@ -30,6 +30,7 @@ let theme = createTheme({
     primary: "#303537",
     secondary: "#5E6669",
   },
+  backgroundColor: "#FCFCFC",
 });
 theme = responsiveFontSizes(theme);
 function App() {
@@ -41,7 +42,7 @@ function App() {
           <Breadcrumbs />
           <Switch>
             <Route path="/" exact component={Homepage} />
-            <div className="container">
+            <div className="containermain" style={{backgroundColor:"#FCFCFC"}}>
               <Route path="/Gio-hang" exact component={CartPage} />
               <Route path="/Thanh-toan" exact component={PaymentPage} />
               <Route path="/Tai-khoan/:child" exact component={AccountPage} />
