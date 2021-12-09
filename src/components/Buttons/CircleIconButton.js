@@ -1,7 +1,7 @@
 import { Button, styled } from "@mui/material";
 
 import React from "react";
-import { SystemColor } from './../../color';
+import { SystemColor } from "./../../color";
 
 const CircleIconButton = ({ icon, backgroundColor, borderColor }) => {
   const BootstrapButton = styled(Button)({
@@ -12,9 +12,9 @@ const CircleIconButton = ({ icon, backgroundColor, borderColor }) => {
     margin: "0px",
     minWidth: "0px",
     padding: "8px",
+    cursor: "pointer",
     "&:hover": {
       backgroundColor: backgroundColor ? backgroundColor : SystemColor.main,
-      opacity: "80%"
     },
   });
   return <BootstrapButton>{icon}</BootstrapButton>;

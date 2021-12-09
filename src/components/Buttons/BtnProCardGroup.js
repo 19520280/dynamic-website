@@ -5,28 +5,14 @@ import CircleIconButton from "./CircleIconButton";
 import React from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const ButtonHover = ({ icon, title }) => (
-  <Tooltip title={title}>
-    <span>
-      <CircleIconButton icon={icon} />
-    </span>
-  </Tooltip>
-);
 const BtnProCardGroup = () => {
   return (
     <Stack direction="row" spacing={1}>
-      <ButtonHover
-        icon={<RemoveRedEye style={{ color: "white" }} />}
-        title="Xem nhanh"
-      />
-      <ButtonHover
+      <CircleIconButton icon={<RemoveRedEye style={{ color: "white" }} />} />
+      <CircleIconButton
         icon={<ShoppingCartIcon style={{ color: "white" }} />}
-        title="Thêm vào giỏ hàng"
       />
-      <ButtonHover
-        icon={<AddToPhotos style={{ color: "white" }} />}
-        title="Thêm vào danh sách"
-      />
+      <CircleIconButton icon={<AddToPhotos style={{ color: "white" }} />} />
     </Stack>
   );
 };

@@ -1,13 +1,24 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-import { BtnColor } from "../../color";
+import { SystemColor } from "../../color";
 import moment from "moment";
-import { spacing } from "@mui/system";
 
-export const Item = ({ text }) => {
+export const Item = ({ time, text }) => {
   return (
-      <Typography textAlign="center">{text}</Typography>
+    <Box
+      sx={{
+        width: "calc(100%/4)",
+        p:1,
+      }}
+    >
+      <Typography textAlign="center" fontSize="1rem" fontWeight="bold">
+        {time}
+      </Typography>
+      <Typography textAlign="center" fontSize="0.8rem">
+        {text}
+      </Typography>
+    </Box>
   );
 };
 
@@ -41,14 +52,14 @@ const CountDownGroup = ({ endDate }) => {
   return (
     <Stack
       direction="row"
-      justifyContent="center"
+      justifyContent="start"
       alignItems="stretch"
-      spacing={1}
+      spacing={0.5}
     >
-      <Item text={state.days} />
-      <Item text={state.hours} />
-      <Item text={state.minutes} />
-      <Item text={state.seconds} />
+      <Item time={state.days} text="Ngày" />
+      <Item time={state.hours} text="Giờ" />
+      <Item time={state.minutes} text="Phút" />
+      <Item time={state.seconds} text="Giây" />
     </Stack>
   );
 };
