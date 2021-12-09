@@ -22,6 +22,7 @@ const useStyle = makeStyles({
     fontSize: "18px",
     lineHeight: "38px",
     color: "#5E6669",
+    backgroundColor: "#FCFCFC",
   },
   listItemText: {
     fontStyle: "normal",
@@ -158,22 +159,18 @@ const Filter = () => {
           <ListSubheader className={classes.subHeader}>MÀU SẮC</ListSubheader>
         }
       >
-        <Grid
-        container
-        rowSpacing={1}
-        columnSpacing={{ xs: 5, sm: 5, md: 5 }}
-      >
-        {colorItems.map((color, index) => (
-          <Grid item key={index}>
-            <ColorButton
-              color={color}
-              selected={selected}
-              setSelected={setSelected}
-              only={true}
-            />
-          </Grid>
-        ))}
-      </Grid>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 5, sm: 5, md: 5 }}>
+          {colorItems.map((color, index) => (
+            <Grid item key={index}>
+              <ColorButton
+                color={color}
+                selected={selected}
+                setSelected={setSelected}
+                only={true}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </List>
       <Divider className={classes.divider} />
       <List

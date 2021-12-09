@@ -11,7 +11,7 @@ const Breadcrumb = (props) => {
   } = props;
   const pathnames = pathname.split("/").filter((x) => x);
   return (
-    <Breadcrumbs  style={{padding:"12px 0px 12px 80px", margin:"0px 0px 0px 12px"}} aria-label="breadcrumb">
+    <Breadcrumbs style={{padding:"12px 0px 12px 80px", margin:"0px 0px 0px 12px", backgroundColor:"#FCFCFC"}} aria-label="breadcrumb">
       {pathnames.length > 0 ? (
         <Link onClick={() => history.push("/")}>Trang chủ</Link>
       ) : (

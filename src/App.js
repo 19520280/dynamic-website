@@ -26,6 +26,7 @@ const theme = createTheme({
     primary:"#303537",
     secondary:"#5E6669",
   },
+  backgroundColor: "#FCFCFC",
 });
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
           <Breadcrumbs/>
           <Switch>
             <Route path="/" exact component={Homepage} />
-            <div className="containermain">
+            <div className="containermain" style={{backgroundColor:"#FCFCFC"}}>
               <Route path="/Gio-hang" exact component={CartPage} />
               <Route path="/Thanh-toan" exact component={PaymentPage} />
               <Route path="/Tai-khoan/:child" exact component={AccountPage} />
@@ -49,7 +50,6 @@ function App() {
               <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
               <Route path="/Ao/Ao-trum-dau" exact component={CategoryCasePage} />
               <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
-
             </div>
           </Switch>
         </Router>
