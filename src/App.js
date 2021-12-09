@@ -1,10 +1,16 @@
 import "./App.css";
 
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
+import {
+  ThemeProvider,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 
 import AccountPage from "./pages/AccountPage";
+import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import CartPage from "./pages/CartPage";
+import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
 import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage";
 import PaymentPage from "./pages/PaymentPage";
@@ -32,7 +38,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <Header />
-
+          <Breadcrumbs />
           <Switch>
             <Route path="/" exact component={Homepage} />
             <div className="container">
@@ -45,6 +51,16 @@ function App() {
                 component={ProductsResultPage}
               />
               <Route path="/id/:id" exact component={ProductDetailPage} />
+              <Route path="/Ao" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
+              <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
+              <Route
+                path="/Ao/Ao-trum-dau"
+                exact
+                component={CategoryCasePage}
+              />
+              <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
             </div>
           </Switch>
         </Router>
