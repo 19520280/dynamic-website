@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { AppBar, Divider, Stack } from "@mui/material";
+import { AppBar, Stack } from "@mui/material";
 
 import Navbar from "./Navbar";
 import Topbar from "./Topbar";
