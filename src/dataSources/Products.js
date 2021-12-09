@@ -17,8 +17,8 @@ export const product = {
   ten: "",
   imgs: [[]],
   newTag: false,
+  giaCu: Number,
   gia: Number,
-  giaGiam: Number,
   ngayKetThucSale: "26/12/2021",
   setCountDown: false,
   mauSacs: ["white", "black"], //Mã màu #... hoặc các màu có sẵn của hệ thống
