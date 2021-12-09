@@ -11,7 +11,8 @@ import Homepage from "./pages/Homepage";
 import PaymentPage from "./pages/PaymentPage";
 import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import ProductsResultPage from "./pages/ProductPage/ProductsResultPage";
-
+import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
+import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 const theme = createTheme({
   palette: {
     primary: {
@@ -33,7 +34,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <Header />
-
+          <Breadcrumbs/>
           <Switch>
             <Route path="/" exact component={Homepage} />
             <div className="container">
@@ -42,6 +43,13 @@ function App() {
               <Route path="/Tai-khoan/:child" exact component={AccountPage} />
               <Route path="/Ket-qua/:path" exact component={ProductsResultPage} />
               <Route path="/id/:id" exact component={ProductDetailPage} />
+              <Route path="/Ao" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
+              <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-trum-dau" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
+
             </div>
           </Switch>
         </Router>
