@@ -51,10 +51,17 @@
   top: 50%;
 }
 .image-card .tag {
-  z-index:4;
+  z-index: 4;
   position: absolute;
-  top: 0;
-  right: 8;
+  top: 8px;
+  right: 8px;
+}
+.image-card .countdown {
+  z-index: 5;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
 }
 .container:hover .btn {
   opacity: 1;

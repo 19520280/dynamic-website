@@ -19,6 +19,7 @@ export const product = {
   newTag: false,
   giaCu: Number,
   gia: Number,
+  tonKho: Number,
   ngayKetThucSale: "26/12/2021",
   setCountDown: false,
   mauSacs: ["white", "black"], //Mã màu #... hoặc các màu có sẵn của hệ thống
@@ -47,6 +48,7 @@ export const products = [
     newTag: true,
     giaCu: 300000,
     gia: 150000,
+    tonKho: 5,
     ngayKetThucSale: "26/12/2021",
     setCountDown: true,
     mauSacs: ["white", "black"],

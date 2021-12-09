@@ -5,8 +5,9 @@ import React, { useState } from "react";
 
 import BtnProCardGroup from "./../Buttons/BtnProCardGroup";
 import ColorButtonGroup from "../Buttons/ColorButtonGroup";
-import CustomTag from "../Tag/CustomTag";
+import CountDownGroup from "../Tag/CountDownGroup";
 import TagProCardGroup from "../Tag/TagProCardGroup";
+import moment from "moment";
 import numberWithCommas from "./../../utils/numberWithCommas";
 import { products } from "../../dataSources/Products";
 
@@ -17,7 +18,6 @@ const ProductCard = () => {
   const indexSelected = sanPham.mauSacs.indexOf(selected);
 
   const [hovered, setHovered] = useState(0);
-  console.log(hovered);
   return (
     <div className="container">
       <Box sx={{ position: "relative" }}>
@@ -50,6 +50,9 @@ const ProductCard = () => {
           </div>
           <div className="tag">
             <TagProCardGroup product={sanPham} />
+          </div>
+          <div className="countdown">
+            <CountDownGroup endDate={moment().add(1, "d")} />
           </div>
         </div>
       </Box>
