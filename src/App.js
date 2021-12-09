@@ -9,8 +9,8 @@ import CartPage from "./pages/CartPage";
 import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage";
 import PaymentPage from "./pages/PaymentPage";
-import ProductDetailPage from "./pages/ProductDetailPage";
-import ProductsResultPage from "./pages/ProductsResultPage";
+import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
+import ProductsResultPage from "./pages/ProductPage/ProductsResultPage";
 
 const theme = createTheme({
   palette: {
