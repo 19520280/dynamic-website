@@ -2,11 +2,11 @@ import { Button, IconButton, styled } from "@mui/material";
 import React, { useState } from "react";
 
 import { Circle } from "@mui/icons-material";
+import { SystemColor } from "./../../color";
 
 const ColorButton = ({ color, selected, setSelected, only }) => {
   const [active, setActive] = useState(color === selected);
 
-  console.log("ColorButton", selected);
   const BootstrapButton = styled(Button)({
     backgroundColor: "transparent",
     border: "1px solid",
@@ -21,11 +21,11 @@ const ColorButton = ({ color, selected, setSelected, only }) => {
     minWidth: "0px",
     padding: "0px",
     "&:hover": {
-      borderColor: "#303537",
-      boxShadow: "#FCFCFC",
+      borderColor: "primary",
+      boxShadow: "secondary",
     },
     "&:active": {
-      borderColor: "#303537",
+      borderColor: "primary",
     },
   });
   return (
@@ -43,7 +43,7 @@ const ColorButton = ({ color, selected, setSelected, only }) => {
         style={{
           //border: color === "white" ? "1px solid" : undefined,
           border: "1px solid",
-          borderColor: "#BEBEBE",
+          borderColor: SystemColor.gray,
           color: color,
           minWidth: "0px",
           padding: "0px",

@@ -10,6 +10,7 @@ const ColorButtonGroup = ({ colors, selected, setSelected, only }) => {
       <Grid
         container
         rowSpacing={1}
+        marginTop={0.5}
         columnSpacing={{ xs: 0.5, sm: 0.5, md: 1 }}
       >
         {colors.map((color, index) => (

@@ -1,3 +1,5 @@
+import { useTheme } from "@mui/material/styles";
+
 export const BgColor = {
   mainBg: "#FCFCFC",
   main: "#303537",
@@ -18,7 +20,9 @@ export const BtnColor = {
 export const SystemColor = {
   main: "#303537",
   gray: "#BEBEBE",
-  success: "#5CB85C",
-  danger: "#D9534F",
+  success: "#2E7D32",
+  error: "#D32F2F",
+  warning: "#ED6C02",
+  info: "#0288D1",
   star: "#FFBD00",
 };

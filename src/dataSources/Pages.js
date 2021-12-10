@@ -24,23 +24,23 @@ export const navbar = [
     menu: [
       {
         title: "Áo thun | T-shirt",
-        path: "/Ao-thun",
+        path: "/Ao/Ao-thun",
       },
       {
         title: "Áo khoác | Jacket",
-        path: "/Ao-khoac",
+        path: "/Ao/Ao-khoac",
       },
       {
         title: "Sơ mi | Shirt",
-        path: "/So-mi",
+        path: "/Ao/So-mi",
       },
       {
         title: "Áo trùm đầu | Hoodie",
-        path: "/Ao-trum-dau",
+        path: "/Ao/Ao-trum-dau",
       },
       {
         title: "Áo tay dài | Sweater",
-        path: "/Ao-tay-dai",
+        path: "/Ao/Ao-tay-dai",
       },
     ],
   },
