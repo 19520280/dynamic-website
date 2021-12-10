@@ -38,7 +38,7 @@ function MenuButton({ page }) {
         aria-controls={`${page.title}-page`}
         aria-haspopup="true"
         onClick={() => history.push(page.path)}
-        onMouseEnter={handleOver}
+        onMouseOver={handleOver}
         endIcon={
           page.menu.length && !isMobile ? <KeyboardArrowDownIcon /> : null
         }

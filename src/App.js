@@ -9,6 +9,7 @@ import {
 
 import AccountPage from "./pages/AccountPage";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
+import { Button } from '@mui/material';
 import CartPage from "./pages/CartPage";
 import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
 import Header from "./components/Header/Header";
@@ -28,8 +29,9 @@ let theme = createTheme({
   },
   text: {
     primary: "#303537",
-    secondary: "#5E6669",
+    secondary: "#313537",
   },
+  shadows:["none"]
 });
 theme = responsiveFontSizes(theme);
 function App() {

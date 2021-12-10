@@ -24,62 +24,93 @@ const Banner = () => {
     setchecked(true);
   });
 
+  const containerRef = React.useRef(null);
+  console.log(checked);
   return (
     <div className="fullwidthbanner-container">
       <div className="fullwidthbanner">
         <img className="defaultimg" src={slide1}></img>
         <div className="caption">
-          <Stack
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            spacing={2}
+          <Box
+            sx={{
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: "max-content",
+            }}
+            overflow="hidden"
+            ref={containerRef}
           >
             <div>
-              <Collapse in={checked} {...{timeout: 800}}>
+              <Slide
+                direction="right"
+                in={checked}
+                container={containerRef.current}
+                orientation="vertical"
+                {...{ timeout: 1000 }}
+              >
                 <Typography
                   fontWeight="light"
                   fontSize="calc(0.8rem + 1vw)"
                   color="secondary"
-                  lineHeight="1"
                 >
-                  Giáng sinh mặc gì?
+                  Chào tháng 12
                 </Typography>
-              </Collapse>
-              <Typography
-                fontSize="calc(2rem + 1vw)"
-                fontWeight="bold"
-                color="secondary"
-                paddingTop="0px"
-                lineHeight="1.4"
+              </Slide>
+              <Grow
+                in={checked}
+                {...{ timeout: 1000 }}
+                style={{ transitionDelay: checked ? "500ms" : "0ms" }}
               >
-                Phối đồ chất
-              </Typography>
+                <Typography
+                  fontSize="calc(2rem + 1vw)"
+                  fontWeight="bold"
+                  color="secondary"
+                  paddingTop="0px"
+                >
+                  Phối đồ chất
+                </Typography>
+              </Grow>
+              <Slide
+                direction="left"
+                in={checked}
+                container={containerRef.current}
+                orientation="vertical"
+                {...{ timeout: 1000 }}
+              >
+                <Typography
+                  fontSize="calc(0.8rem + 1vw)"
+                  fontWeight="light"
+                  color="secondary"
+                  paddingTop="0px"
+                >
+                  đi chơi Giáng sinh cùng Dynamic
+                </Typography>
+              </Slide>
+            </div>
+            <Slide
+              direction="up"
+              in={checked}
+              container={containerRef.current}
+              orientation="horizontal"
+              {...{ timeout: 800 }}
+            >
+              <Box>
               <Typography
-                fontSize="calc(0.8rem + 1vw)"
+                fontSize="calc(0.8rem + 0.05vw)"
                 fontWeight="light"
                 color="secondary"
-                paddingTop="0px"
-                lineHeight="1"
+                margin="16px 0px 16px 0px"
               >
-                đi chơi cùng Dynamic
+                <>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  <br /> sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </>
               </Typography>
-            </div>
-            <Typography
-              fontSize="calc(0.8rem + 0.05vw)"
-              fontWeight="light"
-              color="secondary"
-              lineHeight="1.3"
-            >
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                <br /> sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </div>
-            </Typography>
-            <Zoom in={checked} {...{timeout:500}}>
               <Button variant="contained">Khám phá</Button>
-            </Zoom>
-          </Stack>
+              </Box>
+            </Slide>
+          </Box>
         </div>
       </div>
     </div>
