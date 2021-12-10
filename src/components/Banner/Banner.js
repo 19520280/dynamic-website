@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Grow,
+  IconButton,
   Slide,
   Typography,
   Zoom,
@@ -12,7 +13,8 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-import { ChevronRight } from "@mui/icons-material";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const slide1 =
   require("../../assets/images/banners/complex_slide01.jpg").default;
@@ -47,7 +49,7 @@ const Banner = () => {
             justifyContent: "center",
             alignItems: "center",
             width: "max-content",
-            height:"max-content",
+            height: "max-content",
           }}
           overflow="hidden"
           ref={containerRef}
@@ -97,11 +99,7 @@ const Banner = () => {
               </Typography>
             </Slide>
           </div>
-          <Zoom
-            direction="up"
-            in={checked}
-            {...{ timeout: 1000 }}
-          >
+          <Zoom direction="up" in={checked} {...{ timeout: 1000 }}>
             <Box>
               <Typography
                 fontSize="calc(0.8rem + 0.05vw)"
@@ -118,7 +116,7 @@ const Banner = () => {
               {isMobile ? (
                 <Button
                   variant="text"
-                  endIcon={<ChevronRight />}
+                  endIcon={<ChevronRightIcon />}
                   sx={{
                     padding: "4px 0px 0px 0px",
                     fontSize: "calc(0.8rem + 0.05vw)",
@@ -236,7 +234,7 @@ const Banner = () => {
               {isMobile ? (
                 <Button
                   variant="text"
-                  endIcon={<ChevronRight />}
+                  endIcon={<ChevronRightIcon />}
                   sx={{
                     padding: "4px 0px 0px 0px",
                     fontSize: "calc(0.8rem + 0.05vw)",
@@ -261,7 +259,10 @@ const Banner = () => {
   /* #endregion */
 
   /* #region  use for transition */
-
+  function setIndex() {
+    if (bannerShow < listBanner.length - 1) setBannerShow(bannerShow + 1);
+    else setBannerShow(0);
+  }
   useEffect(() => {
     if (!checked) {
       setchecked(true);
@@ -270,8 +271,7 @@ const Banner = () => {
 
   useEffect(() => {
     let timer = setInterval(function () {
-      if (bannerShow < listBanner.length - 1) setBannerShow(bannerShow + 1);
-      else setBannerShow(0);
+      setIndex();
     }, 5000);
     return () => {
       clearInterval(timer);
@@ -279,9 +279,19 @@ const Banner = () => {
     };
   });
   /* #endregion */
-  console.log("state after", checked, bannerShow);
+
   return (
     <div className="fullwidthbanner-container">
+        <IconButton className="icon left" onClick={setIndex}>
+          <ChevronLeftIcon
+            sx={{ color: "secondary", width: "2rem", height: "2rem" }}
+          />
+        </IconButton>
+        <IconButton className="icon right" onClick={setIndex}>
+          <ChevronRightIcon
+            sx={{ color: "secondary", width: "2rem", height: "2rem" }}
+          />
+        </IconButton>
       {listBanner.map((banner, index) =>
         index === bannerShow ? banner : null
       )}
