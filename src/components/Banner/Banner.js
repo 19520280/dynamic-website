@@ -65,7 +65,6 @@ const Banner = () => {
                   fontSize="calc(2rem + 1vw)"
                   fontWeight="bold"
                   color="secondary"
-                  paddingTop="0px"
                 >
                   Phối đồ chất
                 </Typography>
@@ -81,7 +80,6 @@ const Banner = () => {
                   fontSize="calc(0.8rem + 1vw)"
                   fontWeight="light"
                   color="secondary"
-                  paddingTop="0px"
                 >
                   đi chơi Giáng sinh cùng Dynamic
                 </Typography>
@@ -95,19 +93,20 @@ const Banner = () => {
               {...{ timeout: 800 }}
             >
               <Box>
-              <Typography
-                fontSize="calc(0.8rem + 0.05vw)"
-                fontWeight="light"
-                color="secondary"
-                margin="16px 0px 16px 0px"
-              >
-                <>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  <br /> sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </>
-              </Typography>
-              <Button variant="contained">Khám phá</Button>
+                <Typography
+                  fontSize="calc(0.8rem + 0.05vw)"
+                  fontWeight="light"
+                  color="secondary"
+                  margin="16px 0px 16px 0px"
+                >
+                  <>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    <br /> sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.
+                  </>
+                </Typography>
+                <Button variant="contained">Khám phá</Button>
+                <Button variant="outlined" sx={{m:2}}>Mua ngay</Button>
               </Box>
             </Slide>
           </Box>
