@@ -4,8 +4,11 @@
   width: 100%;
   height: auto;
 }
-.fullwidthbanner-container .fullwidthbanner {
+.fullwidthbanner {
   position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .fullwidthbanner-container img {
@@ -15,9 +18,20 @@
   position: absolute;
   top: 30%;
   left: 10%;
-  width:90%;
+  width: 90%;
 }
-.fullwidthbanner-container .caption p{
+.fullwidthbanner-container .caption p {
+  width: max-content;
+  line-height: inherit;
+}
+
+.fullwidthbanner-container .caption-second {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.fullwidthbanner-container .caption-second p {
   width: max-content;
   line-height: inherit;
 }
