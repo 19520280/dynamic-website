@@ -25,7 +25,7 @@ const Banner = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const containerRef = React.useRef(null);
   const [checked, setchecked] = useState(false);
-  const [bannerShow, setBannerShow] = useState(null);
+  const [bannerShow, setBannerShow] = useState(0);
 
   console.log("state before", checked, bannerShow);
   /* #region  list */
