@@ -10,7 +10,7 @@ import {
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import PolicyIcon from "@mui/icons-material/Policy";
-
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 export default function ProductPolicy() {
   return (
     <List sx={{ width: "100%", maxWidth: 450, bgcolor: "transparent" }}>
@@ -19,7 +19,7 @@ export default function ProductPolicy() {
           <LocalShippingIcon />
         </ListItemIcon>
         <ListItemText
-          primary="Giao hàng miễn phí"
+          primary={<label>Giao hàng miễn phí <HelpOutlineIcon sx = {{width:15, height:15}}/> </label>}
           secondary={
             <label>
               Áp dụng cho đơn hàng có tổng giá trị từ hơn đ500.000
@@ -34,7 +34,7 @@ export default function ProductPolicy() {
           <CreditScoreIcon />
         </ListItemIcon>
         <ListItemText
-          primary="Thanh toán COD"
+          primary={<label>Thanh toán COD <HelpOutlineIcon sx = {{width:15, height:15}}/> </label>}
           secondary="Không áp dụng cho sản phẩm này"
         />
       </ListItem>
@@ -43,7 +43,7 @@ export default function ProductPolicy() {
           <PolicyIcon />
         </ListItemIcon>
         <ListItemText
-          primary="Chính sách trả hàng"
+          primary={<label>Chính sách trả hàng <HelpOutlineIcon sx = {{width:15, height:15}}/> </label>}
           secondary="Không áp dụng cho sản phẩm này"
         />
       </ListItem>

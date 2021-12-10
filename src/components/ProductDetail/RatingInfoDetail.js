@@ -1,25 +1,29 @@
 import * as React from "react";
-import { Avatar, Box, Divider, Rating, Typography } from "@mui/material";
+import { Avatar, Box, CardMedia, Rating, Typography } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
+import ImageSP from "../../assets/images/products/monarch-butterfly-t-shirt-white/32ce4a7de31032ca84dcc9a148ce01d2.jpg";
 
 export default function RatingInfoDetail() {
   return (
-    <Box sx={{ display: "flex", padding: 3 }}>
-      <Box minWidth={250}>
+    <Box sx={{ display: "flex", paddingY: 3, width: 1200 }}>
+      <Box width={250}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Avatar sx={{ bgcolor: deepOrange[500], width: 50, height: 50 }}>
             NL
           </Avatar>
           <Box sx={{ marginLeft: 2 }}>
-            <Typography fontWeight = {500}>Username</Typography>
-            <Typography  color="gray">
+            <Typography fontWeight={500}>Username</Typography>
+            <Typography fontSize={14} color="gray">
               Đã tham gia 2 năm
             </Typography>
           </Box>
         </Box>
+        <Box sx = {{marginTop: 3}}>
+          <Typography>Vòng 1: 56/22 in</Typography>
+        </Box>
       </Box>
-      <Box>
-        <Box>
+      <Box sx = {{display : 'flex'}}>
+        <Box width={450}>
           <Box sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
             <Rating
               name="read-only"
@@ -30,7 +34,7 @@ export default function RatingInfoDetail() {
             />
             <h4>Tiêu đề đánh giá</h4>
           </Box>
-          <Box maxWidth={500} sx={{ marginBottom: 2 }}>
+          <Box maxWidth={400} sx={{ marginBottom: 2 }}>
             <Typography sx={{ textAlign: "justify" }}>
               Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
               ullamco cillum dolor. Voluptate exercitation incididunt aliquip
@@ -43,6 +47,9 @@ export default function RatingInfoDetail() {
               Đánh giá vào 7 tháng trước - Đã dùng 2 tháng
             </Typography>
           </Box>
+        </Box>
+        <Box width={300}>
+          <img src={ImageSP} width={150} height={150} />
         </Box>
       </Box>
     </Box>
