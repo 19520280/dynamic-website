@@ -1,12 +1,14 @@
-import ProductCard from '../components/ProductCard/ProductCard'
-import React from 'react'
+import Banner from "../components/Banner/Banner";
+import React from "react";
 
 const Homepage = () => {
-    return (
-        <div>
-            <ProductCard></ProductCard>
-        </div>
-    )
-}
+  return (
+    <section>
+      <section id="slider">
+        <Banner />
+      </section>
+    </section>
+  );
+};
 
-export default Homepage
+export default Homepage;

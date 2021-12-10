@@ -64,7 +64,6 @@ function Navbar() {
       {CustomStack(
         navbar.map((page, index) => <MenuButton key={index} page={page} />)
       )}
-      {/* </Stack> */}
     </Box>
   );
 }

@@ -7,7 +7,7 @@ export const BgColor = {
 
 export const TxtColor = {
   txtMain: BgColor.main,
-  txtSecond: " #5E6669",
+  txtSecond: "#313537",
   txtThird: "#BEBEBE",
   txtWhite: "#fff",
 };
