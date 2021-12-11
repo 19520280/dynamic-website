@@ -13,7 +13,11 @@ const Breadcrumb = (props) => {
 
   return pathnames.length > 0 ? (
     <Breadcrumbs
-      style={{ padding: "12px 0px 12px 80px", margin: "0px 0px 0px 12px" }}
+      style={{
+        padding: "12px 0px 12px 80px",
+        margin: "0px 0px 0px 12px",
+        backgroundColor: "#FCFCFC",
+      }}
       aria-label="breadcrumb"
     >
       <Link onClick={() => history.push("/")}>Trang chủ</Link>
@@ -30,13 +34,15 @@ const Breadcrumb = (props) => {
               ? "Áo"
               : name === "Quan"
               ? "Quần"
+              : name === "Quan-dai"
+              ? "Quần dài"
               : name === "Phu-kien"
               ? "Phụ kiện"
               : name === "Lien-he"
               ? "Liên hệ"
               : name === "Ao-thun"
               ? "Áo thun"
-              : name === "Ao-khac"
+              : name === "Ao-khoac"
               ? "Áo khoác"
               : name === "Ao-trum-dau"
               ? "Áo trùm đầu"

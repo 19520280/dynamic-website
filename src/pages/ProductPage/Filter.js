@@ -74,11 +74,14 @@ const Filter = () => {
   };
 
   const menuItems = [
-    { text: "Áo thun", path: "/Ao/Ao-thun" },
-    { text: "Áo khoác", path: "/Ao/Ao-khoac" },
-    { text: "Sơ mi", path: "/Ao/So-mi" },
-    { text: "Áo trùm đầu", path: "/Ao/Ao-trum-dau" },
-    { text: "Áo tay dài", path: "/Ao/Ao-tay-dai" },
+    { text: "Áo thun", path: "/Ao/Ao-thun", type: "Ao" },
+    { text: "Áo khoác", path: "/Ao/Ao-khoac", type: "Ao" },
+    { text: "Sơ mi", path: "/Ao/So-mi", type: "Ao" },
+    { text: "Áo trùm đầu", path: "/Ao/Ao-trum-dau", type: "Ao" },
+    { text: "Áo tay dài", path: "/Ao/Ao-tay-dai", type: "Ao" },
+    { text: "Quần dài", path: "/Quan/Quan-dai", type: "Quan" },
+    { text: "Quần ngắn", path: "/Quan/Quan-ngan", type: "Quan" },
+
   ];
   const menuSizes = ["XS", "S", "M", "L", "XL", "FS"];
 
@@ -99,6 +102,8 @@ const Filter = () => {
 
   const [selected, setSelected] = React.useState(colorItems);
   const [selectedsize, setSelectedSize] = React.useState(menuSizes);
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
 
   // const indexSelected = colorItems.color.indexOf(selected);
   const materialItems = [
@@ -131,6 +136,7 @@ const Filter = () => {
             onClick={() => history.push(item.path)}
           >
             <ListItemText
+              style={{display:item.type==pathnames[0]?"block":"none"}}
               primary={item.text}
               className={classes.listItemText}
             />

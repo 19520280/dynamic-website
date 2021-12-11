@@ -69,8 +69,9 @@ function MenuButton({ page }) {
               <MenuItem
                 key={key}
                 onClick={() => {
-                  handleClose();
                   history.push(item.path);
+                  handleClose();
+                  
                 }}
               >
                 {item.title}
