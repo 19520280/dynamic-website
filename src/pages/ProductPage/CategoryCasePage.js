@@ -16,7 +16,7 @@ const CategoryCasePage = () => {
   console.log(location.pathname);
 
   return (
-      <Grid container>
+      <Grid container spacing={0}>
         <Grid item xs="auto">
           <Container
             style={{
@@ -27,7 +27,7 @@ const CategoryCasePage = () => {
             <Filter />
           </Container>
         </Grid>
-        <Grid item xs="auto">
+        <Grid item xs={6}>
           <Container style={{
               paddingLeft: "40px",
               backgroundColor: "#FCFCFC",
