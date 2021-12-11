@@ -1,14 +1,13 @@
 .container {
-  width: calc(100% / 5);
+  width: 100%;
+  min-width: min-content;
   height: auto;
-  margin: 20px;
   padding: 12px;
 }
 @media screen and (max-width: 960px) {
   .container {
-    width: calc(100% / 3);
+    width: 100%;
     height: auto;
-    margin: 20px;
     padding: 12px;
   }
 }

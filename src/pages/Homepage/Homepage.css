@@ -1,6 +1,10 @@
 .fullwidthbanner-container {
-    position: relative;
-    margin-bottom: 40px;
-    width: 100%;
-    height: min-content;
-  }
+  position: relative;
+  margin-bottom: 80px;
+  width: 100%;
+}
+.containermain.fullwidthbanner-container {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
