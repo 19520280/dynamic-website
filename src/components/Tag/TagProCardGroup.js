@@ -9,7 +9,7 @@ const TagProCardGroup = ({ product }) => {
       sx={{
         color: "white",
         p: "8px 8px 8px 8px",
-        backgroundColor: SystemColor.success,
+        backgroundColor: SystemColor.main,
       }}
     >
       <Typography textAlign="center" fontSize="0.8rem">
@@ -35,10 +35,10 @@ const TagProCardGroup = ({ product }) => {
     <Box
       sx={{
 
-        color: SystemColor.error,
+        color: "white",
         alignItems: "center",
         p: "8px 8px 8px 8px",
-        backgroundColor: SystemColor.star,
+        backgroundColor: SystemColor.error,
       }}
     >
       <Typography fontSize="0.9rem" fontWeight="bold">

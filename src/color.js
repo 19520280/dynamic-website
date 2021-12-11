@@ -21,7 +21,7 @@ export const SystemColor = {
   main: "#303537",
   gray: "#BEBEBE",
   success: "#2E7D32",
-  error: "#D32F2F",
+  error: "#a40e1c",
   warning: "#ED6C02",
   info: "#0288D1",
   star: "#FFBD00",

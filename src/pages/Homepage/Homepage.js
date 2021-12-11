@@ -1,24 +1,26 @@
 import "./Homepage.css";
 
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 
 import Banner from "../../components/Banner/Banner";
 import CatalogBanners from "./../../components/CatalogBanners/CatalogBanners";
 import FeedbackBanner from "./../../components/Feedback/FeedbackBanner";
-import ProductCard from "./../../components/ProductCard/ProductCard";
+import ImageProductCardGrid from './../../components/GridProductCard/ImageProductCardGrid';
+import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import React from "react";
+import { SystemColor } from "../../color";
 
 export const CustomTypography = ({ title }) => (
-  <div>
+  <div className="title">
     <Typography
       textAlign="center"
       fontSize="calc(1.2rem + 1vw)"
       fontWeight="bold"
       color="primary"
-      margin={5}
     >
       {title}
     </Typography>
+    <Divider sx={{backgroundColor:SystemColor.main, width:"100%"}}/>
   </div>
 );
 const Homepage = () => {
@@ -39,22 +41,17 @@ const Homepage = () => {
         className="containermain fullwidthbanner-container"
       >
         <CustomTypography title="Có gì hot?" />
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid
-            container
-            spacing={{ xs: 1, md: 2 }}
-            columns={{ xs: 2, sm: 6, md: 8 }}
-          >
-            {Array.from(Array(8)).map((_, index) => (
-              <Grid item xs={1} sm={2} md={2} key={index}>
-                <ProductCard />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+       <ProducCardGrid/>
       </section>
       <section id="feedback"  className="containermain feedback-container">
         <FeedbackBanner />
+      </section>
+      <section
+        id="mix-and-match"
+        className="containermain fullwidthbanner-container"
+      >
+        <CustomTypography title="Phối đồ" />
+       <ImageProductCardGrid/>
       </section>
     </section>
   );
