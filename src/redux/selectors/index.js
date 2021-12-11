@@ -1,1 +1,1 @@
-// export const modalState$ = (state) => state.modal;
+export const SaleBannerState$ = (state) => state.SaleBanner.isShow;

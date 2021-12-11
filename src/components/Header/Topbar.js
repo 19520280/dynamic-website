@@ -1,7 +1,7 @@
 import "./Header.css";
 
 import * as React from "react";
-
+import * as actions from "../../redux/actions/index"
 import {
   Avatar,
   Badge,
@@ -16,9 +16,17 @@ import Logo from "../../assets/images/Logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useHistory } from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import { SaleBannerState$ } from "../../redux/selectors";
 
 function Topbar() {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const setSaleBanner = React.useCallback(() => {
+    dispatch(actions.showSaleBanner(true));
+  }, [dispatch]);
+
+
   return (
     <Stack direction="row" className="topbar">
       <Box component="div" sx={{ display: "inline", flex: 1 }}>
@@ -32,11 +40,13 @@ function Topbar() {
       >
         <Box component="form" noValidate autoComplete="off">
           <TextField
-            focused
+            //focused
+            onSubmit={()=>{setSaleBanner()}}
             variant="outlined"
             color="secondary"
             placeholder="Tìm kiếm sản phẩm"
             style={{
+              border: "white",
               backgroundColor: "transparent",
             }}
             InputProps={{
@@ -51,7 +61,7 @@ function Topbar() {
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton>
-                    <SearchIcon style={{ color: "white" }} />
+                    <SearchIcon style={{ color: "white" }} onClick={()=>{setSaleBanner()}} />
                   </IconButton>
                 </InputAdornment>
               ),

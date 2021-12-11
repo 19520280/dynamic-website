@@ -1,8 +1,12 @@
 import React from "react";
 import "./style.css";
+import * as actions from "../../redux/actions/index";
 import { makeStyles } from "@material-ui/core";
 import { useLocation, useHistory } from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
+import { SaleBannerState$ } from "../../redux/selectors/index";
+import { useSelector, useDispatch } from "react-redux";
+
 import {
   Typography,
   Box,
@@ -48,6 +52,12 @@ const useStyle = makeStyles({
 });
 
 const Right = () => {
+  const dispatch = useDispatch();
+  const SaleBanner = useSelector(SaleBannerState$);
+  console.log(SaleBanner);
+  const setSaleBanner = React.useCallback(() => {
+    dispatch(actions.showSaleBanner(false));
+  }, [dispatch]);
   const classes = useStyle();
   const history = useHistory();
   const location = useLocation();
@@ -68,52 +78,60 @@ const Right = () => {
   return (
     <Container style={{ maxWidth: "100%", maxHeight: "100%" }}>
       <Typography component="div" className={classes.header}>
-        {pathnames[0]=="Ao"?"Áo":pathnames[0]=="Quan"?"Quần":pathnames[0]=="Phu-kien"?"Phụ kiện": ""}
+        {pathnames[0] == "Ao"
+          ? "Áo"
+          : pathnames[0] == "Quan"
+          ? "Quần"
+          : pathnames[0] == "Phu-kien"
+          ? "Phụ kiện"
+          : ""}
       </Typography>
-      <Carousel autoPlay swipe animation="slide" Button>
-        <div className="container">
-          <img src={slide2} alt="Avatar" className={classes.image} />
-          <div className="middle">
-            <Button
-              variant="contained"
-              className="text"
-              onClick={() => {
-                history.push("/");
-              }}
-            >
-              XEM THÊM
-            </Button>
+      <Box style={{ display: SaleBanner.payload ? "none" : "block" }}>
+        <Carousel autoPlay swipe animation="slide" Button>
+          <div className="container">
+            <img src={slide2} alt="Avatar" className={classes.image} />
+            <div className="middle">
+              <Button
+                variant="contained"
+                className="text"
+                onClick={() => {
+                  history.push("/");
+                }}
+              >
+                XEM THÊM
+              </Button>
+            </div>
           </div>
-        </div>
-        <div className="container">
-          <img src={slide2} alt="Avatar" className={classes.image} />
-          <div className="middle">
-            <Button
-              variant="contained"
-              className="text"
-              onClick={() => {
-                history.push("/");
-              }}
-            >
-              XEM THÊM
-            </Button>
+          <div className="container">
+            <img src={slide2} alt="Avatar" className={classes.image} />
+            <div className="middle">
+              <Button
+                variant="contained"
+                className="text"
+                onClick={() => {
+                  history.push("/");
+                }}
+              >
+                XEM THÊM
+              </Button>
+            </div>
           </div>
-        </div>
-        <div className="container">
-          <img src={slide2} alt="Avatar" className={classes.image} />
-          <div className="middle">
-            <Button
-              variant="contained"
-              className="text"
-              onClick={() => {
-                history.push("/");
-              }}
-            >
-              XEM THÊM
-            </Button>
+          <div className="container">
+            <img src={slide2} alt="Avatar" className={classes.image} />
+            <div className="middle">
+              <Button
+                variant="contained"
+                className="text"
+                onClick={() => {
+                  history.push("/");
+                }}
+              >
+                XEM THÊM
+              </Button>
+            </div>
           </div>
-        </div>
-      </Carousel>
+        </Carousel>{" "}
+      </Box>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext indicatorColor="primary" value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
