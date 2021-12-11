@@ -16,7 +16,6 @@ const CategoryCasePage = () => {
   console.log(location.pathname);
 
   return (
-    <div>
       <Grid container>
         <Grid item xs="auto">
           <Container
@@ -37,7 +36,6 @@ const CategoryCasePage = () => {
           </Container>
         </Grid>
       </Grid>
-    </div>
   );
 };
 
