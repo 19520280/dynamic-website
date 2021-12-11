@@ -50,11 +50,11 @@ export const navbar = [
     menu: [
       {
         title: "Quần dài | Pants",
-        path: "/Quan-dai",
+        path: "Quan/Quan-dai",
       },
       {
         title: "Quần ngắn | Shorts",
-        path: "/Quan-ngan",
+        path: "Quan/Quan-ngan",
       },
     ],
   },
@@ -64,19 +64,19 @@ export const navbar = [
     menu: [
       {
         title: "Ba lô | Backpacks",
-        path: "/Ba-lo",
+        path: "Phu-kien/Ba-lo",
       },
       {
         title: "Túi | Bag",
-        path: "/Tui",
+        path: "Phu-kien/Tui",
       },
       {
         title: "Ví | Wallet",
-        path: "/Vi",
+        path: "Phu-kien/Vi",
       },
       {
         title: "Nón | Cap",
-        path: "/Non",
+        path: "Phu-kien/Non",
       },
     ],
   },

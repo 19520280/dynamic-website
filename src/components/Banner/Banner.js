@@ -24,12 +24,11 @@ const slide2 =
 
 const Banner = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const containerRef = React.useRef(null);
   const [checked, setchecked] = useState(false);
   const [bannerShow, setBannerShow] = useState(0);
 
-  console.log("state before", checked, bannerShow);
   /* #region  list */
 
   const banner1 = (
@@ -76,9 +75,10 @@ const Banner = () => {
               style={{ transitionDelay: checked ? "500ms" : "0ms" }}
             >
               <Typography
+                varient="h1"
                 fontSize="calc(1.4rem + 2vw)"
                 fontWeight="bold"
-                color="secondary"
+                color="primary"
               >
                 Phối đồ chất
               </Typography>
@@ -105,7 +105,7 @@ const Banner = () => {
                 fontSize="calc(0.8rem + 0.05vw)"
                 fontWeight="light"
                 color="secondary"
-                margin="16px 0px 0px 0px"
+                margin="16px 0px 8px 0px"
               >
                 <>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -226,7 +226,7 @@ const Banner = () => {
                 fontSize="calc(0.8rem + 0.05vw)"
                 fontWeight="light"
                 color="secondary"
-                margin="16px 0px 0px 0px"
+                margin="16px 0px 8px 0px"
                 textAlign="center"
               >
                 <>Lorem ipsum dolor sit amet, consectetur adipiscing elit</>
@@ -282,19 +282,19 @@ const Banner = () => {
 
   return (
     <div className="fullwidthbanner-container">
-        <IconButton className="icon left" onClick={setIndex}>
-          <ChevronLeftIcon
-            sx={{ color: "secondary", width: "2rem", height: "2rem" }}
-          />
-        </IconButton>
-        <IconButton className="icon right" onClick={setIndex}>
-          <ChevronRightIcon
-            sx={{ color: "secondary", width: "2rem", height: "2rem" }}
-          />
-        </IconButton>
-      {listBanner.map((banner, index) =>
-        index === bannerShow ? banner : null
-      )}
+      <IconButton className="icon left" onClick={setIndex}>
+        <ChevronLeftIcon
+          sx={{ color: "secondary", width: "2rem", height: "2rem" }}
+        />
+      </IconButton>
+      <IconButton className="icon right" onClick={setIndex}>
+        <ChevronRightIcon
+          sx={{ color: "secondary", width: "2rem", height: "2rem" }}
+        />
+      </IconButton>
+      {listBanner.map((banner, index) => (
+        <div key={index}> {index === bannerShow ? banner : null}</div>
+      ))}
     </div>
   );
 };

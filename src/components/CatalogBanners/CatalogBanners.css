@@ -1,0 +1,29 @@
+.imageItem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+.imageItem img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.imageItem .hoverLabel {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+}
+.imageItem .hoverLabel * {
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity, transform 300ms, 200ms ease-in-out;
+}
+
+.imageItem:hover .hoverLabel * {
+  opacity: 1;
+  transform: translateY(0);
+}
