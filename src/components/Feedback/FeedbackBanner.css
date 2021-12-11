@@ -1,0 +1,43 @@
+.fullwidthbanner {
+  position: relative;
+  width: 100%;
+  height: max-content;
+}
+.fullwidthbanner img {
+  width: 100%;
+  height: auto;
+}
+
+.fullwidthbanner .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  transform: translate(-50%,-50%);
+  overflow: hidden;  
+}
+.content .feedback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: max-content;
+  transform: translate(-50%,-25%);
+}
+
+.feedback .icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    z-index: 1000;
+  }
+  
+  .icon .right {
+    right: 8px;
+  }
+  
+  .icon .left {
+    left: 8px;
+  }
+  

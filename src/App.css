@@ -9,6 +9,8 @@
   padding-left: 80px;
   padding-right: 80px;
   background-color: "#FCFCFC";
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 960px) {
@@ -16,5 +18,7 @@
     padding-left: 40px;
     padding-right: 40px;
     background-color: "#FCFCFC";
+    width: 100%;
+    height: auto;
   }
 }
