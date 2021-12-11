@@ -10,7 +10,7 @@ const SizeButton = ({ size, selected, setSelected, only }) => {
   const BootstrapButton = styled(Button)({
     boxShadow: "none",
     backgroundColor: "transparent",
-    border: "1px solid",
+    border: "1.5px solid",
     borderColor:
       only && size === selected
         ? "primary"
