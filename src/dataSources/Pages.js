@@ -64,19 +64,19 @@ export const navbar = [
     menu: [
       {
         title: "Ba lô | Backpacks",
-        path: "Phu-kien/Ba-lo",
+        path: "/Phu-kien/Ba-lo",
       },
       {
         title: "Túi | Bag",
-        path: "Phu-kien/Tui",
+        path: "/Phu-kien/Tui",
       },
       {
         title: "Ví | Wallet",
-        path: "Phu-kien/Vi",
+        path: "/Phu-kien/Vi",
       },
       {
         title: "Nón | Cap",
-        path: "Phu-kien/Non",
+        path: "/Phu-kien/Non",
       },
     ],
   },

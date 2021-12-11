@@ -51,6 +51,8 @@ const Right = () => {
   const classes = useStyle();
   const history = useHistory();
   const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
+
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -64,9 +66,9 @@ const Right = () => {
   ];
 
   return (
-    <Container style={{ maxWidth: "100%", height: "auto" }}>
+    <Container style={{ maxWidth: "100%", maxHeight: "100%" }}>
       <Typography component="div" className={classes.header}>
-        Áo
+        {pathnames[0]=="Ao"?"Áo":pathnames[0]=="Quan"?"Quần":pathnames[0]=="Phu-kien"?"Phụ kiện": ""}
       </Typography>
       <Carousel autoPlay swipe animation="slide" Button>
         <div className="container">
@@ -148,15 +150,30 @@ const Right = () => {
           ))}
         </Grid>
       </Box>
-
       <Stack alignItems="center">
         <Pagination
           count={11}
           defaultPage={6}
           color="primary"
-          style={{ marginTop: 40 }}
+          style={{ marginTop: 40, marginBottom: 40 }}
         />
       </Stack>
+      <Typography component="div" className={classes.header}>
+        Sản phẩm bạn vừa xem
+      </Typography>{" "}
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid
+          container
+          spacing={{ xs: 1, md: 2 }}
+          columns={{ xs: 2, sm: 6, md: 8 }}
+        >
+          {Array.from(Array(4)).map((_, index) => (
+            <Grid item xs={1} sm={2} md={2} key={index}>
+              <ProductCard />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Container>
   );
 };
