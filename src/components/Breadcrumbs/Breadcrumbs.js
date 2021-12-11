@@ -36,6 +36,8 @@ const Breadcrumb = (props) => {
               ? "Quần"
               : name === "Quan-dai"
               ? "Quần dài"
+              : name === "Quan-ngan"
+              ? "Quần ngắn"
               : name === "Phu-kien"
               ? "Phụ kiện"
               : name === "Lien-he"
