@@ -10,6 +10,7 @@ const CategoryCasePage = () => {
     <div>
       <Box
         style={{
+          width:"282px",
           backgroundColor: "#FCFCFC",
         }}
       >
