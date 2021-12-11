@@ -1,59 +1,57 @@
 import { Button, IconButton, styled } from "@mui/material";
 import React, { useState } from "react";
 
-import { Circle } from "@mui/icons-material";
+import { Circle, Square } from "@mui/icons-material";
 import { SystemColor } from "./../../color";
 
-const ColorButton = ({ color, selected, setSelected, only }) => {
-  const [active, setActive] = useState(color === selected);
+const SizeButton = ({ size, selected, setSelected, only }) => {
+  const [active, setActive] = useState(size === selected);
 
   const BootstrapButton = styled(Button)({
+    boxShadow: "none",
     backgroundColor: "transparent",
     border: "1px solid",
-    borderRadius: "50%",
     borderColor:
-      only && color === selected
+      only && size === selected
         ? "primary"
         : !only && active
         ? "primary"
-        : "transparent",
+        : SystemColor.gray,
+    fontSize: 14,
+    fontWeight: only && size === selected ? "bold" : "normal",
+    padding: "6px 12px",
+    lineHeight: 1.5,
     margin: "0px",
     minWidth: "0px",
-    padding: "0px",
     "&:hover": {
       borderColor: "primary",
       boxShadow: "secondary",
+      backgroundColor: SystemColor.gray,
     },
     "&:active": {
-      borderColor: "#fff",
+      boxShadow: SystemColor.gray,
+      fontWeight: "bold",
+      borderColor: SystemColor.gray,
+    },
+    "&:focus": {
+      boxShadow: SystemColor.gray,
+      fontWeight: "bold",
     },
   });
   return (
     <BootstrapButton
       onClick={() => {
         if (!active || only) {
-          setSelected(color);
+          setSelected(size);
         } else {
           setSelected(null);
         }
         setActive(!active);
       }}
     >
-      <Circle
-        style={{
-          //border: color === "white" ? "1px solid" : undefined,
-          border: "1px solid",
-          borderColor: SystemColor.gray,
-          color: color,
-          minWidth: "0px",
-          padding: "0px",
-          margin: "0px",
-          borderRadius: "50%",
-        }}
-        fontSize="medium"
-      />
+      {size}
     </BootstrapButton>
   );
 };
 
-export default ColorButton;
+export default SizeButton;
