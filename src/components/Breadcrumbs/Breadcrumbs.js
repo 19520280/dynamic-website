@@ -10,7 +10,7 @@ const Breadcrumb = (props) => {
     location: { pathname },
   } = props;
   const pathnames = pathname.split("/").filter((x) => x);
-  console.log(pathname, pathnames);
+
   return pathnames.length > 0 ? (
     <Breadcrumbs
       style={{ padding: "12px 0px 12px 80px", margin: "0px 0px 0px 12px" }}

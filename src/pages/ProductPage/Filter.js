@@ -12,6 +12,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
 import React from "react";
+import SizeButton from "../../components/Buttons/SizeButton";
 import { makeStyles } from "@material-ui/core";
 
 const useStyle = makeStyles({
@@ -79,14 +80,8 @@ const Filter = () => {
     { text: "Áo trùm đầu", path: "/Ao/Ao-trum-dau" },
     { text: "Áo tay dài", path: "/Ao/Ao-tay-dai" },
   ];
-  const menuSizes = [
-    { text: "XS" },
-    { text: "S" },
-    { text: "M" },
-    { text: "L" },
-    { text: "XL" },
-    { text: "FS" },
-  ];
+  const menuSizes = ["XS", "S", "M", "L", "XL", "FS"];
+
   const colorItems = [
     "#000000",
     "#F5F5DC",
@@ -103,6 +98,8 @@ const Filter = () => {
   ];
 
   const [selected, setSelected] = React.useState(colorItems);
+  const [selectedsize, setSelectedSize] = React.useState(menuSizes);
+
   // const indexSelected = colorItems.color.indexOf(selected);
   const materialItems = [
     { text: "Cotton", id: "cotton" },
@@ -148,13 +145,21 @@ const Filter = () => {
           </ListSubheader>
         }
       >
-        {menuSizes.map((item) => (
-          <Button className={classes.listButton} variant="outlined">
-            {item.text}
-          </Button>
-        ))}
+        <Grid container rowSpacing={1.5} columnSpacing={{ xs: 6, sm: 6, md: 6 }}>
+          {menuSizes.map((item, index) => (
+            <Grid item key={index}>
+              <SizeButton
+                size={item}
+                selected={selectedsize}
+                setSelected={setSelectedSize}
+                only={true}
+              ></SizeButton>
+            </Grid>
+          ))}
+        </Grid>
+        
       </List>
-      <Divider className={classes.divider} />{" "}
+      <Divider className={classes.divider} />
       <List
         subheader={
           <ListSubheader className={classes.subHeader}>MÀU SẮC</ListSubheader>
