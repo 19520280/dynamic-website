@@ -34,7 +34,7 @@ const FeedbackBanner = () => {
   React.useEffect(() => {
     let timer = setInterval(function () {
       setIndex(+1);
-    }, 3000);
+    }, 4500);
     return () => {
       clearInterval(timer);
       timer = null;

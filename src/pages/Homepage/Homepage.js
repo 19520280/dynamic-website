@@ -53,7 +53,7 @@ const Homepage = () => {
           </Grid>
         </Box>
       </section>
-      <section id="feedback">
+      <section id="feedback"  className="containermain feedback-container">
         <FeedbackBanner />
       </section>
     </section>
