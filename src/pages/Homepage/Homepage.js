@@ -4,6 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 
 import Banner from "../../components/Banner/Banner";
 import CatalogBanners from "./../../components/CatalogBanners/CatalogBanners";
+import FeedbackBanner from "./../../components/Feedback/FeedbackBanner";
 import ProductCard from "./../../components/ProductCard/ProductCard";
 import React from "react";
 
@@ -17,7 +18,7 @@ export const CustomTypography = ({ title }) => (
       margin={5}
     >
       {title}
-    </Typography>{" "}
+    </Typography>
   </div>
 );
 const Homepage = () => {
@@ -51,6 +52,9 @@ const Homepage = () => {
             ))}
           </Grid>
         </Box>
+      </section>
+      <section id="feedback">
+        <FeedbackBanner />
       </section>
     </section>
   );
