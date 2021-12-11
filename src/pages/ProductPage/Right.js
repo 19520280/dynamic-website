@@ -83,8 +83,34 @@ const Right = () => {
             </Button>
           </div>
         </div>
-        <img className={classes.image} src={slide2} />
-        <img className={classes.image} src={slide2} />
+        <div className="container">
+          <img src={slide2} alt="Avatar" className={classes.image} />
+          <div className="middle">
+            <Button
+              variant="contained"
+              className="text"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              XEM THÊM
+            </Button>
+          </div>
+        </div>
+        <div className="container">
+          <img src={slide2} alt="Avatar" className={classes.image} />
+          <div className="middle">
+            <Button
+              variant="contained"
+              className="text"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              XEM THÊM
+            </Button>
+          </div>
+        </div>
       </Carousel>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext indicatorColor="primary" value={value}>
