@@ -10,13 +10,18 @@ const Breadcrumb = (props) => {
     location: { pathname },
   } = props;
   const pathnames = pathname.split("/").filter((x) => x);
+
+
+
   return pathnames.length > 0 ? (
     <Breadcrumbs
       style={{ padding: "12px 0px 12px 80px", margin: "0px 0px 0px 12px" }}
       aria-label="breadcrumb"
     >
       <Link onClick={() => history.push("/")}>Trang chủ</Link>
-      {pathnames.maps((name, index) => {
+      
+    {console.log(pathnames)}
+      {pathnames.map((name, index) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === pathnames.length - 1;
         return isLast ? (
