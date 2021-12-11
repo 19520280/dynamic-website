@@ -5,7 +5,7 @@ import ImageSP from "../../assets/images/products/monarch-butterfly-t-shirt-whit
 
 export default function RatingInfoDetail() {
   return (
-    <Box sx={{ display: "flex", paddingY: 3, width: 1200 }}>
+    <Box sx={{ display: "flex", paddingY: 3, width: 1400 }}>
       <Box width={250}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Avatar sx={{ bgcolor: deepOrange[500], width: 50, height: 50 }}>
@@ -18,11 +18,13 @@ export default function RatingInfoDetail() {
             </Typography>
           </Box>
         </Box>
-        <Box sx = {{marginTop: 3}}>
-          <Typography>Vòng 1: 56/22 in</Typography>
+        <Box sx={{ marginTop: 3, marginLeft: 8 }}>
+          <Typography>Vòng 1: 90 cm</Typography>
+          <Typography>Vòng 2: 60 cm</Typography>
+          <Typography>Vòng 3: 90 cm</Typography>
         </Box>
       </Box>
-      <Box sx = {{display : 'flex'}}>
+      <Box sx={{ display: "flex" }}>
         <Box width={450}>
           <Box sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
             <Rating
@@ -48,7 +50,9 @@ export default function RatingInfoDetail() {
             </Typography>
           </Box>
         </Box>
-        <Box width={300}>
+        <Box width={450}>
+          <img src={ImageSP} width={150} height={150} />
+          <img src={ImageSP} width={150} height={150} />
           <img src={ImageSP} width={150} height={150} />
         </Box>
       </Box>
