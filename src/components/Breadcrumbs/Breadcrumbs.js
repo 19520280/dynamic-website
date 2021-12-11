@@ -10,17 +10,20 @@ const Breadcrumb = (props) => {
     location: { pathname },
   } = props;
   const pathnames = pathname.split("/").filter((x) => x);
-
-
+  console.log("pathnames", pathnames, pathname);
 
   return pathnames.length > 0 ? (
     <Breadcrumbs
-      style={{ padding: "12px 0px 12px 80px", margin: "0px 0px 0px 12px" }}
+      style={{
+        padding: "12px 0px 12px 80px",
+        margin: "0px 0px 0px 12px",
+        backgroundColor: "#FCFCFC",
+      }}
       aria-label="breadcrumb"
     >
       <Link onClick={() => history.push("/")}>Trang chủ</Link>
-      
-    {console.log(pathnames)}
+
+      {console.log(pathnames)}
       {pathnames.map((name, index) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === pathnames.length - 1;
@@ -34,13 +37,15 @@ const Breadcrumb = (props) => {
               ? "Áo"
               : name === "Quan"
               ? "Quần"
+              : name === "Quan-dai"
+              ? "Quần dài"
               : name === "Phu-kien"
               ? "Phụ kiện"
               : name === "Lien-he"
               ? "Liên hệ"
               : name === "Ao-thun"
               ? "Áo thun"
-              : name === "Ao-khac"
+              : name === "Ao-khoac"
               ? "Áo khoác"
               : name === "Ao-trum-dau"
               ? "Áo trùm đầu"
