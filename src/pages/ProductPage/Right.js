@@ -15,10 +15,13 @@ import {
   Tab,
   Tabs,
   Button,
+  Grid,
+  Pagination,
 } from "@mui/material";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 const slide1 =
   require("../../assets/images/banners/complex_slide01.jpg").default;
@@ -61,24 +64,21 @@ const Right = () => {
   ];
 
   return (
-    <Container style={{ maxWidth: "100%" }}>
+    <Container style={{ maxWidth: "100%", height: "auto" }}>
       <Typography component="div" className={classes.header}>
         Áo
       </Typography>
       <Carousel autoPlay swipe animation="slide" Button>
-        {/* <div className="container">
-          <img src={slide2} alt="" className={classes.image} />
-          <p className="title">card title</p>
-          <div className="overlay"></div>
-          <div className="button">
-            <a href="#"> BUTTON </a>
-          </div>
-        </div> */}
-
         <div className="container">
           <img src={slide2} alt="Avatar" className={classes.image} />
           <div className="middle">
-            <Button variant="contained" className="text" onClick={()=>{history.push("/")}}>
+            <Button
+              variant="contained"
+              className="text"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
               XEM THÊM
             </Button>
           </div>
@@ -103,12 +103,34 @@ const Right = () => {
               ))}
             </Tabs>
           </Box>
-          <TabPanel value="1">Item PHỔ BIẾN</TabPanel>
+          <TabPanel value="1"></TabPanel>
           {menuItems.map((item) => (
-            <TabPanel value={item.value}>Item {item.text}</TabPanel>
+            <TabPanel value={item.value}></TabPanel>
           ))}
         </TabContext>
       </Box>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid
+          container
+          spacing={{ xs: 1, md: 2 }}
+          columns={{ xs: 2, sm: 6, md: 8 }}
+        >
+          {Array.from(Array(16)).map((_, index) => (
+            <Grid item xs={1} sm={2} md={2} key={index}>
+              <ProductCard />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+      <Stack alignItems="center">
+        <Pagination
+          count={11}
+          defaultPage={6}
+          color="primary"
+          style={{ marginTop: 40 }}
+        />
+      </Stack>
     </Container>
   );
 };
