@@ -11,12 +11,18 @@ import {
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 import React, { useState } from "react";
-
+import * as actions from "../../redux/actions/index";
+import { SaleBannerState$ } from "../../redux/selectors/index";
+import { useSelector, useDispatch } from "react-redux";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function MenuButton({ page }) {
+  const dispatch = useDispatch();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const setSaleBanner = React.useCallback(() => {
+    dispatch(actions.showSaleBanner(false));
+  }, [dispatch]);
 
   /* #region  Normal */
   const [anchorEl, setAnchorEl] = useState(null);
@@ -69,6 +75,7 @@ function MenuButton({ page }) {
               <MenuItem
                 key={key}
                 onClick={() => {
+                  setSaleBanner();
                   history.push(item.path);
                   handleClose();
                   
