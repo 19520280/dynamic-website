@@ -1,7 +1,7 @@
 import { Button, IconButton, styled } from "@mui/material";
+import { Circle, Square } from "@mui/icons-material";
 import React, { useState } from "react";
 
-import { Circle, Square } from "@mui/icons-material";
 import { SystemColor } from "./../../color";
 
 const SizeButton = ({ size, selected, setSelected, only }) => {
@@ -19,10 +19,11 @@ const SizeButton = ({ size, selected, setSelected, only }) => {
         : SystemColor.gray,
     fontSize: 14,
     fontWeight: only && size === selected ? "bold" : "normal",
-    padding: "6px 12px",
+    width: "50px",
     lineHeight: 1.5,
     margin: "0px",
     minWidth: "0px",
+    display: "inline-block",
     "&:hover": {
       borderColor: "primary",
       boxShadow: "secondary",

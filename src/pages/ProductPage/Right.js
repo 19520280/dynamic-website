@@ -1,31 +1,33 @@
-import React from "react";
 import "./style.css";
+
 import * as actions from "../../redux/actions/index";
-import { makeStyles } from "@material-ui/core";
-import { useLocation, useHistory } from "react-router-dom";
-import Carousel from "react-material-ui-carousel";
-import { SaleBannerState$ } from "../../redux/selectors/index";
-import { useSelector, useDispatch } from "react-redux";
 
 import {
-  Typography,
   Box,
+  Button,
+  Container,
+  Grid,
   IconButton,
   List,
+  Pagination,
   Stack,
-  useMediaQuery,
-  useTheme,
-  Container,
   Tab,
   Tabs,
-  Button,
-  Grid,
-  Pagination,
+  Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
+
+import Carousel from "react-material-ui-carousel";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import React from "react";
+import { SaleBannerState$ } from "../../redux/selectors/index";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import { makeStyles } from "@material-ui/core";
 
 const slide1 =
   require("../../assets/images/banners/complex_slide01.jpg").default;
@@ -158,7 +160,7 @@ const Right = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid
           container
-          spacing={{ xs: 1, md: 2 }}
+          spacing={{ xs: 1, sm:2, md: 2 }}
           columns={{ xs: 2, sm: 6, md: 8 }}
         >
           {Array.from(Array(16)).map((_, index) => (

@@ -8,11 +8,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const BtnProCardGroup = () => {
   return (
     <Stack direction="row" spacing={1}>
-      <CircleIconButton icon={<RemoveRedEye style={{ color: "white" }} />} />
-      <CircleIconButton
+      <CircleIconButton title="Xem nhanh" icon={<RemoveRedEye style={{ color: "white" }} />} />
+      <CircleIconButton  title="Thêm vào giỏ hàng"
         icon={<ShoppingCartIcon style={{ color: "white" }} />}
       />
-      <CircleIconButton icon={<AddToPhotos style={{ color: "white" }} />} />
+      <CircleIconButton title="Thêm vào danh sách" icon={<AddToPhotos style={{ color: "white" }} />} />
     </Stack>
   );
 };

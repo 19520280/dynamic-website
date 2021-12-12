@@ -151,14 +151,14 @@ const Filter = () => {
           </ListSubheader>
         }
       >
-        <Grid container rowSpacing={1.5} columnSpacing={{ xs: 6, sm: 6, md: 6 }}>
+        <Grid container rowSpacing={1.5} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {menuSizes.map((item, index) => (
             <Grid item key={index}>
               <SizeButton
                 size={item}
                 selected={selectedsize}
                 setSelected={setSelectedSize}
-                only={true}
+                only={false}
               ></SizeButton>
             </Grid>
           ))}
@@ -171,14 +171,14 @@ const Filter = () => {
           <ListSubheader className={classes.subHeader}>MÀU SẮC</ListSubheader>
         }
       >
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 5, sm: 5, md: 5 }}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
           {colorItems.map((color, index) => (
             <Grid item key={index}>
               <ColorButton
                 color={color}
                 selected={selected}
                 setSelected={setSelected}
-                only={true}
+                only={false}
               />
             </Grid>
           ))}

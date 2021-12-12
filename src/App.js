@@ -17,6 +17,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import PaymentPage from "./pages/PaymentPage";
 import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import ProductsResultPage from "./pages/ProductPage/ProductsResultPage";
+import { ScrollButton } from './components/Buttons/ScrollButton';
 
 let theme = createTheme({
   palette: {
@@ -73,6 +74,7 @@ function App() {
             </div>
           </Switch>
         </Router>
+        <ScrollButton/>
       </ThemeProvider>
     </>
   );
