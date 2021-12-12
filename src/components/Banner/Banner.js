@@ -170,7 +170,7 @@ const Banner = () => {
             <Typography
               fontWeight="light"
               fontSize="calc(0.04rem + 2vw)"
-              color="secondary"
+              color="white"
               align="center"
             >
               Wellcome to
@@ -184,7 +184,7 @@ const Banner = () => {
             <Typography
               fontSize="calc(1.4rem + 2vw)"
               fontWeight="bold"
-              color="primary"
+              color="white"
               textAlign="center"
             >
               Dynamic
@@ -200,7 +200,7 @@ const Banner = () => {
             <Typography
               fontSize="calc(0.05rem + 2vw)"
               fontWeight="light"
-              color="secondary"
+              color="white"
               textAlign="center"
             >
               Be your own kind of beautiful
@@ -225,7 +225,7 @@ const Banner = () => {
               <Typography
                 fontSize="calc(0.8rem + 0.05vw)"
                 fontWeight="light"
-                color="secondary"
+                color="white"
                 margin="16px 0px 8px 0px"
                 textAlign="center"
               >
@@ -238,13 +238,15 @@ const Banner = () => {
                   sx={{
                     padding: "4px 0px 0px 0px",
                     fontSize: "calc(0.8rem + 0.05vw)",
+                    color:"white"
                   }}
+
                 >
                   Về chúng tôi
                 </Button>
               ) : (
                 <>
-                  <Button variant="contained" sx={{ m: 2 }}>
+                  <Button variant="outlined" sx={{ m: 2, borderColor:"white", color:"white" }}>
                     Về chúng tôi
                   </Button>
                 </>
