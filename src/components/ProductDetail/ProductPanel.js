@@ -7,13 +7,17 @@ import {
   Checkbox,
   Button,
 } from "@mui/material";
-import ImageSP from "../../assets/images/products/monarch-butterfly-t-shirt-white/32ce4a7de31032ca84dcc9a148ce01d2.jpg";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ShareIcon from "@mui/icons-material/Share";
+import { products } from "../../dataSources/Products";
+import ColorButtonGroup from "../Buttons/ColorButtonGroup";
+import SizeButton from "../Buttons/SizeButton";
+const sanPham = products[0];
 
 function ProductPanel() {
   const [selectedValue, setSelectedValue] = React.useState("a");
-
+  const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
+  const [selectedSize, setSelectedSize] = React.useState(sanPham.kichThuocs[0]);
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -26,41 +30,39 @@ function ProductPanel() {
   });
   return (
     <div>
-      <Box sx={{ display: "flex" }}>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ display: "flex", width: 1160, height: 762 }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            height: 760,
+            width: 596.5,
+          }}
+        >
           <Box maxWidth={100}>
-            <img src={ImageSP} width={100} height={100} />
-            <img src={ImageSP} width={100} height={100} />
-            <img src={ImageSP} width={100} height={100} />
-            <img src={ImageSP} width={100} height={100} />
+            {sanPham.imgs[0].map((img) => (
+              <img src={img} width={190} />
+            ))}
           </Box>
-          <Box sx={{ marginX: 1 }}>
-            <img src={ImageSP} width={400} height={410} />
+          <Box sx={{ marginX: 0 }}>
+            <img src={sanPham.imgs[1][1]} width={386.5} height={760} />
           </Box>
         </Box>
-        <Box sx={{ marginLeft: 3 }}>
+        <Box sx={{ marginLeft: 40, width: 475.5 }}>
           <Box>
-            <Typography
-              sx={{
-                fontSize: 20,
-                fontWeight: 500,
-              }}
-            >
-              Tên sản phẩm
-            </Typography>
+            <h3>{sanPham.ten}</h3>
             <Box sx={{ display: "flex" }} maxWidth={500} marginY={1}>
               <RatingInfolPanel size={"small"} />
               <ShareIcon
                 sx={{ float: "right", width: 20, height: 20, marginLeft: 10 }}
               />
             </Box>
-            <Box sx={{ display: "flex", marginY: 1 }}>
+            <Box sx={{ display: "flex", marginY: 1, alignContent: "center" }}>
               <Typography
-                sx={{
+                style={{
                   textDecoration: "line-through",
                   color: "gray",
                   fontSize: 20,
-                  fontWeight: 400,
                 }}
               >
                 đ1.000.500
@@ -69,7 +71,7 @@ function ProductPanel() {
                 sx={{
                   fontSize: 20,
                   marginLeft: 1,
-                  fontWeight: 500,
+                  fontWeight: "bold",
                 }}
               >
                 đ999.999
@@ -78,73 +80,27 @@ function ProductPanel() {
           </Box>
           <Divider variant="fullWidth" orientation="horizontal" />
           <Box marginY={1}>
-            <Typography
-              sx={{
-                fontSize: 16,
-                fontWeight: 500,
-              }}
-            >
-              Màu sắc
-            </Typography>
+            <h4>Màu sắc</h4>
             <Box>
-              <Radio
-                {...controlProps("a")}
-                sx={{
-                  color: "black",
-                  "&.Mui-checked": {
-                    color: "black",
-                  },
-                }}
-              />
-              <Radio
-                {...controlProps("b")}
-                sx={{
-                  color: "white",
-                  "&.Mui-checked": {
-                    color: "white",
-                  },
-                }}
-              />
-              <Radio
-                {...controlProps("c")}
-                sx={{
-                  color: "red",
-                  "&.Mui-checked": {
-                    color: "red",
-                  },
-                }}
-              />
-              <Radio
-                {...controlProps("d")}
-                sx={{
-                  color: "blue",
-                  "&.Mui-checked": {
-                    color: "blue",
-                  },
-                }}
-              />
-              <Radio
-                {...controlProps("e")}
-                sx={{
-                  color: "yellow",
-                  "&.Mui-checked": {
-                    color: "yellow",
-                  },
-                }}
+              <ColorButtonGroup
+                colors={sanPham.mauSacs}
+                selected={selectedColor}
+                setSelected={setSelectedColor}
+                only={true}
               />
             </Box>
           </Box>
           <Divider variant="fullWidth" orientation="horizontal" />
           <Box marginY={1}>
-            <Typography
-              sx={{
-                fontSize: 16,
-                fontWeight: 500,
-              }}
-            >
-              Kích thước
-            </Typography>
-            <Checkbox Button={<Button>XL</Button>}></Checkbox>
+            <h4>Kích thước</h4>
+            {sanPham.kichThuocs.map((s) => (
+              <SizeButton
+                size={s}
+                selected={selectedSize}
+                setSelected={setSelectedSize}
+                only={true}
+              />
+            ))}
           </Box>
         </Box>
       </Box>
