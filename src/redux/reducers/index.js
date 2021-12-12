@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-// import modal from './modal';
+import SaleBanner from './SaleBanner.js';
 
 export default combineReducers({
-    // modal,
+    SaleBanner,
 });

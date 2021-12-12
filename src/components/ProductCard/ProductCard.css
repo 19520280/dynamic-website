@@ -1,21 +1,17 @@
 .container {
-  width: calc(100% / 5);
+  width: 100%;
+  min-width: min-content;
   height: auto;
-  margin: 20px;
   padding: 12px;
 }
 @media screen and (max-width: 960px) {
   .container {
-    width: calc(100% / 3);
+    width: 100%;
     height: auto;
-    margin: 20px;
     padding: 12px;
   }
 }
 
-/* .container:hover:before {
-  opacity: 1;
-} */
 .image-card {
   position: relative;
   height: 70%;
@@ -111,9 +107,6 @@
   transition: all 0.2s ease-in-out;
   transform: translateY(5px);
 }
-/* .pmimage-switcher:hover {
-  box-sizing: inherit;
-} */
 .image-card.active-switcher span::after {
   transform: translateY(0px);
 }

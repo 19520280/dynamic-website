@@ -1,17 +1,19 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import ColorButton from "../../components/Buttons/ColorButton";
+import Divider from "@mui/material/Divider";
+import { Grid } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListSubheader from "@mui/material/ListSubheader";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import Checkbox from "@mui/material/Checkbox";
-import { Grid } from "@mui/material";
-import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
-import ColorButton from "../../components/Buttons/ColorButton";
+import ListItemText from "@mui/material/ListItemText";
+import ListSubheader from "@mui/material/ListSubheader";
+import React from "react";
+import SizeButton from "../../components/Buttons/SizeButton";
+import { makeStyles } from "@material-ui/core";
 
 const useStyle = makeStyles({
   subHeader: {
@@ -72,20 +74,17 @@ const Filter = () => {
   };
 
   const menuItems = [
-    { text: "Áo thun", path: "/Ao/Ao-thun" },
-    { text: "Áo khoác", path: "/Ao/Ao-khoac" },
-    { text: "Sơ mi", path: "/Ao/So-mi" },
-    { text: "Áo trùm đầu", path: "/Ao/Ao-trum-dau" },
-    { text: "Áo tay dài", path: "/Ao/Ao-tay-dai" },
+    { text: "Áo thun", path: "/Ao/Ao-thun", type: "Ao" },
+    { text: "Áo khoác", path: "/Ao/Ao-khoac", type: "Ao" },
+    { text: "Sơ mi", path: "/Ao/So-mi", type: "Ao" },
+    { text: "Áo trùm đầu", path: "/Ao/Ao-trum-dau", type: "Ao" },
+    { text: "Áo tay dài", path: "/Ao/Ao-tay-dai", type: "Ao" },
+    { text: "Quần dài", path: "/Quan/Quan-dai", type: "Quan" },
+    { text: "Quần ngắn", path: "/Quan/Quan-ngan", type: "Quan" },
+
   ];
-  const menuSizes = [
-    { text: "XS" },
-    { text: "S" },
-    { text: "M" },
-    { text: "L" },
-    { text: "XL" },
-    { text: "FS" },
-  ];
+  const menuSizes = ["XS", "S", "M", "L", "XL", "FS"];
+
   const colorItems = [
     "#000000",
     "#F5F5DC",
@@ -102,6 +101,10 @@ const Filter = () => {
   ];
 
   const [selected, setSelected] = React.useState(colorItems);
+  const [selectedsize, setSelectedSize] = React.useState(menuSizes);
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
+
   // const indexSelected = colorItems.color.indexOf(selected);
   const materialItems = [
     { text: "Cotton", id: "cotton" },
@@ -133,6 +136,7 @@ const Filter = () => {
             onClick={() => history.push(item.path)}
           >
             <ListItemText
+              style={{display:item.type==pathnames[0]?"block":"none"}}
               primary={item.text}
               className={classes.listItemText}
             />
@@ -147,13 +151,21 @@ const Filter = () => {
           </ListSubheader>
         }
       >
-        {menuSizes.map((item) => (
-          <Button className={classes.listButton} variant="outlined">
-            {item.text}
-          </Button>
-        ))}
+        <Grid container rowSpacing={1.5} columnSpacing={{ xs: 6, sm: 6, md: 6 }}>
+          {menuSizes.map((item, index) => (
+            <Grid item key={index}>
+              <SizeButton
+                size={item}
+                selected={selectedsize}
+                setSelected={setSelectedSize}
+                only={true}
+              ></SizeButton>
+            </Grid>
+          ))}
+        </Grid>
+        
       </List>
-      <Divider className={classes.divider} />{" "}
+      <Divider className={classes.divider} />
       <List
         subheader={
           <ListSubheader className={classes.subHeader}>MÀU SẮC</ListSubheader>

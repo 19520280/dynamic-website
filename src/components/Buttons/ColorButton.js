@@ -25,7 +25,7 @@ const ColorButton = ({ color, selected, setSelected, only }) => {
       boxShadow: "secondary",
     },
     "&:active": {
-      borderColor: "primary",
+      borderColor: "#fff",
     },
   });
   return (
