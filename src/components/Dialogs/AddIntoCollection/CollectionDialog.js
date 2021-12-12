@@ -34,8 +34,7 @@ const collectionItem = (image, title) => (
       alignItems="center"
       spacing={0}
     >
-      <Stack direction="row" spacing={2} 
-      alignItems="center">
+      <Stack direction="row" spacing={2} alignItems="center">
         {image ? (
           <img src={image} />
         ) : (
@@ -52,7 +51,7 @@ const collectionItem = (image, title) => (
             <AddIcon />
           </Button>
         )}
-        <Typography>{title ? title : "Thêm mới danh sách"}</Typography>
+        {title ?<div> <Typography color="primary" > {title} </Typography > <Typography color="secondary" fontSize="0.9rem"> 5 sản phẩm </Typography>  </div>: <Typography>Thêm mới danh sách</Typography>}
       </Stack>
       {image ? <Checkbox /> : null}
     </Stack>
@@ -82,7 +81,7 @@ const CollectionDialog = () => {
       scroll="paper"
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
-    sx={{  maxHeight:"80%"}}
+      sx={{ maxHeight: "80%" }}
     >
       <DialogTitle id="scroll-dialog-title">
         Thêm vào danh sách
