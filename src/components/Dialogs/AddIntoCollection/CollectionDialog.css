@@ -1,0 +1,10 @@
+.collection-item{
+    position: relative;
+    padding: inherit;
+    width: 100%;
+}
+.collection-item img{
+    border-radius: 4px;
+    width: 15%;
+    display: block;
+}

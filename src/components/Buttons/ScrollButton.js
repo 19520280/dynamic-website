@@ -21,11 +21,10 @@ export const ScrollButton = () => {
   // When the user clicks on the button, scroll to the top of the document
   function topFunction() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    document.body.scrollTop = 0;
   }
   return (
     <div id="myBtn">
-      <Fab onclick={topFunction()} title="Go to top" >
+      <Fab onClick={topFunction} title="Go to top" >
         <UpIcon />,
       </Fab>
     </div>

@@ -5,4 +5,7 @@ export const INIT_STATE = {
   SaleBanner: {
     isShow: false,
   },
+  CollectionDialog: {
+    isShow: false,
+  },
 };
