@@ -86,6 +86,9 @@ export default function WishListCard() {
               <IconButton aria-label="delete">
                 <DeleteOutlineOutlinedIcon />
               </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
             </Box>
           </Grid>
         </Grid>
