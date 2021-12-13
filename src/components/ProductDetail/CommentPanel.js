@@ -1,10 +1,17 @@
 import * as React from "react";
-import { Avatar, Box, CardMedia, Rating, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  CardMedia,
+  ImageList,
+  Rating,
+  Typography,
+} from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
-import ImageSP from "../../assets/images/products/monarch-butterfly-t-shirt-white/32ce4a7de31032ca84dcc9a148ce01d2.jpg";
 
-export default function RatingInfoDetail() {
-  return (
+export default function CommentPanel({ feedback }) {
+  console.log(feedback);
+  return feedback ? (
     <Box sx={{ display: "flex", paddingY: 3, width: 1400 }}>
       <Box width={250}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -12,9 +19,9 @@ export default function RatingInfoDetail() {
             NL
           </Avatar>
           <Box sx={{ marginLeft: 2 }}>
-            <Typography fontWeight={500}>Username</Typography>
+            <Typography fontWeight={500}>{feedback.author}</Typography>
             <Typography fontSize={14} color="gray">
-              Đã tham gia 2 năm
+              Đã tham gia {feedback.joined} năm
             </Typography>
           </Box>
         </Box>
@@ -34,28 +41,29 @@ export default function RatingInfoDetail() {
               readOnly
               sx={{ marginRight: 1 }}
             />
-            <h4>Tiêu đề đánh giá</h4>
+            <h4>{feedback.tittle}</h4>
           </Box>
           <Box maxWidth={400} sx={{ marginBottom: 2 }}>
             <Typography sx={{ textAlign: "justify" }}>
-              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
-              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
-              deserunt reprehenderit elit laborum.
+              {feedback.content}
             </Typography>
           </Box>
           <Box>
             <Typography color="gray">
-              Kích cỡ: L - Màu: Đen <br />
-              Đánh giá vào 7 tháng trước - Đã dùng 2 tháng
+              Kích cỡ: {feedback.sizee} - Màu: {feedback.color} <br />
+              Đánh giá vào {feedback.time} tháng trước - Đã dùng {feedback.used}{" "}
+              ngày
             </Typography>
           </Box>
         </Box>
         <Box width={450}>
-          <img src={ImageSP} width={150} height={150} />
-          <img src={ImageSP} width={150} height={150} />
-          <img src={ImageSP} width={150} height={150} />
+          <ImageList cols={3} gap={10} variant="woven">
+            {feedback.imgs.map((img) => (
+              <img src={img} width={140} height={150} loading="lazy" />
+            ))}
+          </ImageList>
         </Box>
       </Box>
     </Box>
-  );
+  ) : null;
 }

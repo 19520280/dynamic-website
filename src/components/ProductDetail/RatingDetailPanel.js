@@ -56,12 +56,12 @@ export default function RatingDetailPanel() {
             sx={{ height: 3 }}
           />
         </Box>
-        <Box sx={{ width: 100 }}>
+        <Box sx={{ width: 100, marginLeft: 1 }}>
           <Rating name="read-only" value={4.5} precision={0.5} readOnly />
           <Typography variant="inherit">72 đánh giá</Typography>
         </Box>
       </Box>
-      <Box>
+      <Box marginTop={1}>
         <List sx={{ maxWidth: 380, marginLeft: -2 }}>
           {ItemRatingProgressCount(5, 48, 72)}
           {ItemRatingProgressCount(4, 12, 72)}
