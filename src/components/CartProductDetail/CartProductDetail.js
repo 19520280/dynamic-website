@@ -41,12 +41,12 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
               }}
               fontSize="medium"
             />
-            {readOnly ? (
-              <Typography color="secondary" fontSize="0.9rem" fontWeight="bold">
+           
+          </Stack> {readOnly ? (
+              <Typography color="secondary" fontSize="1rem" fontWeight="bold">
                 {`x ${sanPham.soLuong}`}
               </Typography>
             ) : null}
-          </Stack>
         </Stack>
       </Stack>
     </div>

@@ -139,7 +139,7 @@ const CheckCartLeftTable = () => {
                     scope="row"
                     padding="none"
                   >
-                    <CartProductDetail sanPham={row} isQty={false} />
+                    <CartProductDetail sanPham={row} isQty={false} readOnly/>
                   </TableCell>
                   <TableCell align="right">
                     <PriceTypography
