@@ -17,6 +17,7 @@ import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage/Homepage";
 import PaymentPage from "./pages/PaymentPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
+import WishListPage from "./pages/UserPage/WishListPage";
 
 let theme = createTheme({
   palette: {
@@ -59,7 +60,7 @@ function App() {
             <Route path="/Phu-kien/Tui" exact component={CategoryCasePage} />
             <Route path="/Phu-kien/Vi" exact component={CategoryCasePage} />
             <Route path="/Phu-kien/Non" exact component={CategoryCasePage} />
-
+            <Route path="/Ca-nhan/Don-mua" exact component={WishListPage} />
             <div
               className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
