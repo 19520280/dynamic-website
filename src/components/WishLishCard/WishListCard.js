@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./WishListCard.css";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -11,16 +10,64 @@ import ShareIcon from "@mui/icons-material/Share";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { Box } from "@mui/system";
+import { makeStyles } from "@material-ui/core";
+
 const slide2 =
   require("../../assets/images/products/basic-tee/black01.jpg").default;
+
+const useStyle = makeStyles({
+  header: {
+    margin: "0",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    fontSize: "18px",
+    /* line-height: 38px; */
+    color: "#5e6669",
+
+    paddingTop: "8px",
+  },
+  boxContent: {
+    padding: "0px",
+  },
+  iconbutton: {
+    padding: "2px",
+  },
+  card: {
+    maxWidth: "330px",
+    minHeight: "340px",
+    border: "1px solid #bebebe",
+    borderRadius: "4px",
+  },
+  image: {
+    border: "1px solid #bebebe",
+    borderRadius: "4px",
+  },
+  boxicon: {
+    float: "center",
+    padding: "16px 8px",
+  },
+  subcontent: {
+    margin: "0",
+    fontFamily: "Roboto",
+    fontWeight: "normal",
+    fontSize: "18px",
+    /* line-height: 38px; */
+    color: "#5e6669",
+
+    padding: "0px",
+  }
+});
+
 export default function WishListCard() {
+  const classes = useStyle();
+
   return (
-    <Card sx={{ maxWidth: "330px", minHeight: "340px" }}>
+    <Card className={classes.card}>
       <CardActionArea>
         <Grid container style={{ padding: "8px 12px 0px 12px" }}>
           <Grid xs={6} paddingRight="8px">
             <CardMedia
-              style={{ border: "1px solid #bebebe", borderRadius: "4px" }}
+              className={classes.image}
               component="img"
               height="237px"
               width="149px"
@@ -30,9 +77,8 @@ export default function WishListCard() {
           </Grid>
           <Grid xs={6}>
             <CardMedia
+              className={classes.image}
               style={{
-                border: "1px solid #bebebe",
-                borderRadius: "4px",
                 marginBottom: "8px",
               }}
               component="img"
@@ -42,7 +88,7 @@ export default function WishListCard() {
               alt="image1"
             />
             <CardMedia
-              style={{ border: "1px solid #bebebe", borderRadius: "4px" }}
+              className={classes.image}
               component="img"
               height="114.5px"
               width="149px"
@@ -61,8 +107,13 @@ export default function WishListCard() {
                 paddingLeft: 2,
               }}
             >
-              <CardContent>
-                <Typography wrapped gutterBottom component="div">
+              <CardContent style={{ padding: "0px" }}>
+                <Typography
+                  className={classes.header}
+                  wrapped
+                  gutterBottom
+                  component="div"
+                >
                   DANH SÁCH YÊU THÍCH
                 </Typography>
               </CardContent>
@@ -77,16 +128,16 @@ export default function WishListCard() {
                 paddingLeft: 2,
                 paddingRight: 2,
               }}
-              style={{ float: "center" }}
+              className={classes.boxicon}
               alignContent="center"
             >
-              <IconButton aria-label="edit">
+              <IconButton aria-label="edit" className={classes.iconbutton}>
                 <EditOutlinedIcon />
               </IconButton>
-              <IconButton aria-label="delete">
+              <IconButton aria-label="delete" className={classes.iconbutton}>
                 <DeleteOutlineOutlinedIcon />
               </IconButton>
-              <IconButton aria-label="share">
+              <IconButton aria-label="share" className={classes.iconbutton}>
                 <ShareIcon />
               </IconButton>
             </Box>
@@ -101,8 +152,14 @@ export default function WishListCard() {
               paddingLeft: 2,
             }}
           >
-            <CardContent style={{paddingBottom:"20px"}}>
-              <Typography className="sub-content" gutterBottom component="sub">3 sản phẩm</Typography>
+            <CardContent style={{ padding: "0px 0px 20px 0px" }}>
+              <Typography
+                className={classes.subcontent}
+                gutterBottom
+                component="sub"
+              >
+                3 sản phẩm
+              </Typography>
             </CardContent>
           </Box>
         </Grid>
