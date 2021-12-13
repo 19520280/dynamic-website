@@ -1,27 +1,54 @@
+import { Button, Stack, TextField } from "@mui/material";
+
+import AddIcon from "@mui/icons-material/Add";
 import React from "react";
-import { TextField } from "@mui/material";
-import { styled } from '@mui/system';
+import RemoveIcon from "@mui/icons-material/Remove";
 
-const StyledInputElement = styled('input')`
-  width: 100%;
-  font-size: 1rem;
-  background: white;
-  padding: 6px 6px;
-  &:hover {
-    border: 1px solid #303537;
-  }
-
-  &:focus {
-      border: 1px solid #303537;
-  }
-`;
 const NumericTextField = () => {
+  function decClick() {
+  }
+  function incClick() {
+  }
   return (
-    <TextField
-      id="outlined-number"
-      type="number"
-    sx={{StyledInputElement}}
-    />
+    <Stack direction="row" spacing={0}>
+      <Button
+        variant="outlined"
+        sx={{
+          backgroundColor: "secondary",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minWidth: "0px",
+          borderTopRightRadius: "0px",
+          borderBottomRightRadius: "0px",
+        }}
+      >
+        <RemoveIcon />
+      </Button>
+      <TextField
+        id="outlined-size-small-textfield"
+        size="small"
+        type="number"
+        inputProps={{ min: 0, style: { textAlign: "right" } }}
+        sx={{ p: 0, borderLeftWidth: "none", borderRightWidth: "none", width:"30%" }}
+        value={1}
+      />
+      <Button
+      onClick={incClick}
+        variant="outlined"
+        sx={{
+          backgroundColor: "secondary",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minWidth: "0px",
+          borderTopLeftRadius: "0px",
+          borderBottomLeftRadius: "0px",
+        }}
+      >
+        <AddIcon />
+      </Button>
+    </Stack>
   );
 };
 

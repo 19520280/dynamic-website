@@ -149,7 +149,7 @@ const CheckCartLeftTable = () => {
                     />
                   </TableCell>
                   <TableCell align="center">
-                    {/* <NumericTextField /> */}
+                    <NumericTextField />
                   </TableCell>
                   <TableCell align="right">{row.soLuong * row.gia}</TableCell>
                   <TableCell align="right">
