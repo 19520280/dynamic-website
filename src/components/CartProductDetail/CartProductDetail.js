@@ -1,6 +1,6 @@
 import "./CartProductDetail.css";
 
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 import { Circle } from "@mui/icons-material";
 import React from "react";
@@ -20,7 +20,6 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
           <Typography color="primary" fontSize="1.1rem">
             {sanPham.ten}
           </Typography>
-
           <Stack direction="row" spacing={2.5} alignItems="center">
             <Typography color="secondary" fontSize="0.9rem" fontWeight="bold">
               {`Kích thước: ${sanPham.kichThuoc}`}
@@ -41,12 +40,12 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
               }}
               fontSize="medium"
             />
-           
-          </Stack> {readOnly ? (
-              <Typography color="secondary" fontSize="1rem" fontWeight="bold">
-                {`x ${sanPham.soLuong}`}
-              </Typography>
-            ) : null}
+          </Stack>{" "}
+          {readOnly ? (
+            <Typography color="secondary" fontSize="1rem" fontWeight="bold">
+              {`x ${sanPham.soLuong}`}
+            </Typography>
+          ) : null}
         </Stack>
       </Stack>
     </div>

@@ -101,7 +101,7 @@ const CheckCartLeftTable = () => {
     >
       <TableContainer>
         <Table
-          sx={{ minWidth: 750 }}
+          sx={{ minWidth: "80%"}}
           aria-labelledby="tableTitle"
           size="medium"
         >
@@ -117,8 +117,6 @@ const CheckCartLeftTable = () => {
 
               return (
                 <TableRow
-                  hover
-                  onClick={(event) => handleClick(event, row.ten)}
                   role="checkbox"
                   aria-checked={isItemSelected}
                   tabIndex={-1}
@@ -128,6 +126,7 @@ const CheckCartLeftTable = () => {
                     <Checkbox
                       color="primary"
                       checked={isItemSelected}
+                      onClick={(event) => handleClick(event, row.ten)}
                       inputProps={{
                         "aria-labelledby": labelId,
                       }}
