@@ -20,6 +20,7 @@ import { cartProducts } from "../../dataSources/CartProducts";
 
 function EnhancedTableHead(props) {
   const { onSelectAllClick, numSelected, rowCount } = props;
+
   return (
     <TableHead>
       <TableRow>
@@ -91,7 +92,7 @@ const CheckCartLeftTable = () => {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "70%",
         backgroundColor: "white",
         border: "1px solid",
         borderRadius: "8px",
@@ -101,7 +102,7 @@ const CheckCartLeftTable = () => {
     >
       <TableContainer>
         <Table
-          sx={{ minWidth: "80%"}}
+          sx={{ minWidth: "80%" }}
           aria-labelledby="tableTitle"
           size="medium"
         >
@@ -138,7 +139,7 @@ const CheckCartLeftTable = () => {
                     scope="row"
                     padding="none"
                   >
-                    <CartProductDetail sanPham={row} isQty={false} readOnly/>
+                    <CartProductDetail sanPham={row} isQty={false} readOnly />
                   </TableCell>
                   <TableCell align="right">
                     <PriceTypography
@@ -151,10 +152,11 @@ const CheckCartLeftTable = () => {
                     <NumericTextField />
                   </TableCell>
                   <TableCell align="right">
-                  <PriceTypography
+                    <PriceTypography
                       gia={row.soLuong * row.gia}
                       isMobile={false}
-                    /></TableCell>
+                    />
+                  </TableCell>
                   <TableCell align="right">
                     <IconButton>
                       <DeleteOutlinedIcon />

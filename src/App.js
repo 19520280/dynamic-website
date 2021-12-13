@@ -46,7 +46,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Homepage} />
             <div
-              //className="containermain"
+              className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
             >
               <Route path="/Gio-hang" exact component={CartPage} />
