@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Button from "@mui/material/Button";
-import FilterListIcon from '@mui/icons-material/FilterList';
+import FilterListIcon from "@mui/icons-material/FilterList";
 import Checkbox from "@mui/material/Checkbox";
 import ColorButton from "../../components/Buttons/ColorButton";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -14,7 +14,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import Paper from '@mui/material/Paper';
+import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -24,6 +24,7 @@ import ListSubheader from "@mui/material/ListSubheader";
 import SizeButton from "../../components/Buttons/SizeButton";
 import { makeStyles } from "@material-ui/core";
 import { SystemColor, BgColor } from "../../color";
+import { ImportantDevices } from "@mui/icons-material";
 
 const useStyle = makeStyles({
   subHeader: {
@@ -63,6 +64,9 @@ const useStyle = makeStyles({
   divider: {
     padding: "0px 16px 16px 0px",
   },
+  filter: {
+    width: "60%",
+  }
 });
 
 const Filter = () => {
@@ -98,6 +102,10 @@ const Filter = () => {
     { text: "Áo tay dài", path: "/Ao/Ao-tay-dai", type: "Ao" },
     { text: "Quần dài", path: "/Quan/Quan-dai", type: "Quan" },
     { text: "Quần ngắn", path: "/Quan/Quan-ngan", type: "Quan" },
+    { text: "Ba lô", path: "/Phu-kien/Ba-lo", type: "Phu-kien" },
+    { text: "Túi", path: "/Phu-kien/Tui", type: "Phu-kien" },
+    { text: "Ví", path: "/Phu-kien/Vi", type: "Phu-kien" },
+    { text: "Nón", path: "/Phu-kien/Non", type: "Phu-kien" },
   ];
   const menuSizes = ["XS", "S", "M", "L", "XL", "FS"];
 
@@ -284,19 +292,25 @@ const Filter = () => {
           >
             <FilterListIcon />
           </IconButton>
+          <Paper>
           <SwipeableDrawer
-            style={{ color: "#FCFCFC" }}
-            sx={1}
+            style={{ color: BgColor.mainBg}}
             anchor="left"
+            className={classes.filter}
             open={openMenu}
             onClose={handleOpenMenu}
             onOpen={handleOpenMenu}
+            docked={true} 
+
           >
-          <Paper style={{background:"#FCFCFC"}}>
-          <Box padding={3}>{content} </Box>
-          </Paper>
-            
+            <Paper style={{ background: BgColor.mainBg }}>
+              <Box padding={3}>
+                {content}
+              </Box>
+            </Paper>
           </SwipeableDrawer>
+          </Paper>
+          
         </>
       );
     } else {

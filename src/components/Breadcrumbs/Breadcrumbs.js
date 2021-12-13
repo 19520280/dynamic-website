@@ -15,7 +15,7 @@ const Breadcrumb = (props) => {
     <Breadcrumbs
       style={{
         paddingTop: "2%",
-        paddingBottom:"1%",
+        paddingBottom: "1%",
         paddingLeft: "8%",
         // margin: "5%",
         backgroundColor: "#FCFCFC",
@@ -36,6 +36,8 @@ const Breadcrumb = (props) => {
               ? "Áo"
               : name === "Quan"
               ? "Quần"
+              : name === "Phu-kien"
+              ? "Phụ kiện"
               : name === "Quan-dai"
               ? "Quần dài"
               : name === "Quan-ngan"
@@ -54,6 +56,18 @@ const Breadcrumb = (props) => {
               ? "Sơ mi"
               : name === "Ao-tay-dai"
               ? "Áo tay dài"
+              : name === "Ba-lo"
+              ? "Ba lô"
+              : name === "Tui"
+              ? "Túi"
+              : name === "Vi"
+              ? "Ví"
+              : name === "Non"
+              ? "Nón"
+              : name === "Mua-dong-2021"
+              ? "Mùa đông 2021"
+              : name === "Tet-Canh-Dan-2022"
+              ? "Tết Canh Dần 2022"
               : name}
           </Typography>
         ) : (

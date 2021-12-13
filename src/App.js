@@ -46,22 +46,20 @@ function App() {
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/Ao" exact component={CategoryCasePage} />
-              <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
-              <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
-              <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
-              <Route
-                path="/Ao/Ao-trum-dau"
-                exact
-                component={CategoryCasePage}
-              />
-              <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
-              <Route path="/Quan" exact component={CategoryCasePage} />
-              <Route path="/Quan/Quan-dai" exact component={CategoryCasePage} />
-              <Route
-                path="/Quan/Quan-ngan"
-                exact
-                component={CategoryCasePage}
-              />
+            <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
+            <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
+            <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
+            <Route path="/Ao/Ao-trum-dau" exact component={CategoryCasePage} />
+            <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
+            <Route path="/Quan" exact component={CategoryCasePage} />
+            <Route path="/Quan/Quan-dai" exact component={CategoryCasePage} />
+            <Route path="/Quan/Quan-ngan" exact component={CategoryCasePage} />
+            <Route path="/Phu-kien" exact component={CategoryCasePage} />
+            <Route path="/Phu-kien/Ba-lo" exact component={CategoryCasePage} />
+            <Route path="/Phu-kien/Tui" exact component={CategoryCasePage} />
+            <Route path="/Phu-kien/Vi" exact component={CategoryCasePage} />
+            <Route path="/Phu-kien/Non" exact component={CategoryCasePage} />
+
             <div
               className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
@@ -139,7 +137,6 @@ function App() {
                   <AccountPage {...props} accountRoute="Thong-bao" />
                 )}
               />
-              
             </div>
           </Switch>
         </Router>

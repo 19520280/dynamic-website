@@ -60,7 +60,7 @@ const useStyle = makeStyles({
   },
   image: {
     maxWidth: "100%",
-    height: "auto",
+    height: "100%",
     // width: "auto\9";
   },
 });
