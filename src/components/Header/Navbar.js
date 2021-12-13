@@ -57,7 +57,7 @@ function Navbar() {
   return (
     <Box
       sx={{
-        backgroundColor: "#FCFCFC",
+        backgroundColor: "white",
       }}
       className="navbar"
     >
