@@ -10,7 +10,8 @@ import {
   TableRow,
 } from "@mui/material";
 
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import CartProductDetail from "../CartProductDetail/CartProductDetail";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import React from "react";
 import { SystemColor } from "../../color";
 import { cartProducts } from "../../dataSources/CartProducts";
@@ -84,7 +85,7 @@ const CheckCartLeftTable = () => {
 
   const isSelected = (ten) => selected.indexOf(ten) !== -1;
   /* #endregion */
- 
+
   return (
     <Box
       sx={{
@@ -136,7 +137,7 @@ const CheckCartLeftTable = () => {
                     scope="row"
                     padding="none"
                   >
-                    {row.ten}
+                    <CartProductDetail sanPham={row} isQty={false} />
                   </TableCell>
                   <TableCell align="right">{row.gia}</TableCell>
                   <TableCell align="center">{row.soLuong}</TableCell>
