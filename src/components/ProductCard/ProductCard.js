@@ -5,8 +5,7 @@ import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 import ColorButtonGroup from "../Buttons/ColorButtonGroup";
 import ImageProductCard from "./ImageProductCard";
-import { SystemColor } from "../../color";
-import numberWithCommas from "./../../utils/numberWithCommas";
+import PriceTypography from "../Typographys/PriceTypography";
 import { products } from "../../dataSources/Products";
 
 const sanPham = products[0];
@@ -29,29 +28,7 @@ const ProductCard = () => {
       >
         {sanPham.ten}
       </Typography>
-      <Stack direction="row" spacing={1}>
-        {sanPham.giaCu ? (
-          <Typography
-            className="old-price"
-            gutterBottom
-            component="div"
-            color="text.secondary"
-            fontSize={isMobile ? "0.9rem" : "1rem"}
-          >
-            {numberWithCommas(sanPham.giaCu)}
-          </Typography>
-        ) : null}
-        <Typography
-          gutterBottom
-          component="div"
-          sx={{ fontWeight: "medium" }}
-          fontSize={isMobile ? "0.9rem" : "1rem"}
-          className="price"
-          color={sanPham.giaCu ? SystemColor.error : SystemColor.main}
-        >
-          {numberWithCommas(sanPham.gia)}
-        </Typography>
-      </Stack>
+     <PriceTypography giaCu={sanPham.giaCu} gia={sanPham.gia} isMobile={isMobile}/>
       <ColorButtonGroup
         colors={sanPham.mauSacs}
         selected={selected}

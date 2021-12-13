@@ -1,0 +1,13 @@
+.product-item {
+  position: relative;
+  padding: 8px;
+  width:70%;
+  min-width: min-content;
+  border-radius: 8px;
+}
+.product-item img {
+  border-radius: 8px;
+  height: auto;
+  width: 25%;
+  display: block;
+}
