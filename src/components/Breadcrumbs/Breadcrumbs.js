@@ -68,6 +68,10 @@ const Breadcrumb = (props) => {
               ? "Mùa đông 2021"
               : name === "Tet-Canh-Dan-2022"
               ? "Tết Canh Dần 2022"
+              : name === "Ca-nhan"
+              ? "Cá nhân"
+              : name === "Don-mua"
+              ? "Đơn mua"
               : name}
           </Typography>
         ) : (
@@ -80,6 +84,9 @@ const Breadcrumb = (props) => {
               ? "Phụ kiện"
               : name === "Lien-he"
               ? "Liên hệ"
+              : name === "Ca-nhan"
+              ? "Cá nhân"
+              
               : name}
           </Link>
         );
