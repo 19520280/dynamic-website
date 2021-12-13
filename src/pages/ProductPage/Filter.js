@@ -1,19 +1,29 @@
+import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-
 import Button from "@mui/material/Button";
+import FilterListIcon from '@mui/icons-material/FilterList';
 import Checkbox from "@mui/material/Checkbox";
 import ColorButton from "../../components/Buttons/ColorButton";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Divider from "@mui/material/Divider";
-import { Grid } from "@mui/material";
+import {
+  Grid,
+  Box,
+  IconButton,
+  Stack,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import Paper from '@mui/material/Paper';
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
-import React from "react";
 import SizeButton from "../../components/Buttons/SizeButton";
 import { makeStyles } from "@material-ui/core";
+import { SystemColor, BgColor } from "../../color";
 
 const useStyle = makeStyles({
   subHeader: {
@@ -23,8 +33,8 @@ const useStyle = makeStyles({
     fontWeight: "bold",
     fontSize: "18px",
     lineHeight: "38px",
-    color: "#5E6669",
-    backgroundColor: "#FCFCFC",
+    color: BgColor.main,
+    backgroundColor: BgColor.mainBg,
   },
   listItemText: {
     fontStyle: "normal",
@@ -33,7 +43,7 @@ const useStyle = makeStyles({
     lineHeight: "31px",
     padding: "0px 0px 4px",
     width: "191px",
-    color: "#303537",
+    color: BgColor.main,
   },
   listButton: {
     fontStyle: "normal",
@@ -41,7 +51,7 @@ const useStyle = makeStyles({
     fontSize: "14px",
     lineHeight: "18px",
     textAlign: "center",
-    color: "#303537",
+    color: BgColor.main,
     padding: "12px 0px 12px 0px",
     margin: "0px 12px 12px 0px",
   },
@@ -56,9 +66,16 @@ const useStyle = makeStyles({
 });
 
 const Filter = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const classes = useStyle();
   const history = useHistory();
   const [checked, setChecked] = React.useState([0]);
+
+  const [openMenu, setOpenMenu] = useState(false);
+  const handleOpenMenu = () => {
+    setOpenMenu(!openMenu);
+  };
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
@@ -81,7 +98,6 @@ const Filter = () => {
     { text: "Áo tay dài", path: "/Ao/Ao-tay-dai", type: "Ao" },
     { text: "Quần dài", path: "/Quan/Quan-dai", type: "Quan" },
     { text: "Quần ngắn", path: "/Quan/Quan-ngan", type: "Quan" },
-
   ];
   const menuSizes = ["XS", "S", "M", "L", "XL", "FS"];
 
@@ -119,8 +135,8 @@ const Filter = () => {
     { text: "Chic", id: "chic" },
     { text: "Hype", id: "Hype" },
   ];
-  return (
-    <div>
+  const body = (
+    <Box style={{ background: "BgColor.mainBg" }}>
       <List
         subheader={
           <ListSubheader className={classes.subHeader}>
@@ -136,7 +152,9 @@ const Filter = () => {
             onClick={() => history.push(item.path)}
           >
             <ListItemText
-              style={{display:item.type==pathnames[0]?"block":"none"}}
+              style={{
+                display: item.type == pathnames[0] ? "block" : "none",
+              }}
               primary={item.text}
               className={classes.listItemText}
             />
@@ -151,7 +169,11 @@ const Filter = () => {
           </ListSubheader>
         }
       >
-        <Grid container rowSpacing={1.5} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid
+          container
+          rowSpacing={1.5}
+          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+        >
           {menuSizes.map((item, index) => (
             <Grid item key={index}>
               <SizeButton
@@ -163,7 +185,6 @@ const Filter = () => {
             </Grid>
           ))}
         </Grid>
-        
       </List>
       <Divider className={classes.divider} />
       <List
@@ -246,8 +267,44 @@ const Filter = () => {
           </ListItemButton>
         ))}
       </List>
-    </div>
+    </Box>
   );
+
+  const CustomStack = (content) => {
+    if (isMobile) {
+      return (
+        <>
+          <IconButton
+            size="large"
+            edge="start"
+            color="primary"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={handleOpenMenu}
+          >
+            <FilterListIcon />
+          </IconButton>
+          <SwipeableDrawer
+            style={{ color: "#FCFCFC" }}
+            sx={1}
+            anchor="left"
+            open={openMenu}
+            onClose={handleOpenMenu}
+            onOpen={handleOpenMenu}
+          >
+          <Paper style={{background:"#FCFCFC"}}>
+          <Box padding={3}>{content} </Box>
+          </Paper>
+            
+          </SwipeableDrawer>
+        </>
+      );
+    } else {
+      return content;
+    }
+  };
+
+  return <Box>{CustomStack(body)}</Box>;
 };
 
 export default Filter;

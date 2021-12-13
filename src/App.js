@@ -16,8 +16,6 @@ import CollectionDialog from "./components/Dialogs/AddIntoCollection/CollectionD
 import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage/Homepage";
 import PaymentPage from "./pages/PaymentPage";
-import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
-import ProductsResultPage from "./pages/ProductPage/ProductsResultPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 
 let theme = createTheme({
@@ -48,7 +46,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Homepage} />
             <div
-              className="containermain"
+              //className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
             >
               <Route path="/Gio-hang" exact component={CartPage} />
@@ -124,12 +122,7 @@ function App() {
                   <AccountPage {...props} accountRoute="Thong-bao" />
                 )}
               />
-              <Route
-                path="/Ket-qua/:path"
-                exact
-                component={ProductsResultPage}
-              />
-              <Route path="/id/:id" exact component={ProductDetailPage} />
+              <Route path="/Ao" exact component={CategoryCasePage} />
               <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
               <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
               <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
@@ -139,6 +132,7 @@ function App() {
                 component={CategoryCasePage}
               />
               <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
+              <Route path="/Quan" exact component={CategoryCasePage} />
               <Route path="/Quan/Quan-dai" exact component={CategoryCasePage} />
               <Route
                 path="/Quan/Quan-ngan"
