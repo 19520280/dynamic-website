@@ -17,15 +17,15 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
       >
         <img src={sanPham.image} />
         <Stack direction="column" spacing={1} alignItems="flex-start">
-          <Typography color="primary" fontSize="1.2rem">
+          <Typography color="primary" fontSize="1.1rem">
             {sanPham.ten}
           </Typography>
 
           <Stack direction="row" spacing={2.5} alignItems="center">
-            <Typography color="secondary" fontSize="1rem" fontWeight="bold">
+            <Typography color="secondary" fontSize="0.9rem" fontWeight="bold">
               {`Kích thước: ${sanPham.kichThuoc}`}
             </Typography>
-            <Typography color="secondary" fontSize="1rem" fontWeight="bold">
+            <Typography color="secondary" fontSize="0.9rem" fontWeight="bold">
               Màu sắc:
             </Typography>
             <Circle

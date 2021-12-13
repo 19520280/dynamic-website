@@ -151,7 +151,11 @@ const CheckCartLeftTable = () => {
                   <TableCell align="center">
                     <NumericTextField />
                   </TableCell>
-                  <TableCell align="right">{row.soLuong * row.gia}</TableCell>
+                  <TableCell align="right">
+                  <PriceTypography
+                      gia={row.soLuong * row.gia}
+                      isMobile={false}
+                    /></TableCell>
                   <TableCell align="right">
                     <IconButton>
                       <DeleteOutlinedIcon />
