@@ -88,7 +88,7 @@ function Topbar() {
         </IconButton>
         <Avatar
           sx={{ bgcolor: "white" }}
-          onClick={() => history.push("/Tai-khoan")}
+          onClick={() => history.push("/Ca-nhan/Tai-khoan/Ho-so")}
         />
       </Stack>
     </Stack>
