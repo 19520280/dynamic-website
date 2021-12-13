@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material/styles";
 
 export const BgColor = {
-  mainBg: "#efefef",
+  mainBg: "#FEFEFE",
   main: "#303537",
 };
 
