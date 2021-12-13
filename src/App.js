@@ -7,7 +7,7 @@ import {
   responsiveFontSizes,
 } from "@mui/material/styles";
 
-import AccountPage from "./pages/AccountPage";
+import AccountPage from "./pages/AccountPage/AccountPage";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import { Button } from "@mui/material";
 import CartPage from "./pages/CartPage";
@@ -18,7 +18,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import PaymentPage from "./pages/PaymentPage";
 import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import ProductsResultPage from "./pages/ProductPage/ProductsResultPage";
-import { ScrollButton } from './components/Buttons/ScrollButton';
+import { ScrollButton } from "./components/Buttons/ScrollButton";
 
 let theme = createTheme({
   palette: {
@@ -44,7 +44,7 @@ function App() {
         <Router>
           <Header />
           <Breadcrumbs />
-          <CollectionDialog/>
+          <CollectionDialog />
           <Switch>
             <Route path="/" exact component={Homepage} />
             <div
@@ -53,7 +53,77 @@ function App() {
             >
               <Route path="/Gio-hang" exact component={CartPage} />
               <Route path="/Thanh-toan" exact component={PaymentPage} />
-              <Route path="/Tai-khoan/:child" exact component={AccountPage} />
+              {/* <Route path="/Ca-nhan/:child" exact component={AccountPage} /> */}
+              <Route
+                path="/Ca-nhan"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Ca-nhan" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Tai-khoan"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Tai-khoan" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Tai-khoan/Ho-so"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Ho-so" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Tai-khoan/Dia-chi"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Dia-chi" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Tai-khoan/Chi-so-co-the"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Chi-so-co-the" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Tai-khoan/Doi-mat-khau"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Doi-mat-khau" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Don-mua"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Don-mua" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Diem-thuong"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Diem-thuong" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Danh-sach-quan-tam"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Danh-sach-quan-tam" />
+                )}
+              />
+              <Route
+                path="/Ca-nhan/Thong-bao"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Thong-bao" />
+                )}
+              />
               <Route
                 path="/Ket-qua/:path"
                 exact
@@ -70,13 +140,15 @@ function App() {
               />
               <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
               <Route path="/Quan/Quan-dai" exact component={CategoryCasePage} />
-              <Route path="/Quan/Quan-ngan" exact component={CategoryCasePage} />
-
-
+              <Route
+                path="/Quan/Quan-ngan"
+                exact
+                component={CategoryCasePage}
+              />
             </div>
           </Switch>
         </Router>
-        <ScrollButton/>
+        <ScrollButton />
       </ThemeProvider>
     </>
   );
