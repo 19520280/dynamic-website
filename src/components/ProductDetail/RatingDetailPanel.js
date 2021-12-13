@@ -48,11 +48,13 @@ export default function RatingDetailPanel() {
     <Box>
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Box>
-          <Typography variant="h4" sx = {{fontWeight: 500}}> 
-            4.5
-          </Typography>
-          <Divider orientation="horizontal" flexItem color = 'black' sx = {{height: 3}}/>
-
+          <h1>4.5</h1>
+          <Divider
+            orientation="horizontal"
+            flexItem
+            color="black"
+            sx={{ height: 3 }}
+          />
         </Box>
         <Box sx={{ width: 100 }}>
           <Rating name="read-only" value={4.5} precision={0.5} readOnly />
@@ -61,11 +63,11 @@ export default function RatingDetailPanel() {
       </Box>
       <Box>
         <List sx={{ maxWidth: 380, marginLeft: -2 }}>
-          <ListItem>{ItemRatingProgressCount(5, 48, 72)}</ListItem>
-          <ListItem>{ItemRatingProgressCount(4, 12, 72)}</ListItem>
-          <ListItem>{ItemRatingProgressCount(3, 12, 72)}</ListItem>
-          <ListItem>{ItemRatingProgressCount(2, 0, 72)}</ListItem>
-          <ListItem>{ItemRatingProgressCount(1, 0, 72)}</ListItem>
+          {ItemRatingProgressCount(5, 48, 72)}
+          {ItemRatingProgressCount(4, 12, 72)}
+          {ItemRatingProgressCount(3, 12, 72)}
+          {ItemRatingProgressCount(2, 0, 72)}
+          {ItemRatingProgressCount(1, 0, 72)}
         </List>
       </Box>
     </Box>

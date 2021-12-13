@@ -1,52 +1,59 @@
 import * as React from "react";
-import {
-  List,
-  ListItemIcon,
-  ListItem,
-  ListItemText,
-  Typography,
-  Box,
-} from "@mui/material";
+import { List, ListItemIcon, ListItemText, Box } from "@mui/material";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditScoreIcon from "@mui/icons-material/CreditScore";
 import PolicyIcon from "@mui/icons-material/Policy";
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 export default function ProductPolicy() {
   return (
-    <List sx={{ width: "100%", maxWidth: 450, bgcolor: "transparent" }}>
-      <ListItem>
-        <ListItemIcon>
+    <List sx={{ width: "100%" }}>
+      <Box sx={{ display: "flex" }}>
+        <ListItemIcon sx={{ marginTop: 1, marginLeft: 1 }}>
           <LocalShippingIcon />
         </ListItemIcon>
         <ListItemText
-          primary={<label>Giao hàng miễn phí <HelpOutlineIcon sx = {{width:15, height:15}}/> </label>}
+          primary={
+            <h5>
+              Giao hàng miễn phí
+              <HelpOutlineIcon sx={{ width: 15, height: 15 }} />
+            </h5>
+          }
           secondary={
-            <label>
+            <h5>
               Áp dụng cho đơn hàng có tổng giá trị từ hơn đ500.000
               <br />
               Thời gian giao hàng từ 8 - 20 ngày
-            </label>
+            </h5>
           }
         />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
+      </Box>
+      <Box sx={{ display: "flex" }}>
+        <ListItemIcon sx={{ marginTop: 1, marginLeft: 1 }}>
           <CreditScoreIcon />
         </ListItemIcon>
         <ListItemText
-          primary={<label>Thanh toán COD <HelpOutlineIcon sx = {{width:15, height:15}}/> </label>}
-          secondary="Không áp dụng cho sản phẩm này"
+          primary={
+            <h5>
+              Thanh toán COD <HelpOutlineIcon sx={{ width: 15, height: 15 }} />{" "}
+            </h5>
+          }
+          secondary={<h5>Không áp dụng cho sản phẩm này</h5>}
         />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
+      </Box>
+      <Box sx={{ display: "flex" }}>
+        <ListItemIcon sx={{ marginTop: 1, marginLeft: 1 }}>
           <PolicyIcon />
         </ListItemIcon>
         <ListItemText
-          primary={<label>Chính sách trả hàng <HelpOutlineIcon sx = {{width:15, height:15}}/> </label>}
-          secondary="Không áp dụng cho sản phẩm này"
+          primary={
+            <h5>
+              Chính sách trả hàng{" "}
+              <HelpOutlineIcon sx={{ width: 15, height: 15 }} />{" "}
+            </h5>
+          }
+          secondary={<h5>Không áp dụng cho sản phẩm này</h5>}
         />
-      </ListItem>
+      </Box>
     </List>
   );
 }
