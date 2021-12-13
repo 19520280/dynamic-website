@@ -5,15 +5,14 @@ import React from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 const NumericTextField = () => {
-  function decClick() {
-  }
-  function incClick() {
-  }
+  function decClick() {}
+  function incClick() {}
   return (
-    <Stack direction="row" spacing={0}>
+    <Stack direction="row" spacing={0} justifyContent="center">
       <Button
         variant="outlined"
         sx={{
+          padding: "4px",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",
@@ -29,14 +28,21 @@ const NumericTextField = () => {
         id="outlined-size-small-textfield"
         size="small"
         type="number"
-        inputProps={{ min: 0, style: { textAlign: "right" } }}
-        sx={{ p: 0, borderLeftWidth: "none", borderRightWidth: "none", width:"30%" }}
+        inputProps={{
+          min: 0,
+          style: { textAlign: "right", fontSize: "0.9rem" },
+        }}
+        sx={{
+          borderRadius: "0",
+          width: "40px",
+        }}
         value={1}
       />
       <Button
-      onClick={incClick}
+        onClick={incClick}
         variant="outlined"
         sx={{
+          padding: "4px",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",

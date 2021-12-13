@@ -1,6 +1,7 @@
 import { Box, IconButton, Stack, useMediaQuery, useTheme } from "@mui/material";
 
 import CheckCartLeftTable from "../components/Tables/CheckCartLeftTable";
+import PaymentInfo from "../components/Sider/PaymentInfo";
 import React from "react";
 import TextFieldWithButton from "../components/TextFields/TextFieldWithButton";
 
@@ -10,12 +11,12 @@ const CartPage = () => {
   return (
     <Stack
       direction={isMobile ? "column" : "row"}
-      spacing={2}
+      spacing={1}
       justifyContent="space-between"
       alignItems="flex-start"
     >
       <CheckCartLeftTable />
-      <TextFieldWithButton hintText="Nhập mã giảm giá" textButton="Áp dụng" />
+      <PaymentInfo />
     </Stack>
   );
 };

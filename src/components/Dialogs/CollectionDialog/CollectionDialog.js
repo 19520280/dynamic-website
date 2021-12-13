@@ -16,7 +16,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import AddIcon from "@mui/icons-material/Add";
-import { BtnColor } from "./../../../color";
+import { BtnColor } from "../../../color";
 import CloseIcon from "@mui/icons-material/Close";
 import { CollectionDialogState$ } from "../../../redux/selectors";
 import React from "react";

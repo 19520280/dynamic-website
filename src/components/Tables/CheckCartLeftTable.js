@@ -39,9 +39,9 @@ function EnhancedTableHead(props) {
         <TableCell>
           {`Sản phẩm ${numSelected > 0 ? `(${numSelected})` : ""}`}
         </TableCell>
-        <TableCell align="right">Đơn giá</TableCell>
+        <TableCell align="center">Đơn giá</TableCell>
         <TableCell align="center">Số lượng</TableCell>
-        <TableCell align="right">Thành tiền</TableCell>
+        <TableCell align="center">Thành tiền</TableCell>
 
         <TableCell align="right">
           <IconButton title="Xóa mục đã chọn">
@@ -139,25 +139,25 @@ const CheckCartLeftTable = () => {
                     scope="row"
                     padding="none"
                   >
-                    <CartProductDetail sanPham={row} isQty={false} readOnly />
+                    <CartProductDetail sanPham={row} isQty={false} />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell align="center">
                     <PriceTypography
                       giaCu={row.giaCu}
                       gia={row.gia}
-                      isMobile={false}
+                      isMobile={true}
                     />
                   </TableCell>
                   <TableCell align="center">
                     <NumericTextField />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell align="center">
                     <PriceTypography
                       gia={row.soLuong * row.gia}
-                      isMobile={false}
+                      isMobile={true}
                     />
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell align="center">
                     <IconButton>
                       <DeleteOutlinedIcon />
                     </IconButton>

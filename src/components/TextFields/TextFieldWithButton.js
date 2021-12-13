@@ -13,10 +13,13 @@ const TextFieldWithButton = ({ hintText, textButton, onClick }) => {
       <TextField
         id="outlined-size-small-textfield"
         placeholder={hintText}
+        size="small"
+        inputProps={{
+          style: { textAlign: "left", fontSize: "0.9rem", border:"1px" },
+        }}
         sx={{
-          p: 0,
-          borderTopRightRadius: "0px",
-          borderBottomRightRadius: "0px",
+          width: "100%",
+          borderRadius: "4px",
         }}
       />
       <Button
@@ -26,9 +29,10 @@ const TextFieldWithButton = ({ hintText, textButton, onClick }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          minWidth: "0px",
+          minWidth: "max-content",
           borderTopLeftRadius: "0px",
           borderBottomLeftRadius: "0px",
+        
         }}
       >
         {textButton}

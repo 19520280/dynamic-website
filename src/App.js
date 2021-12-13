@@ -12,7 +12,7 @@ import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import { Button } from "@mui/material";
 import CartPage from "./pages/CartPage";
 import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
-import CollectionDialog from "./components/Dialogs/AddIntoCollection/CollectionDialog";
+import CollectionDialog from "./components/Dialogs/CollectionDialog/CollectionDialog";
 import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage/Homepage";
 import PaymentPage from "./pages/PaymentPage";

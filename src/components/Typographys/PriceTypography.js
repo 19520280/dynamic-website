@@ -6,14 +6,14 @@ import numberWithCommas from "./../../utils/numberWithCommas";
 
 const PriceTypography = ({ giaCu, gia, isMobile }) => {
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack direction="row" spacing={1} justifyContent="center">
       {giaCu>0 ? (
         <Typography
           className="old-price"
           gutterBottom
           component="div"
           color="text.secondary"
-          fontSize={isMobile ? "0.9rem" : "1rem"}
+          fontSize={isMobile ? "calc(0.9rem + 0.05vw)"  :"calc(1rem + 0.05vw)"  }
         >
           {numberWithCommas(giaCu)}
         </Typography>
@@ -22,7 +22,7 @@ const PriceTypography = ({ giaCu, gia, isMobile }) => {
         gutterBottom
         component="div"
         sx={{ fontWeight: "medium" }}
-        fontSize={isMobile ? "0.9rem" : "1rem"}
+        fontSize={isMobile ? "calc(0.9rem + 0.05vw)"  :"calc(1rem + 0.05vw)"  }
         className="price"
         color={giaCu ? SystemColor.error : SystemColor.main}
       >
