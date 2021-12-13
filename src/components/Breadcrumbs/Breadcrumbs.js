@@ -14,8 +14,10 @@ const Breadcrumb = (props) => {
   return pathnames.length > 0 ? (
     <Breadcrumbs
       style={{
-        padding: "12px 0px 12px 80px",
-        margin: "0px 0px 0px 12px",
+        paddingTop: "2%",
+        paddingBottom:"1%",
+        paddingLeft: "8%",
+        // margin: "5%",
         backgroundColor: "#FCFCFC",
       }}
       aria-label="breadcrumb"
