@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 
 import CheckCartLeftTable from "../components/Tables/CheckCartLeftTable";
+import FreeshipTag from './../components/Tag/FreeshipTag';
 import PaymentInfo from "../components/Sider/PaymentInfo";
 import React from "react";
 import RecentSeen from "./../components/GridProductCard/RecentSeen";
@@ -21,13 +22,14 @@ const CartPage = () => {
       direction={isMobile ? "column" : "row"}
       spacing={2}
       justifyContent="space-between"
-      alignItems="flex-start"
+      alignItems={isMobile ? "flex-start" : "stretch"}
     >
       <Stack
         direction="column"
         spacing={2}
         sx={{ width: isMobile ? "100%" : "70%" }}
       >
+        <FreeshipTag/>
         <CheckCartLeftTable />
         {!isMobile ? <RecentSeen /> : null}
       </Stack>

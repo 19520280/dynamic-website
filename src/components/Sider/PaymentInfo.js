@@ -7,7 +7,7 @@ import numberWithCommas from "./../../utils/numberWithCommas";
 
 const moneyInfo = (title, info, isMoney) => (
   <Stack direction="row" alignItems="stretch" justifyContent="space-between">
-    <Typography fontSize="1rem" fontWeight="bold" color="secondary">
+    <Typography fontSize="1rem" fontWeight="medium" color="secondary">
       {title}
     </Typography>
     <Typography fontSize="1rem" fontWeight="bold" color="primary">
@@ -73,7 +73,7 @@ const PaymentInfo = () => {
           {moneyInfo("Điểm thưởng", 200)}
         </Stack>
       </Box>
-      <Button variant="contained">Thanh toán</Button>
+      <Button variant="contained" size="large">Thanh toán</Button>
     </Stack>
   );
 };

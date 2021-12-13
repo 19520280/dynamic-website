@@ -54,7 +54,7 @@ const useStyle = makeStyles({
     fontStyle: "normal",
     fontWeight: "bold",
     color: SystemColor.main,
-    fontSize: "calc(1rem + 0.8vw)",
+    fontSize: "calc(1rem + 0.7vw)",
     backgroundColor: BgColor.mainBg,
     //paddingLeft: "5%",
     // maxWidth: "958px",
