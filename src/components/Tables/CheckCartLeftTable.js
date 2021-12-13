@@ -12,6 +12,8 @@ import {
 
 import CartProductDetail from "../CartProductDetail/CartProductDetail";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import NumericTextField from "./../TextFields/NumericTextField";
+import PriceTypography from "../Typographys/PriceTypography";
 import React from "react";
 import { SystemColor } from "../../color";
 import { cartProducts } from "../../dataSources/CartProducts";
@@ -139,8 +141,16 @@ const CheckCartLeftTable = () => {
                   >
                     <CartProductDetail sanPham={row} isQty={false} />
                   </TableCell>
-                  <TableCell align="right">{row.gia}</TableCell>
-                  <TableCell align="center">{row.soLuong}</TableCell>
+                  <TableCell align="right">
+                    <PriceTypography
+                      giaCu={row.giaCu}
+                      gia={row.gia}
+                      isMobile={false}
+                    />
+                  </TableCell>
+                  <TableCell align="center">
+                    {/* <NumericTextField /> */}
+                  </TableCell>
                   <TableCell align="right">{row.soLuong * row.gia}</TableCell>
                   <TableCell align="right">
                     <IconButton>
