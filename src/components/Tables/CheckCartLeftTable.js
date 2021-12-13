@@ -92,7 +92,7 @@ const CheckCartLeftTable = () => {
   return (
     <Box
       sx={{
-        width: "70%",
+        width: "100%",
         backgroundColor: "white",
         border: "1px solid",
         borderRadius: "8px",

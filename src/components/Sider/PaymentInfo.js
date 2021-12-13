@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 
 import React from "react";
 import { SystemColor } from "../../color";
@@ -21,53 +21,60 @@ const moneyInfo = (title, info, isMoney) => (
 );
 const PaymentInfo = () => {
   return (
-    <Box
-      sx={{
-        p: 2,
-        backgroundColor: "white",
-        borderRadius: "4px",
-        border:"1px solid",
-        borderColor: SystemColor.gray,
-        width:"25%"
-      }}
-    >
-      <Stack
-        flexDirection="column"
-        justifyContent="flex-start"
-        alignItems="stretch"
-        spacing={2}
+    <Stack direction ="column" spacing={1}   alignItems="stretch">
+      <Box
+        sx={{
+          p: 2,
+          backgroundColor: "white",
+          borderRadius: "4px",
+          border: "1px solid",
+          borderColor: SystemColor.gray,
+          width: "100%",
+          minWidth: "min-content",
+        }}
       >
-        <Typography fontSize="18px" fontWeight="bold" color="secondary">
-          THÔNG TIN ĐƠN HÀNG
-        </Typography>
-        <TextFieldWithButton hintText="Nhập mã giảm giá" textButton="Áp dụng" />
-        {moneyInfo("Tạm tính", 200000, true)}
-        {moneyInfo("Phí vận chuyển")}
-        {moneyInfo("Giảm giá", 20000, true)}
-        <Divider />
         <Stack
-          direction="row"
+          flexDirection="column"
+          justifyContent="flex-start"
           alignItems="stretch"
-          justifyContent="space-between"
+          spacing={2}
         >
-          <Typography
-            fontSize="calc(1rem + 0.5vw)"
-            fontWeight="bold"
-            color="primary"
-          >
-            Tổng cộng
+          <Typography fontSize="18px" fontWeight="bold" color="secondary">
+            THÔNG TIN ĐƠN HÀNG
           </Typography>
-          <Typography
-            fontSize="calc(1rem + 0.5vw)"
-            fontWeight="bold"
-            color="primary"
+          <TextFieldWithButton
+            hintText="Nhập mã giảm giá"
+            textButton="Áp dụng"
+          />
+          {moneyInfo("Tạm tính", 200000, true)}
+          {moneyInfo("Phí vận chuyển")}
+          {moneyInfo("Giảm giá", 20000, true)}
+          <Divider />
+          <Stack
+            direction="row"
+            alignItems="stretch"
+            justifyContent="space-between"
           >
-            {numberWithCommas(500000)}
-          </Typography>
-        </Stack>{" "}
-        {moneyInfo("Điểm thưởng", 200)}
-      </Stack>
-    </Box>
+            <Typography
+              fontSize="calc(1rem + 0.5vw)"
+              fontWeight="bold"
+              color="primary"
+            >
+              Tổng cộng
+            </Typography>
+            <Typography
+              fontSize="calc(1rem + 0.5vw)"
+              fontWeight="bold"
+              color="primary"
+            >
+              {numberWithCommas(500000)}
+            </Typography>
+          </Stack>
+          {moneyInfo("Điểm thưởng", 200)}
+        </Stack>
+      </Box>
+      <Button variant="contained">Thanh toán</Button>
+    </Stack>
   );
 };
 

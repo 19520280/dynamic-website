@@ -2,10 +2,12 @@ import "./style.css";
 
 import * as actions from "../../redux/actions/index";
 
+import { BgColor, SystemColor } from "../../color";
 import {
   Box,
   Button,
   Container,
+  Divider,
   Grid,
   IconButton,
   List,
@@ -16,12 +18,12 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-  Divider,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
+
 import Carousel from "react-material-ui-carousel";
+import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import React from "react";
 import { SaleBannerState$ } from "../../redux/selectors/index";
@@ -29,7 +31,6 @@ import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core";
-import { SystemColor, BgColor } from "../../color";
 
 const slide2 = require("../../assets/images/banners/SaleBanner.png").default;
 
@@ -53,14 +54,14 @@ const useStyle = makeStyles({
     fontStyle: "normal",
     fontWeight: "bold",
     color: SystemColor.main,
-    fontSize: "calc(1.2rem + 1vw)",
+    fontSize: "calc(1rem + 0.8vw)",
     backgroundColor: BgColor.mainBg,
-    paddingLeft: "5%",
+    //paddingLeft: "5%",
     // maxWidth: "958px",
   },
   image: {
     maxWidth: "100%",
-    height: "100%",
+    height: "auto",
     // width: "auto\9";
   },
 });

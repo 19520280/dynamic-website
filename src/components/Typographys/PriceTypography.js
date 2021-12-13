@@ -6,7 +6,7 @@ import numberWithCommas from "./../../utils/numberWithCommas";
 
 const PriceTypography = ({ giaCu, gia, isMobile }) => {
   return (
-    <Stack direction="row" spacing={1} justifyContent="center">
+    <Stack direction="row" spacing={1} >
       {giaCu>0 ? (
         <Typography
           className="old-price"
