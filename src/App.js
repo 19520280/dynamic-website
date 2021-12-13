@@ -45,6 +45,23 @@ function App() {
           <CollectionDialog />
           <Switch>
             <Route path="/" exact component={Homepage} />
+            <Route path="/Ao" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
+              <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
+              <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
+              <Route
+                path="/Ao/Ao-trum-dau"
+                exact
+                component={CategoryCasePage}
+              />
+              <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
+              <Route path="/Quan" exact component={CategoryCasePage} />
+              <Route path="/Quan/Quan-dai" exact component={CategoryCasePage} />
+              <Route
+                path="/Quan/Quan-ngan"
+                exact
+                component={CategoryCasePage}
+              />
             <div
               className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
@@ -122,23 +139,7 @@ function App() {
                   <AccountPage {...props} accountRoute="Thong-bao" />
                 )}
               />
-              <Route path="/Ao" exact component={CategoryCasePage} />
-              <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
-              <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
-              <Route path="/Ao/So-mi" exact component={CategoryCasePage} />
-              <Route
-                path="/Ao/Ao-trum-dau"
-                exact
-                component={CategoryCasePage}
-              />
-              <Route path="/Ao/Ao-tay-dai" exact component={CategoryCasePage} />
-              <Route path="/Quan" exact component={CategoryCasePage} />
-              <Route path="/Quan/Quan-dai" exact component={CategoryCasePage} />
-              <Route
-                path="/Quan/Quan-ngan"
-                exact
-                component={CategoryCasePage}
-              />
+              
             </div>
           </Switch>
         </Router>

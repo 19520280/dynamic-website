@@ -43,7 +43,7 @@ const CategoryCasePage = () => {
   } else
     return (
       <Slide direction="up" in={true}>
-        <Grid container spacing={0} style={{paddingLeft:"80px", paddingRight:"80px"}}>
+        <Grid container spacing={0} style={{paddingLeft:"80px", paddingRight:"80px", background: BgColor.mainBg}}>
           <Grid item xs={2.5} xl={2.5}>
             <Container
               style={{
