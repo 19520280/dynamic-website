@@ -1,52 +1,66 @@
-import React from "react";
 import "./style.css";
+
 import * as actions from "../../redux/actions/index";
-import { makeStyles } from "@material-ui/core";
-import { useLocation, useHistory } from "react-router-dom";
-import Carousel from "react-material-ui-carousel";
-import { SaleBannerState$ } from "../../redux/selectors/index";
-import { useSelector, useDispatch } from "react-redux";
 
 import {
-  Typography,
   Box,
+  Button,
+  Container,
+  Grid,
   IconButton,
   List,
+  Pagination,
   Stack,
-  useMediaQuery,
-  useTheme,
-  Container,
   Tab,
   Tabs,
-  Button,
-  Grid,
-  Pagination,
+  Typography,
+  useMediaQuery,
+  useTheme,
+  Divider,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
+import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
+import Carousel from "react-material-ui-carousel";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import React from "react";
+import { SaleBannerState$ } from "../../redux/selectors/index";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
-import ProductCard from "../../components/ProductCard/ProductCard";
-
-const slide1 =
-  require("../../assets/images/banners/complex_slide01.jpg").default;
+import { makeStyles } from "@material-ui/core";
+import { SystemColor, BgColor } from "../../color";
 
 const slide2 = require("../../assets/images/banners/SaleBanner.png").default;
 
+export const CustomTypography = ({ title }) => (
+  <div className="title">
+    <Typography
+      textAlign="center"
+      fontSize="calc(1.2rem + 1vw)"
+      fontWeight="bold"
+      color="primary"
+    >
+      {title}
+    </Typography>
+    <Divider sx={{ backgroundColor: SystemColor.main, width: "100%" }} />
+  </div>
+);
 const useStyle = makeStyles({
   header: {
     margin: "0px",
     padding: " 12px 0px 12px 0px",
     fontStyle: "normal",
     fontWeight: "bold",
-    fontSize: "28px",
-    lineHeight: "48px",
-    color: "#303557",
-    backgroundColor: "#FCFCFC",
+    color: SystemColor.main,
+    fontSize: "calc(1.2rem + 1vw)",
+    backgroundColor: BgColor.mainBg,
+    paddingLeft: "5%",
     // maxWidth: "958px",
   },
   image: {
     maxWidth: "100%",
-    height: "auto",
+    height: "100%",
     // width: "auto\9";
   },
 });
@@ -54,7 +68,6 @@ const useStyle = makeStyles({
 const Right = () => {
   const dispatch = useDispatch();
   const SaleBanner = useSelector(SaleBannerState$);
-  console.log(SaleBanner);
   const setSaleBanner = React.useCallback(() => {
     dispatch(actions.showSaleBanner(false));
   }, [dispatch]);
@@ -78,7 +91,9 @@ const Right = () => {
   return (
     <Container style={{ maxWidth: "100%", maxHeight: "100%" }}>
       <Typography component="div" className={classes.header}>
-        {pathnames[0] == "Ao"
+        { SaleBanner.payload == true
+          ? "Kết quả tìm kiếm"
+          : pathnames[0] == "Ao"
           ? "Áo"
           : pathnames[0] == "Quan"
           ? "Quần"
@@ -86,8 +101,15 @@ const Right = () => {
           ? "Phụ kiện"
           : ""}
       </Typography>
-      <Box style={{ display: SaleBanner.payload ? "none" : "block" }}>
-        <Carousel autoPlay swipe animation="slide" Button>
+      <Box
+        xs={12}
+        xl={9.5}
+        style={{
+          display: SaleBanner.payload ? "none" : "block",
+          height: "auto",
+        }}
+      >
+        <Carousel autoPlay swipe animation="slide">
           <div className="container">
             <img src={slide2} alt="Avatar" className={classes.image} />
             <div className="middle">
@@ -130,7 +152,7 @@ const Right = () => {
               </Button>
             </div>
           </div>
-        </Carousel>{" "}
+        </Carousel>
       </Box>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext indicatorColor="primary" value={value}>
@@ -142,6 +164,8 @@ const Right = () => {
               textColor="primary"
               indicatorColor="primary"
               aria-label="primary tabs example"
+              variant="scrollable"
+              scrollButtons="auto"
             >
               <Tab value="1" label="PHỔ BIẾN" />
               {menuItems.map((item) => (
@@ -155,19 +179,12 @@ const Right = () => {
           ))}
         </TabContext>
       </Box>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid
-          container
-          spacing={{ xs: 1, md: 2 }}
-          columns={{ xs: 2, sm: 6, md: 8 }}
-        >
-          {Array.from(Array(16)).map((_, index) => (
-            <Grid item xs={1} sm={2} md={2} key={index}>
-              <ProductCard />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <section
+        id="hot-products"
+        className="containermain.fullwidthbanner-container"
+      >
+        <ProducCardGrid />
+      </section>
       <Stack alignItems="center">
         <Pagination
           count={11}
@@ -178,7 +195,7 @@ const Right = () => {
       </Stack>
       <Typography component="div" className={classes.header}>
         Sản phẩm bạn vừa xem
-      </Typography>{" "}
+      </Typography>
       <Box sx={{ flexGrow: 1 }}>
         <Grid
           container

@@ -1,6 +1,12 @@
-import { combineReducers } from 'redux';
-import SaleBanner from './SaleBanner.js';
+import CollectionDialog from "./CollectionDialog.js";
+import SaleBanner from "./SaleBanner.js";
+import Account from "./Account.js";
+import AccountMenu from "./AccountMenu.js";
+import { combineReducers } from "redux";
 
 export default combineReducers({
-    SaleBanner,
+  SaleBanner,
+  CollectionDialog,
+  Account,
+  AccountMenu,
 });

@@ -82,8 +82,9 @@ const FeedbackBanner = () => {
                       textAlign="center"
                       variant="body2"
                       color="white"
+                      fontSize={isMobile?"1.7vw":null}
                       fontStyle="italic"
-                      margin={2}
+                      margin={isMobile?1:2}
                     >
                       {`- ${feedback.author} -`}
                     </Typography>

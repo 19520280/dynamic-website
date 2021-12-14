@@ -26,7 +26,7 @@ const TagProCardGroup = ({ product }) => {
       }}
     >
       <Typography textAlign="center" fontSize="0.8rem">
-        MỚI
+        HẾT HÀNG
       </Typography>
     </Box>
   );

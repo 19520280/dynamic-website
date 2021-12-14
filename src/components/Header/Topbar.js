@@ -1,6 +1,6 @@
 import "./Header.css";
 
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import * as actions from "../../redux/actions/index";
 import {
   Avatar,
@@ -18,13 +18,24 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { SaleBannerState$ } from "../../redux/selectors";
+import Banner from "../Banner/Banner";
 
 function Topbar() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const setSaleBanner = React.useCallback(() => {
-    dispatch(actions.showSaleBanner(true));
-  }, [dispatch]);
+  const SaleBanner = useSelector(SaleBannerState$);
+  const [text, setText] = useState("");
+  const setSaleBanner = React.useCallback(
+    (value) => {
+      dispatch(actions.showSaleBanner(value));
+      console.log(value, SaleBanner);
+
+    },
+    [dispatch]
+  );
+  useEffect(() => {
+    console.log("SaleBanner", SaleBanner);
+  }, [SaleBanner])
 
   return (
     <Stack direction="row" className="topbar">
@@ -42,15 +53,23 @@ function Topbar() {
             focused
             onKeyPress={(ev) => {
               if (ev.key === "Enter") {
-                setSaleBanner(true);
+                if (text!="")
+                {setSaleBanner(true)} else setSaleBanner(false);
                 ev.preventDefault();
               }
             }}
             onSubmit={() => {
-              setSaleBanner(true);
+              if (text!="")
+                {setSaleBanner(true)} else setSaleBanner(false);
             }}
             variant="outlined"
-            onChange={() => {}}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setText(e.target.value);
+              // if (e.target.value == "") {
+              //   setSaleBanner(false);
+              // }
+            }}
             color="secondary"
             placeholder="Tìm kiếm sản phẩm"
             style={{
@@ -72,7 +91,7 @@ function Topbar() {
                     <SearchIcon
                       style={{ color: "white" }}
                       onClick={() => {
-                        setSaleBanner();
+                        if (text != "") setSaleBanner(true);
                       }}
                     />
                   </IconButton>
@@ -88,7 +107,7 @@ function Topbar() {
         </IconButton>
         <Avatar
           sx={{ bgcolor: "white" }}
-          onClick={() => history.push("/Tai-khoan")}
+          onClick={() => history.push("/Ca-nhan/Tai-khoan/Ho-so")}
         />
       </Stack>
     </Stack>

@@ -1,13 +1,14 @@
 .container {
     position: relative;
     width: 100%;
+    min-height: 100%;
   }
   
   .image {
     opacity: 1;
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     transition: .5s ease;
     backface-visibility: hidden;
   }
@@ -34,4 +35,30 @@
   .text {
     font-size: 16px;
     padding: 16px 32px;
+  }
+
+  .fullwidthbanner-container {
+    position: relative;
+    margin-bottom: 80px;
+    width: 100%;
+  }
+  .containermain.fullwidthbanner-container {
+    position: relative;
+    margin-top: 8%;
+    margin-bottom: 8%;
+  }
+  .containermain.fullwidthbanner-container .title {
+    margin-bottom: calc(25% / 2 - 10%);
+    margin-left: 50%;
+    margin-top: calc(25% / 2 - 10%);
+    transform: translate(-50%, 0);
+    width: max-content;
+  }
+  .containermain.feedback-container {
+    position: relative;
+    padding: 0px;
+  }
+  
+  .css-vbidtp-MuiPaper-root-MuiDrawer-paper{
+    width: 70%;
   }
