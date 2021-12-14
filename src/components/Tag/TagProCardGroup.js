@@ -12,7 +12,7 @@ const TagProCardGroup = ({ product }) => {
         backgroundColor: SystemColor.main,
       }}
     >
-      <Typography textAlign="center" fontSize="0.8rem">
+      <Typography textAlign="center" fontSize="calc(0.7rem + 0.2vw)">
         MỚI
       </Typography>
     </Box>
@@ -25,7 +25,7 @@ const TagProCardGroup = ({ product }) => {
         backgroundColor: SystemColor.error,
       }}
     >
-      <Typography textAlign="center" fontSize="0.8rem">
+      <Typography textAlign="center" fontSize="calc(0.7rem + 0.2vw)">
         HẾT HÀNG
       </Typography>
     </Box>
@@ -41,10 +41,10 @@ const TagProCardGroup = ({ product }) => {
         backgroundColor: SystemColor.error,
       }}
     >
-      <Typography fontSize="0.9rem" fontWeight="bold">
+      <Typography fontSize="calc(0.7rem + 0.2vw)" fontWeight="bold">
         {`${Math.round(((giaCu - gia) / giaCu) * 100)}%`}
       </Typography>
-      <Typography fontSize="0.6rem">GIẢM</Typography>
+      <Typography fontSize="calc(0.5rem + 0.2vw)">GIẢM</Typography>
     </Box>
   );
 

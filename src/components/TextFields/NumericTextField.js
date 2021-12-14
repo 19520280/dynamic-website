@@ -4,12 +4,12 @@ import AddIcon from "@mui/icons-material/Add";
 import React from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-const NumericTextField = () => {
-  function decClick() {}
-  function incClick() {}
+const NumericTextField = ({ soLuong, setSoLuong }) => {
+  const [value, setValue] = React.useState(soLuong);
   return (
     <Stack direction="row" spacing={0} justifyContent="center">
       <Button
+        onClick={() => (soLuong - 1 >= 0 ? setValue(soLuong - 1) : setValue(1))}
         variant="outlined"
         sx={{
           padding: "4px",
@@ -28,6 +28,8 @@ const NumericTextField = () => {
         id="outlined-size-small-textfield"
         size="small"
         type="number"
+        value={value}
+        onChange={(data) => setValue(data)}
         inputProps={{
           min: 0,
           style: { textAlign: "right", fontSize: "0.9rem" },
@@ -36,10 +38,9 @@ const NumericTextField = () => {
           borderRadius: "0",
           width: "40px",
         }}
-        value={1}
       />
       <Button
-        onClick={incClick}
+        onClick={() => setValue(soLuong + 1)}
         variant="outlined"
         sx={{
           padding: "4px",

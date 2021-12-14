@@ -15,11 +15,12 @@ const TextFieldWithButton = ({ hintText, textButton, onClick }) => {
         placeholder={hintText}
         size="small"
         inputProps={{
-          style: { textAlign: "left", fontSize: "0.9rem", border:"1px" },
+          style: { textAlign: "left", fontSize: "0.8rem", border:"1px" },
         }}
         sx={{
           width: "100%",
-          borderRadius: "4px",
+          borderTopLeftRadius: "4px",
+          borderBottomLeftRadius: "4px",
         }}
       />
       <Button

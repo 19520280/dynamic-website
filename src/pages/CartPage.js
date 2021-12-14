@@ -23,7 +23,7 @@ const CartPage = () => {
       <Stack
         direction="column"
         spacing={4}
-        sx={{ width: isMobile ? "100%" : "80%" }}
+        sx={{ width: isMobile ? "100%" : "75%" }}
       >
         <FreeshipTag/>
         <CheckCartLeftTable />

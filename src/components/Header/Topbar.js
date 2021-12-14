@@ -1,7 +1,7 @@
 import "./Header.css";
 
-import React, { useState, useEffect } from "react";
 import * as actions from "../../redux/actions/index";
+
 import {
   Avatar,
   Badge,
@@ -11,14 +11,15 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import Banner from "../Banner/Banner";
 import Logo from "../../assets/images/Logo.png";
+import { SaleBannerState$ } from "../../redux/selectors";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { SaleBannerState$ } from "../../redux/selectors";
-import Banner from "../Banner/Banner";
 
 function Topbar() {
   const history = useHistory();
@@ -29,13 +30,12 @@ function Topbar() {
     (value) => {
       dispatch(actions.showSaleBanner(value));
       console.log(value, SaleBanner);
-
     },
     [dispatch]
   );
   useEffect(() => {
     console.log("SaleBanner", SaleBanner);
-  }, [SaleBanner])
+  }, [SaleBanner]);
 
   return (
     <Stack direction="row" className="topbar">
@@ -47,20 +47,23 @@ function Topbar() {
         spacing={2}
         sx={{ flex: 2 }}
         justifyContent="flex-end"
+        alignItems="center"
       >
         <Box component="form" noValidate autoComplete="off">
           <TextField
             focused
             onKeyPress={(ev) => {
               if (ev.key === "Enter") {
-                if (text!="")
-                {setSaleBanner(true)} else setSaleBanner(false);
+                if (text != "") {
+                  setSaleBanner(true);
+                } else setSaleBanner(false);
                 ev.preventDefault();
               }
             }}
             onSubmit={() => {
-              if (text!="")
-                {setSaleBanner(true)} else setSaleBanner(false);
+              if (text != "") {
+                setSaleBanner(true);
+              } else setSaleBanner(false);
             }}
             variant="outlined"
             onChange={(e) => {

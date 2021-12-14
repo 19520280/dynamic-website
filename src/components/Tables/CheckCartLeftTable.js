@@ -89,6 +89,7 @@ const CheckCartLeftTable = () => {
   const isSelected = (ten) => selected.indexOf(ten) !== -1;
   /* #endregion */
 
+  const [soLuong, setSoLuong] = React.useState(1);
   return (
     <Box
       sx={{
@@ -115,7 +116,6 @@ const CheckCartLeftTable = () => {
             {cartProducts.map((row, index) => {
               const isItemSelected = isSelected(row.ten);
               const labelId = `enhanced-table-checkbox-${index}`;
-
               return (
                 <TableRow
                   role="checkbox"
@@ -149,13 +149,12 @@ const CheckCartLeftTable = () => {
                     />
                   </TableCell>
                   <TableCell align="center">
-                    <NumericTextField />
+                    <NumericTextField
+                      soLuong={row.soLuong}
+                    />
                   </TableCell>
                   <TableCell align="center">
-                    <PriceTypography
-                      gia={row.soLuong * row.gia}
-                      isMobile={true}
-                    />
+                    <PriceTypography gia={soLuong * row.gia} isMobile={true} />
                   </TableCell>
                   <TableCell align="center">
                     <IconButton>

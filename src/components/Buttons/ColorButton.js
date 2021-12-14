@@ -1,10 +1,12 @@
-import { Button, IconButton, styled } from "@mui/material";
+import { Button, styled, useTheme, useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
 
 import { Circle } from "@mui/icons-material";
 import { SystemColor } from "./../../color";
 
 const ColorButton = ({ color, selected, setSelected, only }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [active, setActive] = useState(color === selected);
 
   const BootstrapButton = styled(Button)({
@@ -50,7 +52,7 @@ const ColorButton = ({ color, selected, setSelected, only }) => {
           margin: "0px",
           borderRadius: "50%",
         }}
-        fontSize="medium"
+        fontSize={isMobile?"small":"medium"}
       />
     </BootstrapButton>
   );

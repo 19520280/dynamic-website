@@ -1,16 +1,17 @@
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Link, Stack, Typography } from "@mui/material";
+import { SystemColor, TxtColor } from "../../color";
 
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import React from "react";
-import { SystemColor } from "../../color";
 import TextFieldWithButton from "../TextFields/TextFieldWithButton";
 import numberWithCommas from "./../../utils/numberWithCommas";
 
 const moneyInfo = (title, info, isMoney) => (
   <Stack direction="row" alignItems="stretch" justifyContent="space-between">
-    <Typography fontSize="1rem" fontWeight="medium" color="secondary">
+    <Typography fontSize="0.875rem" fontWeight="medium" color="secondary">
       {title}
     </Typography>
-    <Typography fontSize="1rem" fontWeight="bold" color="primary">
+    <Typography fontSize="0.875rem" fontWeight="bold" color="primary">
       {info
         ? isMoney
           ? numberWithCommas(info)
@@ -19,13 +20,13 @@ const moneyInfo = (title, info, isMoney) => (
     </Typography>
   </Stack>
 );
-const PaymentInfo = ({isMobile}) => {
+const PaymentInfo = ({ isMobile, shipFree }) => {
   return (
     <Stack
       direction="column"
       spacing={1}
       alignItems="stretch"
-      sx={{ width: isMobile ? "100%" : "30%", minWidth:"max-conent" }}
+      sx={{ width: isMobile ? "100%" : "25%", minWidth: "max-conent" }}
     >
       <Box
         sx={{
@@ -44,7 +45,7 @@ const PaymentInfo = ({isMobile}) => {
           alignItems="stretch"
           spacing={2}
         >
-          <Typography fontSize="18px" fontWeight="bold" color="secondary">
+          <Typography variant="button" fontWeight="bold" color="secondary">
             THÔNG TIN ĐƠN HÀNG
           </Typography>
           <TextFieldWithButton
@@ -52,7 +53,7 @@ const PaymentInfo = ({isMobile}) => {
             textButton="Áp dụng"
           />
           {moneyInfo("Tạm tính", 200000, true)}
-          {moneyInfo("Phí vận chuyển")}
+          {shipFree ? moneyInfo("Phí vận chuyển", 50000, true) : null}
           {moneyInfo("Giảm giá", 20000, true)}
           <Divider />
           <Stack
@@ -61,14 +62,14 @@ const PaymentInfo = ({isMobile}) => {
             justifyContent="space-between"
           >
             <Typography
-              fontSize="calc(1rem + 0.5vw)"
+              fontSize="calc(1rem + 0.3vw)"
               fontWeight="bold"
               color="primary"
             >
               Tổng cộng
             </Typography>
             <Typography
-              fontSize="calc(1rem + 0.5vw)"
+              fontSize="calc(1rem + 0.3vw)"
               fontWeight="bold"
               color="primary"
             >
@@ -81,6 +82,12 @@ const PaymentInfo = ({isMobile}) => {
       <Button variant="contained" size="large" sx={{ width: "100%" }}>
         Thanh toán
       </Button>
+      <div
+        style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+      >
+        <ChevronLeftIcon sx={{color:TxtColor.txtSecond}} />
+        <Link underline="none"   color="secondary" sx={{cursor:"pointer"}}>Mua thêm</Link>
+      </div>
     </Stack>
   );
 };
