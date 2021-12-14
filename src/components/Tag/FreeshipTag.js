@@ -12,16 +12,25 @@ const FreeshipTag = () => {
         backgroundColor: "rgba(0, 0, 0, 0.04)",
         p: 2,
         height: "10%",
+        borderRadius:"4px"
       }}
     >
-      <Stack direction="row" alignItems="center" justifyContent="flex-start">
-        <LocalShippingIcon sx={{ color: "primary", height: "50%" }} />
-        <span>
-          <Typography>
-            Mua thêm <Typography fontWeight="bold"> đ50,000 </Typography>để được
-            miễn phí vận chuyển
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        spacing={1}
+      >
+        <div style={{display: "flex",   flexDirection:"row"}}>
+          <LocalShippingIcon sx={{ color: "primary", height: "50%", marginRight:"8px" }} />
+          <Typography display="inline">
+            Mua thêm 
+            <Typography fontWeight="bold" display="inline">
+              {` đ50,000 `}
+            </Typography>
+            để được miễn phí vận chuyển
           </Typography>
-        </span>
+        </div>
         <Button variant="text" endIcon={<ChevronRightIcon />}>
           Mua thêm
         </Button>

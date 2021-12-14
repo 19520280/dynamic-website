@@ -19,9 +19,14 @@ const moneyInfo = (title, info, isMoney) => (
     </Typography>
   </Stack>
 );
-const PaymentInfo = () => {
+const PaymentInfo = ({isMobile}) => {
   return (
-    <Stack direction ="column" spacing={1}   alignItems="stretch">
+    <Stack
+      direction="column"
+      spacing={1}
+      alignItems="stretch"
+      sx={{ width: isMobile ? "100%" : "30%", minWidth:"max-conent" }}
+    >
       <Box
         sx={{
           p: 2,
@@ -73,7 +78,9 @@ const PaymentInfo = () => {
           {moneyInfo("Điểm thưởng", 200)}
         </Stack>
       </Box>
-      <Button variant="contained" size="large">Thanh toán</Button>
+      <Button variant="contained" size="large" sx={{ width: "100%" }}>
+        Thanh toán
+      </Button>
     </Stack>
   );
 };
