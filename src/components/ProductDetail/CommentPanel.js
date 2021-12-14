@@ -10,9 +10,8 @@ import {
 import { deepOrange } from "@mui/material/colors";
 
 export default function CommentPanel({ feedback }) {
-  console.log(feedback);
   return feedback ? (
-    <Box sx={{ display: "flex", paddingY: 3, width: 1400 }}>
+    <Box sx={{ display: "flex", paddingY: 3, width: 1150 }}>
       <Box width={250}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Avatar sx={{ bgcolor: deepOrange[500], width: 50, height: 50 }}>
@@ -36,7 +35,7 @@ export default function CommentPanel({ feedback }) {
           <Box sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
             <Rating
               name="read-only"
-              value={4.5}
+              value={feedback.rate}
               precision={0.5}
               readOnly
               sx={{ marginRight: 1 }}
@@ -50,7 +49,7 @@ export default function CommentPanel({ feedback }) {
           </Box>
           <Box>
             <Typography color="gray">
-              Kích cỡ: {feedback.sizee} - Màu: {feedback.color} <br />
+              Kích cỡ: {feedback.size} - Màu: {feedback.color} <br />
               Đánh giá vào {feedback.time} tháng trước - Đã dùng {feedback.used}{" "}
               ngày
             </Typography>

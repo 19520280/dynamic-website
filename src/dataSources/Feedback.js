@@ -8,7 +8,7 @@ const imgFeedback3 =
 export const feedbacks = [
   {
     author: "Nguyễn Yến Nhi",
-    tittle: "Tuyệt cú mèo",
+    tittle: "Rất hài lòng",
     content: "Sản phẩm tuyệt vời. Xứng đáng 1000 điểm",
     joined: 2,
     rate: 5,
@@ -20,9 +20,9 @@ export const feedbacks = [
   },
   {
     author: "Minh Đinh",
-    tittle: "Ok đấy",
+    tittle: "Hài lòng",
     content: "Chất lượng tốt. Website đẹp.",
-    joind: 1,
+    joined: 1,
     rate: 4,
     imgs: [imgFeedback1, imgFeedback2, imgFeedback3],
     size: "XL",
@@ -32,9 +32,9 @@ export const feedbacks = [
   },
   {
     author: "Nguyễn Phương Thảo",
-    tittle: "Perfect",
+    tittle: "Bình thường",
     content: "Chủ shop dễ thương, hướng dẫn nhiệt tình. Sản phẩm đẹp",
-    joind: 1,
+    joined: 1,
     rate: 3,
     imgs: [],
     size: "M",

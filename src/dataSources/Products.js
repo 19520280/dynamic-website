@@ -18,16 +18,16 @@ const imgBasicTee11 =
   require("../assets/images/products/basic-tee/black01.jpg").default;
 const imgBasicTee12 =
   require("../assets/images/products/basic-tee/black02.jpg").default;
-  const imgBasicTee21 =
+const imgBasicTee21 =
   require("../assets/images/products/basic-tee/blue01.png").default;
 const imgBasicTee22 =
   require("../assets/images/products/basic-tee/blue02.png").default;
-  const imgBasicTee31 =
+const imgBasicTee31 =
   require("../assets/images/products/basic-tee/green01.jpg").default;
 const imgBasicTee32 =
   require("../assets/images/products/basic-tee/green02.jpg").default;
 
-  /* #endregion */
+/* #endregion */
 
 export const product = {
   ten: "",
@@ -53,17 +53,9 @@ export const products = [
   {
     ten: "Basic Tee",
     imgs: [
-      [
-        imgBasicTee11,
-        imgBasicTee12,
-      ],
-      [
-        imgBasicTee21,
-        imgBasicTee22,
-      ],   [
-        imgBasicTee31,
-        imgBasicTee32,
-      ],
+      [imgBasicTee11, imgBasicTee12],
+      [imgBasicTee21, imgBasicTee22],
+      [imgBasicTee31, imgBasicTee32],
     ],
     newTag: true,
     giaCu: 300000,
@@ -71,7 +63,7 @@ export const products = [
     tonKho: 5,
     ngayKetThucSale: "26/12/2021",
     setCountDown: false,
-    mauSacs: ["black","#4581f6","#01a08e"],
+    mauSacs: ["black", "#4581f6", "#01a08e"],
     kichThuocs: ["S", "M", "L"],
     chatLieus: ["Cotton"],
     phongCachs: ["Đơn giản", "Thoải mái"],
@@ -86,11 +78,11 @@ export const products = [
     imgs: [
       [
         imgMonarchButterflys11,
-        imgMonarchButterflys12,
+        imgMonarchButterflys21,
         imgMonarchButterflys13,
         imgMonarchButterflys14,
       ],
-      [imgMonarchButterflys21, imgMonarchButterflys22],
+      [imgMonarchButterflys12, imgMonarchButterflys22],
     ],
     newTag: true,
     giaCu: 300000,
