@@ -1,9 +1,9 @@
 const imgFeedback1 =
-  require("../assets/images/products/monarch-butterfly-t-shirt-white/0b512800e4f589d9bb7e2c8001365977.jpg").default;
+  require("../assets/images/products/monarch-butterfly-t-shirt-white/white01.jpg").default;
 const imgFeedback2 =
-  require("../assets/images/products/monarch-butterfly-t-shirt-white/a22b713b26867294015df4a094326574.jpg").default;
+  require("../assets/images/products/monarch-butterfly-t-shirt-white/white02.jpg").default;
 const imgFeedback3 =
-  require("../assets/images/products/monarch-butterfly-t-shirt-white/32ce4a7de31032ca84dcc9a148ce01d2.jpg").default;
+  require("../assets/images/products/monarch-butterfly-t-shirt-white/white03.jpg").default;
 
 export const feedbacks = [
   {
