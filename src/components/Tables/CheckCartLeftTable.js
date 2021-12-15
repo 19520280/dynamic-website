@@ -40,11 +40,17 @@ function EnhancedTableHead(props) {
         <TableCell>
           {`Sản phẩm ${numSelected > 0 ? `(${numSelected})` : ""}`}
         </TableCell>
-        <TableCell align="center">Đơn giá</TableCell>
-        <TableCell align="center">Số lượng</TableCell>
-        <TableCell align="center">Thành tiền</TableCell>
+        <TableCell align="right" sx={{ color: "secondary" }}>
+          Đơn giá
+        </TableCell>
+        <TableCell align="center" sx={{ color: "secondary" }}>
+          Số lượng
+        </TableCell>
+        <TableCell align="right" sx={{ color: "secondary" }}>
+          Thành tiền
+        </TableCell>
 
-        <TableCell align="right">
+        <TableCell align="right" padding="checkbox">
           <IconButton title="Xóa mục đã chọn">
             <DeleteOutlinedIcon fontSize="small" />
           </IconButton>
@@ -143,8 +149,9 @@ const CheckCartLeftTable = () => {
                   >
                     <CartProductDetail sanPham={row} isQty={false} />
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="right">
                     <PriceTypography
+                      justifyContent="flex-end"
                       giaCu={row.giaCu}
                       gia={row.gia}
                       isMobile={true}
@@ -153,10 +160,14 @@ const CheckCartLeftTable = () => {
                   <TableCell align="center">
                     <NumericTextField soLuong={row.soLuong} />
                   </TableCell>
-                  <TableCell align="center">
-                    <PriceTypography gia={soLuong * row.gia} isMobile={true} />
+                  <TableCell align="right">
+                    <PriceTypography
+                      gia={soLuong * row.gia}
+                      isMobile={true}
+                      justifyContent="flex-end"
+                    />
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="right" padding="checkbox">
                     <IconButton>
                       <DeleteOutlinedIcon fontSize="small" />
                     </IconButton>

@@ -8,10 +8,10 @@ import numberWithCommas from "./../../utils/numberWithCommas";
 
 const moneyInfo = (title, info, isMoney) => (
   <Stack direction="row" alignItems="stretch" justifyContent="space-between">
-    <Typography fontSize="0.875rem" fontWeight="medium" color="secondary">
+    <Typography fontSize="0.87rem" fontWeight="medium" color="secondary">
       {title}
     </Typography>
-    <Typography fontSize="0.875rem" fontWeight="bold" color="primary">
+    <Typography fontSize="0.87rem" fontWeight="bold"  color="primary">
       {info
         ? isMoney
           ? numberWithCommas(info)
@@ -20,7 +20,7 @@ const moneyInfo = (title, info, isMoney) => (
     </Typography>
   </Stack>
 );
-const PaymentInfo = ({ isMobile, shipFree }) => {
+const PaymentInfo = ({ isMobile, shipFree, isAccount }) => {
   return (
     <Stack
       direction="column"
@@ -76,7 +76,13 @@ const PaymentInfo = ({ isMobile, shipFree }) => {
               {numberWithCommas(500000)}
             </Typography>
           </Stack>
-          {moneyInfo("Điểm thưởng", 200)}
+          {isAccount ? (
+            moneyInfo("Điểm thưởng", 200)
+          ) : (
+            <Typography color="secondary" fontStyle="italic" >
+              Đăng nhập để nhận điểm thưởng
+            </Typography>
+          )}
         </Stack>
       </Box>
       <Button variant="contained" size="large" sx={{ width: "100%" }}>
@@ -85,8 +91,10 @@ const PaymentInfo = ({ isMobile, shipFree }) => {
       <div
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
-        <ChevronLeftIcon sx={{color:TxtColor.txtSecond}} />
-        <Link underline="none"   color="secondary" sx={{cursor:"pointer"}}>Mua thêm</Link>
+        <ChevronLeftIcon sx={{ color: TxtColor.txtSecond }} />
+        <Link underline="none" color="secondary" fontSize="medium" sx={{ cursor: "pointer" }}>
+          Mua thêm
+        </Link>
       </div>
     </Stack>
   );

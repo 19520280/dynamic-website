@@ -17,14 +17,14 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
       >
         <img src={sanPham.image} />
         <Stack direction="column" spacing={1.5} alignItems="flex-start">
-          <Typography color="primary" fontSize="1rem">
+          <Typography color="primary" fontSize="0.9rem">
             {sanPham.ten}
           </Typography>
           <Stack
             direction="row"
             alignItems="center"
             spacing={0.6}
-            divider={<Divider orientation="vertical" flexItem />}
+            divider={<Divider orientation="vertical" flexItem/>}
           >
             <Typography color="secondary" fontSize="0.8rem">
               {sanPham.kichThuoc}
@@ -38,7 +38,7 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
                 padding: "0px",
                 borderRadius: "50%",
               }}
-              fontSize="small"
+              fontSize="smaller"
             />
           </Stack>
           {readOnly ? (
