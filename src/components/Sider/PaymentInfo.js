@@ -43,7 +43,7 @@ const PaymentInfo = ({ isMobile, shipFree }) => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="stretch"
-          spacing={2}
+          spacing={1.5}
         >
           <Typography variant="button" fontWeight="bold" color="secondary">
             THÔNG TIN ĐƠN HÀNG

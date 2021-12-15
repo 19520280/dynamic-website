@@ -1,6 +1,13 @@
 import "./FeedbackBanner.css";
 
-import { Box, IconButton, Slide, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Slide,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -29,9 +36,17 @@ const FeedbackBanner = () => {
   }
 
   function setIndex(step) {
-    if (feedbackShow.index + step < feedbacks.length) {
-      setfeedbackShow({ index: feedbackShow.index + step, isNext: step == 1 });
-    } else setfeedbackShow({ index: 0, isNext: true });
+    const isNext = step == 1;
+    if (
+      feedbackShow.index + step >= 0 &&
+      feedbackShow.index + step < feedbacks.length
+    ) {
+      setfeedbackShow({ index: feedbackShow.index + step, isNext: isNext });
+    } else
+      setfeedbackShow({
+        index: isNext ? 0 : feedbacks.length - 1,
+        isNext: isNext,
+      });
   }
 
   React.useEffect(() => {
@@ -50,7 +65,7 @@ const FeedbackBanner = () => {
       <div className="content">
         <Typography
           textAlign="center"
-          fontSize={isMobile?"2.4vw":"calc(1.2rem + 1vw)"}
+          fontSize={isMobile ? "2.4vw" : "calc(1.2rem + 1vw)"}
           fontWeight="bold"
           color="white"
           margin="calc(25% / 2)"
@@ -71,7 +86,7 @@ const FeedbackBanner = () => {
                       textAlign="center"
                       variant="body1"
                       color="white"
-                      fontSize={isMobile?"1.8vw":null}
+                      fontSize={isMobile ? "1.8vw" : null}
                       paddingLeft={5}
                       paddingRight={5}
                       style={{ wordWrap: "break-word" }}
@@ -82,9 +97,9 @@ const FeedbackBanner = () => {
                       textAlign="center"
                       variant="body2"
                       color="white"
-                      fontSize={isMobile?"1.7vw":null}
+                      fontSize={isMobile ? "1.7vw" : null}
                       fontStyle="italic"
-                      margin={isMobile?1:2}
+                      margin={isMobile ? 1 : 2}
                     >
                       {`- ${feedback.author} -`}
                     </Typography>

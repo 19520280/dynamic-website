@@ -7,18 +7,24 @@ import ColorButtonGroup from "../Buttons/ColorButtonGroup";
 import ImageProductCard from "./ImageProductCard";
 import PriceTypography from "../Typographys/PriceTypography";
 import { products } from "../../dataSources/Products";
+import { useHistory } from "react-router-dom";
 
 const sanPham = products[0];
 
 const ProductCard = () => {
   const theme = useTheme();
+  const history = useHistory();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [selected, setSelected] = useState(sanPham.mauSacs[0]);
   const indexSelected = sanPham.mauSacs.indexOf(selected);
 
   return (
     <div className="container">
-      <ImageProductCard sanPham={sanPham} indexSelected={indexSelected} />
+      <ImageProductCard
+        sanPham={sanPham}
+        indexSelected={indexSelected}
+        onClick={() => history.push(sanPham.path)}
+      />
       <Typography
         gutterBottom
         variant="subtitle1"
@@ -28,7 +34,11 @@ const ProductCard = () => {
       >
         {sanPham.ten}
       </Typography>
-     <PriceTypography giaCu={sanPham.giaCu} gia={sanPham.gia} isMobile={isMobile}/>
+      <PriceTypography
+        giaCu={sanPham.giaCu}
+        gia={sanPham.gia}
+        isMobile={isMobile}
+      />
       <ColorButtonGroup
         colors={sanPham.mauSacs}
         selected={selected}

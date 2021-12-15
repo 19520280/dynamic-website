@@ -31,6 +31,7 @@ function EnhancedTableHead(props) {
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
+            size="small"
             inputProps={{
               "aria-label": "select all desserts",
             }}
@@ -45,7 +46,7 @@ function EnhancedTableHead(props) {
 
         <TableCell align="right">
           <IconButton title="Xóa mục đã chọn">
-            <DeleteOutlinedIcon />
+            <DeleteOutlinedIcon fontSize="small" />
           </IconButton>
         </TableCell>
       </TableRow>
@@ -125,6 +126,7 @@ const CheckCartLeftTable = () => {
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
+                      size="small"
                       color="primary"
                       checked={isItemSelected}
                       onClick={(event) => handleClick(event, row.ten)}
@@ -149,16 +151,14 @@ const CheckCartLeftTable = () => {
                     />
                   </TableCell>
                   <TableCell align="center">
-                    <NumericTextField
-                      soLuong={row.soLuong}
-                    />
+                    <NumericTextField soLuong={row.soLuong} />
                   </TableCell>
                   <TableCell align="center">
                     <PriceTypography gia={soLuong * row.gia} isMobile={true} />
                   </TableCell>
                   <TableCell align="center">
                     <IconButton>
-                      <DeleteOutlinedIcon />
+                      <DeleteOutlinedIcon fontSize="small" />
                     </IconButton>
                   </TableCell>
                 </TableRow>

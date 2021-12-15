@@ -9,7 +9,7 @@
 .product-item img {
   border-radius: 8px;
   height: auto;
-  width: calc(5vh + 5vw);
+  width: calc(5vh + 4vw);
   display: block;
   object-fit: fill;
 }

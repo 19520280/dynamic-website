@@ -12,7 +12,6 @@ export default function CollectionDialogReducers(
 ) {
   switch (action.type) {
     case getType(showCollectionDialog):
-      console.log("open");
       return {
         isShow: true,
       };

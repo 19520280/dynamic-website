@@ -12,7 +12,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
         onClick={() => (soLuong - 1 >= 0 ? setValue(soLuong - 1) : setValue(1))}
         variant="outlined"
         sx={{
-          padding: "4px",
+          padding: "0px",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",
@@ -22,7 +22,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
           borderBottomRightRadius: "0px",
         }}
       >
-        <RemoveIcon />
+        <RemoveIcon fontSize="small" />
       </Button>
       <TextField
         id="outlined-size-small-textfield"
@@ -32,10 +32,14 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
         onChange={(data) => setValue(data)}
         inputProps={{
           min: 0,
-          style: { textAlign: "right", fontSize: "0.9rem" },
+          style: {
+            textAlign: "right",
+            fontSize: "0.7rem",
+            borderRadius: "0px",
+          },
         }}
         sx={{
-          borderRadius: "0",
+          borderRadius: "0px",
           width: "40px",
         }}
       />
@@ -43,7 +47,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
         onClick={() => setValue(soLuong + 1)}
         variant="outlined"
         sx={{
-          padding: "4px",
+          padding: "0px",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",
@@ -53,7 +57,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
           borderBottomLeftRadius: "0px",
         }}
       >
-        <AddIcon />
+        <AddIcon fontSize="small" />
       </Button>
     </Stack>
   );

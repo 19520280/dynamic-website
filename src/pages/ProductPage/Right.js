@@ -23,6 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 
 import Carousel from "react-material-ui-carousel";
+import HeaderTypography from "./../../components/Typographys/HeaderTypography";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import React from "react";
@@ -91,17 +92,19 @@ const Right = () => {
 
   return (
     <Container style={{ maxWidth: "100%", maxHeight: "100%" }}>
-      <Typography component="div" className={classes.header}>
-        { SaleBanner.payload == true
-          ? "Kết quả tìm kiếm"
-          : pathnames[0] == "Ao"
-          ? "Áo"
-          : pathnames[0] == "Quan"
-          ? "Quần"
-          : pathnames[0] == "Phu-kien"
-          ? "Phụ kiện"
-          : ""}
-      </Typography>
+      <HeaderTypography
+        text={
+          SaleBanner.payload == true
+            ? "Kết quả tìm kiếm"
+            : pathnames[0] == "Ao"
+            ? "Áo"
+            : pathnames[0] == "Quan"
+            ? "Quần"
+            : pathnames[0] == "Phu-kien"
+            ? "Phụ kiện"
+            : ""
+        }
+      />
       <Box
         xs={12}
         xl={9.5}
