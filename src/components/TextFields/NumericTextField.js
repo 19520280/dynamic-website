@@ -1,5 +1,5 @@
 import { Button, Stack, TextField } from "@mui/material";
-
+import "./style.css";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -13,6 +13,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
         variant="outlined"
         sx={{
           padding: "0px",
+          borderColor:"#BEBEBE",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",
@@ -36,11 +37,15 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
             textAlign: "right",
             fontSize: "0.7rem",
             borderRadius: "0px",
+            color: "secondary",
           },
+          
         }}
         sx={{
           borderRadius: "0px",
-          width: "40px",
+          width: "40px",       
+          borderTopLeftRadius: "0px",
+          borderBottomLeftRadius: "0px",
         }}
       />
       <Button
@@ -48,6 +53,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
         variant="outlined"
         sx={{
           padding: "0px",
+          borderColor:"#BEBEBE",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",
@@ -57,7 +63,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
           borderBottomLeftRadius: "0px",
         }}
       >
-        <AddIcon fontSize="small" />
+        <AddIcon fontSize="small" color="white" />
       </Button>
     </Stack>
   );
