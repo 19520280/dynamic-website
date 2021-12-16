@@ -12,6 +12,7 @@ import WishListCard from "../../components/WishLishCard/WishListCard";
 import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
+import TabMenu from "../../components/Tab/TabMenu";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,13 @@ const WishListPage = () => {
   const Account = useSelector(AccountState$);
 
   const [data, setData] = useState(Account);
+  const menuItems = [
+    { value: 2, text: "CHỜ XÁC NHẬN" },
+    { value: 3, text: "CHỜ LẤY HÀNG" },
+    { value: 4, text: "ĐANG GIAO" },
+    { value: 5, text: "ĐÃ GIAO" },
+    { value: 6, text: "ĐÃ HỦY" },
+  ];
 
   useEffect(() => {
     if (Account) {
@@ -30,7 +38,7 @@ const WishListPage = () => {
     }
   }, [Account]);
   const value = 4;
-  const text = "Danh sách quan tâm";
+  const text = "Đơn mua";
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -59,8 +67,7 @@ const WishListPage = () => {
             }}
           >
             <HeaderTypography text={text} />
-          
-              <WishListCardGrid value={value} />
+            <TabMenu menuItems={menuItems}/>
           </Container>
         </Grid>
       </>
@@ -99,7 +106,7 @@ const WishListPage = () => {
             >
               <HeaderTypography text={text} />
 
-              <WishListCardGrid value={value} />
+              <TabMenu menuItems={menuItems} />
             </Container>
           </Grid>
         </Grid>

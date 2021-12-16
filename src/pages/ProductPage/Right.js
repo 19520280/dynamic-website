@@ -33,22 +33,11 @@ import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core";
+import TabMenu from "../../components/Tab/TabMenu";
+import CarouselProduct from "../../components/Carousel/CarouselProduct";
 
-const slide2 = require("../../assets/images/banners/SaleBanner.png").default;
+const image = require("../../assets/images/banners/SaleBanner.png").default;
 
-export const CustomTypography = ({ title }) => (
-  <div className="title">
-    <Typography
-      textAlign="center"
-      fontSize="calc(1.2rem + 1vw)"
-      fontWeight="bold"
-      color="primary"
-    >
-      {title}
-    </Typography>
-    <Divider sx={{ backgroundColor: SystemColor.main, width: "100%" }} />
-  </div>
-);
 const useStyle = makeStyles({
   header: {
     margin: "0px",
@@ -79,16 +68,12 @@ const Right = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
-  const [value, setValue] = React.useState("1");
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   const menuItems = [
-    { value: 2, text: "BÁN CHẠY" },
-    { value: 3, text: "MỚI NHẤT" },
-    { value: 4, text: "GIÁ CAO" },
-    { value: 5, text: "GIÁ THẤP" },
+    { value: 2, text: "PHỔ BIẾN" },
+    { value: 3, text: "BÁN CHẠY" },
+    { value: 4, text: "MỚI NHẤT" },
+    { value: 5, text: "GIÁ CAO" },
+    { value: 6, text: "GIÁ THẤP" },
   ];
 
   return (
@@ -106,84 +91,8 @@ const Right = () => {
             : ""
         }
       />
-      <Box
-        xs={12}
-        xl={9.5}
-        style={{
-          display: SaleBanner.payload ? "none" : "block",
-          height: "auto",
-        }}
-      >
-        <Carousel autoPlay swipe animation="slide">
-          <div className="container">
-            <img src={slide2} alt="Avatar" className={classes.image} />
-            <div className="middle">
-              <Button
-                variant="contained"
-                className="text"
-                onClick={() => {
-                  history.push("/");
-                }}
-              >
-                XEM THÊM
-              </Button>
-            </div>
-          </div>
-          <div className="container">
-            <img src={slide2} alt="Avatar" className={classes.image} />
-            <div className="middle">
-              <Button
-                variant="contained"
-                className="text"
-                onClick={() => {
-                  history.push("/");
-                }}
-              >
-                XEM THÊM
-              </Button>
-            </div>
-          </div>
-          <div className="container">
-            <img src={slide2} alt="Avatar" className={classes.image} />
-            <div className="middle">
-              <Button
-                variant="contained"
-                className="text"
-                onClick={() => {
-                  history.push("/");
-                }}
-              >
-                XEM THÊM
-              </Button>
-            </div>
-          </div>
-        </Carousel>
-      </Box>
-      <Box sx={{ width: "100%", typography: "body1" }}>
-        <TabContext indicatorColor="primary" value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              value={value}
-              defaultValue={value}
-              onChange={handleChange}
-              textColor="primary"
-              indicatorColor="primary"
-              aria-label="primary tabs example"
-              variant="scrollable"
-              scrollButtons="auto"
-            >
-              <Tab value="1" label="PHỔ BIẾN" />
-              {menuItems.map((item) => (
-                <Tab value={item.value} label={item.text} />
-              ))}
-            </Tabs>
-          </Box>
-          <TabPanel value="1"></TabPanel>
-          {menuItems.map((item) => (
-            <TabPanel value={item.value}></TabPanel>
-          ))}
-        </TabContext>
-      </Box>
+      <CarouselProduct image={image}/>
+      <TabMenu menuItems={menuItems}/>
       <section
         id="hot-products"
         className="containermain.fullwidthbanner-container"

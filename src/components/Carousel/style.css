@@ -1,0 +1,64 @@
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+  }
+  
+  .image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+
+  .fullwidthbanner-container {
+    position: relative;
+    margin-bottom: 80px;
+    width: 100%;
+  }
+  .containermain.fullwidthbanner-container {
+    position: relative;
+    margin-top: 8%;
+    margin-bottom: 8%;
+  }
+  .containermain.fullwidthbanner-container .title {
+    margin-bottom: calc(25% / 2 - 10%);
+    margin-left: 50%;
+    margin-top: calc(25% / 2 - 10%);
+    transform: translate(-50%, 0);
+    width: max-content;
+  }
+  .containermain.feedback-container {
+    position: relative;
+    padding: 0px;
+  }
+  
+  .css-vbidtp-MuiPaper-root-MuiDrawer-paper{
+    width: 70%;
+  }
