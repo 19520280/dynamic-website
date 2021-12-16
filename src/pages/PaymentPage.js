@@ -11,6 +11,7 @@ import {
 import HeaderTypography from "../components/Typographys/HeaderTypography";
 import PaymentCartLeftTable from "../components/Tables/PaymentCartLeftTable";
 import PaymentInfo from "../components/PaymentBody/PaymentInfo";
+import PaymentMethod from "../components/PaymentBody/PaymentMethod";
 import React from "react";
 import ShippingMethod from "../components/PaymentBody/ShippingMethod";
 import { SystemColor } from "../color";
@@ -82,7 +83,10 @@ const PaymentPage = () => {
               <UserInfo isGiven />
             </Collapse>
           </Box>
-          <ShippingMethod/>
+          <Stack direction="row" spacing={2}>
+            <ShippingMethod />
+            <PaymentMethod />
+          </Stack>
         </Stack>
         <PaymentInfo
           isMobile={isMobile}
