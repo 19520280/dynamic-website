@@ -29,12 +29,10 @@ function Topbar() {
   const setSaleBanner = React.useCallback(
     (value) => {
       dispatch(actions.showSaleBanner(value));
-      console.log(value, SaleBanner);
     },
     [dispatch]
   );
   useEffect(() => {
-    console.log("SaleBanner", SaleBanner);
   }, [SaleBanner]);
 
   return (
@@ -67,7 +65,6 @@ function Topbar() {
             }}
             variant="outlined"
             onChange={(e) => {
-              console.log(e.target.value);
               setText(e.target.value);
               // if (e.target.value == "") {
               //   setSaleBanner(false);

@@ -1,13 +1,15 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import { useMediaQuery, useTheme, Grid, Container, Slide } from "@mui/material";
-import { SystemColor, BgColor } from "../../color";
-import AccountSider from "../../components/Sider/AccountSider";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions/index";
+
+import { BgColor, SystemColor } from "../../color";
+import { Container, Grid, Slide, useMediaQuery, useTheme } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
+import AccountSider from "../../components/Sider/AccountSider";
 import { AccountState$ } from "../../redux/selectors";
+import React from "react";
 import WishListCard from "../../components/WishLishCard/WishListCard";
+import { useLocation } from "react-router-dom";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -26,7 +28,6 @@ const WishListPage = () => {
     }
   }, [Account]);
   const location = useLocation();
-  console.log(location.pathname);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   if (isMobile) {

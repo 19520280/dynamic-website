@@ -42,7 +42,7 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
             />
           </Stack>
           {readOnly ? (
-            <Typography color="secondary" fontSize="1rem" fontWeight="bold">
+            <Typography color="secondary" fontSize="0.8rem" fontWeight="bold">
               {`x ${sanPham.soLuong}`}
             </Typography>
           ) : null}

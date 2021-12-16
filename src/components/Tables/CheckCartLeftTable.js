@@ -9,20 +9,25 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { SystemColor, TxtColor } from "../../color";
 
 import CartProductDetail from "../CartProductDetail/CartProductDetail";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import NumericTextField from "./../TextFields/NumericTextField";
 import PriceTypography from "../Typographys/PriceTypography";
 import React from "react";
-import { SystemColor } from "../../color";
 import { cartProducts } from "../../dataSources/CartProducts";
 
 function EnhancedTableHead(props) {
   const { onSelectAllClick, numSelected, rowCount } = props;
 
   return (
-    <TableHead>
+    <TableHead
+      sx={{
+        position: "sticky",
+        top: "12px",
+      }}
+    >
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -46,7 +51,7 @@ function EnhancedTableHead(props) {
         <TableCell align="center" sx={{ color: "secondary" }}>
           Số lượng
         </TableCell>
-        <TableCell align="right" sx={{ color: "secondary" }}>
+        <TableCell align="right" sx={{ color: TxtColor.txtSecond }}>
           Thành tiền
         </TableCell>
 

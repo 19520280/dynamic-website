@@ -1,6 +1,6 @@
 .product-item {
   position: relative;
-  padding: 8px;
+  margin: 16px 8px;
   width:max-content;
   min-width: min-content;
   overflow: hidden;

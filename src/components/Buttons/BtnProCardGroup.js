@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 const BtnProCardGroup = () => {
   const dispatch = useDispatch();
   const openCollectionDialog = useCallback(() => {
-    console.log("Clicks");
     dispatch(showCollectionDialog());
   }, [dispatch]);
 
