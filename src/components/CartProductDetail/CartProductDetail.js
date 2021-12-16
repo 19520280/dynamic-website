@@ -1,8 +1,9 @@
 import "./CartProductDetail.css";
 
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, IconButton, Stack, Typography } from "@mui/material";
 
 import { Circle } from "@mui/icons-material";
+import EditIcon from "@mui/icons-material/Edit";
 import React from "react";
 import { SystemColor } from "../../color";
 
@@ -24,7 +25,7 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
             direction="row"
             alignItems="center"
             spacing={0.6}
-            divider={<Divider orientation="vertical" flexItem/>}
+            divider={<Divider orientation="vertical" flexItem />}
           >
             <Typography color="secondary" fontSize="0.8rem">
               {sanPham.kichThuoc}
@@ -40,6 +41,11 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
               }}
               fontSize="smaller"
             />
+            {!readOnly ? (
+              <IconButton title="Chỉnh sửa phân loại">
+                <EditIcon fontSize="small"/>
+              </IconButton>
+            ) : null}
           </Stack>
           {readOnly ? (
             <Typography color="secondary" fontSize="0.8rem" fontWeight="bold">

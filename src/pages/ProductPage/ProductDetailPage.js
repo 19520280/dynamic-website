@@ -1,29 +1,32 @@
-import * as React from "react";
 import "./style.css";
+
+import * as React from "react";
+
 import {
   Box,
-  Typography,
+  FormControl,
+  Grid,
   ImageList,
-  Tab,
   InputLabel,
   MenuItem,
-  FormControl,
-  Select,
-  Grid,
   Pagination,
+  Select,
+  Tab,
+  Typography,
 } from "@mui/material";
+
+import CommentPanel from "../../components/ProductDetail/CommentPanel";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import ProductPanel from "../../components/ProductDetail/ProductPanel";
+import RatingDetailPanel from "../../components/ProductDetail/RatingDetailPanel";
+import { SystemColor } from "../../color";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import TableInfo from "../../components/ProductDetail/TableInfo";
-import RatingDetailPanel from "../../components/ProductDetail/RatingDetailPanel";
-import CommentPanel from "../../components/ProductDetail/CommentPanel";
-import ProductPanel from "../../components/ProductDetail/ProductPanel";
-import { products } from "../../dataSources/Products";
-import { SystemColor } from "../../color";
-import { feedbacks } from "../../dataSources/Feedback";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import { color } from "@mui/system";
+import { feedbacks } from "../../dataSources/Feedback";
+import { products } from "../../dataSources/Products";
 
 const sanPham = products[1];
 const ProductDetailPage = () => {

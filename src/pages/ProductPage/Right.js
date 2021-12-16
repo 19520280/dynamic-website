@@ -27,6 +27,7 @@ import HeaderTypography from "./../../components/Typographys/HeaderTypography";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import React from "react";
+import RecentSeen from "./../../components/GridProductCard/RecentSeen";
 import { SaleBannerState$ } from "../../redux/selectors/index";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
@@ -187,7 +188,9 @@ const Right = () => {
         id="hot-products"
         className="containermain.fullwidthbanner-container"
       >
-        <ProducCardGrid />
+        <ProducCardGrid
+          phanLoai={SaleBanner.payload == true ? null : pathnames[0]}
+        />
       </section>
       <Stack alignItems="center">
         <Pagination
@@ -197,22 +200,7 @@ const Right = () => {
           style={{ marginTop: 40, marginBottom: 40 }}
         />
       </Stack>
-      <Typography component="div" className={classes.header}>
-        Sản phẩm bạn vừa xem
-      </Typography>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid
-          container
-          spacing={{ xs: 1, md: 2 }}
-          columns={{ xs: 2, sm: 6, md: 8 }}
-        >
-          {Array.from(Array(4)).map((_, index) => (
-            <Grid item xs={1} sm={2} md={2} key={index}>
-              <ProductCard />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <RecentSeen />
     </Container>
   );
 };

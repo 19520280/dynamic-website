@@ -9,9 +9,7 @@ import PriceTypography from "../Typographys/PriceTypography";
 import { products } from "../../dataSources/Products";
 import { useHistory } from "react-router-dom";
 
-const sanPham = products[0];
-
-const ProductCard = () => {
+const ProductCard = ({ sanPham }) => {
   const theme = useTheme();
   const history = useHistory();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
