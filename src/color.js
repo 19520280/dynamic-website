@@ -20,7 +20,7 @@ export const BtnColor = {
 export const SystemColor = {
   main: "#303537",
   gray: "#BEBEBE",
-  success: "#2E7D32",
+  success: "#044126",
   error: "#a40e1c",
   warning: "#ED6C02",
   info: "#0288D1",

@@ -9,20 +9,25 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { SystemColor, TxtColor } from "../../color";
 
 import CartProductDetail from "../CartProductDetail/CartProductDetail";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import NumericTextField from "./../TextFields/NumericTextField";
 import PriceTypography from "../Typographys/PriceTypography";
 import React from "react";
-import { SystemColor } from "../../color";
 import { cartProducts } from "../../dataSources/CartProducts";
 
 function EnhancedTableHead(props) {
   const { onSelectAllClick, numSelected, rowCount } = props;
 
   return (
-    <TableHead>
+    <TableHead
+      sx={{
+        position: "sticky",
+        top: "12px",
+      }}
+    >
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -31,6 +36,7 @@ function EnhancedTableHead(props) {
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
+            size="small"
             inputProps={{
               "aria-label": "select all desserts",
             }}
@@ -39,13 +45,19 @@ function EnhancedTableHead(props) {
         <TableCell>
           {`Sản phẩm ${numSelected > 0 ? `(${numSelected})` : ""}`}
         </TableCell>
-        <TableCell align="center">Đơn giá</TableCell>
-        <TableCell align="center">Số lượng</TableCell>
-        <TableCell align="center">Thành tiền</TableCell>
+        <TableCell align="right" sx={{ color: "secondary" }}>
+          Đơn giá
+        </TableCell>
+        <TableCell align="center" sx={{ color: "secondary" }}>
+          Số lượng
+        </TableCell>
+        <TableCell align="right" sx={{ color: TxtColor.txtSecond }}>
+          Thành tiền
+        </TableCell>
 
-        <TableCell align="right">
+        <TableCell align="right" padding="checkbox">
           <IconButton title="Xóa mục đã chọn">
-            <DeleteOutlinedIcon />
+            <DeleteOutlinedIcon fontSize="small" />
           </IconButton>
         </TableCell>
       </TableRow>
@@ -125,6 +137,7 @@ const CheckCartLeftTable = () => {
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
+                      size="small"
                       color="primary"
                       checked={isItemSelected}
                       onClick={(event) => handleClick(event, row.ten)}
@@ -141,24 +154,27 @@ const CheckCartLeftTable = () => {
                   >
                     <CartProductDetail sanPham={row} isQty={false} />
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="right">
                     <PriceTypography
+                      justifyContent="flex-end"
                       giaCu={row.giaCu}
                       gia={row.gia}
                       isMobile={true}
                     />
                   </TableCell>
                   <TableCell align="center">
-                    <NumericTextField
-                      soLuong={row.soLuong}
+                    <NumericTextField soLuong={row.soLuong} />
+                  </TableCell>
+                  <TableCell align="right">
+                    <PriceTypography
+                      gia={soLuong * row.gia}
+                      isMobile={true}
+                      justifyContent="flex-end"
                     />
                   </TableCell>
-                  <TableCell align="center">
-                    <PriceTypography gia={soLuong * row.gia} isMobile={true} />
-                  </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="right" padding="checkbox">
                     <IconButton>
-                      <DeleteOutlinedIcon />
+                      <DeleteOutlinedIcon fontSize="small" />
                     </IconButton>
                   </TableCell>
                 </TableRow>

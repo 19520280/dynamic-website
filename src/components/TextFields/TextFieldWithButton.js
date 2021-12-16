@@ -13,7 +13,7 @@ const TextFieldWithButton = ({ hintText, textButton, onClick }) => {
       <TextField
         id="outlined-size-small-textfield"
         placeholder={hintText}
-        size="small"
+        size="medium"
         inputProps={{
           style: { textAlign: "left", fontSize: "0.8rem", border:"1px" },
         }}

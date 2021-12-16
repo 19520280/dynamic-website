@@ -4,14 +4,14 @@ import { SystemColor, TxtColor } from "../../color";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import React from "react";
 import TextFieldWithButton from "../TextFields/TextFieldWithButton";
-import numberWithCommas from "./../../utils/numberWithCommas";
+import numberWithCommas from "../../utils/numberWithCommas";
 
 const moneyInfo = (title, info, isMoney) => (
   <Stack direction="row" alignItems="stretch" justifyContent="space-between">
-    <Typography fontSize="0.875rem" fontWeight="medium" color="secondary">
+    <Typography fontSize="0.87rem" fontWeight="medium" color="secondary">
       {title}
     </Typography>
-    <Typography fontSize="0.875rem" fontWeight="bold" color="primary">
+    <Typography fontSize="0.87rem" fontWeight="bold" color="primary">
       {info
         ? isMoney
           ? numberWithCommas(info)
@@ -20,19 +20,31 @@ const moneyInfo = (title, info, isMoney) => (
     </Typography>
   </Stack>
 );
-const PaymentInfo = ({ isMobile, shipFree }) => {
+const PaymentInfo = ({
+  isMobile,
+  shipFree,
+  isAccount,
+  onClickButton,
+  textLink,
+  onClickLink,
+}) => {
   return (
     <Stack
       direction="column"
       spacing={1}
       alignItems="stretch"
-      sx={{ width: isMobile ? "100%" : "25%", minWidth: "max-conent" }}
+      sx={{
+        width: isMobile ? "100%" : "30%",
+        minWidth: "max-conent",
+      position: "sticky",
+      top:"12px",
+      }}
     >
       <Box
         sx={{
           p: 2,
           backgroundColor: "white",
-          borderRadius: "4px",
+          borderRadius: "8px",
           border: "1px solid",
           borderColor: SystemColor.gray,
           width: "100%",
@@ -43,7 +55,7 @@ const PaymentInfo = ({ isMobile, shipFree }) => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="stretch"
-          spacing={2}
+          spacing={1.5}
         >
           <Typography variant="button" fontWeight="bold" color="secondary">
             THÔNG TIN ĐƠN HÀNG
@@ -76,17 +88,36 @@ const PaymentInfo = ({ isMobile, shipFree }) => {
               {numberWithCommas(500000)}
             </Typography>
           </Stack>
-          {moneyInfo("Điểm thưởng", 200)}
+          {isAccount ? (
+            moneyInfo("Điểm thưởng", 200)
+          ) : (
+            <Typography color="secondary" fontStyle="italic">
+              Đăng nhập để nhận điểm thưởng
+            </Typography>
+          )}
         </Stack>
       </Box>
-      <Button variant="contained" size="large" sx={{ width: "100%" }}>
+      <Button
+        variant="contained"
+        size="large"
+        sx={{ width: "100%" }}
+        onClick={onClickButton}
+      >
         Thanh toán
       </Button>
       <div
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
-        <ChevronLeftIcon sx={{color:TxtColor.txtSecond}} />
-        <Link underline="none"   color="secondary" sx={{cursor:"pointer"}}>Mua thêm</Link>
+        <ChevronLeftIcon sx={{ color: TxtColor.txtSecond }} />
+        <Link
+          underline="none"
+          color="secondary"
+          fontSize="medium"
+          sx={{ cursor: "pointer" }}
+          onClick={onClickLink}
+        >
+          {textLink}
+        </Link>
       </div>
     </Stack>
   );

@@ -16,9 +16,9 @@ import CollectionDialog from "./components/Dialogs/CollectionDialog/CollectionDi
 import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage/Homepage";
 import PaymentPage from "./pages/PaymentPage";
+import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListPage from "./pages/UserPage/WishListPage";
-import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 
 let theme = createTheme({
   palette: {
@@ -32,6 +32,14 @@ let theme = createTheme({
   text: {
     primary: "#303537",
     secondary: "#313537",
+  },
+  typography: {
+    button: {
+      fontSize: "0.8rem",
+    },
+    body1: {
+      fontSize: "0.8rem",
+    },
   },
   backgroundColor: "#FCFCFC",
   shadows: ["none"],
@@ -62,9 +70,6 @@ function App() {
             <Route path="/Phu-kien/Vi" exact component={CategoryCasePage} />
             <Route path="/Phu-kien/Non" exact component={CategoryCasePage} />
             <Route path="/Ca-nhan/Don-mua" exact component={WishListPage} />
-            {/* //#region test productDetailPage */}
-            <Route path="/id/:id" exact component={ProductDetailPage} />
-            {/* //#endregion */}
             <div
               className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
@@ -142,6 +147,8 @@ function App() {
                   <AccountPage {...props} accountRoute="Thong-bao" />
                 )}
               />
+
+              <Route path="/Ao/Ao-thun/:path" exact component={ProductDetailPage} />
             </div>
           </Switch>
         </Router>

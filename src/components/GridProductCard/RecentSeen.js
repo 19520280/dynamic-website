@@ -9,7 +9,7 @@ const RecentSeen = () => {
       <Typography
         fontWeight="bold"
         color="primary"
-        fontSize="calc(1rem + 0.7vw)"
+        fontSize="calc(0.8rem + 0.5vw)"
       >
         Sản phẩm bạn vừa xem
       </Typography>

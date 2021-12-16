@@ -30,6 +30,7 @@ const imgBasicTee32 =
 /* #endregion */
 
 export const product = {
+  id:"",
   ten: "",
   imgs: [[]],
   newTag: false,
@@ -51,6 +52,7 @@ export const product = {
 
 export const products = [
   {
+    path:"Ao/Ao-thun/basic-tee",
     ten: "Basic Tee",
     imgs: [
       [imgBasicTee11, imgBasicTee12],
@@ -74,6 +76,7 @@ export const products = [
     description: "Đẹp",
   },
   {
+    id:"Ao/Ao-thun/monarch-butterflys",
     ten: "Monarch Butterflys",
     imgs: [
       [

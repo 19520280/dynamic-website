@@ -1,7 +1,6 @@
 import { Avatar, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 
 const SiderAvatar = ({ avatarImage, accountName, timeHasJoined }) => {
-    console.log(avatarImage);
   return (
     <ListItem alignItems="flex-center">
       <ListItemAvatar>

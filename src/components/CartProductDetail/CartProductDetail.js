@@ -1,6 +1,6 @@
 import "./CartProductDetail.css";
 
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 
 import { Circle } from "@mui/icons-material";
 import React from "react";
@@ -16,13 +16,18 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
         spacing={1.5}
       >
         <img src={sanPham.image} />
-        <Stack direction="column" spacing={1} alignItems="flex-start">
-          <Typography color="primary" fontSize="1rem">
+        <Stack direction="column" spacing={1.5} alignItems="flex-start">
+          <Typography color="primary" fontSize="0.9rem">
             {sanPham.ten}
           </Typography>
-          <Stack direction="row" spacing={2.5} alignItems="center">
-            <Typography color="secondary" fontSize="0.9rem">
-              {`Phân loại: ${sanPham.kichThuoc}`}
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={0.6}
+            divider={<Divider orientation="vertical" flexItem/>}
+          >
+            <Typography color="secondary" fontSize="0.8rem">
+              {sanPham.kichThuoc}
             </Typography>
             <Circle
               style={{
@@ -31,15 +36,13 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
                 color: sanPham.mauSac,
                 minWidth: "0px",
                 padding: "0px",
-                margin: "0px",
                 borderRadius: "50%",
-                marginLeft: "8px",
               }}
-              fontSize="medium"
+              fontSize="smaller"
             />
-          </Stack>{" "}
+          </Stack>
           {readOnly ? (
-            <Typography color="secondary" fontSize="1rem" fontWeight="bold">
+            <Typography color="secondary" fontSize="0.8rem" fontWeight="bold">
               {`x ${sanPham.soLuong}`}
             </Typography>
           ) : null}

@@ -1,19 +1,19 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import Filter from "./Filter";
+import { BgColor, SystemColor } from "../../color";
 import {
+  Container,
+  Grid,
+  Slide,
   useMediaQuery,
   useTheme,
-  Grid,
-  Container,
-  Slide,
 } from "@mui/material";
+
+import Filter from "./Filter";
+import React from "react";
 import Right from "./Right";
-import { SystemColor, BgColor } from "../../color";
+import { useLocation } from "react-router-dom";
 
 const CategoryCasePage = () => {
   const location = useLocation();
-  console.log(location.pathname);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   if (isMobile) {

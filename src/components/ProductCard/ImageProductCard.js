@@ -4,10 +4,10 @@ import { Box } from "@mui/material";
 import BtnProCardGroup from "./../Buttons/BtnProCardGroup";
 import TagProCardGroup from "../Tag/TagProCardGroup";
 
-const ImageProductCard = ({ sanPham, indexSelected }) => {
+const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
   const [hovered, setHovered] = useState(0);
   return (
-    <Box sx={{ position: "relative", marginBottom: "8px" }}>
+    <Box sx={{ position: "relative", marginBottom: "8px" }} onClick={onClick}>
       <div
         className={hovered !== 0 ? "image-card active-switcher" : "image-card"}
       >
