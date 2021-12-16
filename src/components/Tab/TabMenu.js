@@ -30,9 +30,9 @@ export default function TabMenu({menuItems}) {
             ))}
           </Tabs>
         </Box>
-        <TabPanel value="1"></TabPanel>
+        <TabPanel style={{padding:"12px"}} value="1"></TabPanel>
         {menuItems.map((item) => (
-          <TabPanel value={item.value}></TabPanel>
+          <TabPanel style={{padding:"12px"}} value={item.value}></TabPanel>
         ))}
       </TabContext>
     </Box>

@@ -59,8 +59,8 @@ export default function WishListCard() {
       padding: "0px",
     },
     card: {
-      width: "330px",
-      height: "340px",
+      maxWidth: "330px",
+      minHeight: "340px",
       border: "1px solid #bebebe",
       borderRadius: "4px",
       padding: "0px"
@@ -127,13 +127,13 @@ export default function WishListCard() {
         </CardActionArea>
 
           <Grid container>
-            <Grid xs={8} item>
+            <Grid xs={6} xl={8} item>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "flex-start",
                   paddingTop: 1,
-                  paddingLeft: 2,
+                  paddingLeft: 1.5,
                 }}
               >
                 <CardContent style={{ padding: "0px" }}>
@@ -148,13 +148,12 @@ export default function WishListCard() {
                 </CardContent>
               </Box>
             </Grid>
-            <Grid xs={4} item>
+            <Grid xs={6} xl={4} item>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                   paddingTop: 1.5,
-                  paddingLeft: 2,
                   paddingRight: 2,
                 }}
                 className={classes.boxicon}
@@ -190,7 +189,7 @@ export default function WishListCard() {
               paddingLeft: 2,
             }}
           >
-            <CardContent style={{ padding: "0px 0px 20px 0px" }}>
+            <CardContent style={{ padding: "0px 0px 15px 0px" }}>
               <Typography
                 className={classes.subcontent}
                 gutterBottom

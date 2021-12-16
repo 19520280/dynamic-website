@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
 import TabMenu from "../../components/Tab/TabMenu";
+import SearchInput from "../../components/SearchInput/SearchInput";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -67,7 +68,8 @@ const WishListPage = () => {
             }}
           >
             <HeaderTypography text={text} />
-            <TabMenu menuItems={menuItems}/>
+            <TabMenu menuItems={menuItems} />
+            <SearchInput />
           </Container>
         </Grid>
       </>
@@ -105,8 +107,8 @@ const WishListPage = () => {
               }}
             >
               <HeaderTypography text={text} />
-
               <TabMenu menuItems={menuItems} />
+              <SearchInput />
             </Container>
           </Grid>
         </Grid>

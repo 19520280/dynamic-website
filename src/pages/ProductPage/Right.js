@@ -58,15 +58,10 @@ const useStyle = makeStyles({
 });
 
 const Right = () => {
-  const dispatch = useDispatch();
   const SaleBanner = useSelector(SaleBannerState$);
-  const setSaleBanner = React.useCallback(() => {
-    dispatch(actions.showSaleBanner(false));
-  }, [dispatch]);
-  const classes = useStyle();
-  const history = useHistory();
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
+  const lengthGrid=8;
 
   const menuItems = [
     { value: 2, text: "PHỔ BIẾN" },
@@ -98,7 +93,7 @@ const Right = () => {
         className="containermain.fullwidthbanner-container"
       >
         <ProducCardGrid
-          phanLoai={SaleBanner.payload == true ? null : pathnames[0]}
+          phanLoai={SaleBanner.payload == true ? null : pathnames[0]} lengthGrid={lengthGrid}
         />
       </section>
       <Stack alignItems="center">
