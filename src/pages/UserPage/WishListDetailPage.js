@@ -1,19 +1,28 @@
 import * as actions from "../../redux/actions/index";
-
+import FormControlLabel from "@mui/material/FormControlLabel";
 import { BgColor, SystemColor } from "../../color";
-import { Container, Grid, Slide, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Slide,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-
+import Checkbox from "@mui/material/Checkbox";
 import AccountSider from "../../components/Sider/AccountSider";
 import { AccountState$ } from "../../redux/selectors";
 import React from "react";
 import WishListCard from "../../components/WishLishCard/WishListCard";
 import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
+import { Box } from "@mui/system";
+import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
 
-const WishListPage = () => {
+const WishListDetailPage = () => {
   const dispatch = useDispatch();
   //#region get data
   useEffect(() => {
@@ -30,10 +39,17 @@ const WishListPage = () => {
     }
   }, [Account]);
   const value = 4;
-  const text = "Danh sách quan tâm";
+  const text = "Chi tiết danh sách quan tâm";
+  const label = "Số lượng sản phẩm: 8";
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [checked, setChecked] = React.useState(true);
+
+  const handleChange = (event) => {
+    console.log(event.target.checked);
+    setChecked(event.target.checked);
+  };
   if (isMobile) {
     return (
       <>
@@ -55,12 +71,16 @@ const WishListPage = () => {
             style={{
               backgroundColor: "transparent",
               padding: "0px 0px 0px 20px",
-              width: "100%",
             }}
           >
             <HeaderTypography text={text} />
-          
-              <WishListCardGrid value={value} />
+            <Grid container paddingLeft={"20px"}>
+              <FormControlLabel
+                control={<Checkbox checked={checked} onChange={handleChange} />}
+                label={checked ? "8 sản phẩm đã chọn" : "Tất cả"}
+              />
+            </Grid>
+            <ProducCardGrid />
           </Container>
         </Grid>
       </>
@@ -91,20 +111,27 @@ const WishListPage = () => {
             </Container>
           </Grid>
           <Grid item xs={9.5} xl={9.5}>
-            <Container
+            <Box
               style={{
                 paddingLeft: "40px",
                 backgroundColor: "transparent",
               }}
             >
               <HeaderTypography text={text} />
-
-              <WishListCardGrid value={value} />
-            </Container>
+              <Grid container paddingLeft={"20px"}>
+                <FormControlLabel
+                  control={
+                    <Checkbox checked={checked} onChange={handleChange} />
+                  }
+                  label={checked ? "8 sản phẩm đã chọn" : "Tất cả"}
+                />
+              </Grid>
+              <ProducCardGrid />
+            </Box>
           </Grid>
         </Grid>
       </Slide>
     );
 };
 
-export default WishListPage;
+export default WishListDetailPage;

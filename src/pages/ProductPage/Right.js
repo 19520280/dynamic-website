@@ -35,19 +35,6 @@ import { makeStyles } from "@material-ui/core";
 
 const slide2 = require("../../assets/images/banners/SaleBanner.png").default;
 
-export const CustomTypography = ({ title }) => (
-  <div className="title">
-    <Typography
-      textAlign="center"
-      fontSize="calc(1.2rem + 1vw)"
-      fontWeight="bold"
-      color="primary"
-    >
-      {title}
-    </Typography>
-    <Divider sx={{ backgroundColor: SystemColor.main, width: "100%" }} />
-  </div>
-);
 const useStyle = makeStyles({
   header: {
     margin: "0px",
