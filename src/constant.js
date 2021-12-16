@@ -57,5 +57,8 @@ export const INIT_STATE = {
       thirdRing: 83,
     },
   },
+  OrderStatus: {
+    data: "TẤT CẢ",
+  }
   //#endregion
 };

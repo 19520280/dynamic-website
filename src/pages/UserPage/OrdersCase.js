@@ -1,19 +1,30 @@
 import * as actions from "../../redux/actions/index";
-
 import { BgColor, SystemColor } from "../../color";
-import { Container, Grid, Slide, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Slide,
+  useMediaQuery,
+  useTheme,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { OrderStatusState$ } from "../../redux/selectors";
 import { useEffect, useState } from "react";
-
+import CheckCartLeftTable from "../../components/Tables/CheckCartLeftTable";
 import AccountSider from "../../components/Sider/AccountSider";
 import { AccountState$ } from "../../redux/selectors";
 import React from "react";
 import WishListCard from "../../components/WishLishCard/WishListCard";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
 import TabMenu from "../../components/Tab/TabMenu";
 import SearchInput from "../../components/SearchInput/SearchInput";
+import PaymentInfo from "../../components/PaymentBody/PaymentInfo";
+import OrdersCaseTypography from "../../components/Typographys/OrdersCaseTypography";
+import OrderStatus from "../../components/Tables/OrderStatus";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -41,12 +52,34 @@ const WishListPage = () => {
   const value = 4;
   const text = "Đơn mua";
   const location = useLocation();
+  const history = useHistory();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  
+  const Status = useSelector(OrderStatusState$);
+  console.log(Status);
+
+  const body = (
+    <>
+      <HeaderTypography text={text} />
+      <TabMenu menuItems={menuItems} />
+      <SearchInput />
+      <OrderStatus status={Status.payload}/>
+      <OrderStatus status={Status.payload}/>
+
+    </>
+  );
   if (isMobile) {
     return (
       <>
-        {/* <Grid item xs={8} xl={2.5}>
+        <Grid
+          container
+          spacing={0}
+          style={{
+            background: BgColor.mainBg,
+          }}
+        >
+          {/* <Grid item xs={8} xl={2.5}>
           <Container
             style={{
               backgroundColor: BgColor.mainBg,
@@ -59,18 +92,16 @@ const WishListPage = () => {
         />
           </Container>
         </Grid> */}
-        <Grid item xs={12} xl={9.5}>
-          <Container
-            style={{
-              backgroundColor: "transparent",
-              padding: "0px 0px 0px 20px",
-              width: "100%",
-            }}
-          >
-            <HeaderTypography text={text} />
-            <TabMenu menuItems={menuItems} />
-            <SearchInput />
-          </Container>
+          <Grid item xs={12} xl={9.5}>
+            <Container
+              style={{
+                backgroundColor: "transparent",
+                width: "100%",
+              }}
+            >
+              {body}
+            </Container>
+          </Grid>
         </Grid>
       </>
     );
@@ -106,9 +137,7 @@ const WishListPage = () => {
                 backgroundColor: "transparent",
               }}
             >
-              <HeaderTypography text={text} />
-              <TabMenu menuItems={menuItems} />
-              <SearchInput />
+              {body}
             </Container>
           </Grid>
         </Grid>

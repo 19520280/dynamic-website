@@ -17,7 +17,10 @@ export default function SearchInputypeof() {
         display: "flex",
         alignItems: "center",
         width: "100%",
-        border: "1px solid gray",
+        border: "1px solid",
+        borderRadius: "8px",
+        borderColor: SystemColor.gray,
+
       }}
     >
       <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">

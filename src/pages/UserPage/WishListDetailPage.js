@@ -123,7 +123,7 @@ const WishListDetailPage = () => {
                   control={
                     <Checkbox checked={checked} onChange={handleChange} />
                   }
-                  label={checked ? "8 sản phẩm đã chọn" : "Tất cả"}
+                  label={checked ? "3 sản phẩm đã chọn" : "Tất cả"}
                 />
               </Grid>
               <ProducCardGrid />
