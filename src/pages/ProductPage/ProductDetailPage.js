@@ -12,9 +12,9 @@ import {
   Grid,
   Pagination,
 } from "@mui/material";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
+import TabContext from "@material-ui/lab/TabContext";
+import TabList from "@material-ui/lab/TabList";
+import TabPanel from "@material-ui/lab/TabPanel";
 import TableInfo from "../../components/ProductDetail/TableInfo";
 import RatingDetailPanel from "../../components/ProductDetail/RatingDetailPanel";
 import CommentPanel from "../../components/ProductDetail/CommentPanel";
