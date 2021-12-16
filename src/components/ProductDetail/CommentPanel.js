@@ -24,11 +24,13 @@ export default function CommentPanel({ feedback }) {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ marginTop: 3, marginLeft: 8 }}>
-          <Typography>Vòng 1: 90 cm</Typography>
-          <Typography>Vòng 2: 60 cm</Typography>
-          <Typography>Vòng 3: 90 cm</Typography>
-        </Box>
+        {feedback.showMeesure ? (
+          <Box sx={{ marginTop: 3, marginLeft: 8 }}>
+            <Typography>Vòng 1: {feedback.chiSo.v1} cm</Typography>
+            <Typography>Vòng 2: {feedback.chiSo.v2} cm</Typography>
+            <Typography>Vòng 3: {feedback.chiSo.v3} cm</Typography>
+          </Box>
+        ) : null}
       </Box>
       <Box sx={{ display: "flex" }}>
         <Box width={450}>
