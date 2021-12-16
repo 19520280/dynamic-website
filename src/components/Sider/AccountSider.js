@@ -46,7 +46,7 @@ const useStyle = makeStyles({
     fontSize: "16px",
     lineHeight: "31px",
     color: "#303537",
-    backgroundColor: "#FCFCFC",
+    backgroundColor: "transparent",
   },
   listSubmenuItem: {
     padding: "0px",
@@ -55,7 +55,7 @@ const useStyle = makeStyles({
     fontSize: "16px",
     lineHeight: "31px",
     color: "#5E6669",
-    backgroundColor: "#FCFCFC",
+    backgroundColor: "transparent",
   },
 });
 
