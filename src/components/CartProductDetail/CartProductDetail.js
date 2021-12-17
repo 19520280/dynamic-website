@@ -1,6 +1,13 @@
 import "./CartProductDetail.css";
 
-import { Box, Divider, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 
 import { Circle } from "@mui/icons-material";
 import EditIcon from "@mui/icons-material/Edit";
@@ -27,23 +34,34 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
             spacing={0.6}
             divider={<Divider orientation="vertical" flexItem />}
           >
-            <Typography color="secondary" fontSize="0.8rem">
-              {sanPham.kichThuoc}
-            </Typography>
-            <Circle
-              style={{
-                border: "1px solid",
-                borderColor: SystemColor.gray,
-                color: sanPham.mauSac,
-                minWidth: "0px",
-                padding: "0px",
-                borderRadius: "50%",
-              }}
-              fontSize="smaller"
-            />
+            <Box sx={{ width: "60px" }}>
+              <Typography color="secondary" fontSize="0.8rem">
+                Size: {sanPham.kichThuoc}
+              </Typography>
+            </Box>
+            <Box sx={{ width: "100px" }}>
+              <Stack direction="row" spacing={1}>
+                <Typography color="secondary" fontSize="0.8rem">
+                  Màu sắc:
+                </Typography>
+                <Circle
+                  style={{
+                    border: "1px solid",
+                    borderColor: SystemColor.gray,
+                    color: sanPham.mauSac,
+                    minWidth: "0px",
+                    padding: "0px",
+                    marginTop: "3px",
+                    borderRadius: "50%",
+                  }}
+                  fontSize="smaller"
+                />
+              </Stack>
+            </Box>
+
             {!readOnly ? (
               <IconButton title="Chỉnh sửa phân loại">
-                <EditIcon fontSize="small"/>
+                <EditIcon fontSize="small" />
               </IconButton>
             ) : null}
           </Stack>

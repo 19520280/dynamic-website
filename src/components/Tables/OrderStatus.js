@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import OrdersCaseTypography from "../Typographys/OrdersCaseTypography";
-import CheckCartLeftTable from "./CheckCartLeftTable";
+import PaymentCartLeftTable from "./PaymentCartLeftTable";
 
 export default function OrderStatus({ status }) {
   return (
@@ -9,7 +9,7 @@ export default function OrderStatus({ status }) {
       <Grid item container justifyContent="flex-end">
         <OrdersCaseTypography text={status ? status : "TẤT CẢ"} />
       </Grid>
-      <CheckCartLeftTable />
+      <PaymentCartLeftTable />
     </Grid>
   );
 }
