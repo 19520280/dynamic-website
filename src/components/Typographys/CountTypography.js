@@ -1,12 +1,12 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
-const HeaderTypography = ({ text, color }) => {
+const CountTypography = ({ text }) => {
   return (
     <Typography
-      fontSize="calc(1rem + 0.6vw)"
+      fontSize="calc(1rem + 0.1vw)"
       fontWeight="bold"
-      color={color==null?"primary":color}
+      color="primary"
       padding=" 12px 0px 12px 0px"
     >
       {text}
@@ -14,4 +14,4 @@ const HeaderTypography = ({ text, color }) => {
   );
 };
 
-export default HeaderTypography;
+export default CountTypography;

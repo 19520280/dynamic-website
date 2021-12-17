@@ -7,7 +7,7 @@ const Div = styled('div')(({ theme }) => ({
   backgroundColor: "transparent",
   padding: theme.spacing(1),
   color: SystemColor.main,
-  fontSize: "18px",
+  fontSize: "16px",
 }));
 
 export default function OrdersCaseTypography({text}) {

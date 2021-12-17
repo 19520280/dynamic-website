@@ -7,24 +7,18 @@ import {
   useMediaQuery,
   useTheme,
   Stack,
-  Typography,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { OrderStatusState$ } from "../../redux/selectors";
 import { useEffect, useState } from "react";
-import CheckCartLeftTable from "../../components/Tables/CheckCartLeftTable";
 import AccountSider from "../../components/Sider/AccountSider";
 import { AccountState$ } from "../../redux/selectors";
 import React from "react";
-import WishListCard from "../../components/WishLishCard/WishListCard";
 import { useLocation, useHistory } from "react-router-dom";
-import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
 import TabMenu from "../../components/Tab/TabMenu";
-import SearchInput from "../../components/SearchInput/SearchInput";
-import PaymentInfo from "../../components/PaymentBody/PaymentInfo";
-import OrdersCaseTypography from "../../components/Typographys/OrdersCaseTypography";
-import OrderStatus from "../../components/OrderStatus/OrderStatus";
+import PointStatus from "../../components/PointStatus/PointStatus";
+import { Orders } from "../../dataSources/Orders";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -37,20 +31,20 @@ const WishListPage = () => {
 
   const [data, setData] = useState(Account);
   const menuItems = [
-    { value: 2, text: "CHỜ XÁC NHẬN" },
-    { value: 3, text: "CHỜ LẤY HÀNG" },
-    { value: 4, text: "ĐANG GIAO" },
-    { value: 5, text: "ĐÃ GIAO" },
-    { value: 6, text: "ĐÃ HỦY" },
+    { value: 2, text: "ĐÃ NHẬN" },
+    { value: 3, text: "ĐÃ DÙNG" },
   ];
-
+  const listPoint= Orders.map((data)=>data.diem);
+  const sumPoint = listPoint.reduce(function (previousValue, currentValue) {
+    return previousValue + currentValue;
+  }, 0);
   useEffect(() => {
     if (Account) {
       setData(Account);
     }
   }, [Account]);
   const value = 4;
-  const text = "Đơn mua";
+  const text = "Điểm thưởng";
   const location = useLocation();
   const history = useHistory();
   const theme = useTheme();
@@ -61,15 +55,14 @@ const WishListPage = () => {
 
   const body = (
     <>
-      <HeaderTypography text={text} />
-      <TabMenu menuItems={menuItems} />
-      <SearchInput />
-      <Stack direction="column" spacing={2}>
-        <OrderStatus status={Status.payload} />
-        <OrderStatus status={Status.payload} />
+      <Stack direction="row" spacing={2}>
+        <HeaderTypography text={text} />
+        <HeaderTypography color={"secondary"} text={sumPoint + " điểm"} />
       </Stack>
-      <OrderStatus status={Status.payload} />
-      <OrderStatus status={Status.payload} />
+      <TabMenu menuItems={menuItems} />
+      <Stack direction="column" spacing={2}>
+        <PointStatus status={Status.payload} />
+      </Stack>
     </>
   );
   if (isMobile) {

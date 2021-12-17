@@ -14,7 +14,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import React from "react";
 import { SystemColor } from "../../color";
 
-const CartProductDetail = ({ sanPham, readOnly }) => {
+const CartProductDetail = ({ sanPham, readOnly, total }) => {
   return (
     <div className="product-item">
       <Stack
@@ -28,7 +28,8 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
           <Typography color="primary" fontSize="0.9rem">
             {sanPham.ten}
           </Typography>
-          <Stack
+          {!total? (
+            <Stack
             direction="row"
             alignItems="center"
             spacing={0.6}
@@ -39,7 +40,7 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
                 Size: {sanPham.kichThuoc}
               </Typography>
             </Box>
-            <Box sx={{ width: "100px" }}>
+            <Box sx={{ width: "auto", paddingRight:"10px" }}>
               <Stack direction="row" spacing={1}>
                 <Typography color="secondary" fontSize="0.8rem">
                   Màu sắc:
@@ -65,7 +66,20 @@ const CartProductDetail = ({ sanPham, readOnly }) => {
               </IconButton>
             ) : null}
           </Stack>
-          {readOnly ? (
+          ):null}
+          
+          {total ? (
+            <>
+              <Typography color="primary" fontSize="0.9rem">
+                {`+ ${sanPham.soLuong} sản phẩm khác`}
+              </Typography>
+              <Typography color="secondary" fontSize="0.8rem">
+                {sanPham.ngay}
+              </Typography>
+            </>
+          ) : null}
+
+          {readOnly && !total ? (
             <Typography color="secondary" fontSize="0.8rem" fontWeight="bold">
               {`x ${sanPham.soLuong}`}
             </Typography>

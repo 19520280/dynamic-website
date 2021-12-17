@@ -21,6 +21,7 @@ import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListPage from "./pages/UserPage/WishListPage";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import OrdersCase from "./pages/UserPage/OrdersCase";
+import PointCase from "./pages/UserPage/PointCase";
 
 let theme = createTheme({
   palette: {
@@ -74,6 +75,8 @@ function App() {
             <Route path="/Ca-nhan/Danh-sach-quan-tam" exact component={WishListPage} />
             <Route path="/Ca-nhan/Danh-sach-quan-tam/Chi-tiet" exact component={WishListDetailPage} />
             <Route path="/Ca-nhan/Don-mua" exact component={OrdersCase} />
+            <Route path="/Ca-nhan/Diem-thuong" exact component={PointCase} />
+
             <div
               className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
