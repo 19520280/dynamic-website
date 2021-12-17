@@ -28,7 +28,7 @@ const ProductCard = ({ sanPham }) => {
         variant="subtitle1"
         component="div"
         className="name"
-        fontSize={isMobile ? "0.9rem" : "1rem"}
+        fontSize={isMobile ? "0.8rem" : "0.85rem"}
       >
         {sanPham.ten}
       </Typography>

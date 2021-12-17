@@ -14,9 +14,7 @@ const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
           gutterBottom
           component="div"
           color="text.secondary"
-          fontSize={
-            isMobile ? "calc(0.8rem + 0.05vw)" : "calc(0.875rem + 0.05vw)"
-          }
+          fontSize={isMobile ? "calc(0.8rem)" : "calc(0.875rem)"}
         >
           {numberWithCommas(giaCu)}
         </Typography>
@@ -26,17 +24,18 @@ const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
           gutterBottom
           component="div"
           sx={{ fontWeight: "medium" }}
-          fontSize={
-            isMobile ? "calc(0.8rem + 0.05vw)" : "calc(0.875rem + 0.05vw)"
-          }
+          fontSize={isMobile ? "calc(0.8rem)" : "calc(0.875rem)"}
           className="price"
           color={giaCu ? SystemColor.error : SystemColor.main}
         >
-          { numberWithCommas(gia)}
+          {numberWithCommas(gia)}
         </Typography>
       ) : null}
       {point ? (
-        <HeaderTypography text={point + " điểm"} color={point>0?"primary":"secondary"}/>
+        <HeaderTypography
+          text={point + " điểm"}
+          color={point > 0 ? "primary" : "secondary"}
+        />
       ) : null}
     </Stack>
   );

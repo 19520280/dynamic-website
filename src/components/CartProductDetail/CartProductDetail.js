@@ -7,6 +7,8 @@ import {
   IconButton,
   Stack,
   Typography,
+  useMediaQuery,
+  useTheme
 } from "@mui/material";
 
 import { Circle } from "@mui/icons-material";
@@ -15,6 +17,8 @@ import React from "react";
 import { SystemColor } from "../../color";
 
 const CartProductDetail = ({ sanPham, readOnly, total }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div className="product-item">
       <Stack
@@ -25,7 +29,7 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
       >
         <img src={sanPham.image} />
         <Stack direction="column" spacing={1.5} alignItems="flex-start">
-          <Typography color="primary" fontSize="0.9rem">
+          <Typography color="primary" fontSize={isMobile ? "0.8rem" : "0.85rem"}>
             {sanPham.ten}
           </Typography>
           {!total? (
@@ -36,13 +40,13 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
             divider={<Divider orientation="vertical" flexItem />}
           >
             <Box sx={{ width: "60px" }}>
-              <Typography color="secondary" fontSize="0.8rem">
+              <Typography color="secondary" fontSize={isMobile ? "0.75rem" : "0.8rem"}>
                 Size: {sanPham.kichThuoc}
               </Typography>
             </Box>
             <Box sx={{ width: "auto", paddingRight:"10px" }}>
               <Stack direction="row" spacing={1}>
-                <Typography color="secondary" fontSize="0.8rem">
+                <Typography color="secondary" fontSize={isMobile ? "0.75rem" : "0.8rem"}>
                   Màu sắc:
                 </Typography>
                 <Circle
@@ -70,7 +74,7 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
           
           {total ? (
             <>
-              <Typography color="primary" fontSize="0.9rem">
+              <Typography color="primary" fontSize={isMobile ? "0.75rem" : "0.8rem"}>
                 {`+ ${sanPham.soLuong} sản phẩm khác`}
               </Typography>
               <Typography color="secondary" fontSize="0.8rem">
@@ -80,7 +84,7 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
           ) : null}
 
           {readOnly && !total ? (
-            <Typography color="secondary" fontSize="0.8rem" fontWeight="bold">
+            <Typography color="secondary" fontSize={isMobile ? "0.75rem" : "0.8rem"} fontWeight="medium">
               {`x ${sanPham.soLuong}`}
             </Typography>
           ) : null}

@@ -57,16 +57,24 @@ const WishListDetailPage = () => {
   const [checked, setChecked] = React.useState(true);
   const handleChange = (event) => {
     setChecked(event.target.checked);
-    if (event.target.checked == false && select==false)
-    {setSelect(true)} else {
+    if (event.target.checked == false && select == false) {
+      setSelect(true);
+    } else {
       setSelect(false);
     }
   };
   const body = (
     <>
-      <HeaderTypography text={text} />
-      <Grid container paddingLeft={"20px"}>
-        <Grid item xs={5} xl={6}>
+      <Grid container paddingLeft={isMobile ? "16px" : "24px"}>
+        <HeaderTypography text={text} />
+      </Grid>
+      <Grid container paddingLeft={isMobile ? "16px" : "24px"} paddingBottom={isMobile ? "0px" : "24px"}>
+        <Grid
+          item
+          xs={5}
+          xl={6}
+          padding={isMobile ? "16px 0px 16px 0px" : "0px"}
+        >
           <FormControlLabel
             control={<Checkbox checked={checked} onChange={handleChange} />}
             label={checked ? "8 sản phẩm đã chọn" : "Tất cả"}
@@ -120,11 +128,11 @@ const WishListDetailPage = () => {
         />
           </Container>
         </Grid> */}
-        <Grid item xs={12} xl={9.5} style={{marginBottom:"8%"}}>
+        <Grid item xs={12} xl={9.5} style={{ marginBottom: "8%" }}>
           <Container
             style={{
               backgroundColor: "transparent",
-              padding: "0px 0px 0px 20px",
+              padding: isMobile ? "0px" : "0px 0px 0px 20px",
             }}
           >
             {body}
@@ -157,7 +165,7 @@ const WishListDetailPage = () => {
               />
             </Container>
           </Grid>
-          <Grid item xs={9.5} xl={9.5} style={{marginBottom:"8%"}} >
+          <Grid item xs={9.5} xl={9.5} style={{ marginBottom: "8%" }}>
             <Box
               style={{
                 paddingLeft: "40px",
