@@ -22,6 +22,7 @@ import WishListPage from "./pages/UserPage/WishListPage";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import OrdersCase from "./pages/UserPage/OrdersCase";
 import PointCase from "./pages/UserPage/PointCase";
+import Footer from "./components/Footer/Footer";
 
 let theme = createTheme({
   palette: {
@@ -72,8 +73,16 @@ function App() {
             <Route path="/Phu-kien/Tui" exact component={CategoryCasePage} />
             <Route path="/Phu-kien/Vi" exact component={CategoryCasePage} />
             <Route path="/Phu-kien/Non" exact component={CategoryCasePage} />
-            <Route path="/Ca-nhan/Danh-sach-quan-tam" exact component={WishListPage} />
-            <Route path="/Ca-nhan/Danh-sach-quan-tam/Chi-tiet" exact component={WishListDetailPage} />
+            <Route
+              path="/Ca-nhan/Danh-sach-quan-tam"
+              exact
+              component={WishListPage}
+            />
+            <Route
+              path="/Ca-nhan/Danh-sach-quan-tam/Chi-tiet"
+              exact
+              component={WishListDetailPage}
+            />
             <Route path="/Ca-nhan/Don-mua" exact component={OrdersCase} />
             <Route path="/Ca-nhan/Diem-thuong" exact component={PointCase} />
 
@@ -148,10 +157,15 @@ function App() {
                 )}
               />
 
-              <Route path="/Ao/Ao-thun/:path" exact component={ProductDetailPage} />
+              <Route
+                path="/Ao/Ao-thun/:path"
+                exact
+                component={ProductDetailPage}
+              />
             </div>
           </Switch>
         </Router>
+        <Footer />
         <ScrollButton />
       </ThemeProvider>
     </>
