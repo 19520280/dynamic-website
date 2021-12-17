@@ -35,6 +35,8 @@ import TabPanel from "@material-ui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core";
 import TabMenu from "../../components/Tab/TabMenu";
 import CarouselProduct from "../../components/Carousel/CarouselProduct";
+import ProductBanner from "../../components/Banner/ProductBanner";
+
 
 const image = require("../../assets/images/banners/SaleBanner.png").default;
 
@@ -86,7 +88,8 @@ const Right = () => {
             : ""
         }
       />
-      <CarouselProduct image={image}/>
+      {/* <CarouselProduct image={image}/> */}
+      <ProductBanner />
       <TabMenu menuItems={menuItems}/>
       <section
         id="hot-products"
