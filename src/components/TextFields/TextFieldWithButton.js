@@ -1,5 +1,7 @@
-import { Button, Stack, TextField } from "@mui/material";
 import "./style.css";
+
+import { Button, Stack, TextField } from "@mui/material";
+
 import React from "react";
 
 const TextFieldWithButton = ({ hintText, textButton, onClick }) => {
@@ -17,7 +19,6 @@ const TextFieldWithButton = ({ hintText, textButton, onClick }) => {
         inputProps={{
           style: {
             textAlign: "left",
-            fontSize: "0.8rem",
             border: "1px",
             borderTopLeftRadius: "4px",
             borderBottomLeftRadius: "4px",

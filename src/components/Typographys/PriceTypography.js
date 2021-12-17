@@ -1,9 +1,9 @@
 import { Stack, Typography } from "@mui/material";
 
+import CountTypography from "./CountTypography";
 import React from "react";
 import { SystemColor } from "../../color";
 import numberWithCommas from "./../../utils/numberWithCommas";
-import CountTypography from "./CountTypography";
 
 const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
   return (
@@ -14,7 +14,7 @@ const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
           gutterBottom
           component="div"
           color="text.secondary"
-          fontSize={isMobile ? "calc(0.8rem)" : "calc(0.875rem)"}
+          fontSize={isMobile ? "calc(0.8rem)" : "calc(1rem)"}
         >
           {numberWithCommas(giaCu)}
         </Typography>
@@ -24,18 +24,14 @@ const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
           gutterBottom
           component="div"
           sx={{ fontWeight: "medium" }}
-          fontSize={isMobile ? "calc(0.8rem)" : "calc(0.875rem)"}
+          fontSize={isMobile ? "calc(0.8rem)" : "calc(1rem)"}
           className="price"
-          color={giaCu ? SystemColor.error : SystemColor.main}
+          color={SystemColor.error}
         >
           {numberWithCommas(gia)}
         </Typography>
       ) : null}
-      {point ? (
-        <CountTypography
-          text={point + " điểm"}
-        />
-      ) : null}
+      {point ? <CountTypography text={point + " điểm"} /> : null}
     </Stack>
   );
 };

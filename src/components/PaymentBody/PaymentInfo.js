@@ -8,10 +8,10 @@ import numberWithCommas from "../../utils/numberWithCommas";
 
 const moneyInfo = (title, info, isMoney) => (
   <Stack direction="row" alignItems="stretch" justifyContent="space-between">
-    <Typography fontSize="0.87rem" fontWeight="medium" color="secondary">
+    <Typography fontWeight="medium" color="secondary">
       {title}
     </Typography>
-    <Typography fontSize="0.87rem" fontWeight="bold" color="primary">
+    <Typography  fontWeight="bold" color="primary">
       {info
         ? isMoney
           ? numberWithCommas(info)
