@@ -4,10 +4,10 @@ import { Typography } from "@mui/material";
 const CountTypography = ({ text }) => {
   return (
     <Typography
-      fontSize="calc(1rem + 0.1vw)"
+      fontSize="calc(0.95rem)"
       fontWeight="bold"
       color="primary"
-      padding=" 12px 0px 12px 0px"
+      padding=" 12px 0px 24px 0px"
     >
       {text}
     </Typography>
