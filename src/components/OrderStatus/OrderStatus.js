@@ -12,6 +12,9 @@ export default function OrderStatus({ status }) {
     setStatus(true);
     console.log(Status);
   }
+  const onClick1 =()=>{
+    history.push("/Lien-he");
+  }
   return (
     <Grid sx={{ paddingTop: "12px" }}>
       <Grid item container justifyContent="flex-end">
@@ -23,7 +26,7 @@ export default function OrderStatus({ status }) {
       </Grid>
       <Grid style={{paddingBottom:"12px"}} item container justifyContent="flex-end">
         <Stack direction="row" spacing={1}>
-          <Button disabled={Status} onClick={history.push("/Lien-he")} variant="contained">LIÊN HỆ</Button>
+          <Button disabled={Status} onClick={onClick1} variant="contained">LIÊN HỆ</Button>
           <Button disabled={Status} onClick={onClick} variant="outlined">HỦY ĐƠN</Button>
         </Stack>
       </Grid>
