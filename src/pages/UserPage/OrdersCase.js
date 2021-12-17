@@ -68,8 +68,6 @@ const WishListPage = () => {
         <OrderStatus status={Status.payload} />
         <OrderStatus status={Status.payload} />
       </Stack>
-      <OrderStatus status={Status.payload} />
-      <OrderStatus status={Status.payload} />
     </>
   );
   if (isMobile) {

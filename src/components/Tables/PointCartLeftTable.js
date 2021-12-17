@@ -22,11 +22,11 @@ const PointCartLeftTable = () => {
   const Status = useSelector(OrderStatusState$);
   console.log(Status.payload);
   const listSP =
-    Status.payload == "TẤT CẢ" || Status.payload == undefined
-      ? Orders
-      : Status.payload == "ĐÃ NHẬN"
+    Status.payload == "ĐÃ NHẬN"
       ? Orders.filter((data) => data.trangThai == Status.payload)
-      : Orders.filter((data) => data.trangThai == Status.payload);
+      : Status.payload == "ĐÃ DÙNG"
+      ? Orders.filter((data) => data.trangThai == Status.payload)
+      : Orders;
   return (
     <Box
       sx={{
