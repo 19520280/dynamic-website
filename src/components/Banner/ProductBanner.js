@@ -84,7 +84,7 @@ const ProductBanner = () => {
             >
               <Typography
                 varient="h1"
-                fontSize="calc(1.4rem + 2vw)"
+                fontSize={isMobile?"calc(1.4rem + 0.5vw)":"calc(1.4rem + 2vw)"}
                 fontWeight="bold"
                 color="primary"
               >
@@ -214,7 +214,7 @@ const ProductBanner = () => {
               </Typography> */}
               {isMobile ? (
                 <Button
-                  variant="contained"
+                  variant="text"
                   endIcon={<ChevronRightIcon />}
                   sx={{
                     padding: "4px 0px 0px 0px",
@@ -312,7 +312,7 @@ const ProductBanner = () => {
             >
               {isMobile ? (
                 <Button
-                  variant="contained"
+                  variant="text"
                   endIcon={<ChevronRightIcon />}
                   sx={{
                     padding: "4px 0px 0px 0px",
@@ -410,7 +410,7 @@ const ProductBanner = () => {
             >
               {isMobile ? (
                 <Button
-                  variant="contained"
+                  variant="text"
                   endIcon={<ChevronRightIcon />}
                   sx={{
                     padding: "4px 0px 0px 0px",
@@ -463,7 +463,7 @@ const ProductBanner = () => {
   /* #endregion */
 
   return (
-    <div className="fullwidthbanner-container" style={{paddingBottom:"20px"}}>
+    <div className="fullwidthbanner-container" style={{marginBottom:"20px"}}>
       <Box
         style={{
           display: SaleBanner.payload ? "none" : "block",
