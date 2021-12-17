@@ -56,7 +56,7 @@ const ProductDetailPage = () => {
     setlist(list);
   }, [Rate, color, size, value]);
   return sanPham ? (
-    <Box width="100%" paddingX={8} paddingBottom={10}>
+    <Box width="100%" paddingX={8} paddingBottom={"8%"}>
       <ProductPanel sanPham={sanPham} />
       <Box width={1220} paddingY={4}>
         <h2>Gợi ý phối đồ</h2>

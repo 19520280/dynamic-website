@@ -120,7 +120,7 @@ const WishListDetailPage = () => {
         />
           </Container>
         </Grid> */}
-        <Grid item xs={12} xl={9.5}>
+        <Grid item xs={12} xl={9.5} style={{marginBottom:"8%"}}>
           <Container
             style={{
               backgroundColor: "transparent",
@@ -157,7 +157,7 @@ const WishListDetailPage = () => {
               />
             </Container>
           </Grid>
-          <Grid item xs={9.5} xl={9.5}>
+          <Grid item xs={9.5} xl={9.5} style={{marginBottom:"8%"}} >
             <Box
               style={{
                 paddingLeft: "40px",

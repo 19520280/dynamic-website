@@ -37,15 +37,13 @@ import TabMenu from "../../components/Tab/TabMenu";
 import CarouselProduct from "../../components/Carousel/CarouselProduct";
 import ProductBanner from "../../components/Banner/ProductBanner";
 
-
 const image = require("../../assets/images/banners/SaleBanner.png").default;
-
 
 const Right = () => {
   const SaleBanner = useSelector(SaleBannerState$);
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
-  const lengthGrid=8;
+  const lengthGrid = 8;
 
   const menuItems = [
     { value: 2, text: "PHỔ BIẾN" },
@@ -72,13 +70,14 @@ const Right = () => {
       />
       {/* <CarouselProduct image={image}/> */}
       <ProductBanner />
-      <TabMenu menuItems={menuItems}/>
+      <TabMenu menuItems={menuItems} />
       <section
         id="hot-products"
         className="containermain.fullwidthbanner-container"
       >
         <ProducCardGrid
-          phanLoai={SaleBanner.payload == true ? null : pathnames[0]} lengthGrid={lengthGrid}
+          phanLoai={SaleBanner.payload == true ? null : pathnames[0]}
+          lengthGrid={lengthGrid}
         />
       </section>
       <Stack alignItems="center">
@@ -89,7 +88,13 @@ const Right = () => {
           style={{ marginTop: 40, marginBottom: 40 }}
         />
       </Stack>
-      <RecentSeen />
+
+      <section
+        id="recent-seen"
+        className="containermain.fullwidthbanner-container"
+      >
+        <RecentSeen />
+      </section>
     </Container>
   );
 };

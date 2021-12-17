@@ -7,7 +7,7 @@ import React from "react";
 
 const RecentSeen = () => {
   return (
-    <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+    <Stack direction="column" spacing={0} sx={{ width: "100%", marginTop:"8%", marginBottom:"8%" }}>
       <Typography
         fontWeight="bold"
         color="primary"

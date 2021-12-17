@@ -64,7 +64,7 @@ export const product = {
 
 export const products = [
   {
-    path: "Ao/Ao-thun/basic-tee",
+    path: "/Ao/Ao-thun/basic-tee",
     ten: "Basic Tee",
     phanLoai: "Ao",
     imgs: [
@@ -89,7 +89,7 @@ export const products = [
     description: "Đẹp",
   },
   {
-    id: "Ao/Ao-thun/monarch-butterflys",
+    id: "/Ao/Ao-thun/monarch-butterflys",
     ten: "Monarch Butterflys",
     phanLoai: "Ao",
     imgs: [
@@ -118,7 +118,7 @@ export const products = [
     description: "Đẹp",
   },
   {
-    id: "Quan/Quan-ngan/signature-short",
+    id: "/Quan/Quan-ngan/signature-short",
     ten: "Signature Short",
     phanLoai: "Quan",
     imgs: [
