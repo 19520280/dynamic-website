@@ -6,8 +6,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const height = 50;
-
 export default function TableInfo({ sanPham }) {
   const [row, setRow] = React.useState({
     PC: "",
@@ -42,10 +40,10 @@ export default function TableInfo({ sanPham }) {
     });
   }, [sanPham]);
   return (
-    <TableContainer component={Paper} border="solid" sx={{ width: 1100 }}>
+    <TableContainer component={Paper} border="solid" sx={{ width: "100%" }}>
       <Table sx={{ border: 2 }} aria-label="simple table">
         <TableBody>
-          <TableRow sx={{ border: 1, height: { height } }}>
+          <TableRow sx={{ border: 1 }}>
             <TableCell
               component="th"
               scope="row"
@@ -57,11 +55,11 @@ export default function TableInfo({ sanPham }) {
               {row.PC}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1, height: { height } }}>
+          <TableRow sx={{ border: 1 }}>
             <TableCell
               component="th"
               scope="row"
-              sx={{ width: 200, border: 1 }}
+              sx={{ width: "30%", border: 1 }}
             >
               <h4>Kiểu dáng</h4>
             </TableCell>
@@ -69,11 +67,11 @@ export default function TableInfo({ sanPham }) {
               {row.KD}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1, height: { height } }}>
+          <TableRow sx={{ border: 1 }}>
             <TableCell
               component="th"
               scope="row"
-              sx={{ width: 200, border: 1 }}
+              sx={{ width: "30%", border: 1 }}
             >
               <h4>Họa tiết</h4>
             </TableCell>
@@ -81,11 +79,11 @@ export default function TableInfo({ sanPham }) {
               {row.HT}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1, height: { height } }}>
+          <TableRow sx={{ border: 1 }}>
             <TableCell
               component="th"
               scope="row"
-              sx={{ width: 200, border: 1 }}
+              sx={{ width: "30%", border: 1 }}
             >
               <h4>Chi tiết</h4>
             </TableCell>
@@ -93,11 +91,11 @@ export default function TableInfo({ sanPham }) {
               {row.CT}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1, height: { height } }}>
+          <TableRow sx={{ border: 1 }}>
             <TableCell
               component="th"
               scope="row"
-              sx={{ width: 200, border: 1 }}
+              sx={{ width: "30%", border: 1 }}
             >
               <h4>Chất liệu</h4>
             </TableCell>
@@ -105,11 +103,11 @@ export default function TableInfo({ sanPham }) {
               {row.CL}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1, height: { height } }}>
+          <TableRow sx={{ border: 1 }}>
             <TableCell
               component="th"
               scope="row"
-              sx={{ width: 200, border: 1 }}
+              sx={{ width: "30%", border: 1 }}
             >
               <h4>Mùa</h4>
             </TableCell>
@@ -117,11 +115,11 @@ export default function TableInfo({ sanPham }) {
               {row.M}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1, height: { height } }}>
+          <TableRow sx={{ border: 1 }}>
             <TableCell
               component="th"
               scope="row"
-              sx={{ width: 200, border: 1 }}
+              sx={{ width: "30%", border: 1 }}
             >
               <h4>Cách bảo quản</h4>
             </TableCell>

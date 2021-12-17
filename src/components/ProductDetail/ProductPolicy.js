@@ -13,10 +13,10 @@ export default function ProductPolicy() {
         </ListItemIcon>
         <ListItemText
           primary={
-            <h5>
+            <h4>
               Giao hàng miễn phí
               <HelpOutlineIcon sx={{ width: 15, height: 15 }} />
-            </h5>
+            </h4>
           }
           secondary={
             <h5>
@@ -33,9 +33,9 @@ export default function ProductPolicy() {
         </ListItemIcon>
         <ListItemText
           primary={
-            <h5>
-              Thanh toán COD <HelpOutlineIcon sx={{ width: 15, height: 15 }} />{" "}
-            </h5>
+            <h4>
+              Thanh toán COD <HelpOutlineIcon sx={{ width: 15, height: 15 }} />
+            </h4>
           }
           secondary={<h5>Không áp dụng cho sản phẩm này</h5>}
         />
@@ -46,10 +46,10 @@ export default function ProductPolicy() {
         </ListItemIcon>
         <ListItemText
           primary={
-            <h5>
+            <h4>
               Chính sách trả hàng{" "}
-              <HelpOutlineIcon sx={{ width: 15, height: 15 }} />{" "}
-            </h5>
+              <HelpOutlineIcon sx={{ width: 15, height: 15 }} />
+            </h4>
           }
           secondary={<h5>Không áp dụng cho sản phẩm này</h5>}
         />

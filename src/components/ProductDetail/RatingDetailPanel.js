@@ -25,13 +25,18 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-export default function RatingDetailPanel() {
+export default function RatingDetailPanel({ size }) {
   const ItemRatingProgressCount = (rate, e, total) => (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Box>
-        <Rating name="read-only" value={rate} readOnly />
+        <Rating
+          name="read-only"
+          value={rate}
+          readOnly
+          size={size < 200 ? "small" : "medium"}
+        />
       </Box>
-      <Box sx={{ width: 200, mr: 1 }}>
+      <Box sx={{ width: size, mr: 1 }}>
         <BorderLinearProgress
           variant="determinate"
           value={parseInt((e / total) * 100)}
@@ -62,7 +67,7 @@ export default function RatingDetailPanel() {
         </Box>
       </Box>
       <Box marginTop={1}>
-        <List sx={{ maxWidth: 380, marginLeft: -2 }}>
+        <List sx={{ maxWidth: 380, marginLeft: -1 }}>
           {ItemRatingProgressCount(5, 48, 72)}
           {ItemRatingProgressCount(4, 12, 72)}
           {ItemRatingProgressCount(3, 12, 72)}
