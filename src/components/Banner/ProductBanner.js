@@ -1,5 +1,5 @@
 import "./Banner.css";
-
+import * as actions from "../../redux/actions/index";
 import {
   Box,
   Button,
@@ -12,7 +12,8 @@ import {
   useTheme,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-
+import { SaleBannerState$ } from "../../redux/selectors/index";
+import { useDispatch, useSelector } from "react-redux";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -24,11 +25,17 @@ const slide3 = require("../../assets/images/banners/SB3.jpg").default;
 
 const slide4 = require("../../assets/images/banners/SB4.jpg").default;
 const ProductBanner = () => {
+  const dispatch = useDispatch();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const containerRef = React.useRef(null);
   const [checked, setchecked] = useState(false);
   const [bannerShow, setBannerShow] = useState(0);
+
+  const SaleBanner = useSelector(SaleBannerState$);
+  const setSaleBanner = React.useCallback(() => {
+    dispatch(actions.showSaleBanner(false));
+  }, [dispatch]);
 
   /* #region  list */
 
@@ -332,7 +339,6 @@ const ProductBanner = () => {
     </div>
   );
 
-  
   const banner4 = (
     <div className="fullwidthbanner">
       <Slide
@@ -457,20 +463,26 @@ const ProductBanner = () => {
   /* #endregion */
 
   return (
-    <div className="fullwidthbanner-container">
-      <IconButton className="icon left" onClick={setIndex}>
-        <ChevronLeftIcon
-          sx={{ color: "secondary", width: "2rem", height: "2rem" }}
-        />
-      </IconButton>
-      <IconButton className="icon right" onClick={setIndex}>
-        <ChevronRightIcon
-          sx={{ color: "secondary", width: "2rem", height: "2rem" }}
-        />
-      </IconButton>
-      {listBanner.map((banner, index) => (
-        <div key={index}> {index === bannerShow ? banner : null}</div>
-      ))}
+    <div className="fullwidthbanner-container" style={{paddingBottom:"20px"}}>
+      <Box
+        style={{
+          display: SaleBanner.payload ? "none" : "block",
+        }}
+      >
+        <IconButton className="icon left" onClick={setIndex}>
+          <ChevronLeftIcon
+            sx={{ color: "secondary", width: "2rem", height: "2rem" }}
+          />
+        </IconButton>
+        <IconButton className="icon right" onClick={setIndex}>
+          <ChevronRightIcon
+            sx={{ color: "secondary", width: "2rem", height: "2rem" }}
+          />
+        </IconButton>
+        {listBanner.map((banner, index) => (
+          <div key={index}> {index === bannerShow ? banner : null}</div>
+        ))}
+      </Box>
     </div>
   );
 };

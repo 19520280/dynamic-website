@@ -40,24 +40,6 @@ import ProductBanner from "../../components/Banner/ProductBanner";
 
 const image = require("../../assets/images/banners/SaleBanner.png").default;
 
-const useStyle = makeStyles({
-  header: {
-    margin: "0px",
-    padding: " 12px 0px 12px 0px",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    color: SystemColor.main,
-    fontSize: "calc(1rem + 0.7vw)",
-    backgroundColor: BgColor.mainBg,
-    //paddingLeft: "5%",
-    // maxWidth: "958px",
-  },
-  image: {
-    maxWidth: "100%",
-    height: "auto",
-    // width: "auto\9";
-  },
-});
 
 const Right = () => {
   const SaleBanner = useSelector(SaleBannerState$);
