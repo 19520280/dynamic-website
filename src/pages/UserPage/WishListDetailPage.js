@@ -2,9 +2,11 @@ import * as actions from "../../redux/actions/index";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { BgColor, SystemColor } from "../../color";
 import {
+  Button,
   Container,
   Grid,
   Slide,
+  Stack,
   Typography,
   useMediaQuery,
   useTheme,
@@ -32,6 +34,14 @@ const WishListDetailPage = () => {
   const Account = useSelector(AccountState$);
 
   const [data, setData] = useState(Account);
+  const [select, setSelect] = useState(false);
+  const onClick = (value) => {
+    setSelect(!select);
+    if (checked == true && !select == false) {
+    } else {
+      setChecked(!checked);
+    }
+  };
 
   useEffect(() => {
     if (Account) {
@@ -45,11 +55,55 @@ const WishListDetailPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [checked, setChecked] = React.useState(true);
-
   const handleChange = (event) => {
-    console.log(event.target.checked);
     setChecked(event.target.checked);
+    if (event.target.checked == false && select==false)
+    {setSelect(true)} else {
+      setSelect(false);
+    }
   };
+  const body = (
+    <>
+      <HeaderTypography text={text} />
+      <Grid container paddingLeft={"20px"}>
+        <Grid item xs={5} xl={6}>
+          <FormControlLabel
+            control={<Checkbox checked={checked} onChange={handleChange} />}
+            label={checked ? "8 sản phẩm đã chọn" : "Tất cả"}
+          />
+        </Grid>
+        <Grid
+          item
+          style={{ display: "flex", justifyContent: "flex-end" }}
+          xs={7}
+          xl={6}
+        >
+          <FormControlLabel
+            control={
+              <Button disabled={!checked && !select} variant="contained">
+                {select ? "Thêm mới" : "Xóa đã chọn"}
+              </Button>
+            }
+            label={""}
+          />
+          <FormControlLabel
+            control={
+              <Button
+                disabled={!checked && !select}
+                onClick={onClick}
+                variant="outlined"
+              >
+                {select ? "Sửa" : "Hủy"}
+              </Button>
+            }
+            label={""}
+          />
+        </Grid>
+      </Grid>
+      <ProducCardGrid />
+    </>
+  );
+
   if (isMobile) {
     return (
       <>
@@ -73,14 +127,7 @@ const WishListDetailPage = () => {
               padding: "0px 0px 0px 20px",
             }}
           >
-            <HeaderTypography text={text} />
-            <Grid container paddingLeft={"20px"}>
-              <FormControlLabel
-                control={<Checkbox checked={checked} onChange={handleChange} />}
-                label={checked ? "8 sản phẩm đã chọn" : "Tất cả"}
-              />
-            </Grid>
-            <ProducCardGrid />
+            {body}
           </Container>
         </Grid>
       </>
@@ -117,16 +164,7 @@ const WishListDetailPage = () => {
                 backgroundColor: "transparent",
               }}
             >
-              <HeaderTypography text={text} />
-              <Grid container paddingLeft={"20px"}>
-                <FormControlLabel
-                  control={
-                    <Checkbox checked={checked} onChange={handleChange} />
-                  }
-                  label={checked ? "3 sản phẩm đã chọn" : "Tất cả"}
-                />
-              </Grid>
-              <ProducCardGrid />
+              {body}
             </Box>
           </Grid>
         </Grid>
