@@ -1,5 +1,7 @@
 import "./Header.css";
 
+import * as actions from "../../redux/actions/index";
+
 import {
   Button,
   Menu,
@@ -11,12 +13,12 @@ import {
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 import React, { useState } from "react";
-import * as actions from "../../redux/actions/index";
-import { SaleBannerState$ } from "../../redux/selectors/index";
-import { useSelector, useDispatch } from "react-redux";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useDispatch, useSelector } from "react-redux";
 
-function MenuButton({ page }) {
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { SaleBannerState$ } from "../../redux/selectors/index";
+
+function MenuButton({ page, setOpenMenu }) {
   const dispatch = useDispatch();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -33,7 +35,7 @@ function MenuButton({ page }) {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    isMobile ? setOpenMenu(false) : setAnchorEl(null);
   };
   /* #endregion */
 
@@ -43,7 +45,10 @@ function MenuButton({ page }) {
         variant="text"
         aria-controls={`${page.title}-page`}
         aria-haspopup="true"
-        onClick={() => history.push(page.path)}
+        onClick={() => {
+          handleClose();
+          history.push(page.path);
+        }}
         onMouseOver={handleOver}
         endIcon={
           page.menu.length && !isMobile ? <KeyboardArrowDownIcon /> : null
@@ -78,7 +83,6 @@ function MenuButton({ page }) {
                   setSaleBanner();
                   history.push(item.path);
                   handleClose();
-                  
                 }}
               >
                 {item.title}

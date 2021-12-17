@@ -13,16 +13,17 @@ import { Button } from "@mui/material";
 import CartPage from "./pages/CartPage";
 import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
 import CollectionDialog from "./components/Dialogs/CollectionDialog/CollectionDialog";
+import ContactPage from "./pages/ContactPage";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage/Homepage";
+import OrdersCase from "./pages/UserPage/OrdersCase";
 import PaymentPage from "./pages/PaymentPage";
+import PointCase from "./pages/UserPage/PointCase";
 import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
-import WishListPage from "./pages/UserPage/WishListPage";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
-import OrdersCase from "./pages/UserPage/OrdersCase";
-import PointCase from "./pages/UserPage/PointCase";
-import Footer from "./components/Footer/Footer";
+import WishListPage from "./pages/UserPage/WishListPage";
 
 let theme = createTheme({
   palette: {
@@ -36,14 +37,6 @@ let theme = createTheme({
   text: {
     primary: "#303537",
     secondary: "#313537",
-  },
-  typography: {
-    button: {
-      fontSize: "0.8rem",
-    },
-    body1: {
-      fontSize: "0.8rem",
-    },
   },
   backgroundColor: "#FCFCFC",
   shadows: ["none"],
@@ -59,6 +52,7 @@ function App() {
           <CollectionDialog />
           <Switch>
             <Route path="/" exact component={Homepage} />
+
             <Route path="/Ao" exact component={CategoryCasePage} />
             <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
             <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
@@ -90,6 +84,7 @@ function App() {
               className="containermain"
               style={{ backgroundColor: "#FCFCFC" }}
             >
+              <Route path="/Lien-he" exact component={ContactPage} />
               <Route path="/Gio-hang" exact component={CartPage} />
               <Route path="/Thanh-toan" exact component={PaymentPage} />
               {/* <Route path="/Ca-nhan/:child" exact component={AccountPage} /> */}
