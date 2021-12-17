@@ -3,7 +3,7 @@ import { Stack, Typography } from "@mui/material";
 import React from "react";
 import { SystemColor } from "../../color";
 import numberWithCommas from "./../../utils/numberWithCommas";
-import HeaderTypography from "./HeaderTypography";
+import CountTypography from "./CountTypography";
 
 const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
   return (
@@ -32,9 +32,8 @@ const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
         </Typography>
       ) : null}
       {point ? (
-        <HeaderTypography
+        <CountTypography
           text={point + " điểm"}
-          color={point > 0 ? "primary" : "secondary"}
         />
       ) : null}
     </Stack>

@@ -24,10 +24,10 @@ export default function OrderStatus({ status }) {
       <Grid  style={{paddingTop:"12px"}}  item container justifyContent="flex-end">
         <CountTypography text={"Tổng cộng: 350,000 VNĐ"} />
       </Grid>
-      <Grid style={{paddingBottom:"12px"}} item container justifyContent="flex-end">
+      <Grid style={{paddingBottom:"24px"}} item container justifyContent="flex-end">
         <Stack direction="row" spacing={1}>
-          <Button disabled={Status} onClick={onClick1} variant="contained">LIÊN HỆ</Button>
-          <Button disabled={Status} onClick={onClick} variant="outlined">HỦY ĐƠN</Button>
+          <Button disabled={status=="ĐÃ HỦY"?true:Status} onClick={onClick1} variant="contained">LIÊN HỆ</Button>
+          <Button disabled={status=="ĐÃ HỦY"|| status=="ĐANG GIAO"|| status=="ĐÃ GIAO"|| status=="CHỜ LẤY HÀNG"?true:Status} onClick={onClick} variant="outlined">HỦY ĐƠN</Button>
         </Stack>
       </Grid>
     </Grid>

@@ -75,7 +75,7 @@ function MenuButton({ page, setOpenMenu }) {
             horizontal: "left",
           }}
         >
-          <Paper sx={{ p: "8px", borderColor: "secondary" }} variant="outlined">
+          <Paper sx={{ p: "0px", borderColor: "secondary" }} variant="outlined">
             {page.menu.map((item, key) => (
               <MenuItem
                 key={key}
