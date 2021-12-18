@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import "./style.css";
 
 import {
@@ -32,9 +32,14 @@ import { AddBox } from "@mui/icons-material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { showCollectionDialog } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-const sanPham = products[1];
 const ProductDetailPage = () => {
+  const history = useHistory();
+  const [sanPham, setSP] = useState(
+    history.location.pathname.includes("Ao") ? products[2] : products[2]
+    //products[1]
+  );
   const dispatch = useDispatch();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -80,9 +85,9 @@ const ProductDetailPage = () => {
                   spacing={{ xs: 1, md: 2 }}
                   columns={{ xs: 2, sm: 6, md: 8 }}
                 >
-                  {Array.from(Array(4)).map((_, index) => (
+                  {products.map((sanpham, index) => (
                     <Grid item xs={1} sm={2} md={2} key={index}>
-                      <ProductCard />
+                      <ProductCard sanPham={sanpham} />
                     </Grid>
                   ))}
                 </Grid>
@@ -176,9 +181,9 @@ const ProductDetailPage = () => {
                   spacing={{ xs: 1, md: 2 }}
                   columns={{ xs: 2, sm: 6, md: 8 }}
                 >
-                  {Array.from(Array(4)).map((_, index) => (
+                  {products.map((sanpham, index) => (
                     <Grid item xs={1} sm={2} md={2} key={index}>
-                      <ProductCard />
+                      <ProductCard sanPham={sanpham} />
                     </Grid>
                   ))}
                 </Grid>

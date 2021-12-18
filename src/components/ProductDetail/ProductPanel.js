@@ -24,6 +24,7 @@ import {
   Paper,
   TableHead,
   Fab,
+  IconButton,
 } from "@mui/material";
 import { TabPanel, TabContext, TabList } from "@material-ui/lab";
 import RatingInfolPanel from "./RatingInfoPanel";
@@ -41,11 +42,10 @@ import { useDispatch } from "react-redux";
 import { showCollectionDialog } from "../../redux/actions";
 import numberWithCommas from "../../utils/numberWithCommas";
 import { BgColor } from "../../color";
-import ZoomOutMapIcon from "@mui/icons-material/ZoomOutMap";
-import ZoomInMapIcon from "@mui/icons-material/ZoomInMap";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import ReactImageMagnify from "react-image-magnify";
+import CloseIcon from "@mui/icons-material/Close";
 
 const imgPant = require("../../assets/images/meesure/Inkedpant_LI.jpg").default;
 const imgBody = require("../../assets/images/meesure/body.jpg").default;
@@ -144,15 +144,17 @@ function ProductPanel({ sanPham, isMobile }) {
   ];
   const Price = (size) => (
     <Box sx={{ display: "flex", alignContent: "center" }}>
-      <Typography
-        style={{
-          textDecoration: "line-through",
-          color: "gray",
-          fontSize: size,
-        }}
-      >
-        {numberWithCommas(sanPham.giaCu)}
-      </Typography>
+      {sanPham.giaCu ? (
+        <Typography
+          style={{
+            textDecoration: "line-through",
+            color: "gray",
+            fontSize: size,
+          }}
+        >
+          {numberWithCommas(sanPham.giaCu)}
+        </Typography>
+      ) : null}
       <Typography
         sx={{
           fontSize: size,
@@ -166,9 +168,22 @@ function ProductPanel({ sanPham, isMobile }) {
   );
   const DialogClickAddCart = () => (
     <Dialog open={open} onClose={handleClose} maxWidth={"70%"}>
-      <DialogTitle id="alert-dialog-title">
-        Bạn có muốn thêm sản phẩm {sanPham.ten} vào giỏ hàng không?
+      <DialogTitle id="alert-dialog-title" marginBottom={2}>
+        <IconButton
+          aria-label="close"
+          onClick={handleIMGClose}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
       </DialogTitle>
+      <DialogContent>
+        Bạn có muốn thêm sản phẩm {sanPham.ten} vào giỏ hàng không?
+      </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Không</Button>
         <Button onClick={handleClose} autoFocus>
@@ -178,8 +193,21 @@ function ProductPanel({ sanPham, isMobile }) {
     </Dialog>
   );
 
-  const showImage = (listimg, size) => (
+  const showImage = (size) => (
     <Dialog open={openImg.show} onClose={handleIMGClose} maxWidth={size}>
+      <DialogTitle id="scroll-dialog-title" marginBottom={2}>
+        <IconButton
+          aria-label="close"
+          onClick={handleIMGClose}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
       {size === "xl" ? (
         <DialogContent>
           <Box width={"100%"} display="flex" alignItems={"center"}>
@@ -267,23 +295,23 @@ function ProductPanel({ sanPham, isMobile }) {
   if (isMobile) {
     return (
       <Box marginX={1}>
-        {showImage(listimg, "xl")}
+        {showImage("xl")}
         <Box
           sx={{ marginX: 1 }}
           className="Main_Box_Main_img"
           onClick={() =>
             handleClickShowIMGOpen(
               selectedColor === "white"
-                ? sanPham.imgs[1][0]
-                : sanPham.imgs[1][1]
+                ? sanPham.imgs[0][0]
+                : sanPham.imgs[1][0]
             )
           }
         >
           <img
             src={
               selectedColor === "white"
-                ? sanPham.imgs[1][0]
-                : sanPham.imgs[1][1]
+                ? sanPham.imgs[0][0]
+                : sanPham.imgs[1][0]
             }
             width={"100%"}
           />
@@ -397,12 +425,12 @@ function ProductPanel({ sanPham, isMobile }) {
           width: "100%",
         }}
       >
-        <Box alignItems="center" width="60%" height="100%" display={"flex"}>
+        <Box alignContent="center" width="60%" height="100%" display={"flex"}>
           <Box className="Main_Box_List_img" width="20%" height="100%">
             <ImageList cols={1} gap={9} variant="woven">
               {sanPham.imgs[0].map((img) => (
                 <Box onClick={() => handleClickShowIMGOpen(img)}>
-                  <img src={img} width={"100%"} loading="lazy" height={165} />
+                  <img src={img} width={"100%"} loading="lazy" height={150} />
                 </Box>
               ))}
             </ImageList>
@@ -416,22 +444,22 @@ function ProductPanel({ sanPham, isMobile }) {
             onClick={() =>
               handleClickShowIMGOpen(
                 selectedColor === "white"
-                  ? sanPham.imgs[1][0]
-                  : sanPham.imgs[1][1]
+                  ? sanPham.imgs[0][0]
+                  : sanPham.imgs[1][0]
               )
             }
           >
             <img
               src={
                 selectedColor === "white"
-                  ? sanPham.imgs[1][0]
-                  : sanPham.imgs[1][1]
+                  ? sanPham.imgs[0][0]
+                  : sanPham.imgs[1][0]
               }
               width={"100%"}
-              height={700}
+              height={640}
             />
           </Box>
-          {showImage(listimg, "md")}
+          {showImage("md")}
         </Box>
         <Box
           className="Main_Box_Right"
@@ -496,9 +524,20 @@ function ProductPanel({ sanPham, isMobile }) {
               </Typography>
             </Button>
             <Dialog open={openSizeGuide} onClose={handleSGClose} maxWidth="md">
-              <DialogTitle sx={{ textAlign: "center" }}>
+              <DialogTitle sx={{ textAlign: "center" }} marginBottom={20}>
                 <h4>Hướng dẫn kích thước</h4>
               </DialogTitle>
+              <IconButton
+                aria-label="close"
+                onClick={handleSGClose}
+                sx={{
+                  position: "absolute",
+                  right: 8,
+                  top: 8,
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
               <DialogContent>
                 <TabContext value={value}>
                   <TabList
@@ -798,7 +837,9 @@ function ProductPanel({ sanPham, isMobile }) {
             <Box sx={{ display: "flex", alignContent: "center" }}>
               <Button onClick={openCollectionDialog}>
                 <AddBox />
-                <h4 style={{ marginTop: 2.7 }}>THÊM VÀO DANH SÁCH</h4>
+                <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>
+                  THÊM VÀO DANH SÁCH
+                </h4>
               </Button>
             </Box>
           </Box>
