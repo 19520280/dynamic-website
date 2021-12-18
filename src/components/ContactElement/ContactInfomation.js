@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   InputLabel,
@@ -10,6 +11,7 @@ import {
 } from "@mui/material";
 
 import React from "react";
+import { SystemColor } from "../../color";
 import { problems } from "./../../dataSources/Problems";
 
 const ItemInfo = ({ lable, item }) => (
@@ -24,50 +26,65 @@ const ContactInfomation = () => {
     setproblem(event.target.value);
   };
   return (
-    <Stack
-      direction="column"
-      spacing={2}
+    <Box
       sx={{
-        "& .MuiTextField-root": { width: "100%" },
+        p: 2,
+        backgroundColor: "white",
+        borderRadius: "8px",
+        border: "1px solid",
+        borderColor: SystemColor.gray,
+        width: "100%",
+        minWidth: "min-content",
       }}
     >
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Vấn đề</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={problem}
-          onChange={handleChangeProblem}
-          label="Vấn đề"
-        >
-          {problems.map((problem, index) => (
-            <MenuItem key={index} value={problem}>
-              {problem}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <TextField
-        label="Email"
-        inputProps={{ inputMode: "email" }}
-        sx={{ borderRadius: "4px" }}
-      />
-      <TextField
-        label="Số điện thoại"
-        required
-        inputProps={{ inputMode: "tel" }}
-      />
-      <TextField required id="outlined-required" label="Tiêu đề" />
-      <TextField
-        id="outlined-multiline-flexible"
-        label="Nội dung"
-        multiline
-        maxRows={4}
-      />
-      <Button size="large" variant="contained">
-        Gửi yêu cầu
-      </Button>
-    </Stack>
+      <Stack
+        direction="column"
+        spacing={2}
+        sx={{
+          "& .MuiTextField-root": { width: "100%" },
+          width: "100%",
+        }}
+      >
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Vấn đề *</InputLabel>
+          <Select
+            required
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={problem}
+            onChange={handleChangeProblem}
+            label="Vấn đề *"
+          >
+            {problems.map((problem, index) => (
+              <MenuItem key={index} value={problem}>
+                {problem}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <TextField
+          label="Email"
+          required
+          inputProps={{ inputMode: "email" }}
+          sx={{ borderRadius: "4px" }}
+        />
+        <TextField label="Số điện thoại" inputProps={{ inputMode: "tel" }} />
+        <TextField required id="outlined-required" label="Tiêu đề" />
+        <TextField
+          id="outlined-multiline-flexible"
+          label="Nội dung"
+          multiline
+          required
+          rows={5}
+        />
+        <Typography color="secondary" fontStyle="italic">
+              Bộ phận
+            </Typography>
+        <Button size="large" variant="contained">
+          Gửi yêu cầu
+        </Button>
+      </Stack>
+    </Box>
   );
 };
 
