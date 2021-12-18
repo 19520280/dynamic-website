@@ -5,7 +5,7 @@ const tuyendung = require("./../assets/images/blogs/tuyendung.jpg").default;
 
 export const blogs = [
   {
-    type: "Beauty&Fashion",
+    type: 2,
     image: dongho,
     date: "18/12/2021",
     title: "Đồng hồ thông minh giúp phát hiện sớm ca mắc COVID-19",
@@ -13,7 +13,7 @@ export const blogs = [
     body: "Đồng hồ thông minh có thể cung cấp các dữ liệu sinh học như nhịp tim, số bước đi, giấc ngủ",
   },
   {
-    type: "Beauty&Fashion",
+    type: 2,
     date: "16/12/2021",
     image: jisoo,
     title: 'Học lỏm cách "sang" của Jisoo (BLACKPINK)',
@@ -21,7 +21,7 @@ export const blogs = [
     body: "Jisoo xinh đẹp",
   },
   {
-    type: "Beauty&Fashion",
+    type: 2,
     image: saoviet,
     date: "14/12/2021",
     title:
@@ -30,7 +30,7 @@ export const blogs = [
     body: 'Adidas vừa hớp hồn các "đầu giày" và loạt sao Việt như Châu Bùi, Diễm My, Quỳnh Anh Shyn, Decao, Anh Tú… khi tung ra mẫu UltraBOOST DNA City Pack cực chất tràn đầy cảm hứng dân tộc.',
   },
   {
-    type: "Tin tức",
+    type: 3,
     image: tuyendung,
     date: "17/12/2021",
     title: "Dynamic tìm người nhà",

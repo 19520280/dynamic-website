@@ -1,8 +1,9 @@
 import "./BlogBanner.css";
 
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Button, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 import BlogDateTypography from "./../../Typographys/BlogDateTypography";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import React from "react";
 
 const blogBanner =
@@ -32,6 +33,12 @@ const BlogBanner = () => {
           <br /> sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua.
         </Typography>
+        <Button
+          endIcon={<ChevronRightIcon />}
+          sx={{ width: "fit-content", color: "white", cursor: "pointer" }}
+        >
+          Xem thêm
+        </Button>
       </div>
     </div>
   );

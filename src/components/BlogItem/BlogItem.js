@@ -19,8 +19,12 @@ const BlogItem = ({ image, title, date, type, numberShare }) => (
     <div className="blog-item image">
       <img src={image} />
     </div>
-    <Typography fontSize="1.2vw" fontWeight="light" color="secondary">
-      {type}
+    <Typography
+      fontSize="calc(0.6rem + 0.5vw)"
+      fontWeight="light"
+      color="secondary"
+    >
+      {type === 2 ? "Beauty & Fashion" : "Tin tức"}
     </Typography>
     <Typography fontWeight="bold">{title}</Typography>
     <BlogDateTypography

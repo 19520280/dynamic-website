@@ -11,14 +11,14 @@ const BlogDateTypography = ({ date, number, justifyContent, isMobile }) => {
       alignItems="center"
       justifyContent={justifyContent}
     >
-      <Typography fontSize="calc(0.8vw + 0.5vh)" fontWeight="light">
+      <Typography fontSize="calc(0.6rem + 0.5vw)" fontWeight="light">
         Ngày đăng: {date}
       </Typography>
       <FacebookOutlinedIcon
         size={isMobile ? "smaller" : "small"}
         sx={{ color: "rgb(25, 118, 210)" }}
       />
-      <Typography fontSize="calc(0.8vw + 0.5vh)" fontWeight="light">
+      <Typography fontSize="calc(0.6rem + 0.5vw)" fontWeight="light">
         {number}
       </Typography>
     </Stack>

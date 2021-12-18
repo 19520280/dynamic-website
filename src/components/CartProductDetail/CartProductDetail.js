@@ -30,25 +30,19 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
       >
         <img src={sanPham.image} />
         <Stack direction="column" spacing={1.5} alignItems="flex-start">
-          <Typography color="primary" fontSize={isMobile ? "0.8rem" : "1rem"}>
+          <Typography color="primary" fontSize="1rem">
             {sanPham.ten}
           </Typography>
           {!total ? (
             <Stack direction="row" alignItems="center" spacing={0.5}>
               <Box sx={{ width: "60px" }}>
-                <Typography
-                  color="secondary"
-                  fontSize={isMobile ? "0.75rem" : "0.875rem"}
-                >
+                <Typography color="secondary" fontSize="0.875rem">
                   Size: {sanPham.kichThuoc}
                 </Typography>
               </Box>
               <Box sx={{ width: "auto", paddingRight: "10px" }}>
                 <Stack direction="row" spacing={1} alignItems="center">
-                  <Typography
-                    color="secondary"
-                    fontSize={isMobile ? "0.75rem" : "0.875rem"}
-                  >
+                  <Typography color="secondary" fontSize="0.875rem">
                     Màu sắc:
                   </Typography>
                   <Circle
@@ -66,7 +60,10 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
               </Box>
 
               {!readOnly ? (
-                <IconButton title="Chỉnh sửa phân loại" sx={{marginLeft:"0px"}}>
+                <IconButton
+                  title="Chỉnh sửa phân loại"
+                  sx={{ marginLeft: "0px" }}
+                >
                   <EditIcon fontSize="small" />
                 </IconButton>
               ) : null}
@@ -75,10 +72,7 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
 
           {total ? (
             <>
-              <Typography
-                color="primary"
-                fontSize={isMobile ? "0.75rem" : "0.875rem"}
-              >
+              <Typography color="primary" fontSize="0.875rem">
                 {`+ ${sanPham.soLuong} sản phẩm khác`}
               </Typography>
               <Typography color="secondary" fontSize="0.8rem">
@@ -90,7 +84,7 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
           {readOnly && !total ? (
             <Typography
               color="secondary"
-              fontSize={isMobile ? "0.75rem" : "0.875rem"}
+              fontSize="0.875rem"
               fontWeight="medium"
             >
               {`x ${sanPham.soLuong}`}
