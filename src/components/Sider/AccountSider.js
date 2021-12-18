@@ -27,7 +27,7 @@ const useStyle = makeStyles({
     fontSize: "18px",
     lineHeight: "38px",
     color: "#303537",
-    backgroundColor: "#FCFCFC",
+    backgroundColor: "transparent",
   },
   listMenuItem: {
     margin: "0px",
@@ -37,7 +37,7 @@ const useStyle = makeStyles({
     fontSize: "18px",
     lineHeight: "38px",
     color: "#5E6669",
-    backgroundColor: "#FCFCFC",
+    backgroundColor: "transparent",
   },
   selectedSubmenuItem: {
     padding: "0px",
@@ -46,7 +46,7 @@ const useStyle = makeStyles({
     fontSize: "16px",
     lineHeight: "31px",
     color: "#303537",
-    backgroundColor: "#FCFCFC",
+    backgroundColor: "transparent",
   },
   listSubmenuItem: {
     padding: "0px",
@@ -55,7 +55,7 @@ const useStyle = makeStyles({
     fontSize: "16px",
     lineHeight: "31px",
     color: "#5E6669",
-    backgroundColor: "#FCFCFC",
+    backgroundColor: "transparent",
   },
 });
 
@@ -100,7 +100,7 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
       <Divider style={{ padding: "0px 5px" }} variant="middle"></Divider>
 
       {menuItems.map((item) => (
-        <Container style={{ padding: "0px", backgroundColor: "#FCFCFC" }}>
+        <Container style={{ padding: "0px", backgroundColor: "transparent" }}>
           <ListItemButton
             key={item.key}
             onClick={() =>

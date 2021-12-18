@@ -27,67 +27,30 @@ import HeaderTypography from "./../../components/Typographys/HeaderTypography";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import React from "react";
+import RecentSeen from "./../../components/GridProductCard/RecentSeen";
 import { SaleBannerState$ } from "../../redux/selectors/index";
 import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core";
+import TabMenu from "../../components/Tab/TabMenu";
+import CarouselProduct from "../../components/Carousel/CarouselProduct";
+import ProductBanner from "../../components/Banner/ProductBanner";
 
-const slide2 = require("../../assets/images/banners/SaleBanner.png").default;
-
-export const CustomTypography = ({ title }) => (
-  <div className="title">
-    <Typography
-      textAlign="center"
-      fontSize="calc(1.2rem + 1vw)"
-      fontWeight="bold"
-      color="primary"
-    >
-      {title}
-    </Typography>
-    <Divider sx={{ backgroundColor: SystemColor.main, width: "100%" }} />
-  </div>
-);
-const useStyle = makeStyles({
-  header: {
-    margin: "0px",
-    padding: " 12px 0px 12px 0px",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    color: SystemColor.main,
-    fontSize: "calc(1rem + 0.7vw)",
-    backgroundColor: BgColor.mainBg,
-    //paddingLeft: "5%",
-    // maxWidth: "958px",
-  },
-  image: {
-    maxWidth: "100%",
-    height: "auto",
-    // width: "auto\9";
-  },
-});
+const image = require("../../assets/images/banners/SaleBanner.png").default;
 
 const Right = () => {
-  const dispatch = useDispatch();
   const SaleBanner = useSelector(SaleBannerState$);
-  const setSaleBanner = React.useCallback(() => {
-    dispatch(actions.showSaleBanner(false));
-  }, [dispatch]);
-  const classes = useStyle();
-  const history = useHistory();
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
-
-  const [value, setValue] = React.useState("1");
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const lengthGrid = 8;
 
   const menuItems = [
-    { value: 2, text: "BÁN CHẠY" },
-    { value: 3, text: "MỚI NHẤT" },
-    { value: 4, text: "GIÁ CAO" },
-    { value: 5, text: "GIÁ THẤP" },
+    { value: 2, text: "PHỔ BIẾN" },
+    { value: 3, text: "BÁN CHẠY" },
+    { value: 4, text: "MỚI NHẤT" },
+    { value: 5, text: "GIÁ CAO" },
+    { value: 6, text: "GIÁ THẤP" },
   ];
 
   return (
@@ -105,89 +68,17 @@ const Right = () => {
             : ""
         }
       />
-      <Box
-        xs={12}
-        xl={9.5}
-        style={{
-          display: SaleBanner.payload ? "none" : "block",
-          height: "auto",
-        }}
-      >
-        <Carousel autoPlay swipe animation="slide">
-          <div className="container">
-            <img src={slide2} alt="Avatar" className={classes.image} />
-            <div className="middle">
-              <Button
-                variant="contained"
-                className="text"
-                onClick={() => {
-                  history.push("/");
-                }}
-              >
-                XEM THÊM
-              </Button>
-            </div>
-          </div>
-          <div className="container">
-            <img src={slide2} alt="Avatar" className={classes.image} />
-            <div className="middle">
-              <Button
-                variant="contained"
-                className="text"
-                onClick={() => {
-                  history.push("/");
-                }}
-              >
-                XEM THÊM
-              </Button>
-            </div>
-          </div>
-          <div className="container">
-            <img src={slide2} alt="Avatar" className={classes.image} />
-            <div className="middle">
-              <Button
-                variant="contained"
-                className="text"
-                onClick={() => {
-                  history.push("/");
-                }}
-              >
-                XEM THÊM
-              </Button>
-            </div>
-          </div>
-        </Carousel>
-      </Box>
-      <Box sx={{ width: "100%", typography: "body1" }}>
-        <TabContext indicatorColor="primary" value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              value={value}
-              defaultValue={value}
-              onChange={handleChange}
-              textColor="primary"
-              indicatorColor="primary"
-              aria-label="primary tabs example"
-              variant="scrollable"
-              scrollButtons="auto"
-            >
-              <Tab value="1" label="PHỔ BIẾN" />
-              {menuItems.map((item) => (
-                <Tab value={item.value} label={item.text} />
-              ))}
-            </Tabs>
-          </Box>
-          <TabPanel value="1"></TabPanel>
-          {menuItems.map((item) => (
-            <TabPanel value={item.value}></TabPanel>
-          ))}
-        </TabContext>
-      </Box>
+      {/* <CarouselProduct image={image}/> */}
+      <ProductBanner />
+      <TabMenu menuItems={menuItems} />
       <section
         id="hot-products"
         className="containermain.fullwidthbanner-container"
       >
-        <ProducCardGrid />
+        <ProducCardGrid
+          phanLoai={SaleBanner.payload == true ? null : pathnames[0]}
+          lengthGrid={lengthGrid}
+        />
       </section>
       <Stack alignItems="center">
         <Pagination
@@ -197,22 +88,13 @@ const Right = () => {
           style={{ marginTop: 40, marginBottom: 40 }}
         />
       </Stack>
-      <Typography component="div" className={classes.header}>
-        Sản phẩm bạn vừa xem
-      </Typography>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid
-          container
-          spacing={{ xs: 1, md: 2 }}
-          columns={{ xs: 2, sm: 6, md: 8 }}
-        >
-          {Array.from(Array(4)).map((_, index) => (
-            <Grid item xs={1} sm={2} md={2} key={index}>
-              <ProductCard />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+
+      <section
+        id="recent-seen"
+        className="containermain.fullwidthbanner-container"
+      >
+        <RecentSeen />
+      </section>
     </Container>
   );
 };

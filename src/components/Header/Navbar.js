@@ -1,12 +1,6 @@
 import "./Header.css";
 
-import {
-  Box,
-  IconButton,
-  Stack,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, IconButton, Stack, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 
 import MenuButton from "./MenuButton";
@@ -22,7 +16,6 @@ function Navbar() {
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
   };
-  
   const CustomStack = (content) => {
     if (isMobile) {
       return (
@@ -53,7 +46,7 @@ function Navbar() {
     }
   };
   /* #endregion */
-
+  console.log(openMenu);
   return (
     <Box
       sx={{
@@ -62,7 +55,9 @@ function Navbar() {
       className="navbar"
     >
       {CustomStack(
-        navbar.map((page, index) => <MenuButton key={index} page={page} />)
+        navbar.map((page, index) => (
+          <MenuButton key={index} page={page} setOpenMenu={setOpenMenu} />
+        ))
       )}
     </Box>
   );

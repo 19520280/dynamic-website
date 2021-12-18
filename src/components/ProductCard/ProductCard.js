@@ -9,9 +9,7 @@ import PriceTypography from "../Typographys/PriceTypography";
 import { products } from "../../dataSources/Products";
 import { useHistory } from "react-router-dom";
 
-const sanPham = products[0];
-
-const ProductCard = () => {
+const ProductCard = ({ sanPham }) => {
   const theme = useTheme();
   const history = useHistory();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -30,7 +28,7 @@ const ProductCard = () => {
         variant="subtitle1"
         component="div"
         className="name"
-        fontSize={isMobile ? "0.9rem" : "1rem"}
+        fontSize={isMobile ? "0.8rem" : "1rem"}
       >
         {sanPham.ten}
       </Typography>

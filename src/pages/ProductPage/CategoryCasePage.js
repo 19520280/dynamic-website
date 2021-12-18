@@ -1,11 +1,5 @@
 import { BgColor, SystemColor } from "../../color";
-import {
-  Container,
-  Grid,
-  Slide,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Container, Grid, Slide, useMediaQuery, useTheme } from "@mui/material";
 
 import Filter from "./Filter";
 import React from "react";
@@ -43,7 +37,15 @@ const CategoryCasePage = () => {
   } else
     return (
       <Slide direction="up" in={true}>
-        <Grid container spacing={0} style={{paddingLeft:"80px", paddingRight:"80px", background: BgColor.mainBg}}>
+        <Grid
+          container
+          spacing={0}
+          style={{
+            paddingLeft: "80px",
+            paddingRight: "80px",
+            background: BgColor.mainBg,
+          }}
+        >
           <Grid item xs={2.5} xl={2.5}>
             <Container
               style={{

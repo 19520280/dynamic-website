@@ -159,7 +159,6 @@ const CheckCartLeftTable = () => {
                       justifyContent="flex-end"
                       giaCu={row.giaCu}
                       gia={row.gia}
-                      isMobile={true}
                     />
                   </TableCell>
                   <TableCell align="center">
@@ -168,7 +167,6 @@ const CheckCartLeftTable = () => {
                   <TableCell align="right">
                     <PriceTypography
                       gia={soLuong * row.gia}
-                      isMobile={true}
                       justifyContent="flex-end"
                     />
                   </TableCell>

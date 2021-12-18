@@ -1,0 +1,15 @@
+export const problems = [
+  "Bảo hành",
+  "Đổi trả",
+  "Đặt hàng",
+  "Giao hàng",
+  "Thanh toán",
+  "Hủy đơn",
+  "Gửi quà",
+  "Tích điểm",
+  "Khuyến mãi",
+  "Tài khoản",
+  "Góp ý",
+  "Website",
+  "Liên hệ hợp tác",
+];

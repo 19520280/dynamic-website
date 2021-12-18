@@ -8,24 +8,22 @@ const TagProCardGroup = ({ product }) => {
     <Box
       sx={{
         color: "white",
-        p: "8px 8px 8px 8px",
+        p: "6px",
         backgroundColor: SystemColor.main,
       }}
     >
-      <Typography textAlign="center" fontSize="calc(0.7rem + 0.2vw)">
-        MỚI
-      </Typography>
+      <Typography textAlign="center">MỚI</Typography>
     </Box>
   );
   const soldOutTag = (
     <Box
       sx={{
         color: "white",
-        p: "8px 8px 8px 8px",
+        p: "6px",
         backgroundColor: SystemColor.error,
       }}
     >
-      <Typography textAlign="center" fontSize="calc(0.7rem + 0.2vw)">
+      <Typography textAlign="center" >
         HẾT HÀNG
       </Typography>
     </Box>
@@ -34,10 +32,9 @@ const TagProCardGroup = ({ product }) => {
   const saleTag = (giaCu, gia) => (
     <Box
       sx={{
-
         color: "white",
         alignItems: "center",
-        p: "8px 8px 8px 8px",
+        p: "8px",
         backgroundColor: SystemColor.error,
       }}
     >
@@ -52,11 +49,11 @@ const TagProCardGroup = ({ product }) => {
     soldOutTag
   ) : (
     <Stack
-    direction="row"
-    justifyContent="center"
-    alignItems="flex-start"
-    spacing={0.5}
-  >
+      direction="row"
+      justifyContent="center"
+      alignItems="flex-start"
+      spacing={0.5}
+    >
       {product.newTag ? newTag : null}
       {product.giaCu ? saleTag(product.giaCu, product.gia) : null}
     </Stack>

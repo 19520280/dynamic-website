@@ -28,7 +28,8 @@ export const hideCollectionDialog = createAction("HIDE_COLLECTION_DIALOG");
 
 //#region Account
 export const getAccount = createAction("GET_ACCOUNT");
-
 export const expandMenu = createAction("EXPAND_MENU");
 export const collapseMenu = createAction("COLLAPSE_MENU");
+export const setOrderStatus = createAction("SET_ORDER_STATUS");
+
 //#endregion

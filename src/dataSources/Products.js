@@ -11,6 +11,7 @@ const imgMonarchButterflys21 =
   require("../assets/images/products/monarch-butterfly-t-shirt-white/black01.jpg").default;
 const imgMonarchButterflys22 =
   require("../assets/images/products/monarch-butterfly-t-shirt-white/black02.jpg").default;
+
 /* #endregion */
 
 /* #region  Monarch Butterflys */
@@ -29,8 +30,19 @@ const imgBasicTee32 =
 
 /* #endregion */
 
+/* #region  SignatureShort */
+const imgSignatureShort11 =
+  require("../assets/images/products/signature-short/black01.png").default;
+const imgSignatureShort12 =
+  require("../assets/images/products/signature-short/black02.jpg").default;
+const imgSignatureShort21 =
+  require("../assets/images/products/signature-short/white01.jpg").default;
+const imgSignatureShort22 =
+  require("../assets/images/products/signature-short/white02.jpg").default;
+/* #endregion */
+
 export const product = {
-  id:"",
+  id: "",
   ten: "",
   imgs: [[]],
   newTag: false,
@@ -52,8 +64,9 @@ export const product = {
 
 export const products = [
   {
-    path:"Ao/Ao-thun/basic-tee",
+    path: "/Ao/Ao-thun/basic-tee",
     ten: "Basic Tee",
+    phanLoai: "Ao",
     imgs: [
       [imgBasicTee11, imgBasicTee12],
       [imgBasicTee21, imgBasicTee22],
@@ -76,16 +89,17 @@ export const products = [
     description: "Đẹp",
   },
   {
-    id:"Ao/Ao-thun/monarch-butterflys",
+    id: "/Ao/Ao-thun/monarch-butterflys",
     ten: "Monarch Butterflys",
+    phanLoai: "Ao",
     imgs: [
       [
         imgMonarchButterflys11,
-        imgMonarchButterflys21,
+        imgMonarchButterflys12,
         imgMonarchButterflys13,
         imgMonarchButterflys14,
       ],
-      [imgMonarchButterflys12, imgMonarchButterflys22],
+      [imgMonarchButterflys21, imgMonarchButterflys22],
     ],
     newTag: true,
     giaCu: 300000,
@@ -101,6 +115,30 @@ export const products = [
     hoatTiet: "Họa tiết in",
     chiTiet: "Không",
     muas: ["Xuân", "Hạ", "Thu", "Đông"],
+    description: "Đẹp",
+  },
+  {
+    id: "/Quan/Quan-ngan/signature-short",
+    ten: "Signature Short",
+    phanLoai: "Quan",
+    imgs: [
+      [imgSignatureShort11, imgSignatureShort12],
+      [imgSignatureShort21, imgSignatureShort22],
+    ],
+    newTag: false,
+    giaCu: null,
+    gia: 170000,
+    tonKho: 0,
+    ngayKetThucSale: null,
+    setCountDown: null,
+    mauSacs: ["black", "white"],
+    kichThuocs: ["FS"],
+    chatLieus: ["Cotton"],
+    phongCachs: ["Đường phố", "Thoải mái"],
+    kieuDang: "Quần ngắn",
+    hoatTiet: "Chữ in",
+    chiTiet: "Không",
+    muas: ["Xuân", "Hạ"],
     description: "Đẹp",
   },
 ];

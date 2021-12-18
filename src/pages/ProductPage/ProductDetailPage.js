@@ -1,31 +1,33 @@
 import React, { useCallback } from "react";
 import "./style.css";
+
 import {
   Box,
-  Typography,
+  FormControl,
+  Grid,
   ImageList,
-  Tab,
   InputLabel,
   MenuItem,
-  FormControl,
-  Select,
-  Grid,
   Pagination,
   Button,
   useMediaQuery,
   useTheme,
+  Select,
+  Tab,
+  Typography,
 } from "@mui/material";
+
+import CommentPanel from "../../components/ProductDetail/CommentPanel";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import ProductPanel from "../../components/ProductDetail/ProductPanel";
+import RatingDetailPanel from "../../components/ProductDetail/RatingDetailPanel";
+import { SystemColor } from "../../color";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import TableInfo from "../../components/ProductDetail/TableInfo";
-import RatingDetailPanel from "../../components/ProductDetail/RatingDetailPanel";
-import CommentPanel from "../../components/ProductDetail/CommentPanel";
-import ProductPanel from "../../components/ProductDetail/ProductPanel";
 import { products } from "../../dataSources/Products";
-import { SystemColor } from "../../color";
 import { feedbacks } from "../../dataSources/Feedback";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import { AddBox } from "@mui/icons-material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { showCollectionDialog } from "../../redux/actions";
