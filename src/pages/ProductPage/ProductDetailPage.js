@@ -33,12 +33,14 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { showCollectionDialog } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 
 const ProductDetailPage = () => {
   const history = useHistory();
   const [sanPham, setSP] = useState(
-    history.location.pathname.includes("Ao") ? products[2] : products[2]
-    //products[1]
+    //products.find((sp) => sp.path === history.location.pathname)
+    //history.location.pathname.includes("Ao") ? products[1] : products[2]
+    products[1]
   );
   const dispatch = useDispatch();
   const theme = useTheme();
@@ -80,17 +82,7 @@ const ProductDetailPage = () => {
             <Box width={"100%"} paddingY={4}>
               <h3>Gợi ý phối đồ</h3>
               <Box sx={{ flexGrow: 1 }}>
-                <Grid
-                  container
-                  spacing={{ xs: 1, md: 2 }}
-                  columns={{ xs: 2, sm: 6, md: 8 }}
-                >
-                  {products.map((sanpham, index) => (
-                    <Grid item xs={1} sm={2} md={2} key={index}>
-                      <ProductCard sanPham={sanpham} />
-                    </Grid>
-                  ))}
-                </Grid>
+                <ProducCardGrid phanLoai={sanPham.phanLoai} lengthGrid={4} />
               </Box>
             </Box>
             <Box
@@ -176,17 +168,7 @@ const ProductDetailPage = () => {
             <Box width={"100%"} paddingY={4}>
               <h2>Gợi ý phối đồ</h2>
               <Box sx={{ flexGrow: 1 }}>
-                <Grid
-                  container
-                  spacing={{ xs: 1, md: 2 }}
-                  columns={{ xs: 2, sm: 6, md: 8 }}
-                >
-                  {products.map((sanpham, index) => (
-                    <Grid item xs={1} sm={2} md={2} key={index}>
-                      <ProductCard sanPham={sanpham} />
-                    </Grid>
-                  ))}
-                </Grid>
+                <ProducCardGrid phanLoai={sanPham.phanLoai} lengthGrid={4} />
               </Box>
             </Box>
             <Box

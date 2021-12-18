@@ -426,13 +426,15 @@ function ProductPanel({ sanPham, isMobile }) {
         }}
       >
         <Box alignContent="center" width="60%" height="100%" display={"flex"}>
-          <Box className="Main_Box_List_img" width="20%" height="100%">
+          <Box className="Main_Box_List_img" width="20%" height={"100%"}>
             <ImageList cols={1} gap={9} variant="woven">
-              {sanPham.imgs[0].map((img) => (
-                <Box onClick={() => handleClickShowIMGOpen(img)}>
-                  <img src={img} width={"100%"} loading="lazy" height={150} />
-                </Box>
-              ))}
+              {listimg.map((img, index) =>
+                index < 4 ? (
+                  <Box onClick={() => handleClickShowIMGOpen(img)}>
+                    <img src={img} width={"100%"} loading="lazy" height={150} />
+                  </Box>
+                ) : null;
+              )}
             </ImageList>
           </Box>
           <Box
