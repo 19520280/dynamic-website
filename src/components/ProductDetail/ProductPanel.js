@@ -318,11 +318,13 @@ function ProductPanel({ sanPham, isMobile }) {
         </Box>
         <Box className="Main_Box_List_img">
           <ImageList cols={4} gap={5} variant="woven">
-            {sanPham.imgs[0].map((img) => (
-              <Box onClick={() => handleClickShowIMGOpen(img)}>
-                <img src={img} width={"100%"} loading="lazy" />
-              </Box>
-            ))}
+            {listimg.map((img, index) =>
+              index < 4 ? (
+                <Box onClick={() => handleClickShowIMGOpen(img)}>
+                  <img src={img} width={"100%"} loading="lazy" />
+                </Box>
+              ) : null
+            )}
           </ImageList>
         </Box>
         <Box marginTop={1}>
@@ -433,7 +435,7 @@ function ProductPanel({ sanPham, isMobile }) {
                   <Box onClick={() => handleClickShowIMGOpen(img)}>
                     <img src={img} width={"100%"} loading="lazy" height={150} />
                   </Box>
-                ) : null;
+                ) : null
               )}
             </ImageList>
           </Box>
