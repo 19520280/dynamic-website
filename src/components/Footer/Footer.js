@@ -113,7 +113,7 @@ export default function Footer() {
   if (!isMobile) {
     return (
       <>
-        <AppBar position="static" color="primary">
+        <AppBar style={{marginTop:"8%"}} position="static" color="primary">
           <Container>
             <Toolbar>
               <Grid container style={{ padding: "60px 0px 20px" }}>
