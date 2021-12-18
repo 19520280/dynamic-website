@@ -15,7 +15,7 @@ const Breadcrumb = (props) => {
       style={{
         paddingTop: "2%",
         paddingBottom: "1%",
-        paddingLeft: "8%",
+        paddingLeft: "80px",
         // margin: "5%",
         backgroundColor: "#FCFCFC",
       }}
