@@ -15,7 +15,6 @@ import { TxtColor } from "../../color";
 import {
   Container,
   Grid,
-  Divider,
   Stack,
   useMediaQuery,
   useTheme,
@@ -25,12 +24,18 @@ import {
   ListItemText,
   ListSubheader,
   ListItemButton,
-  Typography,
 } from "@mui/material";
-import { StaticRouter } from "react-router-dom/cjs/react-router-dom.min";
-import { ConstructionOutlined } from "@mui/icons-material";
 import { Box } from "@mui/system";
 import TextFieldWithButton from "../TextFields/TextFieldWithButton";
+
+const image1 = require("../../assets/images/payment-method/cod.png").default;
+const image2 = require("../../assets/images/payment-method/visa.png").default;
+const image3 =
+  require("../../assets/images/payment-method/master1.png").default;
+const image4 =
+  require("../../assets/images/payment-method/master2.png").default;
+const image5 = require("../../assets/images/payment-method/jcb.png").default;
+const image6 = require("../../assets/images/payment-method/paypal.png").default;
 
 export default function Footer() {
   const theme = useTheme();
@@ -102,6 +107,8 @@ export default function Footer() {
     </Stack>
   );
 
+  const listImage = [image1, image2, image3, image4, image5, image6];
+
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   if (!isMobile) {
     return (
@@ -171,7 +178,7 @@ export default function Footer() {
                   </Stack>
                 </Grid>
                 <Grid item xs={6} xl={6}>
-                  <Box style={{ margin: "0px 0px 0px 20px" }}>
+                  <Box style={{ margin: "0px 0px 0px 50px" }}>
                     <Stack direction="row" spacing={2}>
                       <Grid container>
                         <Grid item xs={8}>
@@ -215,6 +222,25 @@ export default function Footer() {
                         colorTextField="#FFFF"
                         justContent="flex-start"
                       />
+                      <CountTypography
+                        text="CHÚNG TÔI CHẤP NHẬN"
+                        color={TxtColor.txtWhite}
+                        fontWeight={"bold"}
+                        size="0.8rem"
+                        padding="30px 0px 0px"
+                      />
+                      <Grid>
+                        {listImage.map((image) => (
+                          <img
+                            src={image}
+                            style={{
+                              width: "36px",
+                              height: "24px",
+                              margin: "0px 10px 0px 0px",
+                            }}
+                          />
+                        ))}
+                      </Grid>
                     </Stack>
                   </Box>
                 </Grid>
