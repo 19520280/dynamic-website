@@ -1,12 +1,16 @@
 import "./BlogBanner.css";
 
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
+
+import BlogDateTypography from "./../../Typographys/BlogDateTypography";
 import React from "react";
-import { Typography } from "@mui/material";
 
 const blogBanner =
   require("../../../assets/images/banners/magazine.webp").default;
 
 const BlogBanner = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div className="banner-blog-container">
       <div
@@ -17,9 +21,12 @@ const BlogBanner = () => {
         <Typography varient="h1" fontSize="3.1vw" fontWeight="bold">
           Học Tóc Tiên, Bích Phương phối đồ chất đi chơi
         </Typography>
-        <Typography fontSize="1vw" fontWeight="light">
-        Ngày đăng: 18/12/2021
-        </Typography>
+        <BlogDateTypography
+          date="18/12/2021"
+          number="1k"
+          justifyContent="center"
+          isMobile={isMobile}
+        />
         <Typography fontSize="1.2vw" fontWeight="light">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit,
           <br /> sed do eiusmod tempor incididunt ut labore et dolore magna
