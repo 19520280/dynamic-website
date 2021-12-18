@@ -213,7 +213,7 @@ export default function Footer() {
                         textButton="ĐĂNG KÝ"
                         colorBtn="secondary"
                         colorTextField="#FFFF"
-                        
+                        justContent="flex-start"
                       />
                     </Stack>
                   </Box>

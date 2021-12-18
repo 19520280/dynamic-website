@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { Button, Stack, TextField, Grid } from "@mui/material";
+import { Button, Stack, useTheme, Grid, useMediaQuery } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import { SystemColor } from "../../color";
@@ -13,13 +13,18 @@ const TextFieldWithButton = ({
   onClick,
   colorBtn,
   colorTextField,
+  justContent,
 }) => {
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
+
     <Stack
       spacing={0}
       direction="row"
-      justifyContent="center"
-      alignItems="stretch"
+      justifyContent={justContent ? justContent:"center"}
     >
       <Grid item>
         <Paper
@@ -50,12 +55,14 @@ const TextFieldWithButton = ({
           />
         </Paper>
       </Grid>
+      <Grid item>
+
       <Button
         onClick={onClick}
         variant="contained"
         color={colorBtn ? colorBtn : "primary"}
         sx={{
-          border: colorBtn?"1px solid gray":"0px",
+          border: "1px solid gray",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -66,6 +73,8 @@ const TextFieldWithButton = ({
       >
         {textButton}
       </Button>
+      </Grid>
+
     </Stack>
   );
 };
