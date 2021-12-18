@@ -1,4 +1,17 @@
-import { Box, Grid, Grow, Stack, Typography, Zoom } from "@mui/material";
+import "./BlogPage.css";
+
+import {
+  Box,
+  FormControl,
+  Grid,
+  Grow,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  Typography,
+  Zoom,
+} from "@mui/material";
 
 import BlogBanner from "./../../components/Banner/BlogBanner/BlogBanner";
 import BlogItem from "./../../components/BlogItem/BlogItem";
@@ -12,6 +25,7 @@ const menuItems = [
   { value: 2, text: "BEAUTY & FASHION" },
   { value: 3, text: "TIN TỨC" },
 ];
+const sorts = ["Mới nhất", "Cũ nhất", "Phổ biến"];
 
 const BlogPage = () => {
   /* #region  filter */
@@ -46,12 +60,37 @@ const BlogPage = () => {
     };
   }, []);
   /* #endregion */
-  return (
-    <Stack direction="column" spacing={5}>
-      <BlogBanner />
-      <div className="containermain">
-        <TabMenu menuItems={menuItems} />
 
+  const [sort, setsort] = React.useState("Mới nhất");
+  const handleChangesort = (event) => {
+    setsort(event.target.value);
+  };
+  return (
+    <>
+      <BlogBanner />
+      <div className="containermain" style={{ marginTop: "28px" }}>
+        <div className="top-filter">
+          <TabMenu menuItems={menuItems} />
+          <FormControl
+            sx={{ width: "150px" }}
+            className="selection"
+          >
+            <Select
+              required
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={sort}
+              onChange={handleChangesort}
+              size="small"
+            >
+              {sorts.map((sort, index) => (
+                <MenuItem key={index} value={sort}>
+                  {sort}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
         <Grid
           container
           spacing={{ xs: 1, md: 3 }}
@@ -75,7 +114,7 @@ const BlogPage = () => {
           ))}
         </Grid>
       </div>
-    </Stack>
+    </>
   );
 };
 

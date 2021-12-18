@@ -1,0 +1,13 @@
+.top-filter {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+  height: max-content;
+}
+.top-filter .selection {
+  position: absolute;
+  right: 0;
+  height: min-content;
+  padding: 0;
+}
