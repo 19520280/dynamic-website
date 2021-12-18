@@ -51,7 +51,13 @@ const AccountPage = ({ accountRoute }) => {
             <Redirect to="/Ca-nhan/Tai-khoan/Ho-so" />
           )}
           {accountRoute === "Ho-so" && <Profile />}
-          {accountRoute === "Dia-chi" && <Address />}
+          {accountRoute === "Dia-chi" && (
+            <Address
+              realName={data.realName}
+              phoneNumber={data.phoneNumber}
+              address={data.address}
+            />
+          )}
           {accountRoute === "Chi-so-co-the" && <Measure />}
           {accountRoute === "Doi-mat-khau" && <ChangePassword />}
           {accountRoute === "Don-mua" && <Orders />}
