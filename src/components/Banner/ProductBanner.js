@@ -1,5 +1,7 @@
-import "./Banner.css";
+import "./Homepage/Banner.css";
+
 import * as actions from "../../redux/actions/index";
+
 import {
   Box,
   Button,
@@ -12,10 +14,11 @@ import {
   useTheme,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { SaleBannerState$ } from "../../redux/selectors/index";
 import { useDispatch, useSelector } from "react-redux";
+
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { SaleBannerState$ } from "../../redux/selectors/index";
 
 const slide1 = require("../../assets/images/banners/SB1.jpg").default;
 
@@ -84,7 +87,9 @@ const ProductBanner = () => {
             >
               <Typography
                 varient="h1"
-                fontSize={isMobile?"calc(1.4rem + 0.5vw)":"calc(1.4rem + 2vw)"}
+                fontSize={
+                  isMobile ? "calc(1.4rem + 0.5vw)" : "calc(1.4rem + 2vw)"
+                }
                 fontWeight="bold"
                 color="primary"
               >
@@ -463,7 +468,7 @@ const ProductBanner = () => {
   /* #endregion */
 
   return (
-    <div className="fullwidthbanner-container" style={{marginBottom:"20px"}}>
+    <div className="fullwidthbanner-container" style={{ marginBottom: "20px" }}>
       <Box
         style={{
           display: SaleBanner.payload ? "none" : "block",

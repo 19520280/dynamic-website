@@ -5,7 +5,7 @@ import * as React from "react";
 import { Button, ImageList, ImageListItem, Typography } from "@mui/material";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { itemData } from "./../../dataSources/Catalogs";
+import { itemData } from "../../../dataSources/Catalogs";
 
 const imageItem = (item) => {
   return (

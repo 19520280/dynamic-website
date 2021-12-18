@@ -14,7 +14,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Banner from "../Banner/Banner";
 import Logo from "../../assets/images/Logo.png";
 import { SaleBannerState$ } from "../../redux/selectors";
 import SearchIcon from "@mui/icons-material/Search";

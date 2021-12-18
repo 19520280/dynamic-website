@@ -17,10 +17,10 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const slide1 =
-  require("../../assets/images/banners/complex_slide01.jpg").default;
+  require("../../../assets/images/banners/complex_slide01.jpg").default;
 
 const slide2 =
-  require("../../assets/images/banners/complex_slide02.jpg").default;
+  require("../../../assets/images/banners/complex_slide02.jpg").default;
 
 const Banner = () => {
   const theme = useTheme();
@@ -63,7 +63,7 @@ const Banner = () => {
             >
               <Typography
                 fontWeight="light"
-                fontSize="calc(0.04rem + 2vw)"
+                fontSize="2vw"
                 color="secondary"
               >
                 Chào tháng 12
@@ -76,7 +76,7 @@ const Banner = () => {
             >
               <Typography
                 varient="h1"
-                fontSize="calc(1.4rem + 2vw)"
+                fontSize="3.1vw"
                 fontWeight="bold"
                 color="primary"
               >
@@ -91,7 +91,7 @@ const Banner = () => {
               {...{ timeout: 1000 }}
             >
               <Typography
-                fontSize="calc(0.05rem + 2vw)"
+                fontSize="2vw"
                 fontWeight="light"
                 color="secondary"
               >
@@ -102,7 +102,7 @@ const Banner = () => {
           <Zoom direction="up" in={checked} {...{ timeout: 1000 }}>
             <Box>
               <Typography
-                fontSize="calc(0.8rem + 0.05vw)"
+                fontSize="1vw"
                 fontWeight="light"
                 color="secondary"
                 margin="16px 0px 8px 0px"
@@ -169,7 +169,7 @@ const Banner = () => {
           >
             <Typography
               fontWeight="light"
-              fontSize="calc(0.04rem + 2vw)"
+              fontSize="2vw"
               color="white"
               align="center"
             >
@@ -182,7 +182,7 @@ const Banner = () => {
             style={{ transitionDelay: checked ? "500ms" : "0ms" }}
           >
             <Typography
-              fontSize="calc(1.4rem + 2vw)"
+              fontSize="3.1vw"
               fontWeight="bold"
               color="white"
               textAlign="center"
@@ -198,7 +198,7 @@ const Banner = () => {
             {...{ timeout: 1000 }}
           >
             <Typography
-              fontSize="calc(0.05rem + 2vw)"
+              fontSize="2vw"
               fontWeight="light"
               color="white"
               textAlign="center"
@@ -223,7 +223,7 @@ const Banner = () => {
               }}
             >
               <Typography
-                fontSize="calc(0.8rem + 0.05vw)"
+                fontSize="1vw"
                 fontWeight="light"
                 color="white"
                 margin="16px 0px 8px 0px"
@@ -238,15 +238,17 @@ const Banner = () => {
                   sx={{
                     padding: "4px 0px 0px 0px",
                     fontSize: "calc(0.8rem + 0.05vw)",
-                    color:"white"
+                    color: "white",
                   }}
-
                 >
                   Về chúng tôi
                 </Button>
               ) : (
                 <>
-                  <Button variant="outlined" sx={{ m: 2, borderColor:"white", color:"white" }}>
+                  <Button
+                    variant="outlined"
+                    sx={{ m: 2, borderColor: "white", color: "white" }}
+                  >
                     Về chúng tôi
                   </Button>
                 </>

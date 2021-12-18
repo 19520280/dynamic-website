@@ -8,6 +8,7 @@ import {
 } from "@mui/material/styles";
 
 import AccountPage from "./pages/AccountPage/AccountPage";
+import BlogPage from "./pages/BlogPage/BlogPage";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import { Button } from "@mui/material";
 import CartPage from "./pages/CartPage";
@@ -52,7 +53,7 @@ function App() {
           <CollectionDialog />
           <Switch>
             <Route path="/" exact component={Homepage} />
-
+            <Route path="/Blog" exact component={BlogPage} />
             <Route path="/Ao" exact component={CategoryCasePage} />
             <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
             <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />

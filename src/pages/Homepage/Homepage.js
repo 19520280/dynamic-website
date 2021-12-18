@@ -2,8 +2,8 @@ import "./Homepage.css";
 
 import { Box, Divider, Grid, Typography } from "@mui/material";
 
-import Banner from "../../components/Banner/Banner";
-import CatalogBanners from "./../../components/CatalogBanners/CatalogBanners";
+import Banner from './../../components/Banner/Homepage/Banner';
+import CatalogBanners from "../../components/Banner/CatalogBanners/CatalogBanners";
 import FeedbackBanner from "./../../components/Feedback/FeedbackBanner";
 import ImageProductCardGrid from './../../components/GridProductCard/ImageProductCardGrid';
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
