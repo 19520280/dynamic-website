@@ -160,8 +160,8 @@ function App() {
               />
             </div>
           </Switch>
+          <Footer />
         </Router>
-        <Footer />
         <ScrollButton />
       </ThemeProvider>
     </>
