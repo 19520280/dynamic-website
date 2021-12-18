@@ -1,13 +1,14 @@
 import "./style.css";
 
-import { Button, Stack, useTheme, Grid, useMediaQuery } from "@mui/material";
-import Paper from "@mui/material/Paper";
+import { Button, Grid, Stack, useMediaQuery, useTheme } from "@mui/material";
+
 import InputBase from "@mui/material/InputBase";
+import Paper from "@mui/material/Paper";
+import React from "react";
 import { SystemColor } from "../../color";
 
-import React from "react";
-
 const TextFieldWithButton = ({
+  fullWidth,
   hintText,
   textButton,
   onClick,
@@ -20,13 +21,13 @@ const TextFieldWithButton = ({
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-
     <Stack
       spacing={0}
       direction="row"
-      justifyContent={justContent ? justContent:"center"}
+      justifyContent={justContent ? justContent : "center"}
+      width={fullWidth ? "100%" : null}
     >
-      <Grid item>
+      <Grid item sx={{ width:fullWidth ? "100%" : null}}>
         <Paper
           component="form"
           sx={{
@@ -56,25 +57,23 @@ const TextFieldWithButton = ({
         </Paper>
       </Grid>
       <Grid item>
-
-      <Button
-        onClick={onClick}
-        variant="contained"
-        color={colorBtn ? colorBtn : "primary"}
-        sx={{
-          border: "1px solid gray",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          minWidth: "max-content",
-          borderTopLeftRadius: "0px",
-          borderBottomLeftRadius: "0px",
-        }}
-      >
-        {textButton}
-      </Button>
+        <Button
+          onClick={onClick}
+          variant="contained"
+          color={colorBtn ? colorBtn : "primary"}
+          sx={{
+            border: "1px solid gray",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minWidth: "max-content",
+            borderTopLeftRadius: "0px",
+            borderBottomLeftRadius: "0px",
+          }}
+        >
+          {textButton}
+        </Button>
       </Grid>
-
     </Stack>
   );
 };

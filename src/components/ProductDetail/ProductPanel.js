@@ -1,51 +1,53 @@
-import React, { useState, useCallback } from "react";
+import "react-medium-image-zoom/dist/styles.css";
+
 import {
   Box,
-  Divider,
-  Typography,
   Button,
   ButtonGroup,
-  Input,
-  List,
-  TextField,
-  ImageList,
-  InputBase,
   Dialog,
   DialogActions,
-  DialogTitle,
   DialogContent,
-  Tabs,
+  DialogTitle,
+  Divider,
+  Fab,
+  IconButton,
+  ImageList,
+  Input,
+  InputBase,
+  List,
+  Paper,
   Tab,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableRow,
-  Paper,
   TableHead,
-  Fab,
-  IconButton,
+  TableRow,
+  Tabs,
+  TextField,
+  Typography,
 } from "@mui/material";
-import { TabPanel, TabContext, TabList } from "@material-ui/lab";
-import RatingInfolPanel from "./RatingInfoPanel";
-import ShareIcon from "@mui/icons-material/Share";
-import ColorButtonGroup from "../Buttons/ColorButtonGroup";
-import SizeButton from "../Buttons/SizeButton";
-import StraightenIcon from "@mui/icons-material/Straighten";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import React, { useCallback, useState } from "react";
+import { TabContext, TabList, TabPanel } from "@material-ui/lab";
+
 import { AddBox } from "@mui/icons-material";
+import AddIcon from "@mui/icons-material/Add";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ProductPolicy from "./ProductPolicy";
-import { useDispatch } from "react-redux";
-import { showCollectionDialog } from "../../redux/actions";
-import numberWithCommas from "../../utils/numberWithCommas";
 import { BgColor } from "../../color";
-import Zoom from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
-import ReactImageMagnify from "react-image-magnify";
 import CloseIcon from "@mui/icons-material/Close";
+import ColorButtonGroup from "../Buttons/ColorButtonGroup";
+import ProductPolicy from "./ProductPolicy";
+import RatingInfolPanel from "./RatingInfoPanel";
+import ReactImageMagnify from "react-image-magnify";
+import RemoveIcon from "@mui/icons-material/Remove";
+import ShareIcon from "@mui/icons-material/Share";
+import SizeButton from "../Buttons/SizeButton";
+import StraightenIcon from "@mui/icons-material/Straighten";
+import Zoom from "react-medium-image-zoom";
+import numberWithCommas from "../../utils/numberWithCommas";
+import { showCollectionDialog } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const imgPant = require("../../assets/images/meesure/Inkedpant_LI.jpg").default;
 const imgBody = require("../../assets/images/meesure/body.jpg").default;
