@@ -17,6 +17,14 @@ export const feedbacks = [
     color: "Đen",
     time: 3,
     used: 10,
+    chiSo: {
+      height: 165,
+      weight: 45,
+      v1: 90,
+      v2: 60,
+      v3: 90,
+    },
+    showMeesure: false,
   },
   {
     author: "Minh Đinh",
@@ -29,9 +37,17 @@ export const feedbacks = [
     color: "Trắng",
     time: 10,
     used: 30,
+    chiSo: {
+      height: 180,
+      weight: 65,
+      v1: 80,
+      v2: 80,
+      v3: 80,
+    },
+    showMeesure: true,
   },
   {
-    author: "Nguyễn Phương Thảo",
+    author: "Phương Thảo",
     tittle: "Bình thường",
     content: "Chủ shop dễ thương, hướng dẫn nhiệt tình. Sản phẩm đẹp",
     joined: 1,
@@ -41,5 +57,13 @@ export const feedbacks = [
     color: "Đỏ",
     time: 5,
     used: 15,
+    chiSo: {
+      height: 165,
+      weight: 46,
+      v1: 90,
+      v2: 60,
+      v3: 90,
+    },
+    showMeesure: true,
   },
 ];
