@@ -34,7 +34,8 @@ import { showCollectionDialog } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
-
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 const ProductDetailPage = () => {
   const history = useHistory();
   const [sanPham, setSP] = useState(
@@ -212,7 +213,14 @@ const ProductDetailPage = () => {
                   variant="woven"
                 >
                   {sanPham.imgs[0].map((img) => (
-                    <img src={img} width={"100%"} height={190} loading="lazy" />
+                    <Zoom>
+                      <img
+                        src={img}
+                        width={"100%"}
+                        height={190}
+                        loading="lazy"
+                      />
+                    </Zoom>
                   ))}
                 </ImageList>
               </Box>

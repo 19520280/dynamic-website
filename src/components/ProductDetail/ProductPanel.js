@@ -49,6 +49,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const imgPant = require("../../assets/images/meesure/Inkedpant_LI.jpg").default;
 const imgBody = require("../../assets/images/meesure/body.jpg").default;
+const imgShirt = require("../../assets/images/meesure/Ao.jpg").default;
 
 function ProductPanel({ sanPham, isMobile }) {
   const dispatch = useDispatch();
@@ -122,25 +123,45 @@ function ProductPanel({ sanPham, isMobile }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  function createData(Size, Height, Eo, Mong, Dui) {
+  function createDataPaint(Size, Height, Eo, Mong, Dui) {
     return { Size, Height, Eo, Mong, Dui };
   }
 
   const rows = [
-    createData("XS", 107, 62, 81, 47.8),
-    createData("S", 108, 66, 85, 50),
-    createData("M", 109, 70, 89, 52.2),
-    createData("L", 110.5, 76, 95, 55.4),
+    createDataPaint("XS", 107, 62, 81, 47.8),
+    createDataPaint("S", 108, 66, 85, 50),
+    createDataPaint("M", 109, 70, 89, 52.2),
+    createDataPaint("L", 110.5, 76, 95, 55.4),
   ];
-  function createdata(Size, Nguc, Eo, Mong) {
+  function createdatabody(Size, Nguc, Eo, Mong) {
     return { Size, Nguc, Eo, Mong };
   }
 
   const row = [
-    createdata("XS", "82-86", "62-66", "87-91"),
-    createdata("S", "86-90", "66-70", "91-95"),
-    createdata("M", "90-94", "70-74", "95-99"),
-    createdata("L", "94-100", "74-80", "99-105"),
+    createdatabody("XS", "82-86", "62-66", "87-91"),
+    createdatabody("S", "86-90", "66-70", "91-95"),
+    createdatabody("M", "90-94", "70-74", "95-99"),
+    createdatabody("L", "94-100", "74-80", "99-105"),
+    createdatabody("XL", "100-106", "80-86", "105-111"),
+  ];
+  function createdataShirt(
+    Size,
+    Vai,
+    ChieuDai,
+    ChieuDaiTay,
+    Nguc,
+    CoTayAo,
+    ChieuDaiBapTay
+  ) {
+    return { Size, Vai, ChieuDai, ChieuDaiTay, Nguc, CoTayAo, ChieuDaiBapTay };
+  }
+
+  const rowAos = [
+    createdataShirt("XS", 36, 43.4, 17.5, 83, 50.4, 43),
+    createdataShirt("S", 37, 44, 18, 87, 52, 44.5),
+    createdataShirt("M", 38, 44.6, 18.5, 91, 53.6, 46),
+    createdataShirt("M", 38, 44.6, 18.5, 91, 53.6, 46),
+    createdataShirt("XL", 41, 46.4, 19.9, 103, 58.6, 50.6),
   ];
   const Price = (size) => (
     <Box sx={{ display: "flex", alignContent: "center" }}>
@@ -292,159 +313,14 @@ function ProductPanel({ sanPham, isMobile }) {
       </DialogActions>
     </Dialog>
   );
-  if (isMobile) {
-    return (
-      <Box marginX={1}>
-        {showImage("xl")}
-        <Box
-          sx={{ marginX: 1 }}
-          className="Main_Box_Main_img"
-          onClick={() =>
-            handleClickShowIMGOpen(
-              selectedColor === "white"
-                ? sanPham.imgs[0][0]
-                : sanPham.imgs[1][0]
-            )
-          }
-        >
-          <img
-            src={
-              selectedColor === "white"
-                ? sanPham.imgs[0][0]
-                : sanPham.imgs[1][0]
-            }
-            width={"100%"}
-          />
-        </Box>
-        <Box className="Main_Box_List_img">
-          <ImageList cols={4} gap={5} variant="woven">
-            {listimg.map((img, index) =>
-              index < 4 ? (
-                <Box onClick={() => handleClickShowIMGOpen(img)}>
-                  <img src={img} width={"100%"} loading="lazy" />
-                </Box>
-              ) : null
-            )}
-          </ImageList>
-        </Box>
-        <Box marginTop={1}>
-          <h3>{sanPham.ten}</h3>
-          {Price(16)}
-        </Box>
-        <Divider variant="fullWidth" orientation="horizontal" />
-        <Box className="Main_Box_Right_Color">
-          <Box marginTop={2}>
-            <h4>Màu sắc</h4>
-          </Box>
-          <Box marginY={1}>
-            <ColorButtonGroup
-              colors={sanPham.mauSacs}
-              selected={selectedColor}
-              setSelected={setSelectedColor}
-              only={true}
-            />
-          </Box>
-        </Box>
-        <Divider variant="fullWidth" orientation="horizontal" />
-        <Box className="Main_Box_Right_Size" marginBottom={1}>
-          <Box marginTop={1}>
-            <h4>Kích thước</h4>
-          </Box>
-          <Box sx={{ display: "flex" }}>
-            <ImageList
-              cols={sanPham.kichThuocs.length}
-              gap={15}
-              variant="woven"
-            >
-              {sanPham.kichThuocs.map((s) => (
-                <SizeButton
-                  size={s}
-                  selected={selectedSize}
-                  setSelected={setSelectedSize}
-                  only={true}
-                />
-              ))}
-            </ImageList>
-          </Box>
-        </Box>
-        <Divider variant="fullWidth" orientation="horizontal" />
-        <Box className="Main_Box_Right_Input_SL">
-          <Box sx={{ alignContent: "center", display: "flex" }} marginY={2}>
-            <ButtonGroup variant="outlined">
-              <Button
-                sx={{ width: 10, height: 41 }}
-                onClick={btnRemoveclick}
-                disabled={sp.soLuong <= 0}
-              >
-                <RemoveIcon />
-              </Button>
-              <Button disableRipple height={41}>
-                <InputBase
-                  value={sp.soLuong}
-                  onChange={(e) => {
-                    let value = Number(e.target.value);
-                    setSP({
-                      ...sp,
-                      soLuong:
-                        value < 0
-                          ? 0
-                          : value > sanPham.tonKho
-                          ? sanPham.tonKho
-                          : value,
-                    });
-                  }}
-                  sx={{ flex: 1, width: 30 }}
-                  type="number"
-                  size="small"
-                />
-              </Button>
-              <Button
-                sx={{ width: 10, height: 41 }}
-                onClick={btnAddclick}
-                disabled={sp.soLuong >= sanPham.tonKho}
-              >
-                <AddIcon />
-              </Button>
-            </ButtonGroup>
-          </Box>
-          <Box marginY={1}>
-            <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
-          </Box>
-        </Box>
-        <Box marginY={1}>
-          <RatingInfolPanel size={"small"} />
-        </Box>
-        <Box>
-          <ProductPolicy />
-        </Box>
-      </Box>
-    );
-  } else
-    return (
-      <Box
-        sx={{
-          display: "flex",
-          width: "100%",
-        }}
-      >
-        <Box alignContent="center" width="60%" height="100%" display={"flex"}>
-          <Box className="Main_Box_List_img" width="20%" height={"100%"}>
-            <ImageList cols={1} gap={9} variant="woven">
-              {listimg.map((img, index) =>
-                index < 4 ? (
-                  <Box onClick={() => handleClickShowIMGOpen(img)}>
-                    <img src={img} width={"100%"} loading="lazy" height={150} />
-                  </Box>
-                ) : null
-              )}
-            </ImageList>
-          </Box>
+  if (sanPham) {
+    if (isMobile) {
+      return (
+        <Box marginX={1}>
+          {showImage("xl")}
           <Box
-            sx={{ marginLeft: 2 }}
+            sx={{ marginX: 1 }}
             className="Main_Box_Main_img"
-            width="80%"
-            height="100%"
-            alignItems="center"
             onClick={() =>
               handleClickShowIMGOpen(
                 selectedColor === "white"
@@ -460,33 +336,27 @@ function ProductPanel({ sanPham, isMobile }) {
                   : sanPham.imgs[1][0]
               }
               width={"100%"}
-              height={640}
             />
           </Box>
-          {showImage("md")}
-        </Box>
-        <Box
-          className="Main_Box_Right"
-          width={"40%"}
-          marginLeft={3}
-          bgcolor={BgColor}
-        >
-          <Box className="Main_Box_Right_Name">
-            <Box>
-              <h2>{sanPham.ten}</h2>
-            </Box>
-            <Box sx={{ display: "flex" }} marginY={1} display={"none"}>
-              <RatingInfolPanel size={"medium"} />
-              <ShareIcon sx={{ float: "right", width: "10%" }} />
-            </Box>
-            {Price(22)}
+          <Box className="Main_Box_List_img">
+            <ImageList cols={4} gap={5} variant="woven">
+              {sanPham.imgs[0].map((img, index) => (
+                <Box onClick={() => handleClickShowIMGOpen(img)}>
+                  <img src={img} width={"100%"} loading="lazy" />
+                </Box>
+              ))}
+            </ImageList>
           </Box>
-          <Divider variant="fullWidth" orientation="horizontal" marginTop={1} />
+          <Box marginTop={1}>
+            <h3>{sanPham.ten}</h3>
+            {Price(16)}
+          </Box>
+          <Divider variant="fullWidth" orientation="horizontal" />
           <Box className="Main_Box_Right_Color">
-            <Box marginTop={1}>
-              <h3>Màu sắc</h3>
+            <Box marginTop={2}>
+              <h4>Màu sắc</h4>
             </Box>
-            <Box marginBottom={1}>
+            <Box marginY={1}>
               <ColorButtonGroup
                 colors={sanPham.mauSacs}
                 selected={selectedColor}
@@ -496,8 +366,8 @@ function ProductPanel({ sanPham, isMobile }) {
             </Box>
           </Box>
           <Divider variant="fullWidth" orientation="horizontal" />
-          <Box className="Main_Box_Right_Size">
-            <Box marginY={1}>
+          <Box className="Main_Box_Right_Size" marginBottom={1}>
+            <Box marginTop={1}>
               <h4>Kích thước</h4>
             </Box>
             <Box sx={{ display: "flex" }}>
@@ -517,280 +387,18 @@ function ProductPanel({ sanPham, isMobile }) {
               </ImageList>
             </Box>
           </Box>
-          <Box
-            sx={{ display: "flex", marginY: 1 }}
-            className="Main_Box_Right_Size_Guide"
-          >
-            <Button onClick={handleClickSGOpen}>
-              <StraightenIcon />
-              <Typography variant="body2" marginLeft={1}>
-                SIZE GUIDE
-              </Typography>
-            </Button>
-            <Dialog open={openSizeGuide} onClose={handleSGClose} maxWidth="md">
-              <DialogTitle sx={{ textAlign: "center" }} marginBottom={20}>
-                <h4>Hướng dẫn kích thước</h4>
-              </DialogTitle>
-              <IconButton
-                aria-label="close"
-                onClick={handleSGClose}
-                sx={{
-                  position: "absolute",
-                  right: 8,
-                  top: 8,
-                }}
-              >
-                <CloseIcon />
-              </IconButton>
-              <DialogContent>
-                <TabContext value={value}>
-                  <TabList
-                    onChange={handleChange}
-                    centered
-                    indicatorColor="primary"
-                  >
-                    <Tab label="Phép đo sản phẩm" value={1} />
-                    <Tab label="Phép đo cơ thể" value={2} />
-                  </TabList>
-                  <TabPanel value={1}>
-                    <TableContainer component={Paper}>
-                      <Table aria-label="simple table">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell align="center">Kích thước</TableCell>
-                            <TableCell align="center">Chiều dài</TableCell>
-                            <TableCell align="center">
-                              Kích thước vòng eo
-                            </TableCell>
-                            <TableCell align="center">
-                              Kích thước mông
-                            </TableCell>
-                            <TableCell align="center">Đùi</TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {rows.map((row) => (
-                            <TableRow key={row.name}>
-                              <TableCell
-                                component="th"
-                                scope="row"
-                                align="center"
-                                sx={{ fontWeight: "bold" }}
-                              >
-                                {row.size}
-                              </TableCell>
-                              <TableCell align="center">{row.Height}</TableCell>
-                              <TableCell align="center">{row.Eo}</TableCell>
-                              <TableCell align="center">{row.Mong}</TableCell>
-                              <TableCell align="center">{row.Dui}</TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                    <Typography
-                      sx={{ fontSize: 14 }}
-                      marginY={2}
-                      color={"gray"}
-                    >
-                      *Dữ liệu này có được bằng cách đo thủ công sản phẩm, các
-                      phép đo có thể bị thay đổi 1-2 CM.
-                    </Typography>
-                    <Divider />
-                    <Box marginY={2} display={"flex"}>
-                      <Box>
-                        <Typography marginY={2}>
-                          Kích thước của sản phẩm?
-                        </Typography>
-                        <Box>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              1
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Eo dưới</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo thẳng trên đầu của cạp quần từ mép này sang mép
-                            kia.
-                          </Typography>
-                        </Box>
-                        <Box marginY={2}>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              2
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Vùng mông</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo thẳng qua đường hông rộng nhất từ mép này sang
-                            mép kia.
-                          </Typography>
-                        </Box>
-                        <Box marginY={2}>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              3
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Đùi</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo thẳng từ đường may đũng quần đến mặt ngoài của
-                            ống chân.
-                          </Typography>
-                        </Box>
-                        <Box marginY={2}>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              4
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Chiều dài đáy</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo từ cạp quần đến khe hở chân hoặc viền áo.
-                          </Typography>
-                        </Box>
-                      </Box>
-                      <Box>
-                        <img src={imgPant} width={350} />
-                      </Box>
-                    </Box>
-                    <Divider />
-                  </TabPanel>
-                  <TabPanel value={2}>
-                    <TableContainer component={Paper}>
-                      <Table aria-label="simple table">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell align="center">Kích thước</TableCell>
-                            <TableCell align="center">Ngực</TableCell>
-                            <TableCell align="center">
-                              Kích thước vòng eo
-                            </TableCell>
-                            <TableCell align="center">
-                              Kích thước mông
-                            </TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {row.map((row) => (
-                            <TableRow key={row.name}>
-                              <TableCell
-                                component="th"
-                                scope="row"
-                                align="center"
-                                sx={{ fontWeight: "bold" }}
-                              >
-                                {row.Size}
-                              </TableCell>
-                              <TableCell align="center">{row.Nguc}</TableCell>
-                              <TableCell align="center">{row.Eo}</TableCell>
-                              <TableCell align="center">{row.Mong}</TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                    <Typography
-                      sx={{ fontSize: 14 }}
-                      marginY={2}
-                      color={"gray"}
-                    >
-                      *Tùy thuộc vào loại cơ thể của bạn và thói quen mặc quần
-                      áo, các kích thước trên chỉ mang tính tham khảo.
-                    </Typography>
-                    <Divider />
-                    <Box marginY={2} display={"flex"}>
-                      <Box>
-                        <Typography marginY={2}>
-                          Làm thế nào để đo cơ thể của bạn?{" "}
-                        </Typography>
-                        <Box>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              1
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Bust của bạn</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo chu vi trên phần đầy đủ nhất của bức tượng bán
-                            thân của bạn.
-                          </Typography>
-                        </Box>
-                        <Box marginY={2}>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              2
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Eo của bạn</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo vòng eo của bạn ở nơi gầy nhất.
-                          </Typography>
-                        </Box>
-                        <Box marginY={2}>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              3
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Hông của bạn</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo phần đầy đủ nhất của hông của bạn.
-                          </Typography>
-                        </Box>
-                        <Box marginY={2}>
-                          <Box display="flex" alignItems={"center"}>
-                            <Fab size="small" color="primary">
-                              4
-                            </Fab>
-                            <Box marginLeft={1}>
-                              <h5>Chiều dài đáy</h5>
-                            </Box>
-                          </Box>
-                          <Typography fontSize={14} marginY={1} color={"gray"}>
-                            Đo từ cạp quần đến khe hở chân hoặc viền áo.
-                          </Typography>
-                        </Box>
-                      </Box>
-                      <Box>
-                        <img src={imgBody} width={345} />
-                      </Box>
-                    </Box>
-                    <Divider />
-                  </TabPanel>
-                </TabContext>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleSGClose}>Đóng</Button>
-              </DialogActions>
-            </Dialog>
-          </Box>
           <Divider variant="fullWidth" orientation="horizontal" />
           <Box className="Main_Box_Right_Input_SL">
-            <Box sx={{ alignContent: "center", display: "flex" }} marginY={1}>
+            <Box sx={{ alignContent: "center", display: "flex" }} marginY={2}>
               <ButtonGroup variant="outlined">
                 <Button
-                  sx={{ width: 10 }}
+                  sx={{ width: 10, height: 41 }}
                   onClick={btnRemoveclick}
                   disabled={sp.soLuong <= 0}
                 >
                   <RemoveIcon />
                 </Button>
-                <Button disableRipple>
+                <Button disableRipple height={41}>
                   <InputBase
                     value={sp.soLuong}
                     onChange={(e) => {
@@ -807,53 +415,654 @@ function ProductPanel({ sanPham, isMobile }) {
                     }}
                     sx={{ flex: 1, width: 30 }}
                     type="number"
+                    size="small"
                   />
                 </Button>
                 <Button
-                  sx={{ width: 10 }}
+                  sx={{ width: 10, height: 41 }}
                   onClick={btnAddclick}
                   disabled={sp.soLuong >= sanPham.tonKho}
                 >
                   <AddIcon />
                 </Button>
               </ButtonGroup>
-              {DialogClickAddCart()}
-              <Button
-                variant="contained"
-                sx={{
-                  alignItems: "center",
-                  height: 40,
-                  width: "50%",
-                  marginLeft: 2,
-                  background: "#303537",
-                  borderRadius: 1,
-                  marginTop: 0.2,
-                }}
-                disabled={!sp.soLuong}
-                onClick={handleClickOpen}
-              >
-                Thêm vào giỏ hàng
-              </Button>
             </Box>
             <Box marginY={1}>
               <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
             </Box>
-            <Box sx={{ display: "flex", alignContent: "center" }}>
-              <Button onClick={openCollectionDialog}>
-                <AddBox />
-                <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>
-                  THÊM VÀO DANH SÁCH
-                </h4>
-              </Button>
-            </Box>
           </Box>
-          <Divider variant="fullWidth" orientation="horizontal" />
+          <Box marginY={1}>
+            <RatingInfolPanel size={"small"} />
+          </Box>
           <Box>
             <ProductPolicy />
           </Box>
         </Box>
-      </Box>
-    );
+      );
+    } else
+      return (
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+          }}
+        >
+          <Box alignContent="center" width="60%" height="100%" display={"flex"}>
+            <Box className="Main_Box_List_img" width="20%" height={"100%"}>
+              <ImageList cols={1} gap={9} variant="woven">
+                {sanPham.imgs[0].map((img) => (
+                  <Box onClick={() => handleClickShowIMGOpen(img)}>
+                    <img src={img} width={"100%"} loading="lazy" height={150} />
+                  </Box>
+                ))}
+              </ImageList>
+            </Box>
+            <Box
+              sx={{ marginLeft: 2 }}
+              className="Main_Box_Main_img"
+              width="80%"
+              height="100%"
+              alignItems="center"
+              onClick={() =>
+                handleClickShowIMGOpen(
+                  selectedColor === "white"
+                    ? sanPham.imgs[0][0]
+                    : sanPham.imgs[1][0]
+                )
+              }
+            >
+              <img
+                src={
+                  selectedColor === "white"
+                    ? sanPham.imgs[0][0]
+                    : sanPham.imgs[1][0]
+                }
+                width={"100%"}
+                height={640}
+              />
+            </Box>
+            {showImage("md")}
+          </Box>
+          <Box
+            className="Main_Box_Right"
+            width={"40%"}
+            marginLeft={3}
+            bgcolor={BgColor}
+          >
+            <Box className="Main_Box_Right_Name">
+              <Box>
+                <h2>{sanPham.ten}</h2>
+              </Box>
+              <Box sx={{ display: "flex" }} marginY={1} display={"none"}>
+                <RatingInfolPanel size={"medium"} />
+                <ShareIcon sx={{ float: "right", width: "10%" }} />
+              </Box>
+              {Price(22)}
+            </Box>
+            <Divider
+              variant="fullWidth"
+              orientation="horizontal"
+              marginTop={1}
+            />
+            <Box className="Main_Box_Right_Color">
+              <Box marginTop={1}>
+                <h3>Màu sắc</h3>
+              </Box>
+              <Box marginBottom={1}>
+                <ColorButtonGroup
+                  colors={sanPham.mauSacs}
+                  selected={selectedColor}
+                  setSelected={setSelectedColor}
+                  only={true}
+                />
+              </Box>
+            </Box>
+            <Divider variant="fullWidth" orientation="horizontal" />
+            <Box className="Main_Box_Right_Size">
+              <Box marginY={1}>
+                <h4>Kích thước</h4>
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <ImageList
+                  cols={sanPham.kichThuocs.length}
+                  gap={15}
+                  variant="woven"
+                >
+                  {sanPham.kichThuocs.map((s) => (
+                    <SizeButton
+                      size={s}
+                      selected={selectedSize}
+                      setSelected={setSelectedSize}
+                      only={true}
+                    />
+                  ))}
+                </ImageList>
+              </Box>
+            </Box>
+            <Box
+              sx={{ display: "flex", marginY: 1 }}
+              className="Main_Box_Right_Size_Guide"
+            >
+              <Button onClick={handleClickSGOpen}>
+                <StraightenIcon />
+                <Typography variant="body2" marginLeft={1}>
+                  SIZE GUIDE
+                </Typography>
+              </Button>
+              <Dialog
+                open={openSizeGuide}
+                onClose={handleSGClose}
+                maxWidth="md"
+              >
+                <DialogTitle sx={{ textAlign: "center" }}>
+                  <h4>Hướng dẫn kích thước</h4>
+                  <IconButton
+                    aria-label="close"
+                    onClick={handleSGClose}
+                    sx={{
+                      position: "absolute",
+                      right: 8,
+                      top: 8,
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </DialogTitle>
+                <DialogContent>
+                  <TabContext value={value}>
+                    <TabList
+                      onChange={handleChange}
+                      centered
+                      indicatorColor="primary"
+                    >
+                      <Tab label="Phép đo sản phẩm" value={1} />
+                      <Tab label="Phép đo cơ thể" value={2} />
+                    </TabList>
+                    <TabPanel value={1}>
+                      {sanPham.phanLoai === "Quan" ? (
+                        <>
+                          <TableContainer component={Paper}>
+                            <Table aria-label="simple table">
+                              <TableHead>
+                                <TableRow>
+                                  <TableCell align="center">
+                                    Kích thước
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    Chiều dài
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    Kích thước vòng eo
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    Kích thước mông
+                                  </TableCell>
+                                  <TableCell align="center">Đùi</TableCell>
+                                </TableRow>
+                              </TableHead>
+                              <TableBody>
+                                {rows.map((row) => (
+                                  <TableRow key={row.name}>
+                                    <TableCell
+                                      component="th"
+                                      scope="row"
+                                      align="center"
+                                      sx={{ fontWeight: "bold" }}
+                                    >
+                                      {row.Size}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.Height}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.Eo}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.Mong}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.Dui}
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </TableContainer>
+                          <Typography
+                            sx={{ fontSize: 14 }}
+                            marginY={2}
+                            color={"gray"}
+                          >
+                            *Dữ liệu này có được bằng cách đo thủ công sản phẩm,
+                            các phép đo có thể bị thay đổi 1-2 CM.
+                          </Typography>
+                          <Divider />
+                          <Box marginY={2} display={"flex"}>
+                            <Box>
+                              <Typography marginY={2}>
+                                Cách đo kích thước của sản phẩm?
+                              </Typography>
+                              <Box>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    1
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Eo dưới</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo thẳng trên đầu của cạp quần từ mép này sang
+                                  mép kia.
+                                </Typography>
+                              </Box>
+                              <Box marginY={2}>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    2
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Vùng mông</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo thẳng qua đường hông rộng nhất từ mép này
+                                  sang mép kia.
+                                </Typography>
+                              </Box>
+                              <Box marginY={2}>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    3
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Đùi</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo thẳng từ đường may đũng quần đến mặt ngoài
+                                  của ống chân.
+                                </Typography>
+                              </Box>
+                              <Box marginY={2}>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    4
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Chiều dài đáy</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo từ cạp quần đến khe hở chân hoặc viền áo.
+                                </Typography>
+                              </Box>
+                            </Box>
+                            <Box>
+                              <img src={imgPant} width={350} />
+                            </Box>
+                          </Box>
+                          <Divider />
+                        </>
+                      ) : (
+                        <>
+                          <TableContainer component={Paper}>
+                            <Table aria-label="simple table">
+                              <TableHead>
+                                <TableRow>
+                                  <TableCell align="center">
+                                    Kích thước
+                                  </TableCell>
+                                  <TableCell align="center">Vai</TableCell>
+                                  <TableCell align="center">
+                                    Chiều dài
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    Chiề dài tay
+                                  </TableCell>
+                                  <TableCell align="center">Ngực</TableCell>
+                                  <TableCell align="center">
+                                    Cổ tay áo
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    chiều dài bắp tay
+                                  </TableCell>
+                                </TableRow>
+                              </TableHead>
+                              <TableBody>
+                                {rowAos.map((row) => (
+                                  <TableRow key={row.name}>
+                                    <TableCell
+                                      component="th"
+                                      scope="row"
+                                      align="center"
+                                      sx={{ fontWeight: "bold" }}
+                                    >
+                                      {row.Size}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.Vai}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.ChieuDai}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.ChieuDaiTay}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.Nguc}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.CoTayAo}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                      {row.ChieuDaiBapTay}
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </TableContainer>
+                          <Typography
+                            sx={{ fontSize: 14 }}
+                            marginY={2}
+                            color={"gray"}
+                          >
+                            *Dữ liệu này có được bằng cách đo thủ công sản phẩm,
+                            các phép đo có thể bị thay đổi 1-2 CM.
+                          </Typography>
+                          <Divider />
+                          <Box marginY={2} display={"flex"}>
+                            <Box>
+                              <Typography marginY={2}>
+                                Cách đo kích thước của sản phẩm?
+                              </Typography>
+                              <Box>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    1
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Vai</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo từ nơi đường nối vai gặp tay áo bên này
+                                  sang bên kia.
+                                </Typography>
+                              </Box>
+                              <Box marginY={2}>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    2
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Vòng ngực</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo từ các mũi khâu bên dưới nách bên này sang
+                                  bên kia.
+                                </Typography>
+                              </Box>
+                              <Box marginY={2}>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    3
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Chiều dài</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo từ nơi đường nối vai gặp cổ áo đến gấu áo.
+                                </Typography>
+                              </Box>
+                              <Box marginY={2}>
+                                <Box display="flex" alignItems={"center"}>
+                                  <Fab size="small" color="primary">
+                                    4
+                                  </Fab>
+                                  <Box marginLeft={1}>
+                                    <h5>Tay áo</h5>
+                                  </Box>
+                                </Box>
+                                <Typography
+                                  fontSize={14}
+                                  marginY={1}
+                                  color={"gray"}
+                                >
+                                  Đo từ nơi đường nối vai gặp lỗ tay đến cổ tay
+                                  áo.
+                                </Typography>
+                              </Box>
+                            </Box>
+                            <Box>
+                              <img src={imgShirt} width={350} />
+                            </Box>
+                          </Box>
+                          <Divider />
+                        </>
+                      )}
+                    </TabPanel>
+                    <TabPanel value={2}>
+                      <TableContainer component={Paper}>
+                        <Table aria-label="simple table">
+                          <TableHead>
+                            <TableRow>
+                              <TableCell align="center">Kích thước</TableCell>
+                              <TableCell align="center">Ngực</TableCell>
+                              <TableCell align="center">
+                                Kích thước vòng eo
+                              </TableCell>
+                              <TableCell align="center">
+                                Kích thước mông
+                              </TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                            {row.map((row) => (
+                              <TableRow key={row.name}>
+                                <TableCell
+                                  component="th"
+                                  scope="row"
+                                  align="center"
+                                  sx={{ fontWeight: "bold" }}
+                                >
+                                  {row.Size}
+                                </TableCell>
+                                <TableCell align="center">{row.Nguc}</TableCell>
+                                <TableCell align="center">{row.Eo}</TableCell>
+                                <TableCell align="center">{row.Mong}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
+                      <Typography
+                        sx={{ fontSize: 14 }}
+                        marginY={2}
+                        color={"gray"}
+                      >
+                        *Tùy thuộc vào loại cơ thể của bạn và thói quen mặc quần
+                        áo, các kích thước trên chỉ mang tính tham khảo.
+                      </Typography>
+                      <Divider />
+                      <Box marginY={2} display={"flex"}>
+                        <Box>
+                          <Typography marginY={2}>
+                            Làm thế nào để đo cơ thể của bạn?{" "}
+                          </Typography>
+                          <Box>
+                            <Box display="flex" alignItems={"center"}>
+                              <Fab size="small" color="primary">
+                                1
+                              </Fab>
+                              <Box marginLeft={1}>
+                                <h5>Bust của bạn</h5>
+                              </Box>
+                            </Box>
+                            <Typography
+                              fontSize={14}
+                              marginY={1}
+                              color={"gray"}
+                            >
+                              Đo chu vi trên phần đầy đủ nhất của bức tượng bán
+                              thân của bạn.
+                            </Typography>
+                          </Box>
+                          <Box marginY={2}>
+                            <Box display="flex" alignItems={"center"}>
+                              <Fab size="small" color="primary">
+                                2
+                              </Fab>
+                              <Box marginLeft={1}>
+                                <h5>Eo của bạn</h5>
+                              </Box>
+                            </Box>
+                            <Typography
+                              fontSize={14}
+                              marginY={1}
+                              color={"gray"}
+                            >
+                              Đo vòng eo của bạn ở nơi gầy nhất.
+                            </Typography>
+                          </Box>
+                          <Box marginY={2}>
+                            <Box display="flex" alignItems={"center"}>
+                              <Fab size="small" color="primary">
+                                3
+                              </Fab>
+                              <Box marginLeft={1}>
+                                <h5>Hông của bạn</h5>
+                              </Box>
+                            </Box>
+                            <Typography
+                              fontSize={14}
+                              marginY={1}
+                              color={"gray"}
+                            >
+                              Đo phần đầy đủ nhất của hông của bạn.
+                            </Typography>
+                          </Box>
+                        </Box>
+                        <Box>
+                          <img src={imgBody} width={345} />
+                        </Box>
+                      </Box>
+                      <Divider />
+                    </TabPanel>
+                  </TabContext>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleSGClose}>Đóng</Button>
+                </DialogActions>
+              </Dialog>
+            </Box>
+            <Divider variant="fullWidth" orientation="horizontal" />
+            <Box className="Main_Box_Right_Input_SL">
+              <Box sx={{ alignContent: "center", display: "flex" }} marginY={1}>
+                <ButtonGroup variant="outlined">
+                  <Button
+                    sx={{ width: 10 }}
+                    onClick={btnRemoveclick}
+                    disabled={sp.soLuong <= 0}
+                  >
+                    <RemoveIcon />
+                  </Button>
+                  <Button disableRipple>
+                    <InputBase
+                      value={sp.soLuong}
+                      onChange={(e) => {
+                        let value = Number(e.target.value);
+                        setSP({
+                          ...sp,
+                          soLuong:
+                            value < 0
+                              ? 0
+                              : value > sanPham.tonKho
+                              ? sanPham.tonKho
+                              : value,
+                        });
+                      }}
+                      sx={{ flex: 1, width: 30 }}
+                      type="number"
+                    />
+                  </Button>
+                  <Button
+                    sx={{ width: 10 }}
+                    onClick={btnAddclick}
+                    disabled={sp.soLuong >= sanPham.tonKho}
+                  >
+                    <AddIcon />
+                  </Button>
+                </ButtonGroup>
+                {DialogClickAddCart()}
+                <Button
+                  variant="contained"
+                  sx={{
+                    alignItems: "center",
+                    height: 40,
+                    width: "50%",
+                    marginLeft: 2,
+                    background: "#303537",
+                    borderRadius: 1,
+                    marginTop: 0.2,
+                  }}
+                  disabled={!sp.soLuong}
+                  onClick={handleClickOpen}
+                >
+                  Thêm vào giỏ hàng
+                </Button>
+              </Box>
+              <Box marginY={1}>
+                <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
+              </Box>
+              <Box sx={{ display: "flex", alignContent: "center" }}>
+                <Button onClick={openCollectionDialog}>
+                  <AddBox />
+                  <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>
+                    THÊM VÀO DANH SÁCH
+                  </h4>
+                </Button>
+              </Box>
+            </Box>
+            <Divider variant="fullWidth" orientation="horizontal" />
+            <Box>
+              <ProductPolicy />
+            </Box>
+          </Box>
+        </Box>
+      );
+  }
 }
 
 export default ProductPanel;

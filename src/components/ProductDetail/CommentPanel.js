@@ -8,7 +8,8 @@ import {
   Typography,
 } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
-
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 export default function CommentPanel({ feedback, isMobile }) {
   return feedback ? (
     isMobile ? (
@@ -52,7 +53,9 @@ export default function CommentPanel({ feedback, isMobile }) {
           <Box width={"100%"} marginY={1}>
             <ImageList cols={3} gap={10} variant="woven">
               {feedback.imgs.map((img) => (
-                <img src={img} width={140} height={150} loading="lazy" />
+                <Zoom>
+                  <img src={img} width={140} height={150} loading="lazy" />
+                </Zoom>
               ))}
             </ImageList>
           </Box>
@@ -110,7 +113,9 @@ export default function CommentPanel({ feedback, isMobile }) {
           <Box width={"100%"}>
             <ImageList cols={3} gap={10} variant="woven">
               {feedback.imgs.map((img) => (
-                <img src={img} width={"100%"} height={150} loading="lazy" />
+                <Zoom>
+                  <img src={img} width={"100%"} height={150} loading="lazy" />
+                </Zoom>
               ))}
             </ImageList>
           </Box>
