@@ -11,10 +11,13 @@ const moneyInfo = (title, info, isMoney) => (
     <Typography fontWeight="medium" color="secondary">
       {title}
     </Typography>
-    <Typography  fontWeight="bold" color="primary">
+    <Typography
+      fontWeight="bold"
+      color={title === "Giảm giá" ? SystemColor.error : "primary"}
+    >
       {info
         ? isMoney
-          ? numberWithCommas(info)
+          ? `${title === "Giảm giá" ? "-" : ""} ${numberWithCommas(info)}`
           : `${info} điểm`
         : "Chưa có thông tin"}
     </Typography>
@@ -36,8 +39,8 @@ const PaymentInfo = ({
       sx={{
         width: isMobile ? "100%" : "30%",
         minWidth: "max-conent",
-      position: "sticky",
-      top:"12px",
+        position: "sticky",
+        top: "12px",
       }}
     >
       <Box
