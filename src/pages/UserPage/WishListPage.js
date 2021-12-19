@@ -32,8 +32,8 @@ const WishListPage = () => {
   const Account = useSelector(AccountState$);
 
   const [data, setData] = useState(Account);
-  const [state, setState] = useState(true);
-  const handleOpen = () => setState(true);
+  const [stateAddList, setStateAddList] = useState(false);
+  const handleOpenAddList = () => setStateAddList(true);
   useEffect(() => {
     if (Account) {
       setData(Account);
@@ -50,7 +50,7 @@ const WishListPage = () => {
       <HeaderTypography text={text} />
       <Stack direction="row" justifyContent="flex-end">
         <Button
-          onClick={handleOpen}
+          onClick={handleOpenAddList}
           variant="contained"
           style={{ margin: "0px 20px 20px" }}
         >
@@ -59,8 +59,8 @@ const WishListPage = () => {
       </Stack>
       <WishListCardGrid value={value} />
       <ModalWithButton
-        state={state}
-        setState={setState}
+        state={stateAddList}
+        setState={setStateAddList}
         listField={listField}
         header="Thêm danh sách yêu thích"
         btnText="Thêm mới"

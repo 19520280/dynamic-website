@@ -23,6 +23,7 @@ import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
 import { Box } from "@mui/system";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
+import ConfirmModal from "../../components/Modal/ConfirmModal";
 
 const WishListDetailPage = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ const WishListDetailPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [checked, setChecked] = React.useState(true);
+  const [stateDelete, setStateDelete] = React.useState(true);
   const handleChange = (event) => {
     setChecked(event.target.checked);
     if (event.target.checked == false && select == false) {
@@ -63,12 +65,21 @@ const WishListDetailPage = () => {
       setSelect(false);
     }
   };
+  const handlePrimaryButtonClick = () => {
+    if (!select) {
+      setStateDelete(true);
+    }
+  };
   const body = (
     <>
       <Grid container paddingLeft={isMobile ? "16px" : "24px"}>
         <HeaderTypography text={text} />
       </Grid>
-      <Grid container paddingLeft={isMobile ? "16px" : "24px"} paddingBottom={isMobile ? "0px" : "24px"}>
+      <Grid
+        container
+        paddingLeft={isMobile ? "16px" : "24px"}
+        paddingBottom={isMobile ? "0px" : "24px"}
+      >
         <Grid
           item
           xs={5}
@@ -88,7 +99,11 @@ const WishListDetailPage = () => {
         >
           <FormControlLabel
             control={
-              <Button disabled={!checked && !select} variant="contained">
+              <Button
+                disabled={!checked && !select}
+                variant="contained"
+                onClick={handlePrimaryButtonClick}
+              >
                 {select ? "Thêm mới" : "Xóa đã chọn"}
               </Button>
             }
@@ -109,6 +124,13 @@ const WishListDetailPage = () => {
         </Grid>
       </Grid>
       <ProducCardGrid />
+      <ConfirmModal
+        header="Xóa sản phẩm khỏi danh sách?"
+        state={stateDelete}
+        setState={setStateDelete}
+        messageText="Xóa thành công"
+        typeMessage="success"
+      />
     </>
   );
 
