@@ -24,24 +24,42 @@ export const INIT_STATE = {
     gender: "Nam",
     email: "19520715@gm.uit.edu.vn",
     phoneNumber: "0329092681",
-    style: [
-      {
+    // style: [
+    //   {
+    //     name: "Đơn giản",
+    //     isTrue: true,
+    //   },
+    //   {
+    //     name: "Hằng ngày",
+    //     isTrue: true,
+    //   },
+    //   {
+    //     name: "Đường phố",
+    //     isTrue: false,
+    //   },
+    //   {
+    //     name: "Đi học/Đi làm",
+    //     isTrue: true,
+    //   },
+    // ],
+    style: {
+      basic: {
         name: "Đơn giản",
         isTrue: true,
       },
-      {
+      daily: {
         name: "Hằng ngày",
         isTrue: true,
       },
-      {
+      street: {
         name: "Đường phố",
         isTrue: false,
       },
-      {
+      formal: {
         name: "Đi học/Đi làm",
         isTrue: true,
       },
-    ],
+    },
     address: [
       {
         name: "Thị trấn P'rao, huyện Đông Giang, tỉnh Quảng Nam",
