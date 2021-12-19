@@ -1,7 +1,15 @@
 import * as actions from "../../redux/actions/index";
 
 import { BgColor, SystemColor } from "../../color";
-import { Container, Grid, Slide, Stack, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Button,
+  Container,
+  Grid,
+  Slide,
+  Stack,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -12,6 +20,7 @@ import WishListCard from "../../components/WishLishCard/WishListCard";
 import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
+import AddNewWishListModal from "../../components/Modal/AddNewWishListModal";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -23,7 +32,8 @@ const WishListPage = () => {
   const Account = useSelector(AccountState$);
 
   const [data, setData] = useState(Account);
-
+  const [state, setState] = useState(true);
+  const handleOpen = () => setState(true);
   useEffect(() => {
     if (Account) {
       setData(Account);
@@ -34,6 +44,16 @@ const WishListPage = () => {
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const body = (
+    <>
+      <HeaderTypography text={text} />
+      <Stack direction="row" justifyContent="flex-end">
+        <Button onClick={handleOpen} variant="contained" style={{margin:"0px 20px 20px"}}>THÊM MỚI</Button>
+      </Stack>
+      <WishListCardGrid value={value} />
+      <AddNewWishListModal state={state} setState={setState}/>
+    </>
+  );
   if (isMobile) {
     return (
       <>
@@ -50,17 +70,15 @@ const WishListPage = () => {
         />
           </Container>
         </Grid> */}
-        <Grid item xs={12} xl={9.5} style={{marginBottom:"8%"}}>
+        <Grid item xs={12} xl={9.5} style={{ marginBottom: "8%" }}>
           <Container
             style={{
-              backgroundColor: "transparent",
+              background: BgColor.mainBg,
               padding: "0px 0px 0px 20px",
               width: "100%",
             }}
           >
-            <HeaderTypography text={text} />
-          
-              <WishListCardGrid value={value} />
+            {body}
           </Container>
         </Grid>
       </>
@@ -90,18 +108,14 @@ const WishListPage = () => {
               />
             </Container>
           </Grid>
-          <Grid item xs={9.5} xl={9.5} style={{marginBottom:"8%"}}>
+          <Grid item xs={9.5} xl={9.5} style={{ marginBottom: "8%" }}>
             <Container
               style={{
                 paddingLeft: "40px",
                 backgroundColor: "transparent",
               }}
             >
-              <HeaderTypography text={text} />
-              <Stack justifyContent="center">
-              <WishListCardGrid value={value} />
-
-              </Stack>
+              {body}
             </Container>
           </Grid>
         </Grid>
