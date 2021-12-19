@@ -25,15 +25,7 @@ function ProductPanel({ sanPham, isMobile }) {
   const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
   const [selectedSize, setSelectedSize] = React.useState(sanPham.kichThuocs[0]);
-  const [inputSL, setInputSL] = React.useState(0);
 
-  const [listimg, setlistimg] = React.useState([]);
-  React.useEffect(() => {
-    if (sanPham) {
-      sanPham.imgs[0].map((img) => listimg.push(img));
-      sanPham.imgs[1].map((img) => listimg.push(img));
-    }
-  }, [sanPham]);
   const [sp, setSP] = React.useState({
     ten: sanPham.ten,
     imgs: sanPham.imgs,
@@ -177,21 +169,15 @@ function ProductPanel({ sanPham, isMobile }) {
           <ShowSizeGuide sanPham={sanPham} />
           <Box alignContent="center" width="60%" height="100%" display={"flex"}>
             <ShowMainImage
-              sizeMainImg={640}
-              sizeSubImg={150}
+              sizeMainImg={660}
+              sizeSubImg={155}
               isMobile={isMobile}
               sanPham={sanPham}
             />
           </Box>
-          <Box
-            className="Main_Box_Right"
-            width={"40%"}
-            marginLeft={3}
-            bgcolor={BgColor}
-          >
+          <Box className="Main_Box_Right" width={"40%"} marginLeft={3}>
             <InfoProduct sanPham={sanPham} isMobile={isMobile} />
-            <Divider variant="fullWidth" orientation="horizontal" />
-            <Box>
+            <Box backgroundColor="rgba(0, 0, 0, 0.04)">
               <ProductPolicy />
             </Box>
           </Box>

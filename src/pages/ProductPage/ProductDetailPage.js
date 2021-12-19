@@ -17,10 +17,10 @@ import {
   Typography,
   Snackbar,
   Alert,
+  Divider,
 } from "@mui/material";
 
 import CommentPanel from "../../components/ProductDetail/CommentPanel";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductPanel from "../../components/ProductDetail/ProductPanel";
 import RatingDetailPanel from "../../components/ProductDetail/RatingDetailPanel";
 import { SystemColor } from "../../color";
@@ -39,12 +39,14 @@ import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import { BgColor } from "../../color";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import Paper from "@mui/material/Paper";
+import HeaderTypography from "../../components/Typographys/HeaderTypography";
+import CountTypography from "../../components/Typographys/CountTypography";
+
 const ProductDetailPage = () => {
   const history = useHistory();
   const [sanPham, setSP] = useState(
-    //products.find((sp) => sp.path === history.location.pathname)
-    //history.location.pathname.includes("Ao") ? products[1] : products[2]
-    products[1]
+    products.find((sp) => sp.path === history.location.pathname)
   );
   const dispatch = useDispatch();
   const theme = useTheme();
@@ -88,20 +90,13 @@ const ProductDetailPage = () => {
     <>
       <Box width="100%">
         <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-          <Alert
-            onClose={handleClose}
-            severity="success"
-            sx={{
-              width: "100%",
-              position: "fixed",
-              top: 5,
-              left: "calc(50%-10px)",
-            }}
-          >
+          <Alert severity="success" width="63%">
             Thêm vào giỏ hàng thành công
           </Alert>
         </Snackbar>
-        <ProductPanel sanPham={sanPham} isMobile={isMobile} />
+        <Box component={Paper}>
+          <ProductPanel sanPham={sanPham} isMobile={isMobile} />
+        </Box>
         {isMobile ? (
           <>
             <Box width={"100%"} paddingY={4}>
@@ -191,8 +186,14 @@ const ProductDetailPage = () => {
           </>
         ) : (
           <>
-            <Box width={"100%"} paddingY={4}>
-              <h2>Gợi ý phối đồ</h2>
+            <Box width={"100%"} marginY={4} component={Paper}>
+              <Box marginX={2}>
+                <HeaderTypography
+                  variant="button"
+                  text={"Gợi ý phối đồ"}
+                  color={"secondary"}
+                />
+              </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <ProducCardGrid phanLoai={sanPham.phanLoai} lengthGrid={4} />
               </Box>
@@ -205,16 +206,29 @@ const ProductDetailPage = () => {
               marginY={3}
               borderRadius={1}
               borderColor={SystemColor.gray}
+              component={Paper}
             >
               <Box>
                 <Box marginY={1}>
-                  <h4>THÔNG TIN SẢN PHẨM</h4>
+                  <CountTypography
+                    variant="button"
+                    text={"Thông tin sản phẩm"}
+                    color={"secondary"}
+                    size={18}
+                    padding={"1px 0px"}
+                  />
                 </Box>
                 <TableInfo sanPham={sanPham} />
               </Box>
-              <Box marginTop={4}>
+              <Box>
                 <Box marginY={1}>
-                  <h4>MÔ TẢ SẢN PHẨM</h4>
+                  <CountTypography
+                    variant="button"
+                    text={"Mô tả sản phẩm"}
+                    color={"secondary"}
+                    size={18}
+                    padding={"1px 0px"}
+                  />
                 </Box>
                 <Box marginTop={2}>{sanPham.description}</Box>
               </Box>
@@ -228,6 +242,7 @@ const ProductDetailPage = () => {
               borderRadius={1}
               borderColor={SystemColor.gray}
               display={"flex"}
+              component={Paper}
             >
               <RatingDetailPanel size={200} />
               <Box marginLeft={5}>
@@ -252,7 +267,12 @@ const ProductDetailPage = () => {
                 </ImageList>
               </Box>
             </Box>
-            <Box width={"100%"} paddingTop={4} marginBottom={10}>
+            <Box
+              width={"100%"}
+              paddingTop={2}
+              paddingBottom={5}
+              component={Paper}
+            >
               <TabContext value={value}>
                 <Box
                   sx={{
@@ -270,7 +290,6 @@ const ProductDetailPage = () => {
                     sx={{
                       display: "flex",
                       alignContent: "center",
-                      float: "right",
                     }}
                   >
                     <Box
@@ -278,8 +297,8 @@ const ProductDetailPage = () => {
                         display: "flex",
                       }}
                     >
-                      <Box marginTop={1} marginX={2} minWidth={80}>
-                        <h4>Đánh giá</h4>
+                      <Box marginTop={1} marginX={2}>
+                        <Typography fontWeight={"bold"}>Đánh giá</Typography>
                       </Box>
                       <FormControl size="small">
                         <InputLabel id="demo-simple-select-label-rate" />
@@ -303,8 +322,8 @@ const ProductDetailPage = () => {
                         display: "flex",
                       }}
                     >
-                      <Box marginTop={1} marginX={2} minWidth={80}>
-                        <h4>Màu sắc</h4>
+                      <Box marginTop={1} marginX={2}>
+                        <Typography fontWeight={"bold"}>Màu sắc</Typography>
                       </Box>
                       <FormControl size="small">
                         <InputLabel id="demo-simple-select-label-color" />
@@ -328,8 +347,8 @@ const ProductDetailPage = () => {
                         display: "flex",
                       }}
                     >
-                      <Box marginTop={1} marginX={2} minWidth={100}>
-                        <h4>Kích thước</h4>
+                      <Box marginTop={1} marginX={2}>
+                        <Typography fontWeight={"bold"}>Kích thước</Typography>
                       </Box>
                       <FormControl size="small">
                         <InputLabel id="demo-simple-select-label-size" />
@@ -352,20 +371,26 @@ const ProductDetailPage = () => {
                 </Box>
                 <TabPanel value={0}>
                   {listfbfilter.map((e) => (
-                    <CommentPanel feedback={e} key={e.author} />
+                    <>
+                      <CommentPanel feedback={e} key={e.author} />
+                      <Divider variant={"fullWidth"} />
+                    </>
                   ))}
                 </TabPanel>
                 <TabPanel value={1}>
                   {listfbfilter.map((e) => (
-                    <CommentPanel feedback={e} key={e.author} />
+                    <>
+                      <CommentPanel feedback={e} key={e.author} />
+                      <Divider variant={"fullWidth"} />
+                    </>
                   ))}
                 </TabPanel>
-                <Pagination
-                  count={10}
-                  color="primary"
-                  sx={{ float: "right", marginRight: 10 }}
-                />
               </TabContext>
+              <Pagination
+                count={10}
+                color="primary"
+                sx={{ float: "right", marginRight: 10 }}
+              />
             </Box>
           </>
         )}

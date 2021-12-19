@@ -16,6 +16,9 @@ export const INIT_STATE = {
   MixMatchDialog: {
     isShow: false,
   },
+  QuickViewDialog: {
+    isShow: false,
+  },
   //#region Account
   AccountMenu: {
     isExpanded: true,
@@ -102,7 +105,7 @@ export const INIT_STATE = {
     isShow: false,
   },
   MessageModal: {
-    isShow:false,
-  }
+    isShow: false,
+  },
   //#endregion
 };

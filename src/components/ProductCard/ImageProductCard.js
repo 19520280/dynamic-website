@@ -20,7 +20,7 @@ const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
           onClick={onClick}
         />
         <div className="btn">
-          <BtnProCardGroup />
+          <BtnProCardGroup sanPham={sanPham} />
         </div>
         <div className="tag">
           <TagProCardGroup product={sanPham} />

@@ -21,7 +21,8 @@ import { AddBox } from "@mui/icons-material";
 import { showCollectionDialog, showSizeGuideDialog } from "../../redux/actions";
 import PriceTypography from "../Typographys/PriceTypography";
 import { useDispatch } from "react-redux";
-
+import HeaderTypography from "../Typographys/HeaderTypography";
+import CountTypography from "../Typographys/CountTypography";
 function InfoProduct({ sanPham, isMobile }) {
   const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
@@ -68,23 +69,36 @@ function InfoProduct({ sanPham, isMobile }) {
   return (
     <div>
       <Box className="Main_Box_Right_Name">
-        <Box>
-          <h2>{sanPham.ten}</h2>
+        <Box marginTop={-2}>
+          <HeaderTypography
+            variant="button"
+            text={sanPham.ten}
+            color={"primary"}
+          />
         </Box>
-        <Box sx={{ display: "flex" }} marginY={1} display={"none"}>
+        <Box sx={{ display: "flex" }} display={"none"}>
           <RatingInfolPanel size={"medium"} />
           <ShareIcon sx={{ float: "right", width: "10%" }} />
         </Box>
-        <PriceTypography
-          giaCu={sanPham.giaCu}
-          gia={sanPham.gia}
-          isMobile={isMobile}
-        />
+        <Box marginTop={1}>
+          <PriceTypography
+            giaCu={sanPham.giaCu}
+            gia={sanPham.gia}
+            isMobile={isMobile}
+            fontSize={24}
+          />
+        </Box>
       </Box>
-      <Divider variant="fullWidth" orientation="horizontal" marginTop={1} />
+      <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Color">
         <Box marginTop={1}>
-          <h3>Màu sắc</h3>
+          <CountTypography
+            variant="button"
+            text={"Màu sắc"}
+            color={"secondary"}
+            size={18}
+            padding={"1px 0px"}
+          />
         </Box>
         <Box marginBottom={1}>
           <ColorButtonGroup
@@ -98,7 +112,13 @@ function InfoProduct({ sanPham, isMobile }) {
       <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Size">
         <Box marginY={1}>
-          <h3>Kích thước</h3>
+          <CountTypography
+            variant="button"
+            text={"Kích thước"}
+            color={"secondary"}
+            size={18}
+            padding={"1px 0px"}
+          />
         </Box>
         <Box sx={{ display: "flex" }}>
           <ImageList cols={sanPham.kichThuocs.length} gap={15} variant="woven">
@@ -114,14 +134,12 @@ function InfoProduct({ sanPham, isMobile }) {
         </Box>
       </Box>
       <Box
-        sx={{ display: "flex", marginY: 1 }}
+        sx={{ display: "flex", marginTop: 1 }}
         className="Main_Box_Right_Size_Guide"
       >
         <Button onClick={openSizeGuideDialog}>
           <StraightenIcon />
-          <Typography variant="body2" marginLeft={1}>
-            SIZE GUIDE
-          </Typography>
+          <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>SIZE GUIDE</h4>
         </Button>
       </Box>
       <Divider variant="fullWidth" orientation="horizontal" />

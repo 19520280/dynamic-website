@@ -21,6 +21,9 @@ export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
 
 export const showMixMatchDialog = createAction("SHOW_MIXMACTCH_DIALOG");
 export const hideMixMatchDialog = createAction("HIDE_MIXMATCH_DIALOG");
+
+export const showQuickViewDialog = createAction("SHOW_QUICKVIEW_DIALOG");
+export const hideQuickViewDialog = createAction("HIDE_QUICKVIEW_DIALOG");
 /*
   getType(getPosts.getPostSuccess)
   =>  
