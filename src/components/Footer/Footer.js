@@ -71,6 +71,8 @@ export default function Footer() {
   const listImage = [image1, image2, image3, image4, image5, image6];
 
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  
   if (!isMobile) {
     return (
       <>

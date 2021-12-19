@@ -20,7 +20,7 @@ export default function OrderStatus({ status }) {
       <Grid item container justifyContent="flex-end">
         <OrdersCaseTypography text={status ? status : "TẤT CẢ"} />
       </Grid>
-      <PaymentCartLeftTable color="transparent" />
+      <PaymentCartLeftTable />
       <Grid  style={{paddingTop:"12px"}}  item container justifyContent="flex-end">
         <CountTypography text={"Tổng cộng: 350,000 VNĐ"} />
       </Grid>
