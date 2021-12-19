@@ -1,6 +1,5 @@
 import { Grid, Stack, Typography } from "@mui/material";
 
-import ImageProductCardGrid from "./ImageProductCardGrid";
 import ProducCardGrid from "./ProducCardGrid";
 import ProductCard from "./../ProductCard/ProductCard";
 import React from "react";

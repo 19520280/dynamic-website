@@ -41,6 +41,11 @@ const imgSignatureShort22 =
   require("../assets/images/products/signature-short/white02.jpg").default;
 /* #endregion */
 
+const imgOrt11 =
+  require("../assets/images/products/outerity/white01.jpg").default;
+const imgOrt12 =
+  require("../assets/images/products/outerity/white02.jpg").default;
+
 export const product = {
   id: "",
   ten: "",
@@ -64,6 +69,7 @@ export const product = {
 
 export const products = [
   {
+    id: "A01",
     path: "/Ao/Ao-thun/basic-tee",
     ten: "Basic Tee",
     phanLoai: "Ao",
@@ -89,7 +95,8 @@ export const products = [
     description: "Đẹp",
   },
   {
-    id: "/Ao/Ao-thun/monarch-butterflys",
+    id: "A02",
+    path: "/Ao/Ao-thun/monarch-butterflys",
     ten: "Monarch Butterflys",
     phanLoai: "Ao",
     imgs: [
@@ -118,7 +125,8 @@ export const products = [
     description: "Đẹp",
   },
   {
-    id: "/Quan/Quan-ngan/signature-short",
+    id: "Q01",
+    path: "/Quan/Quan-ngan/signature-short",
     ten: "Signature Short",
     phanLoai: "Quan",
     imgs: [
@@ -127,12 +135,34 @@ export const products = [
     ],
     newTag: false,
     giaCu: null,
-    gia: 170000,
+    gia: 200000,
     tonKho: 0,
     ngayKetThucSale: null,
     setCountDown: null,
     mauSacs: ["black", "white"],
     kichThuocs: ["FS"],
+    chatLieus: ["Cotton"],
+    phongCachs: ["Đường phố", "Thoải mái"],
+    kieuDang: "Quần ngắn",
+    hoatTiet: "Chữ in",
+    chiTiet: "Không",
+    muas: ["Xuân", "Hạ"],
+    description: "Đẹp",
+  },
+  {
+    id: "A03",
+    path: "/Ao/Ao-thun/Outerity",
+    ten: "Outerity",
+    phanLoai: "Ao",
+    imgs: [[imgOrt11, imgOrt12]],
+    newTag: true,
+    giaCu: null,
+    gia: 170000,
+    tonKho: 15,
+    ngayKetThucSale: null,
+    setCountDown: null,
+    mauSacs: ["white"],
+    kichThuocs: ["S"],
     chatLieus: ["Cotton"],
     phongCachs: ["Đường phố", "Thoải mái"],
     kieuDang: "Quần ngắn",

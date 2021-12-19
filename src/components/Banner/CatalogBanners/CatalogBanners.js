@@ -2,7 +2,13 @@ import "./CatalogBanners.css";
 
 import * as React from "react";
 
-import { Button, ImageList, ImageListItem, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  ImageList,
+  ImageListItem,
+  Typography,
+} from "@mui/material";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { itemData } from "../../../dataSources/Catalogs";
@@ -47,7 +53,7 @@ const imageItem = (item) => {
 
 export default function CatalogBanners() {
   return (
-    <ImageList variant="quilted" cols={6} gap="calc(8px + 0.5vw)" rowHeight="50px">
+    <ImageList variant="quilted" cols={6} gap="calc(8px + 0.5vw)">
       {itemData.map((item) => (
         <ImageListItem
           key={item.img}
