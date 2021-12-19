@@ -1,7 +1,8 @@
-import "react-medium-image-zoom/dist/styles.css";
-
+import React, { useState, useCallback } from "react";
 import {
   Box,
+  Divider,
+  Typography,
   Button,
   ButtonGroup,
   ImageList,
@@ -14,14 +15,11 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ProductPolicy from "./ProductPolicy";
 import { useDispatch } from "react-redux";
-import { showCollectionDialog, showSizeGuideDialog } from "../../redux/actions";
 import { BgColor } from "../../color";
-import "react-medium-image-zoom/dist/styles.css";
 import ShowSizeGuide from "../Dialogs/ShowSizeGuide/ShowSizeGuide";
 import PriceTypography from "../Typographys/PriceTypography";
 import ShowMainImage from "./ShowMainImage";
 import InfoProduct from "./InfoProduct";
-
 
 function ProductPanel({ sanPham, isMobile }) {
   const dispatch = useDispatch();
