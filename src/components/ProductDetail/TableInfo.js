@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Typography } from "@mui/material";
 
 export default function TableInfo({ sanPham }) {
   const [row, setRow] = React.useState({
@@ -40,90 +41,66 @@ export default function TableInfo({ sanPham }) {
     });
   }, [sanPham]);
   return (
-    <TableContainer component={Paper} border="solid" sx={{ width: "100%" }}>
-      <Table sx={{ border: 2 }} aria-label="simple table">
+    <TableContainer
+      component={Paper}
+      width="100%"
+      sx={{ border: "1px solid #BEBEBE" }}
+    >
+      <Table aria-label="simple table" border="1px solid #BEBEBE">
         <TableBody>
-          <TableRow sx={{ border: 1 }}>
-            <TableCell
-              component="th"
-              scope="row"
-              sx={{ width: 200, border: 1 }}
-            >
-              <h4>Phong cách</h4>
+          <TableRow border={1}>
+            <TableCell component="th" scope="row" width="30%" border={1}>
+              <Typography fontWeight={"bold"}>Phong cách</Typography>
             </TableCell>
-            <TableCell component="th" scope="row" sx={{ border: 1 }}>
+            <TableCell component="th" scope="row" border={1}>
               {row.PC}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1 }}>
-            <TableCell
-              component="th"
-              scope="row"
-              sx={{ width: "30%", border: 1 }}
-            >
-              <h4>Kiểu dáng</h4>
+          <TableRow border={1}>
+            <TableCell component="th" scope="row" width="30%" border={1}>
+              <Typography fontWeight={"bold"}>Kiểu dáng</Typography>
             </TableCell>
-            <TableCell component="th" scope="row" sx={{ border: 1 }}>
+            <TableCell component="th" scope="row" border={1}>
               {row.KD}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1 }}>
-            <TableCell
-              component="th"
-              scope="row"
-              sx={{ width: "30%", border: 1 }}
-            >
-              <h4>Họa tiết</h4>
+          <TableRow border={1}>
+            <TableCell component="th" scope="row" width="30%" border={1}>
+              <Typography fontWeight={"bold"}>Họa tiết</Typography>
             </TableCell>
-            <TableCell component="th" scope="row" sx={{ border: 1 }}>
+            <TableCell component="th" scope="row" border={1}>
               {row.HT}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1 }}>
-            <TableCell
-              component="th"
-              scope="row"
-              sx={{ width: "30%", border: 1 }}
-            >
-              <h4>Chi tiết</h4>
+          <TableRow border={1}>
+            <TableCell component="th" scope="row" width="30%" border={1}>
+              <Typography fontWeight={"bold"}>Chi tiết</Typography>
             </TableCell>
-            <TableCell component="th" scope="row" sx={{ border: 1 }}>
+            <TableCell component="th" scope="row" border={1}>
               {row.CT}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1 }}>
-            <TableCell
-              component="th"
-              scope="row"
-              sx={{ width: "30%", border: 1 }}
-            >
-              <h4>Chất liệu</h4>
+          <TableRow border={1}>
+            <TableCell component="th" scope="row" width="30%" border={1}>
+              <Typography fontWeight={"bold"}>Chất liệu</Typography>
             </TableCell>
-            <TableCell component="th" scope="row" sx={{ border: 1 }}>
+            <TableCell component="th" scope="row" border={1}>
               {row.CL}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1 }}>
-            <TableCell
-              component="th"
-              scope="row"
-              sx={{ width: "30%", border: 1 }}
-            >
-              <h4>Mùa</h4>
+          <TableRow border={1}>
+            <TableCell component="th" scope="row" width="30%" border={1}>
+              <Typography fontWeight={"bold"}>Mùa</Typography>
             </TableCell>
-            <TableCell component="th" scope="row" sx={{ border: 1 }}>
+            <TableCell component="th" scope="row" border={1}>
               {row.M}
             </TableCell>
           </TableRow>
-          <TableRow sx={{ border: 1 }}>
-            <TableCell
-              component="th"
-              scope="row"
-              sx={{ width: "30%", border: 1 }}
-            >
-              <h4>Cách bảo quản</h4>
+          <TableRow border={1}>
+            <TableCell component="th" scope="row" width="30%" border={1}>
+              <Typography fontWeight={"bold"}>Cách bảo quản</Typography>
             </TableCell>
-            <TableCell component="th" scope="row" sx={{ border: 1 }}>
+            <TableCell component="th" scope="row" border={1}>
               {row.BQ}
             </TableCell>
           </TableRow>
