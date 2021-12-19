@@ -6,8 +6,14 @@ import {
   ListItemButton,
   ListItemText,
   ListSubheader,
+  useMediaQuery,
+  useTheme,
+  IconButton,
+  Paper,
+  Box,
 } from "@mui/material";
 import SiderAvatar from "../Avatar/SiderAvatar";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { accountMenuItems } from "../../dataSources/Account";
 import { useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
@@ -15,6 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect, useState } from "react";
 import * as actions from "../../redux/actions/index";
 import { AccountMenuState$ } from "../../redux/selectors/index";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import { SystemColor, BgColor } from "../../color";
 
 const menuItems = accountMenuItems;
 
@@ -65,7 +73,13 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
   const history = useHistory();
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  const [openMenu, setOpenMenu] = useState(false);
+  const handleOpenMenu = () => {
+    setOpenMenu(!openMenu);
+  };
   //#region state menu expand
   useEffect(() => {
     if (pathnames[1] === "Tai-khoan") {
@@ -89,8 +103,8 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
   }, [AccountMenu]);
   //#endregion
 
-  return (
-    <List>
+  const body =(
+<List>
       <SiderAvatar
         avatarImage={avatarImage}
         accountName={accountName}
@@ -152,6 +166,43 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
       ))}
     </List>
   );
+  const CustomStack = (content) => {
+    if (isMobile) {
+      return (
+        <>
+          <IconButton
+            size="large"
+            edge="start"
+            color="primary"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={handleOpenMenu}
+          >
+            <FilterListIcon />
+          </IconButton>
+          <Paper>
+            <SwipeableDrawer
+              style={{ color: BgColor.mainBg }}
+              anchor="left"
+              className={classes.filter}
+              open={openMenu}
+              onClose={handleOpenMenu}
+              onOpen={handleOpenMenu}
+              docked={true}
+            >
+              <Paper style={{ background: BgColor.mainBg }}>
+                <Box padding={3}>{content}</Box>
+              </Paper>
+            </SwipeableDrawer>
+          </Paper>
+        </>
+      );
+    } else {
+      return content;
+    }
+  };
+
+  return <Box>{CustomStack(body)}</Box>;
 };
 
 export default AccountSider;
