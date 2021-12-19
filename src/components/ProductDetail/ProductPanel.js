@@ -1,7 +1,8 @@
-import "react-medium-image-zoom/dist/styles.css";
-
+import React, { useState, useCallback } from "react";
 import {
   Box,
+  Divider,
+  Typography,
   Button,
   ButtonGroup,
   ImageList,
@@ -19,7 +20,6 @@ import ShowSizeGuide from "../Dialogs/ShowSizeGuide/ShowSizeGuide";
 import PriceTypography from "../Typographys/PriceTypography";
 import ShowMainImage from "./ShowMainImage";
 import InfoProduct from "./InfoProduct";
-
 
 function ProductPanel({ sanPham, isMobile }) {
   const dispatch = useDispatch();
