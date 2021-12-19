@@ -5,6 +5,7 @@ import OrderStatus from "./OrderStatus.js";
 import SizeGuideDialog from "./SizeGuideDialog.js";
 import SaleBanner from "./SaleBanner.js";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.js";
+import QuickViewDialog from "./QuickViewDialog.js";
 import MessageModal from "./MessageModal.js";
 import ProductDialog from "./ProductDialog.js";
 
@@ -18,6 +19,7 @@ export default combineReducers({
   OrderStatus,
   SizeGuideDialog,
   ShoppingCartDrawer,
+  QuickViewDialog,
   MessageModal,
   ProductDialog,
   

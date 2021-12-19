@@ -31,7 +31,7 @@ const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
           ></span>
         </span>
         <div className="btn">
-          <BtnProCardGroup />
+          <BtnProCardGroup sanPham={sanPham} />
         </div>
         <div className="tag">
           <TagProCardGroup product={sanPham} />

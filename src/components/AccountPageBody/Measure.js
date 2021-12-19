@@ -313,7 +313,13 @@ const Measure = () => {
           Chỉ số cơ thể
         </Typography>
       </Box>
-      <Box width="100%" border={1} paddingX={4} paddingY={3.6}>
+      <Box
+        width="100%"
+        border="1px solid #BEBEBE"
+        borderRadius={1}
+        paddingX={4}
+        paddingY={3.6}
+      >
         <Box marginBottom={4}>
           <Typography>
             Thêm

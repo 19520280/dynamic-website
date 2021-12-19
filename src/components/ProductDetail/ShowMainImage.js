@@ -19,8 +19,7 @@ function ShowMainImage({ sizeMainImg, sizeSubImg, isMobile, sanPham }) {
   const [listimg, setlistimg] = React.useState([]);
   React.useEffect(() => {
     if (sanPham) {
-      sanPham.imgs[0].map((img) => listimg.push(img));
-      sanPham.imgs[1].map((img) => listimg.push(img));
+      sanPham.imgs.map((e) => e.map((img) => listimg.push(img)));
     }
   }, [sanPham]);
   const [openImg, setOpenIMG] = React.useState({

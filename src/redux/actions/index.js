@@ -23,6 +23,9 @@ export const hideProductDialog = createAction("HIDE_PRODUCT_DIALOG");
 
 export const showSizeGuideDialog = createAction("SHOW_SIZEGUIDE_DIALOG");
 export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
+
+export const showQuickViewDialog = createAction("SHOW_QUICKVIEW_DIALOG");
+export const hideQuickViewDialog = createAction("HIDE_QUICKVIEW_DIALOG");
 /*
   getType(getPosts.getPostSuccess)
   =>  
@@ -33,7 +36,6 @@ export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
     }
   }
 */
-
 
 //#region Account
 export const getAccount = createAction("GET_ACCOUNT");
