@@ -22,7 +22,7 @@ const PaymentCartLeftTable = ({ color }) => {
         width: "100%",
         backgroundColor: color ? color : "white",
         border: color ? "0px" : "1px solid",
-        borderRadius: "8px",
+        borderRadius: "4px",
         borderColor: SystemColor.gray,
         padding: "0px 12px",
       }}

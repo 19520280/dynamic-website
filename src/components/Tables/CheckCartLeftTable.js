@@ -108,7 +108,7 @@ const CheckCartLeftTable = () => {
         width: "100%",
         backgroundColor: "white",
         border: "1px solid",
-        borderRadius: "8px",
+        borderRadius: "4px",
         borderColor: SystemColor.gray,
         padding: "0px 12px",
       }}
