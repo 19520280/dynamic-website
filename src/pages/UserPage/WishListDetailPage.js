@@ -36,7 +36,7 @@ const WishListDetailPage = () => {
 
   const [data, setData] = useState(Account);
   const [select, setSelect] = useState(false);
-  const onClick = (value) => {
+  const onClick = () => {
     setSelect(!select);
     if (checked == true && !select == false) {
     } else {
@@ -49,14 +49,11 @@ const WishListDetailPage = () => {
       setData(Account);
     }
   }, [Account]);
-  const value = 4;
   const text = "Chi tiết danh sách quan tâm";
-  const label = "Số lượng sản phẩm: 8";
-  const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [checked, setChecked] = React.useState(true);
-  const [stateDelete, setStateDelete] = React.useState(true);
+  const [stateDelete, setStateDelete] = React.useState(false);
   const handleChange = (event) => {
     setChecked(event.target.checked);
     if (event.target.checked == false && select == false) {
