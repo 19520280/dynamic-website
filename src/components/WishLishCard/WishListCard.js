@@ -127,7 +127,7 @@ export default function WishListCard() {
         </CardActionArea>
 
           <Grid container>
-            <Grid xs={6} xl={8} item>
+            <Grid xs={8} xl={8} item>
               <Box
                 sx={{
                   display: "flex",
@@ -149,13 +149,13 @@ export default function WishListCard() {
                 </CardContent>
               </Box>
             </Grid>
-            <Grid xs={6} xl={4} item>
+            <Grid xs={4} xl={4} item>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                   paddingTop: 1.5,
-                  paddingRight: 2,
+                  paddingRight: 1,
                 }}
                 className={classes.boxicon}
                 alignContent="center"
@@ -242,7 +242,7 @@ export default function WishListCard() {
             }}
           />
           <Typography
-            sx={{ p: 0.5, backgroundColor: "#ECECEC", borderRadius: "8px" }}
+            sx={{ p: 0.5, backgroundColor: "#ECECEC", borderRadius: "4px" }}
           >
             <IconButton
               aria-label="twitter"
