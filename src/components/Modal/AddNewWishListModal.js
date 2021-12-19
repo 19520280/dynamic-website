@@ -7,7 +7,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Stack, TextField, useMediaQuery, useTheme } from "@mui/material";
 import HeaderTypography from "../Typographys/HeaderTypography";
-import SuccessModal from "./SuccessModal";
+import MessageModal from "./MessageModal";
+
 export default function AddNewWishListModal({ state, setState }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -41,7 +42,7 @@ export default function AddNewWishListModal({ state, setState }) {
               THÊM MỚI
             </Button>
           </Stack>
-          <SuccessModal
+          <MessageModal
             state={child}
             setState={setChild}
             setStateParent={setState}

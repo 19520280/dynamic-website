@@ -13,7 +13,7 @@ import {
   useTheme,
 } from "@mui/material";
 import HeaderTypography from "../Typographys/HeaderTypography";
-export default function AddNewWishListModal({
+export default function MessageModal({
   state,
   setState,
   setStateParent,
@@ -21,6 +21,7 @@ export default function AddNewWishListModal({
   severity,
   closeAfterSecond,
 }) {
+    //state: state of this component, setState: State
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const handleOpen = () => setState(true);
