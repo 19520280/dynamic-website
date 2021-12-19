@@ -72,7 +72,7 @@ const WishListPage = () => {
   if (isMobile) {
     return (
       <>
-        {/* <Grid item xs={8} xl={2.5}>
+        <Grid item xs={8} xl={2.5}>
           <Container
             style={{
               backgroundColor: BgColor.mainBg,
@@ -84,7 +84,7 @@ const WishListPage = () => {
           timeHasJoined={data.timeHasJoined}
         />
           </Container>
-        </Grid> */}
+        </Grid>
         <Grid item xs={12} xl={9.5} style={{ marginBottom: "8%" }}>
           <Container
             style={{

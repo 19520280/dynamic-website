@@ -3,8 +3,14 @@ import Link from "@mui/material/Link";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import { withRouter } from "react-router-dom";
-
+import {
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 const Breadcrumb = (props) => {
+  
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const {
     history,
     location: { pathname },
@@ -15,7 +21,7 @@ const Breadcrumb = (props) => {
       style={{
         paddingTop: "2%",
         paddingBottom: "1%",
-        paddingLeft: "80px",
+        paddingLeft: isMobile? "20px":"80px",
         // margin: "5%",
         backgroundColor: "#FCFCFC",
       }}

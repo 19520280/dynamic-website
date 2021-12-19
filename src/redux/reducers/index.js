@@ -4,6 +4,7 @@ import CollectionDialog from "./CollectionDialog.js";
 import MessageModal from "./MessageModal.js";
 import MixMatchDialog from './MixMatchDialog';
 import OrderStatus from "./OrderStatus.js";
+import ProductDialog from "./ProductDialog.js";
 import QuickViewDialog from "./QuickViewDialog.js";
 import SaleBanner from "./SaleBanner.js";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.js";
@@ -21,4 +22,6 @@ export default combineReducers({
   MixMatchDialog,
   QuickViewDialog,
   MessageModal,
+  ProductDialog,
+  
 });
