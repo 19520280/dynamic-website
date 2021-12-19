@@ -38,9 +38,11 @@ const CollectionDialog = () => {
   }, [dispatch]);
   React.useEffect(() => {
     if (state == false) {
+      setState(true);
       dispatch(hideCollectionDialog());
     }
   }, [dispatch, state]);
+  
   const handleClose = React.useCallback(() => {
     dispatch(hideCollectionDialog());
   }, [dispatch]);
