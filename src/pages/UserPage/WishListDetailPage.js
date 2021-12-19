@@ -15,17 +15,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import AccountSider from "../../components/Sider/AccountSider";
-import { AccountState$ } from "../../redux/selectors";
+import { AccountState$, ProductDialogState$ } from "../../redux/selectors";
 import React from "react";
 import WishListCard from "../../components/WishLishCard/WishListCard";
 import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
+import { showProductDialog } from "../../redux/actions";
+
 import { Box } from "@mui/system";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
 import ConfirmModal from "../../components/Modal/ConfirmModal";
-
+import ProductDialog from "../../components/Dialogs/CollectionDialog/ProductDialog"
 const WishListDetailPage = () => {
+  const open = useSelector(ProductDialogState$);
+
   const dispatch = useDispatch();
   //#region get data
   useEffect(() => {
@@ -42,6 +46,12 @@ const WishListDetailPage = () => {
     } else {
       setChecked(!checked);
     }
+  };
+
+  const handleAddProduct = () => {
+    console.log(open);
+
+    dispatch(showProductDialog());
   };
 
   useEffect(() => {
@@ -66,6 +76,7 @@ const WishListDetailPage = () => {
     if (!select) {
       setStateDelete(true);
     }
+    else handleAddProduct();
   };
   const body = (
     <>
@@ -128,6 +139,7 @@ const WishListDetailPage = () => {
         messageText="Xóa thành công"
         typeMessage="success"
       />
+      <ProductDialog/>
 
     </>
   );

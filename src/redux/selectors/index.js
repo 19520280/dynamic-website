@@ -1,5 +1,6 @@
 export const SaleBannerState$ = (state) => state.SaleBanner.isShow;
 export const CollectionDialogState$ = (state) => state.CollectionDialog.isShow;
+export const ProductDialogState$ = (state) => state.ProductDialog.isShow;
 
 //#region Account
 export const AccountState$ = (state) => state.Account;
