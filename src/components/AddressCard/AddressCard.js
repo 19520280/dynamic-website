@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { SystemColor } from "../../color";
+import ConfirmModal from "../Modal/ConfirmModal";
 
 const info = (title, info, isDefault, isLaptop) => (
   <Stack
@@ -57,8 +58,43 @@ const info = (title, info, isDefault, isLaptop) => (
   </Stack>
 );
 
-const AddressCard = ({ data, setData, address, isLaptop }) => {
-  // buttons for laptop size
+const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
+  const [modalDeleteConfirmState, setModalDeleteConfirmState] = useState(false);
+
+  const handleSetAddressDefault = () => {
+    setData({
+      ...data,
+      address: { ...data.address, isDefault: address.key },
+    });
+    if (!isLaptop) {
+      handleClose();
+    }
+  };
+
+  const handleDeleteClick = () => {
+    setModalDeleteConfirmState(true);
+    if (!isLaptop) {
+      handleClose();
+    }
+  };
+
+  const handleEditClick = () => {
+    onEdit();
+    if (!isLaptop) {
+      handleClose();
+    }
+  };
+
+  const handleDeleteConfirm = () => {
+    const newAddress = data.address.name;
+    newAddress.splice(address.key, 1);
+    newAddress.forEach((item, index) => {
+      item.key = index;
+    });
+    setData({ ...data, address: { ...data.address, name: newAddress } });
+  };
+
+  //region buttons for laptop size
   const buttons = (
     <Stack
       direction="column"
@@ -77,29 +113,37 @@ const AddressCard = ({ data, setData, address, isLaptop }) => {
           variant="text"
           color="primary"
           size="large"
+          onClick={() => handleEditClick()}
         >
           SỬA
         </Button>
-        {address.isDefault ? null : (
+        {data.address.isDefault === address.key ? null : (
           <Button
             sx={{ height: "fit-content" }}
             variant="text"
             color="primary"
             size="large"
+            onClick={() => handleDeleteClick()}
           >
             XÓA
           </Button>
         )}
       </Stack>
-      {address.isDefault ? null : (
-        <Button variant="outlined" color="primary" size="large">
+      {data.address.isDefault === address.key ? null : (
+        <Button
+          variant="outlined"
+          color="primary"
+          size="large"
+          onClick={() => handleSetAddressDefault()}
+        >
           THIẾT LẬP MẶC ĐỊNH
         </Button>
       )}
     </Stack>
   );
+  //#endregion
 
-  // menu button for mobile and tablet size
+  //#region menu button for mobile and tablet size
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -113,7 +157,7 @@ const AddressCard = ({ data, setData, address, isLaptop }) => {
 
   const menu = (
     <Box>
-      {address.isDefault ? <StarRounded /> : null}
+      {data.address.isDefault === address.key ? <StarRounded /> : null}
       <IconButton
         sx={{ ml: "4px", pt: "0px" }}
         id="menu-button"
@@ -132,14 +176,30 @@ const AddressCard = ({ data, setData, address, isLaptop }) => {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
       >
-        <MenuItem onClick={handleClose}>Sửa</MenuItem>
-        <MenuItem onClick={handleClose}>Xóa</MenuItem>
-        <MenuItem onClick={handleClose}>Thiết lập mặc định</MenuItem>
+        <MenuItem onClick={() => handleEditClick()}>Sửa</MenuItem>
+        {data.address.isDefault === address.key ? null : (
+          <MenuItem onClick={() => handleDeleteClick()}>Xóa</MenuItem>
+        )}
+        {data.address.isDefault === address.key ? null : (
+          <MenuItem onClick={() => handleSetAddressDefault()}>
+            Thiết lập mặc định
+          </MenuItem>
+        )}
       </Menu>
     </Box>
   );
+  //#endregion
 
+  //return
   return (
     <Box
       sx={{
@@ -152,12 +212,25 @@ const AddressCard = ({ data, setData, address, isLaptop }) => {
         alignItems={isLaptop ? "center" : "flex-start"}
       >
         <Stack direction="column" spacing="8px">
-          {info("Họ tên", data.realName, address.isDefault, isLaptop)}
+          {info(
+            "Họ tên",
+            data.realName,
+            data.address.isDefault === address.key,
+            isLaptop
+          )}
           {info("Số điện thoại", data.phoneNumber, false, isLaptop)}
-          {info("Địa chỉ", address.name, false, isLaptop)}
+          {info("Địa chỉ", address, false, isLaptop)}
         </Stack>
         {isLaptop ? buttons : menu}
       </Stack>
+      <ConfirmModal
+        header="Xóa địa chỉ được chọn?"
+        state={modalDeleteConfirmState}
+        setState={setModalDeleteConfirmState}
+        action={handleDeleteConfirm}
+        messageText="Xóa thành công"
+        typeMessage="success"
+      />
     </Box>
   );
 };

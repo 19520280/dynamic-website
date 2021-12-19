@@ -72,28 +72,47 @@ export const INIT_STATE = {
         isTrue: true,
       },
     },
-    address: [
-      {
-        // name: "Thôn A Duông, Thị trấn P'rao, huyện Đông Giang, tỉnh Quảng Nam",
-        name: {
+    address: {
+      isDefault: 0,
+      name: [
+        {
+          key: 0,
           home: "Thôn A Duông",
           town: "Thị trấn P'rao",
           district: "Huyện Đông Giang",
           province: "Tỉnh Quảng Nam",
         },
-        isDefault: true,
-      },
-      {
-        // name: "KTX khu A, phường Linh Trung, quận Thủ Đức, TP.HCM",
-        name: {
+        {
+          key: 1,
           home: "Khu phố 6",
           town: "Phường Linh Trung",
           district: "Quận Thủ Đức",
           province: "TP. Hồ Chí Minh",
         },
-        isDefault: false,
-      },
-    ],
+      ],
+    },
+    // address: [
+    //   {
+    //     // name: "Thôn A Duông, Thị trấn P'rao, huyện Đông Giang, tỉnh Quảng Nam",
+    //     name: {
+    //       home: "Thôn A Duông",
+    //       town: "Thị trấn P'rao",
+    //       district: "Huyện Đông Giang",
+    //       province: "Tỉnh Quảng Nam",
+    //     },
+    //     isDefault: true,
+    //   },
+    //   {
+    //     // name: "KTX khu A, phường Linh Trung, quận Thủ Đức, TP.HCM",
+    //     name: {
+    //       home: "Khu phố 6",
+    //       town: "Phường Linh Trung",
+    //       district: "Quận Thủ Đức",
+    //       province: "TP. Hồ Chí Minh",
+    //     },
+    //     isDefault: false,
+    //   },
+    // ],
     measure: {
       canShow: true,
       firstRing: 90,

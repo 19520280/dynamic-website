@@ -12,7 +12,9 @@ import MessageModal from "./MessageModal";
 export default function ModalWithButton({
   state,
   setState,
+  action,
   listField,
+  listValueAndOnChange,
   header,
   btnText,
   messageText,
@@ -20,7 +22,9 @@ export default function ModalWithButton({
   footer,
 }) {
   //state, setState: state and setState of this component
+  //action: callbackfuntion when confirmed
   //listField: arrya of string, eg: ["Text Field 1", "Text Field 2"]
+  //listValueAndOnChange: value and callback function when value changed
   //header: header(string) of this Modal
   //btnText: text of primary button of this modal
   //messageText: what string you want to show when click primary button
@@ -54,9 +58,15 @@ export default function ModalWithButton({
           <Stack direction="column" spacing={2}>
             <HeaderTypography padding="0px" text={header} />
 
-            {listField.map((Field) => (
-              <TextField label={Field}></TextField>
-            ))}
+            {listValueAndOnChange
+              ? listField.map((Field) => (
+                  <TextField
+                    label={Field}
+                    value={listValueAndOnChange.value}
+                    onChange={listValueAndOnChange.onChange}
+                  ></TextField>
+                ))
+              : listField.map((Field) => <TextField label={Field}></TextField>)}
             <Button onClick={handleClick} variant="contained">
               {btnText}
             </Button>
@@ -65,6 +75,7 @@ export default function ModalWithButton({
             state={child}
             setState={setChild}
             setStateParent={setState}
+            action={action}
             text={messageText}
             severity={typeMessage}
             closeAfterSecond={true}
