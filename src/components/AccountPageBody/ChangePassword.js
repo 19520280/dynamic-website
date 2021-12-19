@@ -89,26 +89,32 @@ const ChangePassword = ({ data, setData }) => {
               value={RePassword}
               onChange={handleChangeRePW}
             />
-            <Button
-              sx={{ p: "8 32px", width: "fit-content", height: "fit-content" }}
-              variant="contained"
-              size="large"
-              onClick={() => {
-                if (
-                  RePassword === NewPassword &&
-                  RePassword != null &&
-                  OldPassword
-                )
-                  setOpen(true);
-                else setOpenerr(true);
-              }}
-            >
-              Đổi mật khẩu
-            </Button>
           </Stack>
+          <Button
+            sx={{
+              p: "8 32px",
+              width: "fit-content",
+              height: "fit-content",
+              float: "right",
+              marginTop: 3,
+            }}
+            variant="contained"
+            size="large"
+            onClick={() => {
+              if (
+                RePassword === NewPassword &&
+                RePassword != null &&
+                OldPassword
+              )
+                setOpen(true);
+              else setOpenerr(true);
+            }}
+          >
+            Đổi mật khẩu
+          </Button>
         </Box>
         <Box marginTop={1} marginLeft={2}>
-          <Button variant="text">Quên mật khẩu</Button>
+          <Button variant="text">Quên mật khẩu?</Button>
         </Box>
       </Box>
     </Box>

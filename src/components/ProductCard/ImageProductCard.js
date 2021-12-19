@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import BtnProCardGroup from "./../Buttons/BtnProCardGroup";
 import TagProCardGroup from "../Tag/TagProCardGroup";
 
-const ImageProductCard = ({ sanPham, indexSelected, onClick}) => {
+const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
   const [hovered, setHovered] = useState(0);
   return (
     <Box sx={{ position: "relative", marginBottom: "8px" }} onClick={onClick}>
@@ -31,7 +31,7 @@ const ImageProductCard = ({ sanPham, indexSelected, onClick}) => {
           ></span>
         </span>
         <div className="btn">
-          <BtnProCardGroup />
+          <BtnProCardGroup sanPham={sanPham} />
         </div>
         <div className="tag">
           <TagProCardGroup product={sanPham} />

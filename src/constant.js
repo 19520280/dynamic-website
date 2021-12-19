@@ -13,6 +13,9 @@ export const INIT_STATE = {
   SizeGuideDialog: {
     isShow: false,
   },
+  QuickViewDialog: {
+    isShow: false,
+  },
   //#region Account
   AccountMenu: {
     isExpanded: true,

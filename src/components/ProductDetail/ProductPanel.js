@@ -25,15 +25,7 @@ function ProductPanel({ sanPham, isMobile }) {
   const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
   const [selectedSize, setSelectedSize] = React.useState(sanPham.kichThuocs[0]);
-  const [inputSL, setInputSL] = React.useState(0);
 
-  const [listimg, setlistimg] = React.useState([]);
-  React.useEffect(() => {
-    if (sanPham) {
-      sanPham.imgs[0].map((img) => listimg.push(img));
-      sanPham.imgs[1].map((img) => listimg.push(img));
-    }
-  }, [sanPham]);
   const [sp, setSP] = React.useState({
     ten: sanPham.ten,
     imgs: sanPham.imgs,
@@ -183,12 +175,7 @@ function ProductPanel({ sanPham, isMobile }) {
               sanPham={sanPham}
             />
           </Box>
-          <Box
-            className="Main_Box_Right"
-            width={"40%"}
-            marginLeft={3}
-            bgcolor={BgColor}
-          >
+          <Box className="Main_Box_Right" width={"40%"} marginLeft={3}>
             <InfoProduct sanPham={sanPham} isMobile={isMobile} />
             <Box backgroundColor="rgba(0, 0, 0, 0.04)">
               <ProductPolicy />

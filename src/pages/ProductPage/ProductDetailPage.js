@@ -21,7 +21,6 @@ import {
 } from "@mui/material";
 
 import CommentPanel from "../../components/ProductDetail/CommentPanel";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductPanel from "../../components/ProductDetail/ProductPanel";
 import RatingDetailPanel from "../../components/ProductDetail/RatingDetailPanel";
 import { SystemColor } from "../../color";
@@ -47,9 +46,7 @@ import CountTypography from "../../components/Typographys/CountTypography";
 const ProductDetailPage = () => {
   const history = useHistory();
   const [sanPham, setSP] = useState(
-    //products.find((sp) => sp.path === history.location.pathname)
-    //history.location.pathname.includes("Ao") ? products[1] : products[2]
-    products[1]
+    products.find((sp) => sp.path === history.location.pathname)
   );
   const dispatch = useDispatch();
   const theme = useTheme();

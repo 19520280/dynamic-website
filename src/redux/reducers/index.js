@@ -5,6 +5,7 @@ import OrderStatus from "./OrderStatus.js";
 import SizeGuideDialog from "./SizeGuideDialog.js";
 import SaleBanner from "./SaleBanner.js";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.js";
+import QuickViewDialog from "./QuickViewDialog.js";
 import { combineReducers } from "redux";
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
   OrderStatus,
   SizeGuideDialog,
   ShoppingCartDrawer,
+  QuickViewDialog,
 });
