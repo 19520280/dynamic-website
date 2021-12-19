@@ -1,6 +1,6 @@
 import { Stack, TextField, Typography } from "@mui/material";
 
-const TextFieldWithTitle = ({ title, value, placeholder, onChange }) => {
+const TextFieldWithTitle = ({ title, value, placeholder, size, onChange }) => {
   return (
     <Stack direction="row" alignItems="center">
       <Typography
@@ -18,7 +18,7 @@ const TextFieldWithTitle = ({ title, value, placeholder, onChange }) => {
         placeholder={placeholder}
         required
         variant="outlined"
-        size="medium"
+        size={size ? size : "medium"}
         onChange={(e) => onChange(e.target.value)}
       />
     </Stack>

@@ -100,9 +100,9 @@ export const INIT_STATE = {
   },
   ShoppingCartDrawer: {
     isShow: false,
-  }, 
-
-
-
+  },
+  MessageModal: {
+    isShow:false,
+  }
   //#endregion
 };

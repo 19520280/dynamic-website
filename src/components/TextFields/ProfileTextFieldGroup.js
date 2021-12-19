@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import TextFieldWithTitle from "./TextFieldWithTitle";
 
-const ProfileTextFieldGroup = ({ data, setData }) => {
+const ProfileTextFieldGroup = ({ data, setData, isLaptop }) => {
   const onRealNameChange = (value) => {
     setData({ ...data, realName: value });
   };
@@ -44,12 +44,14 @@ const ProfileTextFieldGroup = ({ data, setData }) => {
           title="Họ tên"
           placeholder="Họ tên"
           value={data.realName}
+          size={isLaptop ? "medium" : "small"}
           onChange={onRealNameChange}
         />
         <TextFieldWithTitle
           title="Ngày sinh"
           placeholder="Ngày sinh"
           value={data.DoB}
+          size={isLaptop ? "medium" : "small"}
           onChange={onDoBChange}
         />
         <Stack direction="row" alignItems="center">
@@ -77,12 +79,14 @@ const ProfileTextFieldGroup = ({ data, setData }) => {
           title="Email"
           placeholder="Email"
           value={data.email}
+          size={isLaptop ? "medium" : "small"}
           onChange={onEmailChange}
         />
         <TextFieldWithTitle
           title="Số điện thoại"
           placeholder="Số điện thoại"
           value={data.phoneNumber}
+          size={isLaptop ? "medium" : "small"}
           onChange={onPhoneNumberChange}
         />
         <Stack
@@ -188,13 +192,19 @@ const ProfileTextFieldGroup = ({ data, setData }) => {
             </FormGroup>
           </FormControl>
         </Stack>
-        <Button
-          sx={{ p: "8 32px", width: "fit-content", height: "fit-content" }}
-          variant="contained"
-          size="large"
+        <Box
+        width="100%"
+        display="flex"
+        flexDirection="row-reverse"
         >
-          LƯU
-        </Button>
+          <Button
+            sx={{ p: "8 32px", width: "fit-content", height: "fit-content" }}
+            variant="contained"
+            size="large"
+          >
+            LƯU
+          </Button>
+        </Box>
       </Stack>
     </Box>
   );

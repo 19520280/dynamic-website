@@ -16,3 +16,5 @@ export const OrderStatusState$ = (state) => state.OrderStatus.data;
 
 export const ShoppingCartDrawerState$ = (state) =>
   state.ShoppingCartDrawer.isShow;
+
+export const MessageModalState$ = (state) => state.MessageModal.isShow;

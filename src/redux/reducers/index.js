@@ -1,6 +1,7 @@
 import Account from "./Account.js";
 import AccountMenu from "./AccountMenu.js";
 import CollectionDialog from "./CollectionDialog.js";
+import MessageModal from "./MessageModal.js";
 import MixMatchDialog from './MixMatchDialog';
 import OrderStatus from "./OrderStatus.js";
 import SaleBanner from "./SaleBanner.js";
@@ -16,5 +17,7 @@ export default combineReducers({
   OrderStatus,
   SizeGuideDialog,
   ShoppingCartDrawer,
-  MixMatchDialog
+  MixMatchDialog,
+  MessageModal,
+  
 });
