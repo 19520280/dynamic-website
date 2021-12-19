@@ -4,12 +4,10 @@ import CollectionDialog from "./CollectionDialog.js";
 import MessageModal from "./MessageModal.js";
 import MixMatchDialog from './MixMatchDialog';
 import OrderStatus from "./OrderStatus.js";
+import QuickViewDialog from "./QuickViewDialog.js";
 import SaleBanner from "./SaleBanner.js";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.js";
 import SizeGuideDialog from "./SizeGuideDialog.js";
-import QuickViewDialog from "./QuickViewDialog.js";
-import MessageModal from "./MessageModal.js";
-
 import { combineReducers } from "redux";
 
 export default combineReducers({

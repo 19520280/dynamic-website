@@ -2,7 +2,6 @@ export const SaleBannerState$ = (state) => state.SaleBanner.isShow;
 
 /* #region  Dialogs */
 export const CollectionDialogState$ = (state) => state.CollectionDialog.isShow;
-export const SizeGuideDialogState$ = (state) => state.SizeGuideDialog.isShow;
 export const MixMatchDialogState$ = (state) => state.MixMatchDialog.isShow;
 /* #endregion */
 
