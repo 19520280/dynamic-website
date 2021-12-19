@@ -1,4 +1,6 @@
 const avatarImage = require("./assets/images/avatar/doraemon.jpg").default;
+export const facebook = require("./assets/images/facebook-logo.png").default;
+export const google = require("./assets/images/google-logo.png").default;
 
 export const BACKEND_URL = "http://localhost:5000";
 export const FRONTEND_URL = "http://localhost:3000";
@@ -26,7 +28,14 @@ export const INIT_STATE = {
   AccountMenu: {
     isExpanded: true,
   },
+  LoginModal: {
+    isShow: false,
+  },
+  RegisterModal: {
+    isShow: false,
+  },
   Account: {
+    isLoggedin: false,
     avatarImage: avatarImage,
     accountName: "Minh Đinh",
     password: "7",

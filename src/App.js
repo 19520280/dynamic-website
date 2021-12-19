@@ -25,6 +25,7 @@ import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
+import AuthContextProvider from "./context/context.js";
 let theme = createTheme({
   palette: {
     primary: {
@@ -45,7 +46,7 @@ theme = responsiveFontSizes(theme);
 function App() {
   const isMobile = useMediaQuery(useTheme().breakpoints.down("md"));
   return (
-    <>
+    <AuthContextProvider>
       <ThemeProvider theme={theme}>
         <Router>
           <Header />
@@ -164,7 +165,7 @@ function App() {
         </Router>
         <ScrollButton isMobile={isMobile} />
       </ThemeProvider>
-    </>
+    </AuthContextProvider>
   );
 }
 

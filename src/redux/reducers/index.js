@@ -9,6 +9,8 @@ import QuickViewDialog from "./QuickViewDialog.js";
 import SaleBanner from "./SaleBanner.js";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.js";
 import SizeGuideDialog from "./SizeGuideDialog.js";
+import LoginModal from "./LoginModal.js";
+import RegisterModal from "./RegisterModal.js";
 import { combineReducers } from "redux";
 
 export default combineReducers({
@@ -23,5 +25,6 @@ export default combineReducers({
   QuickViewDialog,
   MessageModal,
   ProductDialog,
-  
+  LoginModal,
+  RegisterModal,
 });

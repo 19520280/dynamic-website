@@ -18,11 +18,13 @@ import { accountMenuItems } from "../../dataSources/Account";
 import { useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import * as actions from "../../redux/actions/index";
 import { AccountMenuState$ } from "../../redux/selectors/index";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { SystemColor, BgColor } from "../../color";
+import { AuthContext } from "../../context/context";
+import ConfirmModal from "../Modal/ConfirmModal";
 
 const menuItems = accountMenuItems;
 
@@ -103,8 +105,12 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
   }, [AccountMenu]);
   //#endregion
 
-  const body =(
-<List>
+  const { logout } = useContext(AuthContext);
+
+  const [child, setChild] = useState(false);
+
+  const body = (
+    <List>
       <SiderAvatar
         avatarImage={avatarImage}
         accountName={accountName}
@@ -122,7 +128,7 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
                 ? history.push(item.path)
                 : item.key === "Tai-khoan"
                 ? dispatch(actions.expandMenu())
-                : null
+                : setChild(true)
             }
           >
             {pathnames[1] === item.key ? (
@@ -162,6 +168,14 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
               ))}
             </Collapse>
           ) : null}
+          <ConfirmModal
+            header="Bạn có muốn đăng xuất?"
+            state={child}
+            setState={setChild}
+            action={logout}
+            messageText="Đăng xuất thành công"
+            typeMessage="success"
+          />
         </Container>
       ))}
     </List>

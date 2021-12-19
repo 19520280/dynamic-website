@@ -40,7 +40,18 @@ export const hideQuickViewDialog = createAction("HIDE_QUICKVIEW_DIALOG");
   }
 */
 
+//#region Auth
+export const openLoginModal = createAction("OPEN_LOGIN_MODAL");
+export const closeLoginModal = createAction("CLOSE_LOGIN_MODAL");
+export const openRegisterModal = createAction("OPEN_REGISTER_MODAL");
+export const closeRegisterModal = createAction("CLOSE_REGISTER_MODAL");
+
+//#endrigion
+
 //#region Account
+export const login = createAction("LOGIN");
+export const logout = createAction("LOGOUT");
+
 export const getAccount = createAction("GET_ACCOUNT");
 export const expandMenu = createAction("EXPAND_MENU");
 export const collapseMenu = createAction("COLLAPSE_MENU");
