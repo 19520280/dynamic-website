@@ -10,6 +10,7 @@ export const OrderStatusState$ = (state) => state.OrderStatus.data;
 //#endregion
 
 export const SizeGuideDialogState$ = (state) => state.SizeGuideDialog.isShow;
+export const QuickViewDialogState$ = (state) => state.QuickViewDialog.isShow;
 export const ShoppingCartDrawerState$ = (state) =>
   state.ShoppingCartDrawer.isShow;
 
