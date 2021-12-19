@@ -58,9 +58,8 @@ const AccountPage = ({ accountRoute }) => {
           )}
           {accountRoute === "Dia-chi" && (
             <Address
-              realName={data.realName}
-              phoneNumber={data.phoneNumber}
-              address={data.address}
+              data={data}
+              setData={setData}
             />
           )}
           {accountRoute === "Chi-so-co-the" && <Measure />}

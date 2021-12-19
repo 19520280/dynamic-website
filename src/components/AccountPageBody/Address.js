@@ -7,12 +7,17 @@ import {
   Grid,
   Stack,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { SystemColor } from "../../color";
 import AddressCard from "../AddressCard/AddressCard";
 import HeaderTypography from "../Typographys/HeaderTypography";
 
-const Address = ({ realName, phoneNumber, address }) => {
+const Address = ({ data, setData }) => {
+  const theme = useTheme();
+  const isLaptop = useMediaQuery(theme.breakpoints.up("lg"));
+  
   return (
     <Container>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
@@ -28,7 +33,8 @@ const Address = ({ realName, phoneNumber, address }) => {
           border: "1px solid",
           borderColor: SystemColor.gray,
           borderRadius: "4px",
-          p: "36px 40px",
+          p: isLaptop ? "36px 40px" : "12px 4px",
+          backgroundColor: "white"
         }}
       >
         {/* <AddressCard
@@ -42,19 +48,22 @@ const Address = ({ realName, phoneNumber, address }) => {
           phoneNumber={phoneNumber}
           address={address[1]}
         /> */}
-        {address.length < 1 ? (
+        {data.address.length < 1 ? (
           <Typography fontWeight="bold" color="primary" textAlign="center">
             Bạn chưa thêm địa chỉ
           </Typography>
         ) : (
-          address.map((item) => (
-            <Box>
+          data.address.map((item) => (
+            <Box
+            key={item.name.home}
+            >
               <AddressCard
-                realName={realName}
-                phoneNumber={phoneNumber}
+                data={data}
+                setData={setData}
                 address={item}
+                isLaptop={isLaptop}
               ></AddressCard>
-              {item !== address[address.length - 1] ? (
+              {item !== data.address[data.address.length - 1] ? (
                 <Divider sx={{ m: "12px 0px" }} />
               ) : null}
             </Box>
