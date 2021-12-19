@@ -11,7 +11,7 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   ShoppingCartPopoverDesktop,
   ShoppingCartPopoverMobile,
@@ -22,6 +22,10 @@ import Logo from "../../assets/images/Logo.png";
 import { SaleBannerState$ } from "../../redux/selectors";
 import SearchIcon from "@mui/icons-material/Search";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../context/context";
+import { Person } from "@mui/icons-material";
+import LoginModal from "../Modal/LoginModal";
+import AvatarPopover from "../Popovers/AvatarPopover";
 
 export const TopbarDesktop = () => {
   const history = useHistory();
@@ -35,6 +39,8 @@ export const TopbarDesktop = () => {
     [dispatch]
   );
   useEffect(() => {}, [SaleBanner]);
+
+  const { openLoginModal, userData } = useContext(AuthContext);
 
   return (
     <Stack direction="row" className="topbar">
@@ -106,10 +112,14 @@ export const TopbarDesktop = () => {
           />
         </Box>
         <ShoppingCartPopoverDesktop />
-        <Avatar
-          sx={{ bgcolor: "white" }}
-          onClick={() => history.push("/Ca-nhan/Tai-khoan/Ho-so")}
-        />
+        {userData && userData.isLoggedin ? (
+          <AvatarPopover />
+        ) : (
+          <IconButton onClick={openLoginModal}>
+            <Person style={{ color: "white" }} />
+          </IconButton>
+        )}
+        <LoginModal />
       </Stack>
     </Stack>
   );
@@ -117,6 +127,7 @@ export const TopbarDesktop = () => {
 
 export const TopbarMobile = () => {
   const history = useHistory();
+  const { openLoginModal, userData } = useContext(AuthContext);
 
   return (
     <Stack direction="row" className="topbar">
@@ -134,7 +145,14 @@ export const TopbarMobile = () => {
           <SearchIcon style={{ color: "white" }} />
         </IconButton>
         <ShoppingCartPopoverMobile />
-        <Avatar sx={{ bgcolor: "white" }} />
+        {userData && userData.isLoggedin ? (
+          <AvatarPopover />
+        ) : (
+          <IconButton onClick={openLoginModal}>
+            <Person style={{ color: "white" }} />
+          </IconButton>
+        )}
+        <LoginModal />
       </Stack>
     </Stack>
   );

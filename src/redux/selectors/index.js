@@ -6,6 +6,11 @@ export const MixMatchDialogState$ = (state) => state.MixMatchDialog.isShow;
 /* #endregion */
 export const ProductDialogState$ = (state) => state.ProductDialog.isShow;
 
+//#region Auth
+export const LoginModalState$ = (state) => state.LoginModal;
+export const RegisterModalState$ = (state) => state.RegisterModal;
+//#endregion
+
 //#region Account
 export const AccountState$ = (state) => state.Account;
 
