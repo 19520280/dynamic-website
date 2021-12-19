@@ -81,19 +81,19 @@ const WishListPage = () => {
           }}
         >
           <Grid item xs={8} xl={2.5}>
-          <Container
-            style={{
-              backgroundColor: BgColor.mainBg,
-            }}
-          >
-            <AccountSider
-          avatarImage={data.avatarImage}
-          accountName={data.accountName}
-          timeHasJoined={data.timeHasJoined}
-        />
-          </Container>
-        </Grid>
-          <Grid item xs={12} xl={9.5} style={{marginBottom:"8%"}}>
+            <Container
+              style={{
+                backgroundColor: BgColor.mainBg,
+              }}
+            >
+              <AccountSider
+                avatarImage={data.avatarImage}
+                accountName={data.accountName}
+                timeHasJoined={data.timeHasJoined}
+              />
+            </Container>
+          </Grid>
+          <Grid item xs={12} xl={9.5} style={{ marginBottom: "8%" }}>
             <Container
               style={{
                 backgroundColor: "transparent",
@@ -108,41 +108,39 @@ const WishListPage = () => {
     );
   } else
     return (
-      <Slide direction="up" in={true}>
-        <Grid
-          container
-          spacing={0}
-          style={{
-            paddingLeft: "80px",
-            paddingRight: "80px",
-            background: BgColor.mainBg,
-          }}
-        >
-          <Grid item xs={2.5} xl={2.5}>
-            <Container
-              style={{
-                backgroundColor: BgColor.mainBg,
-              }}
-            >
-              <AccountSider
-                avatarImage={data.avatarImage}
-                accountName={data.accountName}
-                timeHasJoined={data.timeHasJoined}
-              />
-            </Container>
-          </Grid>
-          <Grid item xs={9.5} xl={9.5} style={{marginBottom:"8%"}}>
-            <Container
-              style={{
-                paddingLeft: "40px",
-                backgroundColor: "transparent",
-              }}
-            >
-              {body}
-            </Container>
-          </Grid>
+      <Grid
+        container
+        spacing={0}
+        style={{
+          paddingLeft: "80px",
+          paddingRight: "80px",
+          background: BgColor.mainBg,
+        }}
+      >
+        <Grid item xs={2.5} xl={2.5}>
+          <Container
+            style={{
+              backgroundColor: BgColor.mainBg,
+            }}
+          >
+            <AccountSider
+              avatarImage={data.avatarImage}
+              accountName={data.accountName}
+              timeHasJoined={data.timeHasJoined}
+            />
+          </Container>
         </Grid>
-      </Slide>
+        <Grid item xs={9.5} xl={9.5} style={{ marginBottom: "8%" }}>
+          <Container
+            style={{
+              paddingLeft: "40px",
+              backgroundColor: "transparent",
+            }}
+          >
+            {body}
+          </Container>
+        </Grid>
+      </Grid>
     );
 };
 
