@@ -39,7 +39,11 @@ export const TopbarDesktop = () => {
   return (
     <Stack direction="row" className="topbar">
       <Box component="div" sx={{ display: "inline", flex: 1 }}>
-        <img src={Logo} onClick={() => history.push("/")} />
+        <img
+          src={Logo}
+          onClick={() => history.push("/")}
+          style={{ cursor: "pointer" }}
+        />
       </Box>
       <Stack
         direction="row"

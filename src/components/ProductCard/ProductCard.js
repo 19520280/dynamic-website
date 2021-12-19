@@ -22,6 +22,7 @@ const ProductCard = ({ sanPham }) => {
         sanPham={sanPham}
         indexSelected={indexSelected}
         onClick={() => history.push(sanPham.path)}
+        isMobile={isMobile}
       />
       <Typography
         gutterBottom

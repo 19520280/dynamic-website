@@ -5,7 +5,7 @@ import BtnProCardGroup from "./../Buttons/BtnProCardGroup";
 import ImageHover from "./ImageHover";
 import TagProCardGroup from "../Tag/TagProCardGroup";
 
-const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
+const ImageProductCard = ({ sanPham, indexSelected, onClick, isMobile }) => {
   const [hovered, setHovered] = useState(0);
   return (
     <Box sx={{ position: "relative", marginBottom: "8px" }}>
@@ -19,9 +19,11 @@ const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
           ]}
           onClick={onClick}
         />
-        <div className="btn">
-          <BtnProCardGroup sanPham={sanPham} />
-        </div>
+        {!isMobile ? (
+          <div className="btn">
+            <BtnProCardGroup sanPham={sanPham} />
+          </div>
+        ) : null}
         <div className="tag">
           <TagProCardGroup product={sanPham} />
         </div>
