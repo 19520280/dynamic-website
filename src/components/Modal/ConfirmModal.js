@@ -12,12 +12,14 @@ import MessageModal from "./MessageModal";
 export default function ConfirmModal({
   state,
   setState,
+  action,
   header,
   messageText,
   typeMessage,
 }) {
   //state, setState: state and setState of this component
   //listField: arrya of string, eg: ["Text Field 1", "Text Field 2"]
+  //action: callbackfuntion when confirmed
   //header: header(string) of this Modal
   //btnText: text of primary button of this modal
   //messageText: what string you want to show when click primary button
@@ -64,6 +66,7 @@ export default function ConfirmModal({
             state={child}
             setState={setChild}
             setStateParent={setState}
+            action={action}
             text={messageText}
             severity={typeMessage}
             closeAfterSecond={true}

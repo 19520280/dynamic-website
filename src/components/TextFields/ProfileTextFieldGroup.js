@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import TextFieldWithTitle from "./TextFieldWithTitle";
 
-const ProfileTextFieldGroup = ({ data, setData, isLaptop }) => {
+const ProfileTextFieldGroup = ({ data, setData, isLaptop, onSaveClick }) => {
   const onRealNameChange = (value) => {
     setData({ ...data, realName: value });
   };
@@ -90,13 +90,13 @@ const ProfileTextFieldGroup = ({ data, setData, isLaptop }) => {
           onChange={onPhoneNumberChange}
         />
         <Stack
-          direction="column"
+          direction="row"
           justifyContent="flex-start"
-          alignItems="flex-start"
+          alignItems="center"
           spacing="12px"
         >
           <Typography
-            sx={{ width: "148px" }}
+            sx={{ width: "175px" }}
             fontWeight="bold"
             color="secondary"
             textAlign="left"
@@ -105,106 +105,105 @@ const ProfileTextFieldGroup = ({ data, setData, isLaptop }) => {
           </Typography>
           <FormControl fullWidth>
             <FormGroup row>
-              {/*Don gian*/}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={data.style.basic.isTrue}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        style: {
-                          ...data.style,
-                          basic: {
-                            ...data.style.basic,
-                            isTrue: !data.style.basic.isTrue,
+              <FormGroup>
+                {/*Don gian*/}
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={data.style.basic.isTrue}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          style: {
+                            ...data.style,
+                            basic: {
+                              ...data.style.basic,
+                              isTrue: !data.style.basic.isTrue,
+                            },
                           },
-                        },
-                      })
-                    }
-                  />
-                }
-                label={data.style.basic.name}
-              />
-              {/*Hang ngay*/}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={data.style.daily.isTrue}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        style: {
-                          ...data.style,
-                          daily: {
-                            ...data.style.daily,
-                            isTrue: !data.style.daily.isTrue,
+                        })
+                      }
+                    />
+                  }
+                  label={data.style.basic.name}
+                />
+                {/*Hang ngay*/}
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={data.style.daily.isTrue}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          style: {
+                            ...data.style,
+                            daily: {
+                              ...data.style.daily,
+                              isTrue: !data.style.daily.isTrue,
+                            },
                           },
-                        },
-                      })
-                    }
-                  />
-                }
-                label={data.style.daily.name}
-              />
-              {/*Duong pho*/}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={data.style.street.isTrue}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        style: {
-                          ...data.style,
-                          street: {
-                            ...data.style.street,
-                            isTrue: !data.style.street.isTrue,
+                        })
+                      }
+                    />
+                  }
+                  label={data.style.daily.name}
+                />
+              </FormGroup>
+              <FormGroup>
+                {/*Duong pho*/}
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={data.style.street.isTrue}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          style: {
+                            ...data.style,
+                            street: {
+                              ...data.style.street,
+                              isTrue: !data.style.street.isTrue,
+                            },
                           },
-                        },
-                      })
-                    }
-                  />
-                }
-                label={data.style.street.name}
-              />
-              {/*Di lam/Di hoc*/}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={data.style.formal.isTrue}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        style: {
-                          ...data.style,
-                          formal: {
-                            ...data.style.formal,
-                            isTrue: !data.style.formal.isTrue,
+                        })
+                      }
+                    />
+                  }
+                  label={data.style.street.name}
+                />
+                {/*Di lam/Di hoc*/}
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={data.style.formal.isTrue}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          style: {
+                            ...data.style,
+                            formal: {
+                              ...data.style.formal,
+                              isTrue: !data.style.formal.isTrue,
+                            },
                           },
-                        },
-                      })
-                    }
-                  />
-                }
-                label={data.style.formal.name}
-              />
+                        })
+                      }
+                    />
+                  }
+                  label={data.style.formal.name}
+                />
+              </FormGroup>
             </FormGroup>
           </FormControl>
         </Stack>
-        <Box
-        width="100%"
-        display="flex"
-        flexDirection="row-reverse"
+        <Button
+          sx={{ p: "8px 40px", width: "fit-content", height: "fit-content" }}
+          variant="contained"
+          size="large"
+          onClick={onSaveClick}
         >
-          <Button
-            sx={{ p: "8 32px", width: "fit-content", height: "fit-content" }}
-            variant="contained"
-            size="large"
-          >
-            LƯU
-          </Button>
-        </Box>
+          LƯU
+        </Button>
       </Stack>
     </Box>
   );

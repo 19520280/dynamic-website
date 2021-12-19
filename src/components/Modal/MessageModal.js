@@ -17,12 +17,14 @@ export default function MessageModal({
   state,
   setState,
   setStateParent,
+  action,
   text,
   severity,
   closeAfterSecond,
 }) {
     //state: state of this component, setState: setState of this component
     //setStateParent: set State of Parent of thí component, maybe a modal, 
+    //action: callbackfuntion when confirmed
     //text: text of this component
     //severity: type of this component (success, error, warning, info,...)
     //closeAfterSecond: if true then close after 3 second
@@ -33,6 +35,9 @@ export default function MessageModal({
     setState(false);
     if (setStateParent != null) {
       setStateParent(false);
+      if(action) {
+        action();
+      }
     }
   };
   useEffect(() => {
