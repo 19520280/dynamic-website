@@ -24,7 +24,7 @@ const Address = ({ realName, phoneNumber, address }) => {
       <Box
         sx={{
           width: "100%",
-          minHeight: "200px",
+          height: "fit-content",
           border: "1px solid",
           borderColor: SystemColor.gray,
           borderRadius: "4px",
@@ -42,18 +42,24 @@ const Address = ({ realName, phoneNumber, address }) => {
           phoneNumber={phoneNumber}
           address={address[1]}
         /> */}
-        {address.map((item) => (
-          <Box>
-            <AddressCard
-              realName={realName}
-              phoneNumber={phoneNumber}
-              address={item}
-            ></AddressCard>
-            {item !== address[address.length - 1] ? (
-              <Divider sx={{ m: "12px 0px" }} />
-            ) : null}
-          </Box>
-        ))}
+        {address.length < 1 ? (
+          <Typography fontWeight="bold" color="primary" textAlign="center">
+            Bạn chưa thêm địa chỉ
+          </Typography>
+        ) : (
+          address.map((item) => (
+            <Box>
+              <AddressCard
+                realName={realName}
+                phoneNumber={phoneNumber}
+                address={item}
+              ></AddressCard>
+              {item !== address[address.length - 1] ? (
+                <Divider sx={{ m: "12px 0px" }} />
+              ) : null}
+            </Box>
+          ))
+        )}
       </Box>
     </Container>
   );

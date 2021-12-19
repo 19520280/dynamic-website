@@ -8,7 +8,7 @@ import Measure from "../../components/AccountPageBody/Measure";
 import Noti from "../../components/AccountPageBody/Noti";
 import Orders from "../../components/AccountPageBody/Orders";
 import Points from "../../components/AccountPageBody/Points";
-import Profile from "../../components/AccountPageBody/Profile";
+import Profile from "../../components/AccountPageBody/Profile.js";
 import WishLists from "../../components/AccountPageBody/WishLists";
 import AccountSider from "../../components/Sider/AccountSider";
 import * as actions from "../../redux/actions/index";
@@ -50,7 +50,12 @@ const AccountPage = ({ accountRoute }) => {
           {accountRoute === "Tai-khoan" && (
             <Redirect to="/Ca-nhan/Tai-khoan/Ho-so" />
           )}
-          {accountRoute === "Ho-so" && <Profile />}
+          {accountRoute === "Ho-so" && (
+            <Profile
+              data={data}
+              setData={setData}
+            />
+          )}
           {accountRoute === "Dia-chi" && (
             <Address
               realName={data.realName}
