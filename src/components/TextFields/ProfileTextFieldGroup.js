@@ -192,13 +192,19 @@ const ProfileTextFieldGroup = ({ data, setData, isLaptop }) => {
             </FormGroup>
           </FormControl>
         </Stack>
-        <Button
-          sx={{ p: "8 32px", width: "fit-content", height: "fit-content" }}
-          variant="contained"
-          size="large"
+        <Box
+        width="100%"
+        display="flex"
+        flexDirection="row-reverse"
         >
-          LƯU
-        </Button>
+          <Button
+            sx={{ p: "8 32px", width: "fit-content", height: "fit-content" }}
+            variant="contained"
+            size="large"
+          >
+            LƯU
+          </Button>
+        </Box>
       </Stack>
     </Box>
   );

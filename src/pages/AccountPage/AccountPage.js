@@ -35,14 +35,14 @@ const AccountPage = ({ accountRoute }) => {
 
   return (
     <Grid container spacing={0}>
-      {/* <Grid item xs={2.5}>
+      <Grid item xs={2.5}>
         <AccountSider
           avatarImage={data.avatarImage}
           accountName={data.accountName}
           timeHasJoined={data.timeHasJoined}
         />
-      </Grid> */}
-      <Grid item xs={12}>
+      </Grid>
+      <Grid item xs={9.5}>
         <Container style={{ paddingLeft: "40px", backgroundColor: "#FCFCFC" }}>
           {accountRoute === "Ca-nhan" && (
             <Redirect to="/Ca-nhan/Tai-khoan/Ho-so" />
