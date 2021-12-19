@@ -19,6 +19,9 @@
     background-color: "#FCFCFC";
     width: 100%;
   }
+  html {
+    font-size: 13px;
+  }
 }
 #myBtn {
   display: none;

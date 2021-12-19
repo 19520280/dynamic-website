@@ -1,4 +1,7 @@
+import "react-medium-image-zoom/dist/styles.css";
+
 import * as React from "react";
+
 import {
   Avatar,
   Box,
@@ -7,9 +10,10 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import { deepOrange } from "@mui/material/colors";
+
 import Zoom from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
+import { deepOrange } from "@mui/material/colors";
+
 export default function CommentPanel({ feedback, isMobile }) {
   return feedback ? (
     isMobile ? (

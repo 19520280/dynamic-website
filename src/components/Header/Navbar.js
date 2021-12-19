@@ -7,10 +7,7 @@ import MenuButton from "./MenuButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { navbar } from "../../dataSources/Pages";
 
-function Navbar() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+function Navbar({ isMobile }) {
   /* #region  responsive */
   const [openMenu, setOpenMenu] = useState(false);
   const handleOpenMenu = () => {
@@ -46,7 +43,6 @@ function Navbar() {
     }
   };
   /* #endregion */
-  console.log(openMenu);
   return (
     <Box
       sx={{

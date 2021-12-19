@@ -2,10 +2,10 @@ import "./Homepage.css";
 
 import { Box, Divider, Grid, Typography } from "@mui/material";
 
-import Banner from "../../components/Banner/Banner";
-import CatalogBanners from "./../../components/CatalogBanners/CatalogBanners";
+import Banner from "./../../components/Banner/Homepage/Banner";
+import CatalogBanners from "../../components/Banner/CatalogBanners/CatalogBanners";
 import FeedbackBanner from "./../../components/Feedback/FeedbackBanner";
-import ImageProductCardGrid from './../../components/GridProductCard/ImageProductCardGrid';
+import MixMatchCardGrid from "../../components/GridProductCard/MixMatchCardGrid";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
 import React from "react";
 import { SystemColor } from "../../color";
@@ -20,7 +20,7 @@ export const CustomTypography = ({ title }) => (
     >
       {title}
     </Typography>
-    <Divider sx={{backgroundColor:SystemColor.main, width:"100%"}}/>
+    <Divider sx={{ backgroundColor: SystemColor.main, width: "100%" }} />
   </div>
 );
 const Homepage = () => {
@@ -34,16 +34,24 @@ const Homepage = () => {
         className="containermain fullwidthbanner-container"
       >
         <CustomTypography title="Danh mục đề xuất" />
-        <CatalogBanners />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <CatalogBanners />
+        </div>
       </section>
       <section
         id="hot-products"
         className="containermain fullwidthbanner-container"
       >
         <CustomTypography title="Có gì hot?" />
-       <ProducCardGrid/>
+        <ProducCardGrid />
       </section>
-      <section id="feedback"  className="containermain feedback-container">
+      <section id="feedback" className="containermain feedback-container">
         <FeedbackBanner />
       </section>
       <section
@@ -51,7 +59,7 @@ const Homepage = () => {
         className="containermain fullwidthbanner-container"
       >
         <CustomTypography title="Phối đồ" />
-       <ImageProductCardGrid/>
+        <MixMatchCardGrid />
       </section>
     </section>
   );
