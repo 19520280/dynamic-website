@@ -83,6 +83,18 @@ const Breadcrumb = (props) => {
               ? "Giỏ hàng"
               : name === "Thanh-toan"
               ? "Thanh toán"
+              : name === "Diem-thuong"
+              ? "Điểm thưởng"
+              : name === "Ho-so"
+              ? "Hồ sơ"
+              : name === "Dia-chi"
+              ? "Địa chỉ"
+              : name === "Chi-so-co-the"
+              ? "Chỉ số cơ thể"
+              : name === "Doi-mat-khau"
+              ? "Đổi mật khẩu"
+              : name === "Danh-sach-quan-tam"
+              ? "Danh sách quan tâm"
               : name}
           </Typography>
         ) : (
@@ -97,6 +109,8 @@ const Breadcrumb = (props) => {
               ? "Liên hệ"
               : name === "Ca-nhan"
               ? "Cá nhân"
+              : name === "Tai-khoan"
+              ? "Tài khoản"
               : name}
           </Link>
         );
