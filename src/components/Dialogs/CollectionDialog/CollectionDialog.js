@@ -22,48 +22,84 @@ import { CollectionDialogState$ } from "../../../redux/selectors";
 import React from "react";
 import { SystemColor } from "../../../color";
 import { hideCollectionDialog } from "../../../redux/actions";
-
+import ModalWithButton from "../../Modal/ModalWithButton";
+import MessageModal from "../../Modal/MessageModal";
 const imgMonarchButterflys11 =
   require("../../../assets/images/products/monarch-butterfly-t-shirt-white/white01.jpg").default;
 
-const collectionItem = (image, title) => (
-  <div className="collection-item">
-    <Stack
-      direction="row"
-      justifyContent="space-between"
-      alignItems="center"
-      spacing={0}
-    >
-      <Stack direction="row" spacing={2} alignItems="center">
-        {image ? (
-          <img src={image} />
-        ) : (
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "secondary",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minWidth: "0px",
-            }}
-          >
-            <AddIcon />
-          </Button>
-        )}
-        {title ?<div> <Typography color="primary" > {title} </Typography > <Typography color="secondary" fontSize="0.9rem"> 5 sản phẩm </Typography>  </div>: <Typography>Thêm mới danh sách</Typography>}
-      </Stack>
-      {image ? <Checkbox /> : null}
-    </Stack>
-  </div>
-);
-
 const CollectionDialog = () => {
   const dispatch = useDispatch();
+  const [stateAddCollection, setStateAddCollection] = React.useState(false);
+  const [stateSaveCollection, setStateSaveCollection] = React.useState(false);
+  const [state, setState] = React.useState(true);
   const open = useSelector(CollectionDialogState$);
+  const handleSaveCollectionClick = React.useCallback(() => {
+    setStateSaveCollection(true);
+  }, [dispatch]);
+  React.useEffect(() => {
+    if (state == false) {
+      dispatch(hideCollectionDialog());
+    }
+  }, [dispatch, state]);
   const handleClose = React.useCallback(() => {
     dispatch(hideCollectionDialog());
   }, [dispatch]);
+  const handleAddCollectionClick = () => {
+    setStateAddCollection(true);
+  };
+  const listField = ["Tên danh sách yêu thích"];
+  const collectionItem = (image, title) => (
+    <div className="collection-item">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        spacing={0}
+      >
+        <Stack direction="row" spacing={2} alignItems="center">
+          {image ? (
+            <img src={image} />
+          ) : (
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "secondary",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: "0px",
+              }}
+              onClick={handleAddCollectionClick}
+            >
+              <AddIcon />
+            </Button>
+          )}
+          {title ? (
+            <div>
+              {" "}
+              <Typography color="primary"> {title} </Typography>{" "}
+              <Typography color="secondary" fontSize="0.9rem">
+                {" "}
+                5 sản phẩm{" "}
+              </Typography>{" "}
+            </div>
+          ) : (
+            <Typography>Thêm mới danh sách</Typography>
+          )}
+        </Stack>
+        {image ? <Checkbox /> : null}
+      </Stack>
+      <ModalWithButton
+        state={stateAddCollection}
+        setState={setStateAddCollection}
+        listField={listField}
+        header="Thêm danh sách yêu thích"
+        btnText="Thêm mới"
+        messageText="Thêm mới thành công"
+        typeMessage="success"
+      />
+    </div>
+  );
 
   const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
@@ -120,8 +156,16 @@ const CollectionDialog = () => {
         <Divider variant="light" />
       </DialogActions>
       <DialogActions>
-        <Button onClick={handleClose}>Lưu</Button>
+        <Button onClick={handleSaveCollectionClick}>Lưu</Button>
       </DialogActions>
+      <MessageModal
+        state={stateSaveCollection}
+        setState={setStateSaveCollection}
+        setStateParent={setState}
+        text="Lưu thành công"
+        severity="success"
+        closeAfterSecond={true}
+      />
     </Dialog>
   );
 };
