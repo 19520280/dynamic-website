@@ -5,7 +5,9 @@ import WishListCard from "./WishListCard";
 export default function WishListCardGrid({ value }) {
   return (
     <div>
-      <Box sx={{ flexGrow: 1}}>
+      <Grid xs={12} 
+          justifyContent="center"
+      >
         <Grid
           container
           spacing={{ xs: 2, sm: 4, md: 4 }}
@@ -17,7 +19,7 @@ export default function WishListCardGrid({ value }) {
             </Grid>
           ))}
         </Grid>
-      </Box>
+      </Grid>
     </div>
   );
 }

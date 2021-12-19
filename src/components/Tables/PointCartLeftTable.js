@@ -1,11 +1,13 @@
 import {
   Box,
+  Stack,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
   Typography,
+  Grid,
 } from "@mui/material";
 
 import CartProductDetail from "../CartProductDetail/CartProductDetail";
@@ -45,30 +47,42 @@ const PointCartLeftTable = () => {
             {listSP.map((row, index) => {
               const labelId = `enhanced-table-checkbox-${index}`;
               return (
-                <TableRow tabIndex={-1} key={row.ten}>
-                  <TableCell
-                    component="th"
-                    id={labelId}
-                    scope="row"
-                    padding="none"
-                  >
-                    <CartProductDetail
-                      sanPham={row}
-                      isQty={false}
-                      readOnly
-                      total={"2"}
-                    />
-                  </TableCell>
-
-                  <TableCell align="right">
+                <Grid
+                container
+                  style={{
+                    border: "1px solid",
+                    borderRadius: "4px",
+                    borderColor: SystemColor.gray,
+                    marginBottom: "12px",
+                    backgroundColor:"#fff"
+                  }}
+                >
+                  <Grid item xs={8}>
+                      <TableCell
+                        style={{ borderBottom: "none" }}
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="none"
+                      >
+                        <CartProductDetail
+                          sanPham={row}
+                          isQty={false}
+                          readOnly
+                          total={"2"}
+                        />
+                      </TableCell>
+                  </Grid>
+                  <Grid item xs={4} style={{paddingTop:"35px"}}>
+                  
                     <PriceTypography
                       point={row.diem}
                       gia={soLuong * row.gia}
                       isMobile={true}
                       justifyContent="center"
                     />
-                  </TableCell>
-                </TableRow>
+                  </Grid>
+                </Grid>
               );
             })}
           </TableBody>

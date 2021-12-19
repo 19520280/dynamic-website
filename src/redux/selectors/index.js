@@ -13,3 +13,5 @@ export const SizeGuideDialogState$ = (state) => state.SizeGuideDialog.isShow;
 export const QuickViewDialogState$ = (state) => state.QuickViewDialog.isShow;
 export const ShoppingCartDrawerState$ = (state) =>
   state.ShoppingCartDrawer.isShow;
+
+export const MessageModalState$ = (state) => state.MessageModal.isShow;

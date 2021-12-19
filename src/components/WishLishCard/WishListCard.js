@@ -19,13 +19,68 @@ import { Box } from "@mui/system";
 import { makeStyles } from "@material-ui/core";
 import { SystemColor } from "../../color";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import ModalWithButton from "../Modal/ModalWithButton";
+import MessageModal from "../Modal/MessageModal";
+import ConfirmModal from "../Modal/ConfirmModal";
 
 const slide2 =
   require("../../assets/images/products/basic-tee/black01.jpg").default;
+const useStyle = makeStyles({
+  root: {
+    "& .icon-button": {
+      padding: "2px",
+      "&:hover": {},
+    },
+  },
+  header: {
+    margin: "0",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    fontSize: "1.1rem",
+    /* line-height: 38px; */
+    color: "#5e6669",
+
+    paddingTop: "8px",
+  },
+  boxContent: {
+    padding: "0px",
+  },
+  card: {
+    maxWidth: "330px",
+    minHeight: "340px",
+    border: "1px solid #bebebe",
+    borderRadius: "4px",
+    padding: "0px",
+  },
+  image: {
+    border: "1px solid #bebebe",
+    borderRadius: "4px",
+  },
+  boxicon: {
+    float: "center",
+    padding: "16px 24px 0px 12px",
+  },
+
+  subcontent: {
+    margin: "0",
+    fontFamily: "Roboto",
+    fontWeight: "normal",
+    fontSize: "1.1 rem",
+    /* line-height: 38px; */
+    color: "#5e6669",
+    padding: "0px",
+  },
+});
 
 export default function WishListCard() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [stateEdit, setStateEdit] = React.useState(false);
+  const [stateDelete, setStateDelete] = React.useState(false);
 
+  const open = Boolean(anchorEl);
+  const history = useHistory();
+
+  const classes = useStyle();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -34,64 +89,29 @@ export default function WishListCard() {
     setAnchorEl(null);
   };
 
-  const open = Boolean(anchorEl);
+  const handleClickEdit = () => {
+    setStateEdit(true);
+  };
 
-  const history = useHistory();
-  // const id = open ? "simple-popover" : undefined;
-  const useStyle = makeStyles({
-    root: {
-      "& .icon-button": {
-        padding: "2px",
-        "&:hover": {},
-      },
-    },
-    header: {
-      margin: "0",
-      fontFamily: "Roboto",
-      fontWeight: "bold",
-      fontSize: "18px",
-      /* line-height: 38px; */
-      color: "#5e6669",
+  const handleClickDelete = () => {
+    setStateDelete(true);
+  };
 
-      paddingTop: "8px",
-    },
-    boxContent: {
-      padding: "0px",
-    },
-    card: {
-      maxWidth: "330px",
-      minHeight: "340px",
-      border: "1px solid #bebebe",
-      borderRadius: "4px",
-      padding: "0px"
-    },
-    image: {
-      border: "1px solid #bebebe",
-      borderRadius: "4px",
-    },
-    boxicon: {
-      float: "center",
-      padding: "16px 24px 0px 12px",
-    },
-
-    subcontent: {
-      margin: "0",
-      fontFamily: "Roboto",
-      fontWeight: "normal",
-      fontSize: "18px",
-      /* line-height: 38px; */
-      color: "#5e6669",
-      padding: "0px",
-    },
-  });
-
-  const classes = useStyle();
+  const listField = ["Tên sanh sách yêu thích"];
 
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
-        <CardActionArea onClick={()=>{history.push("/Ca-nhan/Danh-sach-quan-tam/Chi-tiet")}}>
-          <Grid container style={{ padding: "8px 12px 8px 12px" }}>
+        <CardActionArea
+          onClick={() => {
+            history.push("/Ca-nhan/Danh-sach-quan-tam/Chi-tiet");
+          }}
+        >
+          <Grid
+            container
+            justifyContent="center"
+            style={{ padding: "8px 12px 8px 12px" }}
+          >
             <Grid xs={6} paddingRight="8px">
               <CardMedia
                 className={classes.image}
@@ -126,59 +146,64 @@ export default function WishListCard() {
           </Grid>
         </CardActionArea>
 
-          <Grid container>
-            <Grid xs={6} xl={8} item>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  paddingTop: 1,
-                  paddingLeft: 1.5,
-                }}
-              >
-                <CardContent style={{ padding: "0px" }}>
-                  <Typography
-                    className={classes.header}
-                    wrapped
-                    gutterBottom
-                    component="div"
-                  >
-                    DANH SÁCH YÊU THÍCH
-                  </Typography>
-                </CardContent>
-              </Box>
-            </Grid>
-            <Grid xs={6} xl={4} item>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  paddingTop: 1.5,
-                  paddingRight: 2,
-                }}
-                className={classes.boxicon}
-                alignContent="center"
-              >
-                <IconButton aria-label="edit" className="icon-button">
-                  <EditOutlinedIcon fontSize="small" />
-                </IconButton>
-                <IconButton aria-label="delete" className="icon-button">
-                  <DeleteOutlineOutlinedIcon fontSize="small" />
-                </IconButton>
-
-                <IconButton
-                  aria-label="share"
-                  className="icon-button"
-                  onMouseEnter={handleClick}
-                  // onClick={handlePopoverOpen}
-                  onClick={handleClick}
-                  // onMouseLeave={handleClose}
+        <Grid container>
+          <Grid xs={8} xl={8} item>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-start",
+                paddingTop: 1,
+                paddingLeft: 1.5,
+              }}
+            >
+              <CardContent style={{ padding: "0px" }}>
+                <Typography
+                  className={classes.header}
+                  wrapped
+                  gutterBottom
+                  component="div"
+                  fontSize="0.8rem"
                 >
-                  <ShareIcon fontSize="small" />
-                </IconButton>
-              </Box>
-            </Grid>
+                  DANH SÁCH YÊU THÍCH
+                </Typography>
+              </CardContent>
+            </Box>
           </Grid>
+          <Grid xs={4} xl={4} item>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingTop: 1.5,
+                paddingRight: 1,
+              }}
+              className={classes.boxicon}
+              alignContent="center"
+            >
+              <IconButton
+                onClick={handleClickEdit}
+                aria-label="edit"
+                className="icon-button"
+              >
+                <EditOutlinedIcon fontSize="small" />
+              </IconButton>
+              <IconButton onClick={handleClickDelete} aria-label="delete" className="icon-button">
+                <DeleteOutlineOutlinedIcon fontSize="small" />
+              </IconButton>
+
+              <IconButton
+                aria-label="share"
+                className="icon-button"
+                onMouseEnter={handleClick}
+                // onClick={handlePopoverOpen}
+                onClick={handleClick}
+                // onMouseLeave={handleClose}
+              >
+                <ShareIcon fontSize="small" />
+              </IconButton>
+            </Box>
+          </Grid>
+        </Grid>
 
         <Grid container>
           <Box
@@ -241,7 +266,7 @@ export default function WishListCard() {
             }}
           />
           <Typography
-            sx={{ p: 0.5, backgroundColor: "#ECECEC", borderRadius: "8px" }}
+            sx={{ p: 0.5, backgroundColor: "#ECECEC", borderRadius: "4px" }}
           >
             <IconButton
               aria-label="twitter"
@@ -268,6 +293,27 @@ export default function WishListCard() {
           </Typography>
         </Popover>
       </Card>
+      <ModalWithButton
+        listField={listField}
+        header="Chỉnh sửa danh sách yêu thích"
+        btnText="CẬP NHẬT"
+        state={stateEdit}
+        setState={setStateEdit}
+        listField={listField}
+        header="Chỉnh sửa danh sách yêu thích"
+        btnText="CẬP NHẬT"
+        messageText="Cập nhật thành công"
+        typeMessage="success"
+      />
+
+      <ConfirmModal
+        header="Xóa danh sách yêu thích?"
+        state={stateDelete}
+        setState={setStateDelete}
+        messageText="Xóa thành công"
+        typeMessage="success"
+      />
+
     </div>
   );
 }

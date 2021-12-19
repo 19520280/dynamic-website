@@ -42,3 +42,5 @@ export const setOrderStatus = createAction("SET_ORDER_STATUS");
 
 export const showShoppingCartDrawer = createAction("SHOW_SHOPPING_CART_DRAWER");
 export const hideShoppingCartDrawer = createAction("HIDE_SHOPPING_CART_DRAWER");
+
+export const setMessageModal = createAction("SET_MESSAGE_MODAL");
