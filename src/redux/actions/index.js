@@ -15,16 +15,7 @@ export const showSaleBanner = createAction("SHOW_SALE_BANNER");
 
 export const showCollectionDialog = createAction("SHOW_COLLECTION_DIALOG");
 export const hideCollectionDialog = createAction("HIDE_COLLECTION_DIALOG");
-/*
-  getType(getPosts.getPostSuccess)
-  =>  
-  {
-    type: 'getPostSuccess',
-    payload: {
-      name: 'Test'
-    }
-  }
-*/
+
 
 //#region Account
 export const getAccount = createAction("GET_ACCOUNT");
@@ -33,3 +24,6 @@ export const collapseMenu = createAction("COLLAPSE_MENU");
 export const setOrderStatus = createAction("SET_ORDER_STATUS");
 
 //#endregion
+
+export const showShoppingCartDrawer = createAction("SHOW_SHOPPING_CART_DRAWER");
+export const hideShoppingCartDrawer = createAction("HIDE_SHOPPING_CART_DRAWER");

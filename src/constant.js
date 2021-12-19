@@ -91,6 +91,9 @@ export const INIT_STATE = {
   },
   OrderStatus: {
     data: "TẤT CẢ",
-  }
+  },
+  ShoppingCartDrawer: {
+    isShow: false,
+  },
   //#endregion
 };

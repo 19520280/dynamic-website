@@ -1,6 +1,7 @@
 import {
   Badge,
   Box,
+  Button,
   Divider,
   Drawer,
   IconButton,
@@ -14,35 +15,17 @@ import {
   usePopupState,
 } from "material-ui-popup-state/hooks";
 
-import CartProductDetail from "../CartProductDetail/CartProductDetail";
-import CloseIcon from "@mui/icons-material/Close";
 import HoverMenu from "material-ui-popup-state/HoverMenu";
 import PriceTypography from "../Typographys/PriceTypography";
 import React from "react";
+import ShoppingCartDrawer from "../Drawers/ShoppingCartDrawer";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ShoppingCartItem from "../CartProductDetail/ShoppingCartItem";
 import { SystemColor } from "../../color";
 import { cartProducts } from "../../dataSources/CartProducts";
+import { showShoppingCartDrawer } from './../../redux/actions/index';
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-const ShoppingCartItem = ({ product }) => (
-  <div>
-    <Stack
-      direction="row"
-      alignContent="strecth"
-      alignItems="center"
-      justifyContent="space-between"
-      sx={{ width: "100%" }}
-      spacing={3}
-    >
-      <CartProductDetail sanPham={product} readOnly />
-      <PriceTypography
-        gia={product.soLuong * product.gia}
-        justifyContent="flex-end"
-      />
-    </Stack>
-    <Divider />
-  </div>
-);
 
 const getTotal = () => {
   let totalQty = 0;
@@ -131,73 +114,28 @@ export const ShoppingCartPopoverDesktop = () => {
 /* #endregion */
 
 export const ShoppingCartPopoverMobile = () => {
-  const history = useHistory();
   const { totalQty, totalPrice } = getTotal();
-  const [openDrawer, setOpenDrawer] = React.useState(false);
-
-  const ListDrawer = () => (
-    <Box sx={{ width: "100%", p: 2 }} role="presentation">
-      <Stack
-        flexDirection="column"
-        justifyContent="flex-start"
-        alignItems="stretch"
-        spacing={1}
-      >
-        <div>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            spacing={2}
-          >
-            <Typography variant="button" fontWeight="bold" color="secondary">
-              GIỎ HÀNG
-            </Typography>
-            <IconButton
-              onClick={() => setOpenDrawer(false)}
-              sx={{ cursor: "pointer" }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </Stack>
-          <Divider />
-        </div>
-        {cartProducts.map((product, index) => (
-          <ShoppingCartItem product={product} />
-        ))}
-        <Stack
-          direction="row"
-          justifyContent="flex-end"
-          alignItems="flex-start"
-          spacing={2}
-        >
-          <Typography fontSize="1.2rem" fontWeight="bold" color="primary">
-            Tổng cộng
-          </Typography>
-          <PriceTypography gia={totalPrice} fontSize="1.2rem" />
-        </Stack>
-      </Stack>
-    </Box>
-  );
-
+  const dispatch = useDispatch();
+  const openShoppingCartDrawer = React.useCallback(() => {
+    dispatch(showShoppingCartDrawer());
+  }, [dispatch]);
+  
   return (
     <React.Fragment>
-      <IconButton
-        onClick={() => setOpenDrawer(true)}
-        sx={{ cursor: "pointer" }}
-      >
+      <IconButton onClick={openShoppingCartDrawer} sx={{ cursor: "pointer" }}>
         <Badge badgeContent={totalQty} color="error">
           <ShoppingCartIcon style={{ color: "white" }} />
         </Badge>
       </IconButton>
-      <Drawer
+      <ShoppingCartDrawer cartProducts={cartProducts} totalPrice={totalPrice} />
+      {/* <Drawer
         anchor="bottom"
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         sx={{ borderRadius: "4px" }}
       >
         <ListDrawer />
-      </Drawer>
+      </Drawer> */}
     </React.Fragment>
   );
 };

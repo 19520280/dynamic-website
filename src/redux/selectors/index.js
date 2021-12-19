@@ -8,3 +8,6 @@ export const AccountMenuState$ = (state) => state.AccountMenu;
 export const OrderStatusState$ = (state) => state.OrderStatus.data;
 
 //#endregion
+
+export const ShoppingCartDrawerState$ = (state) =>
+  state.ShoppingCartDrawer.isShow;
