@@ -9,6 +9,7 @@ export default function WishListCardGrid({ value }) {
         <Grid
           container
           spacing={{ xs: 2, sm: 4, md: 4 }}
+          justifyContent="center"
           // columns={{ xs: 12, sm: 12, md: 12 }}
         >
           {Array.from(Array(value)).map((_, index) => (

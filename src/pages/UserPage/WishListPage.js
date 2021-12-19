@@ -1,7 +1,7 @@
 import * as actions from "../../redux/actions/index";
 
 import { BgColor, SystemColor } from "../../color";
-import { Container, Grid, Slide, useMediaQuery, useTheme } from "@mui/material";
+import { Container, Grid, Slide, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -98,8 +98,10 @@ const WishListPage = () => {
               }}
             >
               <HeaderTypography text={text} />
-
+              <Stack justifyContent="center">
               <WishListCardGrid value={value} />
+
+              </Stack>
             </Container>
           </Grid>
         </Grid>

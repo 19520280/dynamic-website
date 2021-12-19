@@ -71,7 +71,6 @@ export default function Footer() {
   const listImage = [image1, image2, image3, image4, image5, image6];
 
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
   
   if (!isMobile) {
     return (
@@ -222,7 +221,7 @@ export default function Footer() {
               <Grid container style={{ padding: "60px 0px 20px" }}>
                 <Grid item xs={12} xl={6}>
                   <Stack direction="column">
-                    <Stack direction="row" spacing={7.5}>
+                    <Stack direction="row" spacing={7.5} justifyContent="center">
                       {listItem.map((itemDetail, index) =>
                         index < 2 ? (
                           <Stack direction="column" spacing={1}>
@@ -262,8 +261,8 @@ export default function Footer() {
                     
                   </Stack>
                 </Grid>
-                <Box style={{ margin: "30px 0px 0px 0px" }}>
-                  <Stack direction="column" spacing={3}>
+                <Grid item xs={12} justifyContent="center" style={{ margin: "30px 0px 0px 0px" }}>
+                  <Stack direction="column" spacing={3} >
                     <Stack direction="column" justifyContent="center">
                       <CountTypography
                         text={"KẾT NỐI VỚI CHÚNG TÔI"}
@@ -346,7 +345,7 @@ export default function Footer() {
                       ))}
                     </Grid>
                   </Stack>
-                </Box>
+                </Grid>
               </Grid>
             </Toolbar>
           </Container>
