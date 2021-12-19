@@ -6,10 +6,11 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material/styles";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import AccountPage from "./pages/AccountPage/AccountPage";
+import BlogPage from "./pages/BlogPage/BlogPage";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
-import { Button } from "@mui/material";
 import CartPage from "./pages/CartPage";
 import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
 import CollectionDialog from "./components/Dialogs/CollectionDialog/CollectionDialog";
@@ -42,6 +43,7 @@ let theme = createTheme({
 });
 theme = responsiveFontSizes(theme);
 function App() {
+  const isMobile = useMediaQuery(useTheme().breakpoints.down("md"));
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -51,7 +53,7 @@ function App() {
           <CollectionDialog />
           <Switch>
             <Route path="/" exact component={Homepage} />
-
+            <Route path="/Blog" exact component={BlogPage} />
             <Route path="/Ao" exact component={CategoryCasePage} />
             <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
             <Route path="/Ao/Ao-khoac" exact component={CategoryCasePage} />
@@ -158,9 +160,9 @@ function App() {
               />
             </div>
           </Switch>
+          <Footer />
         </Router>
-        <Footer />
-        <ScrollButton />
+        <ScrollButton isMobile={isMobile} />
       </ThemeProvider>
     </>
   );

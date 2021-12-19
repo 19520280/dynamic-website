@@ -5,7 +5,7 @@ import React from "react";
 import { SystemColor } from "../../color";
 import numberWithCommas from "./../../utils/numberWithCommas";
 
-const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
+const PriceTypography = ({ giaCu, gia, justifyContent, point, fontSize }) => {
   return (
     <Stack direction="row" spacing={1} justifyContent={justifyContent}>
       {giaCu > 0 ? (
@@ -14,7 +14,7 @@ const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
           gutterBottom
           component="div"
           color="text.secondary"
-          fontSize={isMobile ? "calc(0.8rem)" : "calc(1rem)"}
+          fontSize={fontSize ? fontSize : "1rem"}
         >
           {numberWithCommas(giaCu)}
         </Typography>
@@ -24,7 +24,7 @@ const PriceTypography = ({ giaCu, gia, isMobile, justifyContent, point }) => {
           gutterBottom
           component="div"
           sx={{ fontWeight: "medium" }}
-          fontSize={isMobile ? "calc(0.8rem)" : "calc(1rem)"}
+          fontSize={fontSize ? fontSize : "1rem"}
           className="price"
           color={SystemColor.error}
         >

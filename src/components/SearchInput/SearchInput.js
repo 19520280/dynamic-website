@@ -13,7 +13,7 @@ export default function SearchInputypeof() {
     <Paper
       component="form"
       sx={{
-        p: "2px 4px",
+        p: "2px 4px 0px 0px ",
         display: "flex",
         alignItems: "center",
         width: "100%",
@@ -22,6 +22,7 @@ export default function SearchInputypeof() {
         borderColor: SystemColor.gray,
 
       }}
+
     >
       <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
         <SearchIcon />

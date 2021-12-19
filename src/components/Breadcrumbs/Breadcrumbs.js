@@ -10,13 +10,12 @@ const Breadcrumb = (props) => {
     location: { pathname },
   } = props;
   const pathnames = pathname.split("/").filter((x) => x);
-
-  return pathnames.length > 0 ? (
+  return pathnames.length > 0 && pathnames[0] !== "Blog" ? (
     <Breadcrumbs
       style={{
         paddingTop: "2%",
         paddingBottom: "1%",
-        paddingLeft: "8%",
+        paddingLeft: "80px",
         // margin: "5%",
         backgroundColor: "#FCFCFC",
       }}
@@ -72,6 +71,12 @@ const Breadcrumb = (props) => {
               ? "Cá nhân"
               : name === "Don-mua"
               ? "Đơn mua"
+              : name === "Lien-he"
+              ? "Liên hệ"
+              : name === "Gio-hang"
+              ? "Giỏ hàng"
+              : name === "Thanh-toan"
+              ? "Thanh toán"
               : name}
           </Typography>
         ) : (
@@ -86,7 +91,6 @@ const Breadcrumb = (props) => {
               ? "Liên hệ"
               : name === "Ca-nhan"
               ? "Cá nhân"
-              
               : name}
           </Link>
         );

@@ -7,6 +7,7 @@ import {
   Menu,
   MenuItem,
   Paper,
+  Popover,
   Stack,
   useMediaQuery,
   useTheme,
@@ -28,7 +29,6 @@ function MenuButton({ page, setOpenMenu }) {
 
   /* #region  Normal */
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl) && !isMobile;
   const history = useHistory();
 
   const handleOver = (event) => {
@@ -37,19 +37,19 @@ function MenuButton({ page, setOpenMenu }) {
   const handleClose = () => {
     isMobile ? setOpenMenu(false) : setAnchorEl(null);
   };
+  const open = Boolean(anchorEl) && !isMobile;
   /* #endregion */
-
   return (
-    <>
+    <div>
       <Button
         variant="text"
-        aria-controls={`${page.title}-page`}
+        aria-owns={open ? "mouse-over-popover" : undefined}
         aria-haspopup="true"
         onClick={() => {
           handleClose();
           history.push(page.path);
         }}
-        onMouseOver={handleOver}
+        onMouseEnter={handleOver}
         endIcon={
           page.menu.length && !isMobile ? <KeyboardArrowDownIcon /> : null
         }
@@ -91,7 +91,7 @@ function MenuButton({ page, setOpenMenu }) {
           </Paper>
         </Menu>
       ) : null}
-    </>
+    </div>
   );
 }
 

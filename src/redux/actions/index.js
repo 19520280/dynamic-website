@@ -29,6 +29,7 @@ export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
   }
 */
 
+
 //#region Account
 export const getAccount = createAction("GET_ACCOUNT");
 export const expandMenu = createAction("EXPAND_MENU");
@@ -36,3 +37,6 @@ export const collapseMenu = createAction("COLLAPSE_MENU");
 export const setOrderStatus = createAction("SET_ORDER_STATUS");
 
 //#endregion
+
+export const showShoppingCartDrawer = createAction("SHOW_SHOPPING_CART_DRAWER");
+export const hideShoppingCartDrawer = createAction("HIDE_SHOPPING_CART_DRAWER");

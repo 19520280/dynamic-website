@@ -12,16 +12,18 @@ import {
   TextField,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import {
+  ShoppingCartPopoverDesktop,
+  ShoppingCartPopoverMobile,
+} from "../Popovers/ShoppingCartPopover";
 import { useDispatch, useSelector } from "react-redux";
 
-import Banner from "../Banner/Banner";
 import Logo from "../../assets/images/Logo.png";
 import { SaleBannerState$ } from "../../redux/selectors";
 import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useHistory } from "react-router-dom";
 
-function Topbar() {
+export const TopbarDesktop = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const SaleBanner = useSelector(SaleBannerState$);
@@ -32,8 +34,7 @@ function Topbar() {
     },
     [dispatch]
   );
-  useEffect(() => {
-  }, [SaleBanner]);
+  useEffect(() => {}, [SaleBanner]);
 
   return (
     <Stack direction="row" className="topbar">
@@ -100,11 +101,7 @@ function Topbar() {
             }}
           />
         </Box>
-        <IconButton onClick={() => history.push("/Gio-hang")}>
-          <Badge badgeContent={4} color="error">
-            <ShoppingCartIcon style={{ color: "white" }} />
-          </Badge>
-        </IconButton>
+        <ShoppingCartPopoverDesktop />
         <Avatar
           sx={{ bgcolor: "white" }}
           onClick={() => history.push("/Ca-nhan/Tai-khoan/Ho-so")}
@@ -112,6 +109,29 @@ function Topbar() {
       </Stack>
     </Stack>
   );
-}
+};
 
-export default Topbar;
+export const TopbarMobile = () => {
+  const history = useHistory();
+
+  return (
+    <Stack direction="row" className="topbar">
+      <Box component="div" sx={{ display: "inline", flex: 1 }}>
+        <img src={Logo} onClick={() => history.push("/")} />
+      </Box>
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{ flex: 2 }}
+        justifyContent="flex-end"
+        alignItems="center"
+      >
+        <IconButton>
+          <SearchIcon style={{ color: "white" }} />
+        </IconButton>
+        <ShoppingCartPopoverMobile />
+        <Avatar sx={{ bgcolor: "white" }} />
+      </Stack>
+    </Stack>
+  );
+};
