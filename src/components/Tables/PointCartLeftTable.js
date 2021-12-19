@@ -51,7 +51,7 @@ const PointCartLeftTable = () => {
                 container
                   style={{
                     border: "1px solid",
-                    borderRadius: "8px",
+                    borderRadius: "4px",
                     borderColor: SystemColor.gray,
                     marginBottom: "12px",
                     backgroundColor:"#fff"
