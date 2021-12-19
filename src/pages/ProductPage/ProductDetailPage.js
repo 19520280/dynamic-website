@@ -225,6 +225,7 @@ const ProductDetailPage = () => {
               paddingX={5}
               border={1}
               marginY={3}
+              borderRadius={1}
               borderColor={SystemColor.gray}
               display={"flex"}
             >
