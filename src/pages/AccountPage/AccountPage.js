@@ -13,6 +13,7 @@ import WishLists from "../../components/AccountPageBody/WishLists";
 import AccountSider from "../../components/Sider/AccountSider";
 import * as actions from "../../redux/actions/index";
 import { AccountState$ } from "../../redux/selectors";
+import { BgColor, SystemColor } from "../../color";
 
 const AccountPage = ({ accountRoute }) => {
   const dispatch = useDispatch();
@@ -37,17 +38,25 @@ const AccountPage = ({ accountRoute }) => {
 
   return (
     <Grid container spacing={0}>
-      <Grid item xs={0} xl={2.5}>
-        <AccountSider
-          avatarImage={data.avatarImage}
-          accountName={data.accountName}
-          timeHasJoined={data.timeHasJoined}
-        />
-      </Grid>
-      <Grid item xs={9.5}>
+      <Grid xs={isMobile?8:2.5} xl={2.5}>
         <Container
           style={{
-            paddingLeft: isMobile ? "0px" : "40px",
+            backgroundColor: BgColor.mainBg,
+          }}
+        >
+          <AccountSider
+            avatarImage={data.avatarImage}
+            accountName={data.accountName}
+            timeHasJoined={data.timeHasJoined}
+          />
+        </Container>
+      </Grid>
+      <Grid item xs={isMobile?12:9.5} xl={9.5}>
+        <Container
+          style={{
+            paddingLeft: isMobile ? "20px" : "40px",
+            paddingRight: isMobile ? "20px" : "0px",
+
             backgroundColor: "#FCFCFC",
           }}
         >
