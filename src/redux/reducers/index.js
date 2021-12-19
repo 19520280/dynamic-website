@@ -1,10 +1,11 @@
 import Account from "./Account.js";
 import AccountMenu from "./AccountMenu.js";
 import CollectionDialog from "./CollectionDialog.js";
+import MixMatchDialog from './MixMatchDialog';
 import OrderStatus from "./OrderStatus.js";
-import SizeGuideDialog from "./SizeGuideDialog.js";
 import SaleBanner from "./SaleBanner.js";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.js";
+import SizeGuideDialog from "./SizeGuideDialog.js";
 import { combineReducers } from "redux";
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
   OrderStatus,
   SizeGuideDialog,
   ShoppingCartDrawer,
+  MixMatchDialog
 });

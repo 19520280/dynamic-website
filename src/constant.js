@@ -13,6 +13,9 @@ export const INIT_STATE = {
   SizeGuideDialog: {
     isShow: false,
   },
+  MixMatchDialog: {
+    isShow: false,
+  },
   //#region Account
   AccountMenu: {
     isExpanded: true,
@@ -97,7 +100,9 @@ export const INIT_STATE = {
   },
   ShoppingCartDrawer: {
     isShow: false,
-  },
+  }, 
+
+
 
   //#endregion
 };

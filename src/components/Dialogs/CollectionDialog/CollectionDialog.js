@@ -12,15 +12,15 @@ import {
   IconButton,
   Stack,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
 import AddIcon from "@mui/icons-material/Add";
-import { BtnColor } from "../../../color";
 import CloseIcon from "@mui/icons-material/Close";
 import { CollectionDialogState$ } from "../../../redux/selectors";
 import React from "react";
-import { SystemColor } from "../../../color";
 import { hideCollectionDialog } from "../../../redux/actions";
 
 const imgMonarchButterflys11 =
@@ -51,7 +51,18 @@ const collectionItem = (image, title) => (
             <AddIcon />
           </Button>
         )}
-        {title ?<div> <Typography color="primary" > {title} </Typography > <Typography color="secondary" fontSize="0.9rem"> 5 sản phẩm </Typography>  </div>: <Typography>Thêm mới danh sách</Typography>}
+        {title ? (
+          <div>
+            {" "}
+            <Typography color="primary"> {title} </Typography>{" "}
+            <Typography color="secondary" fontSize="0.9rem">
+              {" "}
+              5 sản phẩm{" "}
+            </Typography>{" "}
+          </div>
+        ) : (
+          <Typography>Thêm mới danh sách</Typography>
+        )}
       </Stack>
       {image ? <Checkbox /> : null}
     </Stack>
@@ -59,6 +70,8 @@ const collectionItem = (image, title) => (
 );
 
 const CollectionDialog = () => {
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const dispatch = useDispatch();
   const open = useSelector(CollectionDialogState$);
   const handleClose = React.useCallback(() => {
@@ -77,51 +90,54 @@ const CollectionDialog = () => {
   return (
     <Dialog
       open={open}
+      fullScreen={fullScreen}
       onClose={handleClose}
       scroll="paper"
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
-      sx={{ maxHeight: "80%" }}
+      sx={{ maxHeight: "100%" }}
     >
-      <DialogTitle id="scroll-dialog-title">
-        Thêm vào danh sách
-        <IconButton
-          aria-label="close"
-          onClick={handleClose}
+      <div style={{width:"900px"}}>
+        <DialogTitle id="scroll-dialog-title">
+          Thêm vào danh sách
+          <IconButton
+            aria-label="close"
+            onClick={handleClose}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent dividers>
+          <DialogContentText
+            id="scroll-dialog-description"
+            ref={descriptionElementRef}
+            tabIndex={-1}
+          >
+            <Stack direction="column" spacing={2}>
+              {[...new Array(10)].map(() =>
+                collectionItem(imgMonarchButterflys11, "Áo")
+              )}
+            </Stack>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions
           sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
+            flexDirection: "column",
+            alignItems: "stretch",
           }}
         >
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-      <DialogContent dividers>
-        <DialogContentText
-          id="scroll-dialog-description"
-          ref={descriptionElementRef}
-          tabIndex={-1}
-        >
-          <Stack direction="column" spacing={2}>
-            {[...new Array(10)].map(() =>
-              collectionItem(imgMonarchButterflys11, "Áo")
-            )}
-          </Stack>
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions
-        sx={{
-          flexDirection: "column",
-          alignItems: "stretch",
-        }}
-      >
-        {collectionItem(null, null)}
-        <Divider variant="light" />
-      </DialogActions>
-      <DialogActions>
-        <Button onClick={handleClose}>Lưu</Button>
-      </DialogActions>
+          {collectionItem(null, null)}
+          <Divider variant="light" />
+        </DialogActions>
+        <DialogActions>
+          <Button onClick={handleClose}>Lưu</Button>
+        </DialogActions>
+      </div>
     </Dialog>
   );
 };

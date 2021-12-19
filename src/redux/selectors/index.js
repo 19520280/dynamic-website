@@ -1,5 +1,10 @@
 export const SaleBannerState$ = (state) => state.SaleBanner.isShow;
+
+/* #region  Dialogs */
 export const CollectionDialogState$ = (state) => state.CollectionDialog.isShow;
+export const SizeGuideDialogState$ = (state) => state.SizeGuideDialog.isShow;
+export const MixMatchDialogState$ = (state) => state.MixMatchDialog.isShow;
+/* #endregion */
 
 //#region Account
 export const AccountState$ = (state) => state.Account;
@@ -9,6 +14,5 @@ export const OrderStatusState$ = (state) => state.OrderStatus.data;
 
 //#endregion
 
-export const SizeGuideDialogState$ = (state) => state.SizeGuideDialog.isShow;
 export const ShoppingCartDrawerState$ = (state) =>
   state.ShoppingCartDrawer.isShow;

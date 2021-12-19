@@ -18,6 +18,9 @@ export const hideCollectionDialog = createAction("HIDE_COLLECTION_DIALOG");
 
 export const showSizeGuideDialog = createAction("SHOW_SIZEGUIDE_DIALOG");
 export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
+
+export const showMixMatchDialog = createAction("SHOW_MIXMACTCH_DIALOG");
+export const hideMixMatchDialog = createAction("HIDE_MIXMATCH_DIALOG");
 /*
   getType(getPosts.getPostSuccess)
   =>  
@@ -28,7 +31,6 @@ export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
     }
   }
 */
-
 
 //#region Account
 export const getAccount = createAction("GET_ACCOUNT");
