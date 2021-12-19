@@ -18,7 +18,7 @@ export default function SearchInputypeof() {
         alignItems: "center",
         width: "100%",
         border: "1px solid",
-        borderRadius: "8px",
+        borderRadius: "4px",
         borderColor: SystemColor.gray,
 
       }}
