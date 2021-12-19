@@ -21,7 +21,11 @@ export default function MessageModal({
   severity,
   closeAfterSecond,
 }) {
-    //state: state of this component, setState: State
+    //state: state of this component, setState: setState of this component
+    //setStateParent: set State of Parent of thí component, maybe a modal, 
+    //text: text of this component
+    //severity: type of this component (success, error, warning, info,...)
+    //closeAfterSecond: if true then close after 3 second
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const handleOpen = () => setState(true);
