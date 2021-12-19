@@ -91,7 +91,7 @@ export default function WishListCard() {
     <div className={classes.root}>
       <Card className={classes.card}>
         <CardActionArea onClick={()=>{history.push("/Ca-nhan/Danh-sach-quan-tam/Chi-tiet")}}>
-          <Grid container style={{ padding: "8px 12px 8px 12px" }}>
+          <Grid container justifyContent="center" style={{ padding: "8px 12px 8px 12px" }}>
             <Grid xs={6} paddingRight="8px">
               <CardMedia
                 className={classes.image}
