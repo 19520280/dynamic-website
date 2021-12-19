@@ -19,7 +19,7 @@ import { SystemColor } from "../../color";
 const CartProductDetail = ({ sanPham, readOnly, total }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(sanPham);
+
   return (
     <div className="product-item">
       <Stack
