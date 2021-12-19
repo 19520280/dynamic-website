@@ -19,6 +19,13 @@ export default function ModalWithButton({
   typeMessage,
   footer,
 }) {
+  //state, setState: state and setState of this component
+  //listField: arrya of string, eg: ["Text Field 1", "Text Field 2"]
+  //header: header(string) of this Modal
+  //btnText: text of primary button of this modal
+  //messageText: what string you want to show when click primary button
+  //typeMessage: type of this message, see "MessageModal" for more
+  //footer: custom footer you want
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [child, setChild] = useState(false);
