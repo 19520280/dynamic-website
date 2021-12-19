@@ -19,11 +19,12 @@ import AddIcon from "@mui/icons-material/Add";
 import { BtnColor } from "../../../color";
 import CloseIcon from "@mui/icons-material/Close";
 import { CollectionDialogState$ } from "../../../redux/selectors";
+import MessageModal from "../../Modal/MessageModal";
+import ModalWithButton from "../../Modal/ModalWithButton";
 import React from "react";
 import { SystemColor } from "../../../color";
 import { hideCollectionDialog } from "../../../redux/actions";
-import ModalWithButton from "../../Modal/ModalWithButton";
-import MessageModal from "../../Modal/MessageModal";
+
 const imgMonarchButterflys11 =
   require("../../../assets/images/products/monarch-butterfly-t-shirt-white/white01.jpg").default;
 
@@ -42,7 +43,7 @@ const CollectionDialog = () => {
       dispatch(hideCollectionDialog());
     }
   }, [dispatch, state]);
-  
+
   const handleClose = React.useCallback(() => {
     dispatch(hideCollectionDialog());
   }, [dispatch]);

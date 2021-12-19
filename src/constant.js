@@ -16,6 +16,9 @@ export const INIT_STATE = {
   SizeGuideDialog: {
     isShow: false,
   },
+  MixMatchDialog: {
+    isShow: false,
+  },
   QuickViewDialog: {
     isShow: false,
   },
@@ -105,7 +108,7 @@ export const INIT_STATE = {
     isShow: false,
   },
   MessageModal: {
-    isShow:false,
-  }
+    isShow: false,
+  },
   //#endregion
 };

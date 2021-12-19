@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Box } from "@mui/material";
 import BtnProCardGroup from "./../Buttons/BtnProCardGroup";
+import ImageHover from "./ImageHover";
 import TagProCardGroup from "../Tag/TagProCardGroup";
 
 const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
@@ -11,25 +12,13 @@ const ImageProductCard = ({ sanPham, indexSelected, onClick }) => {
       <div
         className={hovered !== 0 ? "image-card active-switcher" : "image-card"}
       >
-        <img
-          className={hovered === 1 ? "pmhovered" : ""}
-          src={sanPham.imgs[indexSelected][0]}
+        <ImageHover
+          imgs={[
+            sanPham.imgs[indexSelected][0],
+            sanPham.imgs[indexSelected][1],
+          ]}
+          onClick={onClick}
         />
-        <img
-          className={hovered === 2 ? "pmhovered" : ""}
-          src={sanPham.imgs[indexSelected][0]}
-          src={sanPham.imgs[indexSelected][1]}
-        />
-        <span className="pmimage-switcher" onClick={onClick}>
-          <span
-            onMouseEnter={() => setHovered(1)}
-            onMouseLeave={() => setHovered(0)}
-          ></span>
-          <span
-            onMouseEnter={() => setHovered(2)}
-            onMouseLeave={() => setHovered(0)}
-          ></span>
-        </span>
         <div className="btn">
           <BtnProCardGroup sanPham={sanPham} />
         </div>
