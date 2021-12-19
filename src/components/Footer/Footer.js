@@ -1,15 +1,7 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import PinterestIcon from "@mui/icons-material/Pinterest";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import CountTypography from "../Typographys/CountTypography";
-import AndroidIcon from "@mui/icons-material/Android";
-import AppleIcon from "@mui/icons-material/Apple";
 import { useHistory } from "react-router-dom";
 import { TxtColor } from "../../color";
 import {
@@ -19,14 +11,13 @@ import {
   useMediaQuery,
   useTheme,
   Link,
-  List,
   ListItem,
   ListItemText,
-  ListSubheader,
-  ListItemButton,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import TextFieldWithButton from "../TextFields/TextFieldWithButton";
+import ListIconSocial from "../ListIcon/ListIconSocial";
+import ListIconApp from "../ListIcon/ListIconApp";
 
 const image1 = require("../../assets/images/payment-method/cod.png").default;
 const image2 = require("../../assets/images/payment-method/visa.png").default;
@@ -76,36 +67,6 @@ export default function Footer() {
     { value: "Dấu ấn", path: "/" },
   ];
 
-  const listIconSocial = (
-    <Stack direction="row" spacing={1}>
-      <IconButton aria-label="fb" sx={{ color: TxtColor.txtWhite }}>
-        <FacebookIcon />
-      </IconButton>
-      <IconButton aria-label="ig" sx={{ color: TxtColor.txtWhite }}>
-        <InstagramIcon />
-      </IconButton>
-      <IconButton aria-label="tt" sx={{ color: TxtColor.txtWhite }}>
-        <TwitterIcon />
-      </IconButton>
-      <IconButton aria-label="yt" sx={{ color: TxtColor.txtWhite }}>
-        <YouTubeIcon />
-      </IconButton>
-      <IconButton aria-label="p" sx={{ color: TxtColor.txtWhite }}>
-        <PinterestIcon />
-      </IconButton>
-    </Stack>
-  );
-
-  const listIconApp = (
-    <Stack direction="row" spacing={1}>
-      <IconButton aria-label="android" sx={{ color: TxtColor.txtWhite }}>
-        <AndroidIcon />
-      </IconButton>
-      <IconButton aria-label="apple" sx={{ color: TxtColor.txtWhite }}>
-        <AppleIcon />
-      </IconButton>
-    </Stack>
-  );
 
   const listImage = [image1, image2, image3, image4, image5, image6];
 
@@ -113,7 +74,7 @@ export default function Footer() {
   if (!isMobile) {
     return (
       <>
-        <AppBar style={{marginTop:"8%"}} position="static" color="primary">
+        <AppBar style={{ marginTop: "8%" }} position="static" color="primary">
           <Container>
             <Toolbar>
               <Grid container style={{ padding: "60px 0px 20px" }}>
@@ -190,7 +151,7 @@ export default function Footer() {
                               size="0.8rem"
                               padding="0px"
                             />
-                            {listIconSocial}
+                            <ListIconSocial/>
                           </Stack>
                         </Grid>
                         <Grid item xs={4}>
@@ -202,7 +163,7 @@ export default function Footer() {
                               size="0.8rem"
                               padding="0px"
                             />
-                            {listIconApp}
+                            <ListIconApp/>
                           </Stack>
                         </Grid>
                       </Grid>
@@ -253,57 +214,141 @@ export default function Footer() {
   } else {
     return (
       <>
-        <List subheader={<ListSubheader>DANH MỤC SẢN PHẨM</ListSubheader>}>
-          {CustomerServiceItems.map((item) => {
-            <ListItem
-              style={{ padding: "0px" }}
-              button
-              key={item.value}
-              onClick={() => history.push(item.path)}
-            >
-              <ListItemButton
-                style={{ margin: "0px", padding: "0px" }}
-                id={item.value}
-                disableTypography
-                primary={
-                  <CountTypography
-                    text={item.value}
-                    color={TxtColor.txtThird}
-                    fontWeight={"normal"}
-                    padding="0px"
-                  />
-                }
-              ></ListItemButton>
-            </ListItem>;
-          })}
-        </List>
-        {/* <AppBar position="static" color="primary">
+        <AppBar style={{ marginTop: "8%" }} position="static" color="primary">
           <Container>
             <Toolbar>
-              <Grid container>
-                <Grid item xs={6} xl={6}>
-                  <Stack direction="row" spacing={2}>
-                    <Stack direction="column" spacing={2}>
-                      <CountTypography
-                        text="THÔNG TIN CÔNG TY"
-                        color={TxtColor.txtWhite}
-                        fontWeight={"normal"}
-                      />
-                      <CountTypography text="THÔNG TIN CÔNG TY"
-                        color={TxtColor.txtWhite}
-                        fontWeight={"normal"}/>
+              <Grid container style={{ padding: "60px 0px 20px" }}>
+                <Grid item xs={12} xl={6}>
+                  <Stack direction="column">
+                    <Stack direction="row" spacing={7.5}>
+                      {listItem.map((itemDetail, index) =>
+                        index < 2 ? (
+                          <Stack direction="column" spacing={1}>
+                            <CountTypography
+                              text={itemDetail.value}
+                              color={TxtColor.txtWhite}
+                              fontWeight="bold"
+                              size="0.8rem"
+                              padding="0px"
+                            />
+                            {itemDetail.list.map((item) => (
+                              <ListItem
+                                style={{ padding: "0px" }}
+                                button
+                                key={item.value}
+                                onClick={() => history.push(item.path)}
+                              >
+                                <ListItemText
+                                  style={{ margin: "0px", padding: "0px" }}
+                                  id={item.value}
+                                  primary={
+                                    <CountTypography
+                                      text={item.value}
+                                      color={TxtColor.txtThird}
+                                      fontWeight={"normal"}
+                                      size="0.8rem"
+                                      padding="0px"
+                                    />
+                                  }
+                                ></ListItemText>
+                              </ListItem>
+                            ))}
+                          </Stack>
+                        ) : null
+                      )}
                     </Stack>
+                    
                   </Stack>
                 </Grid>
-                <Grid item xs={6} xl={6}>
-                  <Typography variant="body1" color="inherit">
-                    Social
-                  </Typography>
-                </Grid>
+                <Box style={{ margin: "30px 0px 0px 0px" }}>
+                  <Stack direction="column" spacing={3}>
+                    <Stack direction="column" justifyContent="center">
+                      <CountTypography
+                        text={"KẾT NỐI VỚI CHÚNG TÔI"}
+                        color={TxtColor.txtWhite}
+                        fontWeight={"bold"}
+                        size="0.8rem"
+                        padding="0px"
+                        align="center"
+                      />
+                      <ListIconSocial justifyContent="center"/>
+                    </Stack>
+                    <Stack direction="column">
+                      <CountTypography
+                        text={"APP"}
+                        color={TxtColor.txtWhite}
+                        fontWeight={"bold"}
+                        size="0.8rem"
+                        padding="0px"
+                        align="center"
+                      />
+                      <ListIconApp justifyContent="center"/>
+                    </Stack>
+                  </Stack>
+                  <Stack direction="column" spacing={1} paddingTop="30px">
+                    <CountTypography
+                      text="ĐĂNG KÝ NHẬN TIN TỪ DYNAMIC"
+                      color={TxtColor.txtWhite}
+                      fontWeight={"bold"}
+                      size="0.8rem"
+                      padding="0px"
+                      align="center"
+                    />
+                    <TextFieldWithButton
+                      hintText="Địa chỉ email của bạn"
+                      textButton="ĐĂNG KÝ"
+                      colorBtn="secondary"
+                      colorTextField="#FFFF"
+                      justContent="center"
+                    />
+                    <CountTypography
+                      text="CHÚNG TÔI CHẤP NHẬN"
+                      color={TxtColor.txtWhite}
+                      fontWeight={"bold"}
+                      size="0.8rem"
+                      padding="30px 0px 0px"
+                      align="center"
+                    />
+                    <Stack direction="row" justifyContent="center">
+                      {listImage.map((image) => (
+                        <img
+                          src={image}
+                          style={{
+                            width: "36px",
+                            height: "24px",
+                            margin: "0px 10px 0px 0px",
+                          }}
+                        />
+                      ))}
+                    </Stack>
+                    <CountTypography
+                      text="©2021 Dynamic bảo lưu tất cả các quyền"
+                      color={TxtColor.txtThird}
+                      fontWeight={"normal"}
+                      size="0.8rem"
+                      padding="50px 0px 2px"
+                      align="center"
+                    />
+                    <Grid>
+                      {listLink.map((item) => (
+                        <>
+                          <Link
+                            style={{ margin: "0px 20px 0px 0px" }}
+                            href={item.path}
+                            fontSize="0.8rem"
+                            color={TxtColor.txtThird}
+                          >
+                            {item.value}
+                          </Link>
+                        </>
+                      ))}
+                    </Grid>
+                  </Stack>
+                </Box>
               </Grid>
             </Toolbar>
           </Container>
-        </AppBar> */}
+        </AppBar>
       </>
     );
   }
