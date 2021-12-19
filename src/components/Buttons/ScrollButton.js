@@ -2,15 +2,16 @@ import { Fab } from "@mui/material";
 import React from "react";
 import UpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-export const ScrollButton = () => {
+export const ScrollButton = ({ isMobile }) => {
   window.onscroll = function () {
     scrollFunction();
   };
 
   function scrollFunction() {
     if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
+      (document.body.scrollTop > 50 ||
+        document.documentElement.scrollTop > 50) &&
+      !isMobile
     ) {
       document.getElementById("myBtn").style.display = "block";
     } else {
@@ -18,13 +19,12 @@ export const ScrollButton = () => {
     }
   }
 
-  // When the user clicks on the button, scroll to the top of the document
   function topFunction() {
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.documentElement.scrollTop = 0;
   }
   return (
     <div id="myBtn">
-      <Fab onClick={topFunction} title="Go to top" >
+      <Fab onClick={topFunction} title="Go to top">
         <UpIcon />,
       </Fab>
     </div>

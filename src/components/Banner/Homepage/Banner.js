@@ -102,7 +102,7 @@ const Banner = () => {
           <Zoom direction="up" in={checked} {...{ timeout: 1000 }}>
             <Box>
               <Typography
-                fontSize="1vw"
+                fontSize="1.2vw"
                 fontWeight="light"
                 color="secondary"
                 margin="16px 0px 8px 0px"
@@ -223,7 +223,7 @@ const Banner = () => {
               }}
             >
               <Typography
-                fontSize="1vw"
+                fontSize="1.2vw"
                 fontWeight="light"
                 color="white"
                 margin="16px 0px 8px 0px"
