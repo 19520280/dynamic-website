@@ -9,7 +9,16 @@ import { Stack, TextField, useMediaQuery, useTheme } from "@mui/material";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import MessageModal from "./MessageModal";
 
-export default function AddNewWishListModal({ state, setState }) {
+export default function ModalWithButton({
+  state,
+  setState,
+  listField,
+  header,
+  btnText,
+  messageText,
+  typeMessage,
+  footer,
+}) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [child, setChild] = useState(false);
@@ -28,7 +37,7 @@ export default function AddNewWishListModal({ state, setState }) {
     width: isMobile ? "300px" : "579px",
     bgcolor: "background.paper",
     boxShadow: 24,
-    padding: isMobile?"30px 40px":"40px 80px",
+    padding: isMobile ? "30px 40px" : "40px 80px",
     borderRadius: "4px",
   };
   const body = (
@@ -36,17 +45,21 @@ export default function AddNewWishListModal({ state, setState }) {
       <Fade in={state}>
         <Box sx={style}>
           <Stack direction="column" spacing={2}>
-            <HeaderTypography padding="0px" text="Thêm danh sách yêu thích" />
-            <TextField label="Tên danh sách yêu thích"></TextField>
+            <HeaderTypography padding="0px" text={header} />
+
+            {listField.map((Field) => (
+              <TextField label={Field}></TextField>
+            ))}
             <Button onClick={handleClick} variant="contained">
-              THÊM MỚI
+              {btnText}
             </Button>
           </Stack>
           <MessageModal
             state={child}
             setState={setChild}
             setStateParent={setState}
-            text="Thêm mới thành công"
+            text={messageText}
+            severity={typeMessage}
             closeAfterSecond={true}
           />
         </Box>

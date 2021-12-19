@@ -20,7 +20,7 @@ import WishListCard from "../../components/WishLishCard/WishListCard";
 import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
-import AddNewWishListModal from "../../components/Modal/AddNewWishListModal";
+import ModalWithButton from "../../components/Modal/ModalWithButton";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -43,15 +43,30 @@ const WishListPage = () => {
   const text = "Danh sách quan tâm";
   const location = useLocation();
   const theme = useTheme();
+  const listField = ["Tên danh sách yêu thích"];
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const body = (
     <>
       <HeaderTypography text={text} />
       <Stack direction="row" justifyContent="flex-end">
-        <Button onClick={handleOpen} variant="contained" style={{margin:"0px 20px 20px"}}>THÊM MỚI</Button>
+        <Button
+          onClick={handleOpen}
+          variant="contained"
+          style={{ margin: "0px 20px 20px" }}
+        >
+          THÊM MỚI
+        </Button>
       </Stack>
       <WishListCardGrid value={value} />
-      <AddNewWishListModal state={state} setState={setState}/>
+      <ModalWithButton
+        state={state}
+        setState={setState}
+        listField={listField}
+        header="Thêm danh sách yêu thích"
+        btnText="Thêm mới"
+        messageText="Thêm mới thành công"
+        typeMessage="success"
+      />
     </>
   );
   if (isMobile) {
