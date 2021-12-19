@@ -13,6 +13,7 @@ import {
   Stack,
   useMediaQuery,
   useTheme,
+  Typography
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
@@ -60,6 +61,7 @@ const useStyle = makeStyles({
   listMaterial: {
     padding: "0px 0px 0px 0px",
     margin: "0px -10px -10px 0px",
+    fontSize: "0.8 rem"
   },
   divider: {
     padding: "0px 16px 16px 0px",
@@ -238,7 +240,7 @@ const Filter = () => {
             <ListItemText
               style={{ margin: "0px", padding: "0px" }}
               id={value.id}
-              primary={value.text}
+              primary={<Typography type="body2" style={{ color: 'primary', fontSize:"0.8 rem" }}>{value.text}</Typography>}
             ></ListItemText>
           </ListItemButton>
         ))}
@@ -270,7 +272,8 @@ const Filter = () => {
             <ListItemText
               style={{ margin: "0px", padding: "0px" }}
               id={value.id}
-              primary={value.text}
+              disableTypography
+              primary={<Typography type="body2" style={{ color: 'primary', fontSize:"0.8 rem" }}>{value.text}</Typography>}
             ></ListItemText>
           </ListItemButton>
         ))}

@@ -1,0 +1,22 @@
+.css-12thwtj-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.MuiOutlinedInput-root.MuiInputBase-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-12thwtj-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.Text {
+    border-radius: 4px;
+  }
+.css-ptiqhd-MuiSvgIcon-root {
+  fill: "#313537";
+}
+
+.TextField-without-border-radius fieldset {
+  border-radius: 0;
+}

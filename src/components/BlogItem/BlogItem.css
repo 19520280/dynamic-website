@@ -1,0 +1,21 @@
+.blog-item {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.blog-item.image {
+  height: 50vh;
+  overflow: hidden;
+  background-color: black;
+}
+.blog-item.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
+}
+.blog-item.image img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}

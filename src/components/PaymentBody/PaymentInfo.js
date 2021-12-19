@@ -8,13 +8,16 @@ import numberWithCommas from "../../utils/numberWithCommas";
 
 const moneyInfo = (title, info, isMoney) => (
   <Stack direction="row" alignItems="stretch" justifyContent="space-between">
-    <Typography fontSize="0.87rem" fontWeight="medium" color="secondary">
+    <Typography fontWeight="medium" color="secondary">
       {title}
     </Typography>
-    <Typography fontSize="0.87rem" fontWeight="bold" color="primary">
+    <Typography
+      fontWeight="bold"
+      color={title === "Giảm giá" ? SystemColor.error : "primary"}
+    >
       {info
         ? isMoney
-          ? numberWithCommas(info)
+          ? `${title === "Giảm giá" ? "-" : ""} ${numberWithCommas(info)}`
           : `${info} điểm`
         : "Chưa có thông tin"}
     </Typography>
@@ -36,8 +39,8 @@ const PaymentInfo = ({
       sx={{
         width: isMobile ? "100%" : "30%",
         minWidth: "max-conent",
-      position: "sticky",
-      top:"12px",
+        position: "sticky",
+        top: "12px",
       }}
     >
       <Box

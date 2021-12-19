@@ -1,5 +1,5 @@
-import { Button, Stack, TextField } from "@mui/material";
-
+import { Button, Stack, TextField, Grid, Paper } from "@mui/material";
+import "./style.css";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -13,6 +13,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
         variant="outlined"
         sx={{
           padding: "0px",
+          borderColor: "#BEBEBE",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",
@@ -24,30 +25,38 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
       >
         <RemoveIcon fontSize="small" />
       </Button>
-      <TextField
-        id="outlined-size-small-textfield"
-        size="small"
-        type="number"
-        value={value}
-        onChange={(data) => setValue(data)}
-        inputProps={{
-          min: 0,
-          style: {
-            textAlign: "right",
-            fontSize: "0.7rem",
+      <div className="TextField-without-border-radius">
+        <TextField
+          id="outlined-size-small-textfield"
+          size="small"
+          type="number"
+          value={value}
+          onChange={(data) => setValue(data)}
+          inputProps={{
+            min: 0,
+            style: {
+              textAlign: "right",
+              fontSize: "0.7rem",
+              border: "0px solid gray",
+              borderRadius: "0px",
+              color: "secondary",
+            },
+          }}
+          sx={{
+            border: "0px solid gray",
+
             borderRadius: "0px",
-          },
-        }}
-        sx={{
-          borderRadius: "0px",
-          width: "40px",
-        }}
-      />
+            width: "40px",
+          }}
+        />
+      </div>
+
       <Button
         onClick={() => setValue(soLuong + 1)}
         variant="outlined"
         sx={{
           padding: "0px",
+          borderColor: "#BEBEBE",
           backgroundColor: "secondary",
           display: "flex",
           alignItems: "center",
@@ -57,7 +66,7 @@ const NumericTextField = ({ soLuong, setSoLuong }) => {
           borderBottomLeftRadius: "0px",
         }}
       >
-        <AddIcon fontSize="small" />
+        <AddIcon fontSize="small" color="white" />
       </Button>
     </Stack>
   );

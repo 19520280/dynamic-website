@@ -10,6 +10,8 @@ import { AccountState$ } from "../../redux/selectors";
 import React from "react";
 import WishListCard from "../../components/WishLishCard/WishListCard";
 import { useLocation } from "react-router-dom";
+import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
+import HeaderTypography from "../../components/Typographys/HeaderTypography";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -27,6 +29,8 @@ const WishListPage = () => {
       setData(Account);
     }
   }, [Account]);
+  const value = 4;
+  const text = "Danh sách quan tâm";
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -46,14 +50,17 @@ const WishListPage = () => {
         />
           </Container>
         </Grid> */}
-        <Grid item xs={12} xl={9.5}>
+        <Grid item xs={12} xl={9.5} style={{marginBottom:"8%"}}>
           <Container
             style={{
-              backgroundColor: BgColor.mainBg,
-              padding: "0px",
+              backgroundColor: "transparent",
+              padding: "0px 0px 0px 20px",
+              width: "100%",
             }}
           >
-           <WishListCard/>
+            <HeaderTypography text={text} />
+          
+              <WishListCardGrid value={value} />
           </Container>
         </Grid>
       </>
@@ -70,7 +77,7 @@ const WishListPage = () => {
             background: BgColor.mainBg,
           }}
         >
-          {/* <Grid item xs={2.5} xl={2.5}>
+          <Grid item xs={2.5} xl={2.5}>
             <Container
               style={{
                 backgroundColor: BgColor.mainBg,
@@ -82,15 +89,17 @@ const WishListPage = () => {
                 timeHasJoined={data.timeHasJoined}
               />
             </Container>
-          </Grid> */}
-          <Grid item xs={9.5} xl={9.5}>
+          </Grid>
+          <Grid item xs={9.5} xl={9.5} style={{marginBottom:"8%"}}>
             <Container
               style={{
                 paddingLeft: "40px",
-                backgroundColor: BgColor.mainBg,
+                backgroundColor: "transparent",
               }}
             >
-            <WishListCard/>
+              <HeaderTypography text={text} />
+
+              <WishListCardGrid value={value} />
             </Container>
           </Grid>
         </Grid>

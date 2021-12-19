@@ -18,6 +18,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import { Box } from "@mui/system";
 import { makeStyles } from "@material-ui/core";
 import { SystemColor } from "../../color";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const slide2 =
   require("../../assets/images/products/basic-tee/black01.jpg").default;
@@ -35,7 +36,8 @@ export default function WishListCard() {
 
   const open = Boolean(anchorEl);
 
-  const id = open ? "simple-popover" : undefined;
+  const history = useHistory();
+  // const id = open ? "simple-popover" : undefined;
   const useStyle = makeStyles({
     root: {
       "& .icon-button": {
@@ -61,6 +63,7 @@ export default function WishListCard() {
       minHeight: "340px",
       border: "1px solid #bebebe",
       borderRadius: "4px",
+      padding: "0px"
     },
     image: {
       border: "1px solid #bebebe",
@@ -80,7 +83,6 @@ export default function WishListCard() {
       color: "#5e6669",
       padding: "0px",
     },
-    
   });
 
   const classes = useStyle();
@@ -88,8 +90,8 @@ export default function WishListCard() {
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
-        <CardActionArea>
-          <Grid container style={{ padding: "8px 12px 0px 12px" }}>
+        <CardActionArea onClick={()=>{history.push("/Ca-nhan/Danh-sach-quan-tam/Chi-tiet")}}>
+          <Grid container style={{ padding: "8px 12px 8px 12px" }}>
             <Grid xs={6} paddingRight="8px">
               <CardMedia
                 className={classes.image}
@@ -122,14 +124,16 @@ export default function WishListCard() {
               />
             </Grid>
           </Grid>
+        </CardActionArea>
+
           <Grid container>
-            <Grid xs={8} item>
+            <Grid xs={6} xl={8} item>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "flex-start",
-                  paddingTop: 1.5,
-                  paddingLeft: 2,
+                  paddingTop: 1,
+                  paddingLeft: 1.5,
                 }}
               >
                 <CardContent style={{ padding: "0px" }}>
@@ -144,66 +148,62 @@ export default function WishListCard() {
                 </CardContent>
               </Box>
             </Grid>
-            <Grid xs={4} item>
+            <Grid xs={6} xl={4} item>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                   paddingTop: 1.5,
-                  paddingLeft: 2,
                   paddingRight: 2,
                 }}
                 className={classes.boxicon}
                 alignContent="center"
               >
                 <IconButton aria-label="edit" className="icon-button">
-                  <EditOutlinedIcon fontSize="small"/>
+                  <EditOutlinedIcon fontSize="small" />
                 </IconButton>
                 <IconButton aria-label="delete" className="icon-button">
-                  <DeleteOutlineOutlinedIcon fontSize="small"/>
+                  <DeleteOutlineOutlinedIcon fontSize="small" />
                 </IconButton>
 
                 <IconButton
                   aria-label="share"
                   className="icon-button"
-                   onMouseEnter={handleClick}
+                  onMouseEnter={handleClick}
                   // onClick={handlePopoverOpen}
                   onClick={handleClick}
                   // onMouseLeave={handleClose}
                 >
-                  <ShareIcon fontSize="small"/>
+                  <ShareIcon fontSize="small" />
                 </IconButton>
               </Box>
             </Grid>
           </Grid>
-          <Grid container>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-start",
 
-                paddingLeft: 2,
-              }}
-            >
-              <CardContent style={{ padding: "0px 0px 20px 0px" }}>
-                <Typography
-                  className={classes.subcontent}
-                  gutterBottom
-                  component="sub"
-                >
-                  3 sản phẩm
-                </Typography>
-              </CardContent>
-            </Box>
-          </Grid>
-        </CardActionArea>
+        <Grid container>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-start",
+
+              paddingLeft: 2,
+            }}
+          >
+            <CardContent style={{ padding: "0px 0px 15px 0px" }}>
+              <Typography
+                className={classes.subcontent}
+                gutterBottom
+                component="sub"
+              >
+                3 sản phẩm
+              </Typography>
+            </CardContent>
+          </Box>
+        </Grid>
 
         <Popover
           id="mouse-over-popover"
           open={open}
-        //   sx={{
-        //   pointerEvents: 'none',
-        // }}
           anchorEl={anchorEl}
           onClose={handleClose}
           anchorOrigin={{
@@ -236,7 +236,7 @@ export default function WishListCard() {
                 height: 12,
                 top: -6,
                 transform: "rotate(45deg)",
-                left: "calc(50% - 6px)",
+                left: "calc(50% - 6px )",
               },
             }}
           />
@@ -257,13 +257,7 @@ export default function WishListCard() {
             >
               <FacebookIcon fontSize="inherit" />
             </IconButton>
-            <IconButton
-              aria-label="pinterest"
-              className="icon-button"
-              size="small"
-            >
-              <PinterestIcon fontSize="inherit" />
-            </IconButton>
+
             <IconButton
               aria-label="instagram"
               className="icon-button"

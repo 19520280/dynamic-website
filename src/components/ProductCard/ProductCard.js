@@ -28,14 +28,13 @@ const ProductCard = ({ sanPham }) => {
         variant="subtitle1"
         component="div"
         className="name"
-        fontSize={isMobile ? "0.9rem" : "1rem"}
+        fontSize="1rem"
       >
         {sanPham.ten}
       </Typography>
       <PriceTypography
         giaCu={sanPham.giaCu}
         gia={sanPham.gia}
-        isMobile={isMobile}
       />
       <ColorButtonGroup
         colors={sanPham.mauSacs}
