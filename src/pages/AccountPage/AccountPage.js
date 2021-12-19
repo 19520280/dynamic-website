@@ -1,4 +1,4 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -17,6 +17,8 @@ import { AccountState$ } from "../../redux/selectors";
 const AccountPage = ({ accountRoute }) => {
   const dispatch = useDispatch();
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   //#region get data
   useEffect(() => {
     dispatch(actions.getAccount());
@@ -42,8 +44,13 @@ const AccountPage = ({ accountRoute }) => {
           timeHasJoined={data.timeHasJoined}
         />
       </Grid>
-      <Grid item xs={12}>
-        <Container style={{ paddingLeft: "40px", backgroundColor: "#FCFCFC" }}>
+      <Grid item xs={9.5}>
+        <Container
+          style={{
+            paddingLeft: isMobile ? "0px" : "40px",
+            backgroundColor: "#FCFCFC",
+          }}
+        >
           {accountRoute === "Ca-nhan" && (
             <Redirect to="/Ca-nhan/Tai-khoan/Ho-so" />
           )}
@@ -51,16 +58,10 @@ const AccountPage = ({ accountRoute }) => {
             <Redirect to="/Ca-nhan/Tai-khoan/Ho-so" />
           )}
           {accountRoute === "Ho-so" && (
-            <Profile
-              data={data}
-              setData={setData}
-            />
+            <Profile data={data} setData={setData} />
           )}
           {accountRoute === "Dia-chi" && (
-            <Address
-              data={data}
-              setData={setData}
-            />
+            <Address data={data} setData={setData} />
           )}
           {accountRoute === "Chi-so-co-the" && <Measure />}
           {accountRoute === "Doi-mat-khau" && <ChangePassword />}
