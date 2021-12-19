@@ -16,6 +16,19 @@ export const showSaleBanner = createAction("SHOW_SALE_BANNER");
 export const showCollectionDialog = createAction("SHOW_COLLECTION_DIALOG");
 export const hideCollectionDialog = createAction("HIDE_COLLECTION_DIALOG");
 
+export const showSizeGuideDialog = createAction("SHOW_SIZEGUIDE_DIALOG");
+export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
+/*
+  getType(getPosts.getPostSuccess)
+  =>  
+  {
+    type: 'getPostSuccess',
+    payload: {
+      name: 'Test'
+    }
+  }
+*/
+
 
 //#region Account
 export const getAccount = createAction("GET_ACCOUNT");

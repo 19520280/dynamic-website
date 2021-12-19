@@ -10,6 +10,9 @@ export const INIT_STATE = {
   CollectionDialog: {
     isShow: false,
   },
+  SizeGuideDialog: {
+    isShow: false,
+  },
   //#region Account
   AccountMenu: {
     isExpanded: true,
@@ -95,5 +98,6 @@ export const INIT_STATE = {
   ShoppingCartDrawer: {
     isShow: false,
   },
+
   //#endregion
 };

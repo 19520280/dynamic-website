@@ -25,7 +25,6 @@ import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
-
 let theme = createTheme({
   palette: {
     primary: {

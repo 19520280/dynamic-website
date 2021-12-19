@@ -308,7 +308,7 @@ const Measure = () => {
     </Box>
   ) : (
     <Box paddingY={3}>
-      <Box height={72}>
+      <Box height={60}>
         <Typography color={"#303537"} fontSize={28} fontWeight={"bold"}>
           Chỉ số cơ thể
         </Typography>

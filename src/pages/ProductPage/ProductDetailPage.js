@@ -15,6 +15,8 @@ import {
   Select,
   Tab,
   Typography,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 
 import CommentPanel from "../../components/ProductDetail/CommentPanel";
@@ -34,6 +36,7 @@ import { showCollectionDialog } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ProducCardGrid from "../../components/GridProductCard/ProducCardGrid";
+import { BgColor } from "../../color";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 const ProductDetailPage = () => {
@@ -74,9 +77,30 @@ const ProductDetailPage = () => {
     if (size != 0) list = list.filter((fb) => fb.size === size);
     setlist(list);
   }, [Rate, color, size, value]);
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return sanPham ? (
     <>
       <Box width="100%">
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{
+              width: "100%",
+              position: "fixed",
+              top: 5,
+              left: "calc(50%-10px)",
+            }}
+          >
+            Thêm vào giỏ hàng thành công
+          </Alert>
+        </Snackbar>
         <ProductPanel sanPham={sanPham} isMobile={isMobile} />
         {isMobile ? (
           <>
@@ -91,6 +115,7 @@ const ProductDetailPage = () => {
               paddingY={1}
               paddingX={2}
               border={1}
+              borderRadius={1}
               borderColor={SystemColor.gray}
             >
               <Box>
@@ -178,6 +203,7 @@ const ProductDetailPage = () => {
               paddingX={7}
               border={1}
               marginY={3}
+              borderRadius={1}
               borderColor={SystemColor.gray}
             >
               <Box>
@@ -349,32 +375,42 @@ const ProductDetailPage = () => {
           position="-webkit-sticky"
           position="sticky"
           bottom={0}
-          height={40}
+          height={50}
           display={"flex"}
         >
           <Button
-            variant="contained"
+            variant="Outline"
             onClick={openCollectionDialog}
             sx={{
               alignItems: "center",
               width: "50%",
               borderRadius: 0,
-              background: "#303537",
+              background: BgColor.mainBg,
             }}
           >
-            <AddBox />
+            <Box>
+              <AddBox />
+              <Typography marginTop={-1} fontSize={12}>
+                Thêm vào danh sách
+              </Typography>
+            </Box>
           </Button>
           <Button
-            onClick={openCollectionDialog}
+            onClick={handleClickOpen}
             variant="contained"
             sx={{
-              alignItems: "center",
               width: "50%",
+              alignContent: "center",
               borderRadius: 0,
               background: "#303537",
             }}
           >
-            <AddShoppingCartIcon />
+            <Box>
+              <AddShoppingCartIcon height={20} />
+              <Typography marginTop={-1} fontSize={12}>
+                Thêm vào giỏ hàng
+              </Typography>
+            </Box>
           </Button>
         </Box>
       ) : null}
