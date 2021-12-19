@@ -46,7 +46,6 @@ function Navbar() {
     }
   };
   /* #endregion */
-  console.log(openMenu);
   return (
     <Box
       sx={{

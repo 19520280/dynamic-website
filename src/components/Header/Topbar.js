@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Logo from "../../assets/images/Logo.png";
 import { SaleBannerState$ } from "../../redux/selectors";
 import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ShoppingCartPopover from "../Popovers/ShoppingCartPopover";
 import { useHistory } from "react-router-dom";
 
 function Topbar() {
@@ -31,8 +31,7 @@ function Topbar() {
     },
     [dispatch]
   );
-  useEffect(() => {
-  }, [SaleBanner]);
+  useEffect(() => {}, [SaleBanner]);
 
   return (
     <Stack direction="row" className="topbar">
@@ -99,11 +98,7 @@ function Topbar() {
             }}
           />
         </Box>
-        <IconButton onClick={() => history.push("/Gio-hang")}>
-          <Badge badgeContent={4} color="error">
-            <ShoppingCartIcon style={{ color: "white" }} />
-          </Badge>
-        </IconButton>
+       <ShoppingCartPopover/>
         <Avatar
           sx={{ bgcolor: "white" }}
           onClick={() => history.push("/Ca-nhan/Tai-khoan/Ho-so")}

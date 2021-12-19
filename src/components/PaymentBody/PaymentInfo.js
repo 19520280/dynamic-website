@@ -66,6 +66,8 @@ const PaymentInfo = ({
           <TextFieldWithButton
             hintText="Nhập mã giảm giá"
             textButton="Áp dụng"
+            justContent="flex-start"
+            fullWidth
           />
           {moneyInfo("Tạm tính", 200000, true)}
           {shipFree ? moneyInfo("Phí vận chuyển", 50000, true) : null}
