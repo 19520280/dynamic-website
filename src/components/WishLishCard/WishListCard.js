@@ -49,7 +49,7 @@ export default function WishListCard() {
       margin: "0",
       fontFamily: "Roboto",
       fontWeight: "bold",
-      fontSize: "18px",
+      fontSize: "1.1rem",
       /* line-height: 38px; */
       color: "#5e6669",
 
@@ -78,7 +78,7 @@ export default function WishListCard() {
       margin: "0",
       fontFamily: "Roboto",
       fontWeight: "normal",
-      fontSize: "18px",
+      fontSize: "1.1 rem",
       /* line-height: 38px; */
       color: "#5e6669",
       padding: "0px",
@@ -142,6 +142,7 @@ export default function WishListCard() {
                     wrapped
                     gutterBottom
                     component="div"
+                    fontSize="0.8rem"
                   >
                     DANH SÁCH YÊU THÍCH
                   </Typography>
