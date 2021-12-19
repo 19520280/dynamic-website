@@ -177,8 +177,8 @@ function ProductPanel({ sanPham, isMobile }) {
           <ShowSizeGuide sanPham={sanPham} />
           <Box alignContent="center" width="60%" height="100%" display={"flex"}>
             <ShowMainImage
-              sizeMainImg={640}
-              sizeSubImg={150}
+              sizeMainImg={660}
+              sizeSubImg={155}
               isMobile={isMobile}
               sanPham={sanPham}
             />
@@ -190,8 +190,7 @@ function ProductPanel({ sanPham, isMobile }) {
             bgcolor={BgColor}
           >
             <InfoProduct sanPham={sanPham} isMobile={isMobile} />
-            <Divider variant="fullWidth" orientation="horizontal" />
-            <Box>
+            <Box backgroundColor="rgba(0, 0, 0, 0.04)">
               <ProductPolicy />
             </Box>
           </Box>
