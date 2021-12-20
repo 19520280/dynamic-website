@@ -1,18 +1,26 @@
 import {
   Box,
   Collapse,
+  IconButton,
   Stack,
   Switch,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import React, { useContext, useEffect, useState } from "react";
+import { getAccount, showChangeAddressDialog } from "./../redux/actions/index";
+import { useDispatch, useSelector } from "react-redux";
 
+import { AccountState$ } from "../redux/selectors";
+import { AuthContext } from "./../context/context";
+import ChangeAddressDialog from "../components/Dialogs/ChangeAddressDialog";
+import EditIcon from "@mui/icons-material/Edit";
 import HeaderTypography from "../components/Typographys/HeaderTypography";
+import MemberInfo from "./../components/PaymentBody/UserInfo/MemberInfo";
 import PaymentCartLeftTable from "../components/Tables/PaymentCartLeftTable";
 import PaymentInfo from "../components/PaymentBody/PaymentInfo";
 import PaymentMethod from "../components/PaymentBody/PaymentMethod";
-import React from "react";
 import ShippingMethod from "../components/PaymentBody/ShippingMethod";
 import { SystemColor } from "../color";
 import UserInfo from "../components/PaymentBody/UserInfo/UserInfo";
@@ -20,11 +28,34 @@ import { useHistory } from "react-router-dom";
 
 const PaymentPage = () => {
   const theme = useTheme();
+  const dispatch = useDispatch();
+  const { userData } = useContext(AuthContext);
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const [data, setData] = useState(null);
+  /* #region  getAccountData */
+  useEffect(() => {
+    if (userData && userData.isLoggedin) {
+      dispatch(getAccount());
+    }
+  }, [dispatch, userData]);
+  const Account = useSelector(AccountState$);
+  useEffect(() => {
+    if (Account && userData && userData.isLoggedin) {
+      setData(Account);
+    }
+  }, [Account, userData]);
+  /* #endregion */
+
   const history = useHistory();
   const [isGiven, setIsGiven] = React.useState(false);
+  const openChangeAddressDialog = React.useCallback(() => {
+    dispatch(showChangeAddressDialog());
+  }, [dispatch, data]);
   return (
     <div>
+      {data ? (
+        <ChangeAddressDialog data={data} />
+      ) : null}
       <HeaderTypography text="Thanh toán" />
       <Stack
         direction={isMobile ? "column" : "row"}
@@ -50,7 +81,26 @@ const PaymentPage = () => {
               minWidth: "min-content",
             }}
           >
-            <UserInfo />
+            <Typography variant="button" fontWeight="bold" color="secondary">
+              THÔNG TIN NGƯỜI MUA
+              {data ? (
+                <IconButton
+                  title="Thay đổi địa chỉ"
+                  sx={{ marginLeft: "0px" }}
+                  onClick={openChangeAddressDialog}
+                >
+                  <EditIcon fontSize="small" />
+                </IconButton>
+              ) : null}
+            </Typography>
+            {data ? (
+              <MemberInfo
+                data={data}
+                address={data.address.name[data.address.isDefault]}
+              />
+            ) : (
+              <UserInfo />
+            )}
           </Box>
           <Box
             sx={{
@@ -80,7 +130,10 @@ const PaymentPage = () => {
               />
             </div>
             <Collapse in={isGiven}>
-              <UserInfo isGiven />
+              <Typography variant="button" fontWeight="bold" color="secondary">
+                THÔNG TIN NGƯỜI NHẬN
+              </Typography>
+              <UserInfo />
             </Collapse>
           </Box>
           <Stack direction="row" spacing={2}>
@@ -91,6 +144,7 @@ const PaymentPage = () => {
         <PaymentInfo
           isMobile={isMobile}
           shipFree
+          isAccount={data}
           textLink="Quay về giỏ hàng"
           onClickLink={() => history.push("/Gio-hang")}
         />

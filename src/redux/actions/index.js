@@ -34,6 +34,12 @@ export const showAddCollectionDialog = createAction(
 export const hideAddCollectionDialog = createAction(
   "HIDE_ADD_COLLECTION_DIALOG"
 );
+export const showChangeAddressDialog = createAction(
+  "SHOW_CHANGE_ADDRESS_DIALOG"
+);
+export const hideChangeAddressDialog = createAction(
+  "HIDE_CHANGE_ADDRESS_DIALOG"
+);
 /*
   getType(getPosts.getPostSuccess)
   =>  
