@@ -9,7 +9,7 @@ export const navbar = [
       },
       {
         title: "Tết Canh Dần 2022",
-        path: "/Tet-Canh-Dan-2022",
+        path: "/Bo-suu-tap/Tet-Canh-Dan-2022",
       },
     ],
   },

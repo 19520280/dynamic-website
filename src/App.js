@@ -71,6 +71,8 @@ function App() {
               exact
               component={CollectionProductPage}
             />
+            <Route path="/Bo-suu-tap/Tet-Canh-Dan-2022" exact component={CollectionDetailPage} />
+            <Route path="/Bo-suu-tap/Tet-Canh-Dan-2022/Chi-tiet-san-pham" exact component={CollectionProductPage} />
             <Route
               path="/Ket-qua-tim-kiem"
               exact
