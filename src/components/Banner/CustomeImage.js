@@ -18,12 +18,11 @@ export default function CustomeImage({ video, image }) {
     threshold: 0.4,
   });
   return (
-
-      <div className="custome-image-container">
-          <div
-      className={inView ? "slider--zoom--banner" : "slider--banner"}
-      ref={ref}
-    >
+    <div className="custome-image-container">
+      <div
+        className={inView ? "slider--zoom--banner" : "slider--banner"}
+        ref={ref}
+      >
         <div className="custome-image-overlay">
           {video != null ? (
             <video

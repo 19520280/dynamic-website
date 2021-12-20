@@ -29,6 +29,7 @@ const video3 = require("../../assets/videos/Video3.mp4").default;
 const image1 = require("../../assets/images/collection/image1.png").default;
 const image2 = require("../../assets/images/collection/image2.png").default;
 const image3 = require("../../assets/images/collection/image3.png").default;
+const image4 = require("../../assets/images/collection/image4.png").default;
 
 const ImageBanner = ({ image, video, caption, title, btnText }) => {
   const { ref, inView } = useInView({
@@ -41,7 +42,6 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const containerRef = React.useRef(null);
   const [checked, setchecked] = useState(false);
-  const [bannerShow, setBannerShow] = useState(0);
   const handleClick = () => {
     history.push("/Bo-suu-tap/Mua-dong-2021");
   };
@@ -85,7 +85,15 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
           ) : image ? (
             <img
               className="defaultimg"
-              src={image == 1 ? image1 : image == 2 ? image2 : image3}
+              src={
+                image == 1
+                  ? image1
+                  : image == 2
+                  ? image2
+                  : image == 3
+                  ? image3
+                  : image4
+              }
             ></img>
           ) : null}
         </Grow>
@@ -185,10 +193,7 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
   /* #endregion */
 
   /* #region  use for transition */
-  function setIndex() {
-    if (bannerShow < listBanner.length - 1) setBannerShow(bannerShow + 1);
-    else setBannerShow(0);
-  }
+
   useEffect(() => {
     if (!checked) {
       setchecked(true);
@@ -196,9 +201,7 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
   }, [checked]);
 
   useEffect(() => {
-    let timer = setInterval(function () {
-      setIndex();
-    }, 5000);
+    let timer = setInterval(function () {}, 5000);
     return () => {
       clearInterval(timer);
       timer = null;
@@ -207,20 +210,17 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
   /* #endregion */
 
   return (
-    <div className={inView ? "slider--zoom--banner" : "slider--banner"} ref={ref}>
-     <div className="fullwidthbanner-container" style={{ marginBottom: "0px" }}>
-      <Box
-        style={{
-          display: SaleBanner.payload ? "none" : "block",
-        }}
+    <div
+      className={inView ? "slider--zoom--banner" : "slider--banner"}
+      ref={ref}
+    >
+      <div
+        className="fullwidthbanner-container"
+        style={{ marginBottom: "0px" }}
       >
-        {listBanner.map((banner, index) => (
-          <div key={index}> {index === bannerShow ? banner : null}</div>
-        ))}
-      </Box>
+        <Box style={{}}>{listBanner.map((banner, index) => banner)}</Box>
+      </div>
     </div>
-  </div>
-   
   );
 };
 

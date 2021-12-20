@@ -18,4 +18,28 @@
     color: white;
     font-size: 4rem;
     padding: 15px;
+    height: 150px;
+  }
+
+  
+  .hero__caption {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    color: white;
+    font-size: 2rem;
+    padding: 15px;
+
+  }
+
+  
+  .hero__title__mobile {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    color: white;
+    font-size: 4rem;
+    padding: 15px;
+    height: 200px;
+
   }

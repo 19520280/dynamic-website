@@ -40,7 +40,7 @@ export const TopbarDesktop = () => {
   const setSaleBanner = React.useCallback(
     (value) => {
       dispatch(actions.showSaleBanner(value));
-      history.push("/");
+      if (value==true) {history.push("/Ket-qua-tim-kiem")}
     },
     [dispatch]
   );
