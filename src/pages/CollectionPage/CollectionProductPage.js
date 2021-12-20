@@ -13,13 +13,9 @@ export default function CollectionProductPage() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
-      <Hero imageSrc={isMobile?image1m:image1} title="READY-TO-WEAR" />
+      <Hero imageSrc={isMobile?image1m:image1} title="READY-TO-WEAR" caption="keep it simple. " />
 
-      <ImageBanner
-        image={4}
-        title="READY TO WEAR"
-        caption="H e r e  i s  l o o k i n g  a t  y o u ."
-      />
+     
     </div>
   );
 }
