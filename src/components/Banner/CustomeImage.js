@@ -14,8 +14,8 @@ export default function CustomeImage({ video, image }) {
   console.log(video, image, image1);
 
   return (
-    <div className="container">
-      <div className="overlay">
+    <div className="custome-image-container">
+      <div className="custome-image-overlay">
         {video != null ? (
           <video
             width={"100%"}
@@ -29,8 +29,9 @@ export default function CustomeImage({ video, image }) {
         ) : image != null ? (
           <img width={"100%"} src={image==1?image1:image2}></img>
         ) : null}
+        </div>
 
-        <div className="middle">
+        <div className="custome-image-middle">
           <Button
             style = {{display:image==2?"none":"block"}}
             variant="outlined"
@@ -42,7 +43,6 @@ export default function CustomeImage({ video, image }) {
           >
             XEM THÊM
           </Button>
-        </div>
       </div>
     </div>
   );
