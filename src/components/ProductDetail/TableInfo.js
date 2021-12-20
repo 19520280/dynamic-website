@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Typography } from "@mui/material";
+import { SystemColor } from "../../color";
 
 export default function TableInfo({ sanPham }) {
   const [row, setRow] = React.useState({
@@ -44,9 +45,16 @@ export default function TableInfo({ sanPham }) {
     <TableContainer
       component={Paper}
       width="100%"
-      sx={{ border: "1px solid #BEBEBE" }}
+      border={1}
+      borderRadius={1}
+      borderColor={SystemColor.gray}
     >
-      <Table aria-label="simple table" border="1px solid #BEBEBE">
+      <Table
+        aria-label="simple table"
+        border={1}
+        borderRadius={1}
+        borderColor={SystemColor.gray}
+      >
         <TableBody>
           <TableRow border={1}>
             <TableCell component="th" scope="row" width="30%" border={1}>

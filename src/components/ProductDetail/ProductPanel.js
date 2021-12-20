@@ -164,18 +164,20 @@ function ProductPanel({ sanPham, isMobile }) {
           sx={{
             display: "flex",
             width: "100%",
+            paddingX: "2%",
+            paddingY: "1%",
           }}
         >
           <ShowSizeGuide sanPham={sanPham} />
           <Box alignContent="center" width="60%" height="100%" display={"flex"}>
             <ShowMainImage
-              sizeMainImg={660}
-              sizeSubImg={155}
+              sizeMainImg={650}
+              sizeSubImg={150}
               isMobile={isMobile}
               sanPham={sanPham}
             />
           </Box>
-          <Box className="Main_Box_Right" width={"40%"} marginLeft={3}>
+          <Box className="Main_Box_Right" width={"38%"} marginLeft={3}>
             <InfoProduct sanPham={sanPham} isMobile={isMobile} />
             <Box backgroundColor="rgba(0, 0, 0, 0.04)">
               <ProductPolicy />

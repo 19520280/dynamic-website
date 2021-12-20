@@ -179,6 +179,7 @@ function ShowMainImage({ sizeMainImg, sizeSubImg, isMobile, sanPham }) {
                     : 0
                   : 0
               }
+              borderRadius={1}
             >
               <img src={img} width={"100%"} loading="lazy" />
             </Box>
