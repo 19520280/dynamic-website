@@ -74,7 +74,7 @@ const PaymentPage = () => {
             sx={{
               p: 2,
               backgroundColor: "white",
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid",
               borderColor: SystemColor.gray,
               width: "100%",
@@ -106,7 +106,7 @@ const PaymentPage = () => {
             sx={{
               p: 2,
               backgroundColor: "white",
-              borderRadius: "8px",
+              borderRadius: "4px",
               border: "1px solid",
               borderColor: SystemColor.gray,
               width: "100%",

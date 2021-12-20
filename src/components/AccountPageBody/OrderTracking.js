@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 
 import HeaderTypography from "../Typographys/HeaderTypography";
 import MemberInfo from "./../PaymentBody/UserInfo/MemberInfo";
@@ -10,7 +10,7 @@ import TrackingDetail from "../Steppers/TrackingDetail";
 import numberWithCommas from "./../../utils/numberWithCommas";
 import { timelines } from "./../../dataSources/TimelineTracking";
 
-const OrderTracking = ({ data }) => {
+const OrderTracking = ({ data, isMobile }) => {
   return (
     <div>
       <Stack direction="row" spacing={1}>
@@ -33,16 +33,27 @@ const OrderTracking = ({ data }) => {
             marginTop: 3,
           }}
         >
-          <TrackingDetail timelines={timelines} />
+          <Stack
+            direction="row"
+            spacing={3}
+            divider={<Divider orientation="vertical" flexItem />}
+          >
+            <Typography variant="button" fontWeight="bold" color="secondary">
+              Đơn vị vận chuyển: <br /> Giao hàng nhanh
+            </Typography>
+            <div>
+              <TrackingDetail timelines={timelines} />
+            </div>
+          </Stack>
         </Box>
-        <Stack direction="row" spacing={2}>
+        <Stack direction={isMobile ? "column" : "row"} spacing={2}>
           <InfoItem
             title="THÔNG TIN NGƯỜI MUA"
             body={<MemberInfo data={data} address={data.address.name[0]} />}
           />
           <InfoItem
             title="THÔNG TIN NGƯỜI NHẬN"
-            body={<MemberInfo data={data} address={data.address.name[0]} />}
+            body={<MemberInfo data={data} address={data.address.name[1]} />}
           />
           <InfoItem
             title="THÔNG TIN THANH TOÁN"
@@ -52,7 +63,7 @@ const OrderTracking = ({ data }) => {
         <PaymentCartLeftTable
           total={
             <>
-              <TotalInfo />
+              <TotalInfo isMobile={isMobile} />
               <ButtonGroup />
             </>
           }
@@ -69,7 +80,7 @@ const InfoItem = ({ title, body }) => (
     sx={{
       p: 2,
       backgroundColor: "white",
-      borderRadius: "8px",
+      borderRadius: "4px",
       border: "1px solid",
       borderColor: SystemColor.gray,
       width: "100%",
@@ -89,13 +100,17 @@ const InfoItem = ({ title, body }) => (
     </Stack>
   </Box>
 );
-const TotalInfo = () => (
+const TotalInfo = ({ isMobile }) => (
   <Stack
     flexDirection="column"
     justifyContent="flex-start"
     alignItems="stretch"
     spacing={1.5}
-    sx={{ width: "33%", paddingRight: 6, paddingBottom: 2 }}
+    sx={{
+      width: isMobile ? "100%" : "33%",
+      paddingRight: isMobile ? null : 6,
+      paddingBottom: 2,
+    }}
   >
     <MoneyInfo title="Tạm tính" info={550000} isMoney />
     <MoneyInfo title="Phí vận chuyển" info={25000} isMoney />
