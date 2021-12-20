@@ -105,6 +105,7 @@ export default function CollectionProductPage() {
           <ImageSimpleCard image={image9} title="PANTS" width="50%" />
         </Stack>
       </Stack>
+      <FooterCollection/>
     </div>
   );
 }

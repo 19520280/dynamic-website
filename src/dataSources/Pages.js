@@ -1,10 +1,5 @@
 export const navbar = [
   {
-    title: "Best seller",
-    path: "/Best-seller",
-    menu: [],
-  },
-  {
     title: "Bộ sưu tập",
     path: "/Bo-suu-tap",
     menu: [
