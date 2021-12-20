@@ -26,6 +26,7 @@ import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
+import ProtectedRoute from "./components/Route/ProtectedRoute";
 
 let theme = createTheme({
   palette: {
@@ -70,18 +71,26 @@ function App() {
             <Route path="/Phu-kien/Tui" exact component={CategoryCasePage} />
             <Route path="/Phu-kien/Vi" exact component={CategoryCasePage} />
             <Route path="/Phu-kien/Non" exact component={CategoryCasePage} />
-            <Route
+            <ProtectedRoute
               path="/Ca-nhan/Danh-sach-quan-tam"
               exact
               component={WishListPage}
             />
-            <Route
+            <ProtectedRoute
               path="/Ca-nhan/Danh-sach-quan-tam/Chi-tiet"
               exact
               component={WishListDetailPage}
             />
-            <Route path="/Ca-nhan/Don-mua" exact component={OrdersCase} />
-            <Route path="/Ca-nhan/Diem-thuong" exact component={PointCase} />
+            <ProtectedRoute
+              path="/Ca-nhan/Don-mua"
+              exact
+              component={OrdersCase}
+            />
+            <ProtectedRoute
+              path="/Ca-nhan/Diem-thuong"
+              exact
+              component={PointCase}
+            />
 
             <div
               className="containermain"
@@ -91,69 +100,69 @@ function App() {
               <Route path="/Gio-hang" exact component={CartPage} />
               <Route path="/Thanh-toan" exact component={PaymentPage} />
               {/* <Route path="/Ca-nhan/:child" exact component={AccountPage} /> */}
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Ca-nhan" />
                 )}
               />
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan/Tai-khoan"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Tai-khoan" />
                 )}
               />
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan/Tai-khoan/Ho-so"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Ho-so" />
                 )}
               />
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan/Tai-khoan/Dia-chi"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Dia-chi" />
                 )}
               />
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan/Tai-khoan/Chi-so-co-the"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Chi-so-co-the" />
                 )}
               />
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan/Tai-khoan/Doi-mat-khau"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Doi-mat-khau" />
                 )}
               />
-              <Route
+              {/* <ProtectedRoute
                 path="/Ca-nhan/Diem-thuong"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Diem-thuong" />
                 )}
               />
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan/Danh-sach-quan-tam"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Danh-sach-quan-tam" />
                 )}
               />
-              <Route
+              <ProtectedRoute
                 path="/Ca-nhan/Thong-bao"
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Thong-bao" />
                 )}
-              />
+              /> */}
 
               <Route
                 path="/Ao/Ao-thun/:path"

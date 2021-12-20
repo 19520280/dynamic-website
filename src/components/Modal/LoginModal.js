@@ -1,6 +1,7 @@
 import {
   Avatar,
   Divider,
+  IconButton,
   Stack,
   TextField,
   useMediaQuery,
@@ -67,8 +68,12 @@ export default function LoginModal() {
               justifyContent="center"
               alignsItems="center"
             >
-              <Avatar src={facebook} onClick={() => handleClick()} />
-              <Avatar src={google} onClick={() => handleClick()} />
+              <IconButton size="small " onClick={() => handleClick()}>
+                <Avatar sx={{ width: 32, height: 32 }} src={facebook} />
+              </IconButton>
+              <IconButton size="small " onClick={() => handleClick()}>
+                <Avatar sx={{ width: 32, height: 32 }} src={google} />
+              </IconButton>
             </Stack>
             <Stack direction="row" justifyContent="center">
               <Button onClick={() => handleRegisterClick()}>Đăng ký</Button>

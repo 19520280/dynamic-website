@@ -69,7 +69,7 @@ const useStyle = makeStyles({
   },
 });
 
-const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
+const AccountSider = () => {
   const dispatch = useDispatch();
   const classes = useStyle();
   const history = useHistory();
@@ -109,11 +109,7 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
 
   const body = (
     <List>
-      <SiderAvatar
-        avatarImage={avatarImage}
-        accountName={accountName}
-        timeHasJoined={timeHasJoined}
-      />
+      <SiderAvatar />
 
       <Divider style={{ padding: "0px 5px" }} variant="middle"></Divider>
 
