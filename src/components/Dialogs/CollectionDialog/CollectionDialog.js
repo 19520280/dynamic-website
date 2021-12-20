@@ -18,7 +18,6 @@ import AddIcon from "@mui/icons-material/Add";
 import { CollectionDialogState$ } from "../../../redux/selectors";
 import ModalWithButton from "../../Modal/ModalWithButton";
 import React from "react";
-import { SystemColor } from "../../../color";
 import { hideCollectionDialog } from "../../../redux/actions";
 import { showAddCollectionDialog } from "./../../../redux/actions/index";
 
