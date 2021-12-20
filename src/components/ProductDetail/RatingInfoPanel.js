@@ -9,8 +9,8 @@ export default function RatingInfoPanel({ size }) {
       setSizeChar(12);
       setSizeNumber(14);
     } else if (size === "middle") {
-      setSizeChar(14);
-      setSizeNumber(15);
+      setSizeChar(13);
+      setSizeNumber(14);
     }
   }, [size]);
 
@@ -28,7 +28,7 @@ export default function RatingInfoPanel({ size }) {
           value={4.5}
           precision={0.5}
           readOnly
-          size={size}
+          size={size === "middle" ? "small" : size}
         />
       </Box>
       <Divider orientation="vertical" flexItem sx={{ marginX: 1 }} />

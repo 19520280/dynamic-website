@@ -8,7 +8,6 @@ import {
   IconButton,
   ImageList,
   Button,
-  Container,
 } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -17,13 +16,28 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import ReactImageMagnify from "react-image-magnify";
 import { BgColor } from "../../color";
-function ShowMainImage({ sizeMainImg, sizeSubImg, isMobile, sanPham }) {
+function ShowMainImage({
+  sizeMainImg,
+  sizeSubImg,
+  isMobile,
+  sanPham,
+  selectedColor,
+}) {
   const [listimg, setlistimg] = React.useState([]);
+  const indexSelected = sanPham.mauSacs.indexOf(selectedColor);
+
+  if (sanPham.imgs.length && listimg.length === 0) {
+    sanPham.imgs[0].map((img) => listimg.push(img));
+  }
   React.useEffect(() => {
-    if (sanPham) {
-      sanPham.imgs.map((e) => e.map((img) => listimg.push(img)));
+    while (listimg.length) {
+      listimg.pop();
     }
-  }, [sanPham]);
+    if (sanPham.imgs.length) {
+      sanPham.imgs[indexSelected].map((img) => listimg.push(img));
+    }
+    setImgMain(sanPham.imgs[indexSelected][0]);
+  }, [indexSelected]);
   const [openImg, setOpenIMG] = React.useState({
     show: false,
     src: "",
@@ -167,21 +181,23 @@ function ShowMainImage({ sizeMainImg, sizeSubImg, isMobile, sanPham }) {
       </Box>
       <Box className="Main_Box_List_img">
         <ImageList cols={4} gap={5} variant="woven">
-          {sanPham.imgs[0].map((img, index) => (
-            <Box
-              onClick={() => handleMouseMove(img)}
-              border={
-                listimg
-                  ? index === listimg.findIndex((i) => i === imgMain)
-                    ? "2px solid #BEBEBE"
-                    : 0
-                  : 0
-              }
-              borderRadius={1}
-            >
-              <img src={img} width={"100%"} loading="lazy" />
-            </Box>
-          ))}
+          {listimg
+            ? listimg.map((img, index) => (
+                <Box
+                  onClick={() => handleMouseMove(img)}
+                  border={
+                    listimg
+                      ? index === listimg.findIndex((i) => i === imgMain)
+                        ? "2px solid #BEBEBE"
+                        : 0
+                      : 0
+                  }
+                  borderRadius={1}
+                >
+                  <img src={img} width={"100%"} loading="lazy" />
+                </Box>
+              ))
+            : null}
         </ImageList>
       </Box>
     </>
@@ -189,27 +205,29 @@ function ShowMainImage({ sizeMainImg, sizeSubImg, isMobile, sanPham }) {
     <>
       <Box className="Main_Box_List_img" width="20%" height={"100%"}>
         <ImageList cols={1} variant="woven">
-          {sanPham.imgs[0].map((img, index) => (
-            <Box
-              onClick={() => handleClickShowIMGOpen(img)}
-              marginBottom={0.5}
-              border={
-                listimg
-                  ? index === listimg.findIndex((i) => i === imgMain)
-                    ? "2px solid #BEBEBE"
-                    : 0
-                  : 0
-              }
-            >
-              <img
-                src={img}
-                width={"100%"}
-                loading="lazy"
-                height={sizeSubImg}
-                onMouseMove={() => handleMouseMove(img)}
-              />
-            </Box>
-          ))}
+          {listimg
+            ? listimg.map((img, index) => (
+                <Box
+                  onClick={() => handleClickShowIMGOpen(img)}
+                  marginBottom={0.5}
+                  border={
+                    listimg
+                      ? index === listimg.findIndex((i) => i === imgMain)
+                        ? "2px solid #BEBEBE"
+                        : 0
+                      : 0
+                  }
+                >
+                  <img
+                    src={img}
+                    width={"100%"}
+                    loading="lazy"
+                    height={sizeSubImg}
+                    onMouseMove={() => handleMouseMove(img)}
+                  />
+                </Box>
+              ))
+            : null}
         </ImageList>
       </Box>
       <Box

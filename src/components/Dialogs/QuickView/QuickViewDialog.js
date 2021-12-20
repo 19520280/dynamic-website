@@ -26,10 +26,11 @@ function QuickViewDialog({ sanPham }) {
   const handleClose = React.useCallback(() => {
     dispatch(hideQuickViewDialog());
   }, [dispatch]);
+  const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
   return (
     <div>
       <Dialog open={open} onClose={handleClose} maxWidth="md">
-        <DialogTitle sx={{ textAlign: "center" }}>
+        <DialogTitle sx={{ textAlign: "center" }} marginBottom={1}>
           <IconButton
             aria-label="close"
             onClick={handleClose}
@@ -46,22 +47,24 @@ function QuickViewDialog({ sanPham }) {
           <Box display={isMobile ? null : "flex"}>
             <Box
               alignContent="center"
-              width="55%"
+              width="60%"
               height="100%"
               display={"flex"}
             >
               <ShowMainImage
-                sizeMainImg={490}
-                sizeSubImg={113}
+                sizeSubImg={86}
                 isMobile={isMobile}
                 sanPham={sanPham}
+                selectedColor={selectedColor}
               />
             </Box>
-            <Box width="45%" marginLeft={3}>
+            <Box width="40%" marginLeft={3}>
               <InfoProduct
                 sanPham={sanPham}
                 isMobile={isMobile}
                 size="middle"
+                selectedColor={selectedColor}
+                setSelectedColor={setSelectedColor}
               />
               <Button onClick={() => history.push(sanPham.path)} variant="text">
                 Xem chi tiết

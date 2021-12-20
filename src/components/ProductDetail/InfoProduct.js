@@ -24,9 +24,14 @@ import { useDispatch } from "react-redux";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import CountTypography from "../Typographys/CountTypography";
 import MessageModal from "../Modal/MessageModal";
-function InfoProduct({ sanPham, isMobile, size }) {
+function InfoProduct({
+  sanPham,
+  isMobile,
+  size,
+  selectedColor,
+  setSelectedColor,
+}) {
   const dispatch = useDispatch();
-  const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
   const [selectedSize, setSelectedSize] = React.useState(sanPham.kichThuocs[0]);
   const openCollectionDialog = useCallback(() => {
     dispatch(showCollectionDialog());
@@ -70,7 +75,7 @@ function InfoProduct({ sanPham, isMobile, size }) {
   return (
     <div>
       <Box className="Main_Box_Right_Name">
-        <Box>
+        <Box marginBottom={size ? -0.5 : 0} marginTop={size ? -1 : 0}>
           <HeaderTypography
             variant="button"
             text={sanPham.ten}
@@ -82,27 +87,27 @@ function InfoProduct({ sanPham, isMobile, size }) {
           <RatingInfolPanel size={size ? size : "medium"} />
           <ShareIcon sx={{ float: "right" }} />
         </Box>
-        <Box marginTop={1}>
+        <Box marginTop={size ? 0.5 : 1} marginBottom={size ? -0.5 : 0}>
           <PriceTypography
             giaCu={sanPham.giaCu}
             gia={sanPham.gia}
             isMobile={isMobile}
-            fontSize={24}
+            fontSize={size ? 20 : 24}
           />
         </Box>
       </Box>
       <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Color" marginBottom={1}>
-        <Box marginTop={1} marginBottom={-1}>
+        <Box marginTop={size ? 0.5 : 1} marginBottom={size ? -1.5 : -1}>
           <CountTypography
             variant="button"
             text={"Màu sắc"}
             color={"secondary"}
-            size={18}
+            size={size ? 16 : 18}
             padding={"0px"}
           />
         </Box>
-        <Box marginBottom={1}>
+        <Box marginBottom={size ? 0.5 : 1}>
           <ColorButtonGroup
             colors={sanPham.mauSacs}
             selected={selectedColor}
@@ -113,12 +118,12 @@ function InfoProduct({ sanPham, isMobile, size }) {
       </Box>
       <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Size">
-        <Box marginY={1}>
+        <Box marginY={size ? 0.5 : 1}>
           <CountTypography
             variant="button"
             text={"Kích thước"}
             color={"secondary"}
-            size={18}
+            size={size ? 16 : 18}
             padding={"0px"}
           />
         </Box>
@@ -135,7 +140,11 @@ function InfoProduct({ sanPham, isMobile, size }) {
           </ImageList>
         </Box>
       </Box>
-      <Box display="flex" marginY={1} className="Main_Box_Right_Size_Guide">
+      <Box
+        display="flex"
+        marginY={size ? 0.5 : 1}
+        className="Main_Box_Right_Size_Guide"
+      >
         <Button
           onClick={openSizeGuideDialog}
           padding="0px"
@@ -152,13 +161,16 @@ function InfoProduct({ sanPham, isMobile, size }) {
       </Box>
       <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Input_SL">
-        <Box sx={{ alignContent: "center", display: "flex" }} marginTop={2}>
+        <Box
+          sx={{ alignContent: "center", display: "flex" }}
+          marginTop={size ? 1 : 2}
+        >
           <Button
             variant="contained"
             sx={{
               alignItems: "center",
-              height: 40,
-              width: "50%",
+              height: size ? 35 : 40,
+              width: "60%",
               marginRight: 2,
               background: "#303537",
               borderRadius: 1,
@@ -169,9 +181,9 @@ function InfoProduct({ sanPham, isMobile, size }) {
           >
             Thêm vào giỏ hàng
           </Button>
-          <ButtonGroup variant="outlined">
+          <ButtonGroup variant="outlined" size={size ? "small" : "medium"}>
             <Button
-              sx={{ width: 10 }}
+              width={10}
               onClick={btnRemoveclick}
               disabled={sp.soLuong <= 0}
             >
@@ -180,6 +192,7 @@ function InfoProduct({ sanPham, isMobile, size }) {
             <Button disableRipple>
               <InputBase
                 value={sp.soLuong}
+                size={size ? "small" : "medium"}
                 onChange={(e) => {
                   let value = Number(e.target.value);
                   setSP({
@@ -197,7 +210,7 @@ function InfoProduct({ sanPham, isMobile, size }) {
               />
             </Button>
             <Button
-              sx={{ width: 10 }}
+              width={10}
               onClick={btnAddclick}
               disabled={sp.soLuong >= sanPham.tonKho}
             >
@@ -212,10 +225,10 @@ function InfoProduct({ sanPham, isMobile, size }) {
             setState={setOpen}
           />
         </Box>
-        <Box marginTop={1}>
+        <Box marginTop={size ? 0.5 : 1}>
           <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
         </Box>
-        <Box display="flex" alignContent="center" marginY={1}>
+        <Box display="flex" alignContent="center" marginY={size ? 0 : 1}>
           <Button
             onClick={openCollectionDialog}
             sx={{
