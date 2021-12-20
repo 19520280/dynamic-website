@@ -1,39 +1,48 @@
 import { Button, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import "./CustomeImage.css";
+import { useInView } from "react-intersection-observer";
+
 const video1 = require("../../assets/videos/VideoSquare1.mp4").default;
 const image1 = require("../../assets/videos/SubVideo1.png").default;
 
 const video2 = require("../../assets/videos/VideoSquare1.mp4").default;
 const image2 = require("../../assets/images/collection/image3.png").default;
 
-
 export default function CustomeImage({ video, image }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   console.log(video, image, image1);
-
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0.4,
+  });
   return (
-    <div className="custome-image-container">
-      <div className="custome-image-overlay">
-        {video != null ? (
-          <video
-            width={"100%"}
-            muted="true"
-            autoPlay={true}
-            playsinline
-            loop={true}
-          >
-            <source src={video == 1 ? video1 : video2} type="video/mp4" />
-          </video>
-        ) : image != null ? (
-          <img width={"100%"} src={image==1?image1:image2}></img>
-        ) : null}
+
+      <div className="custome-image-container">
+          <div
+      className={inView ? "slider--zoom--banner" : "slider--banner"}
+      ref={ref}
+    >
+        <div className="custome-image-overlay">
+          {video != null ? (
+            <video
+              width={"100%"}
+              muted="true"
+              autoPlay={true}
+              playsinline
+              loop={true}
+            >
+              <source src={video == 1 ? video1 : video2} type="video/mp4" />
+            </video>
+          ) : image != null ? (
+            <img width={"100%"} src={image == 1 ? image1 : image2}></img>
+          ) : null}
         </div>
 
         <div className="custome-image-middle">
           <Button
-            style = {{display:image==2?"none":"block"}}
+            style={{ display: image == 2 ? "none" : "block" }}
             variant="outlined"
             sx={{
               fontSize: "calc(0.8rem + 0.05vw)",
@@ -44,6 +53,7 @@ export default function CustomeImage({ video, image }) {
             XEM THÊM
           </Button>
         </div>
+      </div>
     </div>
   );
 }

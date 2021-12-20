@@ -2,6 +2,8 @@ import "./Homepage/Banner.css";
 
 import * as actions from "../../redux/actions/index";
 
+import { useInView } from "react-intersection-observer";
+
 import {
   Box,
   Button,
@@ -20,6 +22,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { SaleBannerState$ } from "../../redux/selectors/index";
 import CountTypography from "../Typographys/CountTypography";
+import { useHistory } from "react-router-dom";
 const video1 = require("../../assets/videos/Video1.mp4").default;
 const video2 = require("../../assets/videos/Video2.mp4").default;
 const video3 = require("../../assets/videos/Video3.mp4").default;
@@ -28,13 +31,20 @@ const image2 = require("../../assets/images/collection/image2.png").default;
 const image3 = require("../../assets/images/collection/image3.png").default;
 
 const ImageBanner = ({ image, video, caption, title, btnText }) => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0.4,
+  });
   const dispatch = useDispatch();
+  const history = useHistory();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const containerRef = React.useRef(null);
   const [checked, setchecked] = useState(false);
   const [bannerShow, setBannerShow] = useState(0);
-
+  const handleClick = () => {
+    history.push("/Bo-suu-tap/Mua-dong-2021");
+  };
   const SaleBanner = useSelector(SaleBannerState$);
   const setSaleBanner = React.useCallback(() => {
     dispatch(actions.showSaleBanner(false));
@@ -80,26 +90,6 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
           ) : null}
         </Grow>
       </div>
-      {/* <Grow
-        direction="right"
-        in={checked}
-        orientation="vertical"
-        {...(checked ? { timeout: 2000 } : {})}
-      >
-        {video ? (
-          <video
-            width={"100%"}
-            muted="true"
-            autoPlay={true}
-            playsinline
-            loop={true}
-          >
-            <source src={video==1?video1:video==2?video2:video==3?video3:null} type="video/mp4" />
-          </video>
-        ) : image ? (
-          <img className="defaultimg" src={image==1?image1:image==2?image2:image3}></img>
-        ) : null}
-      </Grow> */}
       <div className="custome-image-middle">
         <div className="caption-fourth">
           <Box
@@ -163,6 +153,7 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
                 {isMobile ? (
                   <Button
                     variant="outlined"
+                    onClick={handleClick}
                     sx={{
                       fontSize: "calc(0.8rem + 0.05vw)",
                       color: "white",
@@ -175,6 +166,7 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
                   <>
                     <Button
                       variant="outlined"
+                      onClick={handleClick}
                       sx={{ m: 2, color: "white", borderColor: "white" }}
                     >
                       Khám phá
@@ -215,7 +207,8 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
   /* #endregion */
 
   return (
-    <div className="fullwidthbanner-container" style={{ marginBottom: "0px" }}>
+    <div className={inView ? "slider--zoom--banner" : "slider--banner"} ref={ref}>
+     <div className="fullwidthbanner-container" style={{ marginBottom: "0px" }}>
       <Box
         style={{
           display: SaleBanner.payload ? "none" : "block",
@@ -226,6 +219,8 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
         ))}
       </Box>
     </div>
+  </div>
+   
   );
 };
 

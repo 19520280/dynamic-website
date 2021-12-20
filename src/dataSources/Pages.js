@@ -10,7 +10,7 @@ export const navbar = [
     menu: [
       {
         title: "Mùa đông 2021",
-        path: "/Mua-dong-2021",
+        path: "/Bo-suu-tap/Mua-dong-2021",
       },
       {
         title: "Tết Canh Dần 2022",
