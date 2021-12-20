@@ -34,7 +34,7 @@ export default function CollectionPage() {
           direction="column"
           spacing={2}
           justifyContent={"center"}
-          style={{ height: "60vh", margin: isMobile ? "100px" : "70px 250px" }}
+          style={{ height: "60vh", margin: isMobile ? "50px" : "70px 250px" }}
         >
           <Box>
             <Typography fontSize={isMobile ? "1.8rem" : "2rem"}>
@@ -70,7 +70,7 @@ export default function CollectionPage() {
           direction="column"
           spacing={2}
           justifyContent={"center"}
-          style={{ height: "60vh", margin: isMobile ? "50px" : "70px 250px" }}
+          style={{ height:  "60vh", margin: isMobile ? "50px" : "70px 250px" }}
         >
           <Typography fontSize={isMobile ? "1.8rem" : "2rem"}>
             <h3>
@@ -80,8 +80,8 @@ export default function CollectionPage() {
           </Typography>
         </Stack>
       </Slide>
-      <ImageBanner video={3} caption="O N T H E W A Y" />
-      <ImageBanner image={2} caption="L U X U R Y" />
+      <ImageBanner video={3} title="O N T H E W A Y" />
+      <ImageBanner image={2} title="L U X U R Y" />
       {isMobile ? (<ImageBanner image={3} caption="" />) : null}
       <Slide direction="right" in={true}>
         <Stack
