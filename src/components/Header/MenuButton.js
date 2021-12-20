@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { SaleBannerState$ } from "../../redux/selectors/index";
-import { shadowColor } from './../../color';
+import { shadowColor } from "./../../color";
 
 function MenuButton({ page, setOpenMenu }) {
   const dispatch = useDispatch();
@@ -43,6 +43,7 @@ function MenuButton({ page, setOpenMenu }) {
   return (
     <div>
       <Button
+        sx={{ width: isMobile ? "100%" : null }}
         variant="text"
         aria-owns={open ? "mouse-over-popover" : undefined}
         aria-haspopup="true"
