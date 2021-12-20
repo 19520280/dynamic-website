@@ -27,6 +27,7 @@ export default function ModalWithButton({
   body,
   btnText,
   handleClose,
+  handleClick,
   header,
   maxWidthDialog,
   messageText,
@@ -42,12 +43,19 @@ export default function ModalWithButton({
   //messageText: what string you want to show when click primary button
   //state, setState: state and setState of this component
   //typeMessage: type of this message, see "MessageModal" for more
+  //noToastMessage: default "false", if true, toast Mesage after click primary button.
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [child, setChild] = useState(false);
-  const handleClick = () => {
-    setChild(true);
+
+  const handleOnClickButton = () => {
+    if (handleClick) {
+      handleClick();
+    } else {
+      setChild(true);
+    }
   };
+  
   const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
     if (open) {
@@ -94,7 +102,7 @@ export default function ModalWithButton({
             Hủy
           </Button>
 
-          <Button onClick={handleClick} variant="contained">
+          <Button onClick={handleOnClickButton} variant="contained">
             {btnText}
           </Button>
         </DialogActions>
