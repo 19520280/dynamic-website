@@ -69,6 +69,8 @@ const BuyMoreDialog = () => {
       }
       maxWidthDialog="none"
       btnText="Mua"
+      messageText="Thêm vào giỏ hàng thành công"
+      typeMessage="success"
       handleClose={handleClose}
     />
   );
