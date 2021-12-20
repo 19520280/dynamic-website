@@ -22,6 +22,7 @@ const BtnProCardGroup = ({ sanPham }) => {
   const { userData } = useContext(AuthContext);
   return (
     <>
+    
       {product ? <QuickViewDialog sanPham={product} /> : null}
       <Stack direction="row" spacing={1}>
         <CircleIconButton
@@ -32,10 +33,10 @@ const BtnProCardGroup = ({ sanPham }) => {
             openQuickViewDialog();
           }}
         />
-        <CircleIconButton
-          title="Thêm vào giỏ hàng"
-          icon={<ShoppingCartIcon style={{ color: "white" }} />}
-        />
+          <CircleIconButton
+            title="Thêm vào giỏ hàng"
+            icon={<ShoppingCartIcon style={{ color: "white" }} />}
+          />
         {userData && userData.isLoggedin ? (
           <CircleIconButton
             title="Thêm vào danh sách"
