@@ -36,7 +36,7 @@ export default function ModalWithButton({
 }) {
   //action: callbackfuntion when confirmed
   //body: content dialog
-  //btnText: text of primary button of this modal
+  //btnText: text of primary button of this modal, if none, do not display dialog action
   //header: header(string) of this Modal
   //maxWidthDialog: set maxWidth for dialog
   //messageText: what string you want to show when click primary button
