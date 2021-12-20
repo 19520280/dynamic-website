@@ -10,17 +10,25 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { SystemColor } from "../../color";
 import AddressCard from "../AddressCard/AddressCard";
 import ModalWithButton from "../Modal/ModalWithButton";
 import HeaderTypography from "../Typographys/HeaderTypography";
+import { AuthContext } from "../../context/context";
+import ChangeAddressDialog from "../Dialogs/ChangeAddressDialog";
+import { showChangeAddressDialog } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { ChangeAddressDialogState$ } from "../../redux/selectors";
+import AddressModal from "../Modal/AddressModal";
 
-const Address = ({ data, setData }) => {
+const Address = () => {
   const theme = useTheme();
   const isLaptop = useMediaQuery(theme.breakpoints.up("lg"));
 
-  const [modalAddAddressState, setModalAddAddressState] = useState(false);
+  const { userData } = useContext(AuthContext);
+
+  const [child, setChild] = useState(false);
 
   const listField = [
     "Số nhà, đường",
@@ -36,8 +44,8 @@ const Address = ({ data, setData }) => {
         <Button
           variant="contained"
           size="large"
-          onClick={() => setModalAddAddressState(true)}
           style={{ margin: "0px 20px 20px" }}
+          onClick={() => setChild(true)}
         >
           THÊM MỚI
         </Button>
@@ -64,36 +72,23 @@ const Address = ({ data, setData }) => {
           phoneNumber={phoneNumber}
           address={address[1]}
         /> */}
-        {data.address.name.length < 1 ? (
+        {userData.address.name.length < 1 ? (
           <Typography fontWeight="bold" color="primary" textAlign="center">
             Bạn chưa thêm địa chỉ
           </Typography>
         ) : (
-          data.address.name.map((item) => (
+          userData.address.name.map((item) => (
             <Box key={item.key}>
-              <AddressCard
-                data={data}
-                setData={setData}
-                address={item}
-                isLaptop={isLaptop}
-                onEdit={() => setModalAddAddressState(true)}
-              ></AddressCard>
-              {item !== data.address.name[data.address.name.length - 1] ? (
+              <AddressCard address={item} isLaptop={isLaptop}></AddressCard>
+              {item !==
+              userData.address.name[userData.address.name.length - 1] ? (
                 <Divider sx={{ m: "12px 0px" }} />
               ) : null}
             </Box>
           ))
         )}
       </Box>
-      <ModalWithButton
-        state={modalAddAddressState}
-        setState={setModalAddAddressState}
-        listField={listField}
-        header="Thêm địa chỉ mới"
-        btnText="Thêm mới"
-        messageText="Thêm mới thành công"
-        typeMessage="success"
-      />
+      <AddressModal state={child} setState={setChild} />
     </Container>
   );
 };
