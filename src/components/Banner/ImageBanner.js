@@ -25,6 +25,7 @@ const video2 = require("../../assets/videos/Video2.mp4").default;
 const video3 = require("../../assets/videos/Video3.mp4").default;
 const image1 = require("../../assets/images/collection/image1.png").default;
 const image2 = require("../../assets/images/collection/image2.png").default;
+const image3 = require("../../assets/images/collection/image3.png").default;
 
 const ImageBanner = ({ image, video, caption, title, btnText }) => {
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
             <source src={video==1?video1:video==2?video2:video==3?video3:null} type="video/mp4" />
           </video>
         ) : image ? (
-          <img className="defaultimg" src={image==1?image1:image2}></img>
+          <img className="defaultimg" src={image==1?image1:image==2?image2:image3}></img>
         ) : null}
       </Grow>
 
@@ -87,7 +88,7 @@ const ImageBanner = ({ image, video, caption, title, btnText }) => {
               color="white"
               textAlign="center"
             >
-              {title}
+              {title?title:null}
             </Typography>
           </Grow>
           <Slide
