@@ -1,6 +1,7 @@
 import "./CollectionDialog.css";
 
 import {
+  Box,
   Button,
   Checkbox,
   Dialog,
@@ -12,20 +13,19 @@ import {
   IconButton,
   Stack,
   Typography,
-  Box,
 } from "@mui/material";
-import { Circle } from "@mui/icons-material";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import { BtnColor } from "../../../color";
+import { Circle } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
+import MessageModal from "../../Modal/MessageModal";
+import ModalWithButton from "../../Modal/ModalWithButton";
 import { ProductDialogState$ } from "../../../redux/selectors";
 import React from "react";
 import { SystemColor } from "../../../color";
 import { hideProductDialog } from "../../../redux/actions";
-import ModalWithButton from "../../Modal/ModalWithButton";
-import MessageModal from "../../Modal/MessageModal";
+
 const imgMonarchButterflys11 =
   require("../../../assets/images/products/monarch-butterfly-t-shirt-white/white01.jpg").default;
 
@@ -110,61 +110,41 @@ const ProductDialog = () => {
     }
   }, [open]);
   return (
-    <Dialog
+    <ModalWithButton
+      header="Thêm sản phẩm"
       open={open}
-      onClose={handleClose}
-      scroll="paper"
-      aria-labelledby="scroll-dialog-title"
-      aria-describedby="scroll-dialog-description"
-      sx={{ maxHeight: "80%" }}
-    >
-      <DialogTitle id="scroll-dialog-title">
-        Thêm sản phẩm
-        <IconButton
-          aria-label="close"
-          onClick={handleClose}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-      <DialogContent dividers>
-        <DialogContentText
-          id="scroll-dialog-description"
-          ref={descriptionElementRef}
-          tabIndex={-1}
-        >
-          <Stack direction="column" spacing={2}>
-            {[...new Array(10)].map(() =>
-              collectionItem(imgMonarchButterflys11, "Áo")
-            )}
-          </Stack>
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions
-        sx={{
-          flexDirection: "column",
-          alignItems: "stretch",
-        }}
-      >
-        {collectionItem(null, null)}
-      </DialogActions>
-      <DialogActions>
-        <Button onClick={handleSaveCollectionClick}>Lưu</Button>
-      </DialogActions>
-      <MessageModal
-        state={stateSaveCollection}
-        setState={setStateSaveCollection}
-        setStateParent={setState}
-        text="Lưu thành công"
-        severity="success"
-        closeAfterSecond={true}
-      />
-    </Dialog>
+      handleClose={handleClose}
+      body={
+        <>
+          <DialogContent dividers>
+            <DialogContentText
+              id="scroll-dialog-description"
+              ref={descriptionElementRef}
+              tabIndex={-1}
+            >
+              <Stack direction="column" spacing={2}>
+                {[...new Array(10)].map(() =>
+                  collectionItem(imgMonarchButterflys11, "Áo")
+                )}
+              </Stack>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions
+            sx={{
+              flexDirection: "column",
+              alignItems: "stretch",
+            }}
+          >
+            {collectionItem(null, null)}
+          </DialogActions>
+        </>
+      }
+      btnText="Thêm"
+      messageText="Thêm mới thành công"
+      severity="success"
+      state={stateSaveCollection}
+      setState={setStateSaveCollection}
+    />
   );
 };
 
