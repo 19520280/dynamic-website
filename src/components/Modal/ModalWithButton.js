@@ -78,7 +78,7 @@ export default function ModalWithButton({
         maxHeight: maxWidthDialog ? "100%" : "80%",
         "& .css-10jb4jx-MuiPaper-root-MuiDialog-paper": {
           maxWidth: maxWidthDialog,
-          minWidth: "20%",
+          minWidth: "25%",
           color: "primary",
         },
       }}
