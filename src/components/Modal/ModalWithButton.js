@@ -55,7 +55,7 @@ export default function ModalWithButton({
       setChild(true);
     }
   };
-  
+
   const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
     if (open) {
@@ -69,12 +69,12 @@ export default function ModalWithButton({
     <Dialog
       open={open}
       fullScreen={isMobile}
-      onClose={handleClose}
+      onClose={handleClose?handleClose:null}
       scroll="paper"
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
       sx={{
-        maxHeight: maxWidthDialog?"100%":"80%",
+        maxHeight: maxWidthDialog ? "100%" : "80%",
         "& .css-10jb4jx-MuiPaper-root-MuiDialog-paper": {
           maxWidth: maxWidthDialog,
           minWidth: "20%",
@@ -108,15 +108,17 @@ export default function ModalWithButton({
           </Button>
         </DialogActions>
       ) : null}
-      <MessageModal
-        state={child}
-        setState={setChild}
-        setStateParent={setState}
-        action={action}
-        text={messageText}
-        severity={typeMessage}
-        closeAfterSecond={true}
-      />
+      {messageText ? (
+        <MessageModal
+          state={child}
+          setState={setChild}
+          setStateParent={setState}
+          action={action}
+          text={messageText}
+          severity={typeMessage}
+          closeAfterSecond={true}
+        />
+      ) : null}
     </Dialog>
   );
 }

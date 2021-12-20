@@ -14,7 +14,7 @@ import React from "react";
 import { SystemColor } from "../../color";
 import { cartProducts } from "../../dataSources/CartProducts";
 
-const PaymentCartLeftTable = ({ color }) => {
+const PaymentCartLeftTable = ({ color}) => {
   const [soLuong, setSoLuong] = React.useState(1);
   return (
     <Box
@@ -37,7 +37,6 @@ const PaymentCartLeftTable = ({ color }) => {
         >
           <TableBody>
             <Typography
-              style={{ display: color ? "none" : "block" }}
               variant="button"
               fontWeight="bold"
               color="secondary"

@@ -26,7 +26,7 @@ import PaymentInfo from "../../components/PaymentBody/PaymentInfo";
 import OrdersCaseTypography from "../../components/Typographys/OrdersCaseTypography";
 import OrderStatus from "../../components/OrderStatus/OrderStatus";
 
-const OrdersCase = () => {
+const OrderDetail = () => {
   const dispatch = useDispatch();
   //#region get data
   useEffect(() => {
@@ -144,4 +144,4 @@ const OrdersCase = () => {
     );
 };
 
-export default OrdersCase;
+export default OrderDetail;
