@@ -4,7 +4,7 @@ const TextFieldWithTitle = ({ title, value, placeholder, size, onChange }) => {
   return (
     <Stack direction="row" alignItems="center">
       <Typography
-        sx={{ width: "175px" }}
+        sx={{ width: "40%" }}
         fontWeight="bold"
         color="secondary"
         textAlign="left"

@@ -38,20 +38,16 @@ const AccountPage = ({ accountRoute }) => {
 
   return (
     <Grid container spacing={0}>
-      <Grid xs={isMobile?8:2.5} xl={2.5}>
+      <Grid xs={isMobile ? 8 : 2.5} xl={2.5}>
         <Container
           style={{
             backgroundColor: BgColor.mainBg,
           }}
         >
-          <AccountSider
-            avatarImage={data.avatarImage}
-            accountName={data.accountName}
-            timeHasJoined={data.timeHasJoined}
-          />
+          <AccountSider />
         </Container>
       </Grid>
-      <Grid item xs={isMobile?12:9.5} xl={9.5}>
+      <Grid item xs={isMobile ? 12 : 9.5} xl={9.5}>
         <Container
           style={{
             paddingLeft: isMobile ? "20px" : "40px",
@@ -74,10 +70,10 @@ const AccountPage = ({ accountRoute }) => {
           )}
           {accountRoute === "Chi-so-co-the" && <Measure />}
           {accountRoute === "Doi-mat-khau" && <ChangePassword />}
-          {accountRoute === "Don-mua" && <Orders />}
+          {/* {accountRoute === "Don-mua" && <Orders />}
           {accountRoute === "Diem-thuong" && <Points />}
           {accountRoute === "Danh-sach-quan-tam" && <WishLists />}
-          {accountRoute === "Thong-bao" && <Noti />}
+          {accountRoute === "Thong-bao" && <Noti />} */}
         </Container>
       </Grid>
     </Grid>

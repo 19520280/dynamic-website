@@ -25,7 +25,7 @@ import { TabPanel, TabContext, TabList } from "@material-ui/lab";
 import CloseIcon from "@mui/icons-material/Close";
 import { SizeGuideDialogState$ } from "../../../redux/selectors";
 import { hideSizeGuideDialog } from "../../../redux/actions";
-
+import ModalWithButton from "../../Modal/ModalWithButton";
 const imgPant =
   require("../../../assets/images/meesure/Inkedpant_LI.jpg").default;
 const imgBody = require("../../../assets/images/meesure/body.jpg").default;
@@ -179,7 +179,7 @@ function ShowSizeGuide({ sanPham }) {
         </Typography>
       </Box>
     ));
-  return (
+  const body = (
     <Dialog open={open} onClose={handleClose} maxWidth="md">
       <DialogTitle sx={{ textAlign: "center" }}>
         <h4>Hướng dẫn kích thước</h4>
@@ -331,11 +331,9 @@ function ShowSizeGuide({ sanPham }) {
           </TabPanel>
         </TabContext>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Đóng</Button>
-      </DialogActions>
     </Dialog>
   );
+  return body;
 }
 
 export default ShowSizeGuide;

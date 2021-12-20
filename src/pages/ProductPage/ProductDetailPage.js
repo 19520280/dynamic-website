@@ -42,7 +42,7 @@ import "react-medium-image-zoom/dist/styles.css";
 import Paper from "@mui/material/Paper";
 import HeaderTypography from "../../components/Typographys/HeaderTypography";
 import CountTypography from "../../components/Typographys/CountTypography";
-
+import MessageModal from "../../components/Modal/MessageModal";
 const ProductDetailPage = () => {
   const history = useHistory();
   const [sanPham, setSP] = useState(
@@ -89,16 +89,19 @@ const ProductDetailPage = () => {
   return sanPham ? (
     <>
       <Box width="100%">
-        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-          <Alert
-            severity="success"
-            width="100%"
-            sx={{ position: "fixed", top: "45%", left: "20%" }}
-          >
-            Thêm vào giỏ hàng thành công
-          </Alert>
-        </Snackbar>
-        <Box component={Paper}>
+        <MessageModal
+          text={"Thêm thành công"}
+          severity={"success"}
+          closeAfterSecond={true}
+          state={open}
+          setState={setOpen}
+        />
+        <Box
+          component={Paper}
+          border={1}
+          borderRadius={1}
+          borderColor={SystemColor.gray}
+        >
           <ProductPanel sanPham={sanPham} isMobile={isMobile} />
         </Box>
         {isMobile ? (
@@ -112,7 +115,7 @@ const ProductDetailPage = () => {
             <Box
               width={"100%"}
               paddingY={1}
-              paddingX={2}
+              //paddingX={2}
               border={1}
               borderRadius={1}
               borderColor={SystemColor.gray}
@@ -133,7 +136,7 @@ const ProductDetailPage = () => {
             <Box
               width={"100%"}
               paddingY={1}
-              paddingX={2}
+              //paddingX={2}
               border={1}
               marginY={2}
               borderColor={SystemColor.gray}
@@ -190,8 +193,8 @@ const ProductDetailPage = () => {
           </>
         ) : (
           <>
-            <Box width={"100%"} marginY={4} component={Paper}>
-              <Box marginX={2}>
+            <Box width={"100%"} marginY={4} paddingX={2}>
+              <Box>
                 <HeaderTypography
                   variant="button"
                   text={"Gợi ý phối đồ"}
@@ -283,7 +286,7 @@ const ProductDetailPage = () => {
                     borderBottom: 1,
                     borderColor: "divider",
                     display: "flex",
-                    alignContent: "center",
+                    width: "100%",
                   }}
                 >
                   <TabList onChange={handleChange}>
@@ -293,7 +296,7 @@ const ProductDetailPage = () => {
                   <Box
                     sx={{
                       display: "flex",
-                      alignContent: "center",
+                      marginLeft: "26%",
                     }}
                   >
                     <Box
@@ -301,8 +304,10 @@ const ProductDetailPage = () => {
                         display: "flex",
                       }}
                     >
-                      <Box marginTop={1} marginX={2}>
-                        <Typography fontWeight={"bold"}>Đánh giá</Typography>
+                      <Box marginTop={1} marginX={1.5}>
+                        <Typography fontWeight={"bold"} color="secondary">
+                          Đánh giá
+                        </Typography>
                       </Box>
                       <FormControl size="small">
                         <InputLabel id="demo-simple-select-label-rate" />
@@ -326,8 +331,10 @@ const ProductDetailPage = () => {
                         display: "flex",
                       }}
                     >
-                      <Box marginTop={1} marginX={2}>
-                        <Typography fontWeight={"bold"}>Màu sắc</Typography>
+                      <Box marginTop={1} marginX={1.5}>
+                        <Typography fontWeight={"bold"} color="secondary">
+                          Màu sắc
+                        </Typography>
                       </Box>
                       <FormControl size="small">
                         <InputLabel id="demo-simple-select-label-color" />
@@ -351,8 +358,10 @@ const ProductDetailPage = () => {
                         display: "flex",
                       }}
                     >
-                      <Box marginTop={1} marginX={2}>
-                        <Typography fontWeight={"bold"}>Kích thước</Typography>
+                      <Box marginTop={1} marginX={1.5}>
+                        <Typography fontWeight={"bold"} color="secondary">
+                          Kích thước
+                        </Typography>
                       </Box>
                       <FormControl size="small">
                         <InputLabel id="demo-simple-select-label-size" />
@@ -363,11 +372,11 @@ const ProductDetailPage = () => {
                           onChange={handleChangeSize}
                         >
                           <MenuItem value={0}>Tất cả</MenuItem>
+                          <MenuItem value={"FS"}>FS</MenuItem>
                           <MenuItem value={"S"}>S</MenuItem>
                           <MenuItem value={"M"}>M</MenuItem>
                           <MenuItem value={"L"}>L</MenuItem>
                           <MenuItem value={"XL"}>XL</MenuItem>
-                          <MenuItem value={"XXL"}>XXL</MenuItem>
                         </Select>
                       </FormControl>
                     </Box>
@@ -407,9 +416,10 @@ const ProductDetailPage = () => {
           bottom={0}
           height={50}
           display={"flex"}
+          component={Paper}
         >
           <Button
-            variant="Outline"
+            variant="outline"
             onClick={openCollectionDialog}
             sx={{
               alignItems: "center",
