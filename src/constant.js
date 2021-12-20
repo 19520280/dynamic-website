@@ -12,6 +12,9 @@ export const INIT_STATE = {
   CollectionDialog: {
     isShow: false,
   },
+  AddCollectionDialog: {
+    isShow: false,
+  },
   ProductDialog: {
     isShow: false,
   },

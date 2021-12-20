@@ -15,12 +15,13 @@ import { useEffect, useState } from "react";
 
 import AccountSider from "../../components/Sider/AccountSider";
 import { AccountState$ } from "../../redux/selectors";
+import AddCollectionDialog from './../../components/Dialogs/AddCollectionDialog';
+import HeaderTypography from "../../components/Typographys/HeaderTypography";
 import React from "react";
 import WishListCard from "../../components/WishLishCard/WishListCard";
-import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
-import HeaderTypography from "../../components/Typographys/HeaderTypography";
-import ModalWithButton from "../../components/Modal/ModalWithButton";
+import { showAddCollectionDialog } from "../../redux/actions/index";
+import { useLocation } from "react-router-dom";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -29,11 +30,16 @@ const WishListPage = () => {
     dispatch(actions.getAccount());
   }, [dispatch]);
 
+  /* #region  open AddCollection */
+
+  const handleAddCollectionClick = () => {
+    dispatch(showAddCollectionDialog());
+  };
+  /* #endregion */
+
   const Account = useSelector(AccountState$);
 
   const [data, setData] = useState(Account);
-  const [stateAddList, setStateAddList] = useState(false);
-  const handleOpenAddList = () => setStateAddList(true);
   useEffect(() => {
     if (Account) {
       setData(Account);
@@ -50,7 +56,7 @@ const WishListPage = () => {
       <HeaderTypography text={text} />
       <Stack direction="row" justifyContent="flex-end">
         <Button
-          onClick={handleOpenAddList}
+          onClick={handleAddCollectionClick}
           variant="contained"
           style={{ margin: "0px 20px 20px" }}
         >
@@ -58,15 +64,7 @@ const WishListPage = () => {
         </Button>
       </Stack>
       <WishListCardGrid value={value} />
-      <ModalWithButton
-        state={stateAddList}
-        setState={setStateAddList}
-        listField={listField}
-        header="Thêm danh sách yêu thích"
-        btnText="Thêm mới"
-        messageText="Thêm mới thành công"
-        typeMessage="success"
-      />
+      <AddCollectionDialog />
     </>
   );
   if (isMobile) {

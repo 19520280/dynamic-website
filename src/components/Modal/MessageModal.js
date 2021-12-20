@@ -1,10 +1,3 @@
-import React, { useState, useEffect } from "react";
-import Backdrop from "@mui/material/Backdrop";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import {
   Alert,
   Stack,
@@ -12,7 +5,16 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import React, { useEffect, useState } from "react";
+
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Fade from "@mui/material/Fade";
 import HeaderTypography from "../Typographys/HeaderTypography";
+import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
+
 export default function MessageModal({
   state,
   setState,
@@ -42,7 +44,7 @@ export default function MessageModal({
   };
   useEffect(() => {
     if (state == true && closeAfterSecond == true) {
-      setTimeout(handleClose, 3000);
+      setTimeout(handleClose, 2000);
     }
   }, [state]);
 

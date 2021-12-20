@@ -9,6 +9,7 @@ import {
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import AccountPage from "./pages/AccountPage/AccountPage";
+import AuthContextProvider from "./context/context.js";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import CartPage from "./pages/CartPage";
@@ -25,7 +26,7 @@ import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
-import AuthContextProvider from "./context/context.js";
+
 let theme = createTheme({
   palette: {
     primary: {

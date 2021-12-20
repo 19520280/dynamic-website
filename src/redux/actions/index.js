@@ -16,10 +16,8 @@ export const showSaleBanner = createAction("SHOW_SALE_BANNER");
 export const showCollectionDialog = createAction("SHOW_COLLECTION_DIALOG");
 export const hideCollectionDialog = createAction("HIDE_COLLECTION_DIALOG");
 
-
 export const showProductDialog = createAction("SHOW_PRODUCT_DIALOG");
 export const hideProductDialog = createAction("HIDE_PRODUCT_DIALOG");
-
 
 export const showSizeGuideDialog = createAction("SHOW_SIZEGUIDE_DIALOG");
 export const hideSizeGuideDialog = createAction("HIDE_SIZEGUIDE_DIALOG");
@@ -29,6 +27,13 @@ export const hideMixMatchDialog = createAction("HIDE_MIXMATCH_DIALOG");
 
 export const showQuickViewDialog = createAction("SHOW_QUICKVIEW_DIALOG");
 export const hideQuickViewDialog = createAction("HIDE_QUICKVIEW_DIALOG");
+
+export const showAddCollectionDialog = createAction(
+  "SHOW_ADD_COLLECTION_DIALOG"
+);
+export const hideAddCollectionDialog = createAction(
+  "HIDE_ADD_COLLECTION_DIALOG"
+);
 /*
   getType(getPosts.getPostSuccess)
   =>  
