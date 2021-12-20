@@ -9,6 +9,7 @@ import {
   InputBase,
   Popover,
   IconButton,
+  Stack,
 } from "@mui/material";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ShareIcon from "@mui/icons-material/Share";
@@ -82,9 +83,12 @@ function InfoProduct({
     setAnchorEl(null);
   };
   return (
-    <div>
+    <Stack
+      direction="column"
+      divider={<Divider orientation="horizontal" flexItem />}
+    >
       <Box className="Main_Box_Right_Name">
-        <Box marginBottom={size ? -0.5 : 0} marginTop={size ? -1 : 0}>
+        <Box marginBottom={size ? -0.5 : 0} marginTop={-1}>
           <HeaderTypography
             variant="button"
             text={sanPham.ten}
@@ -175,7 +179,6 @@ function InfoProduct({
           />
         </Box>
       </Box>
-      <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Color" marginBottom={1}>
         <Box marginTop={size ? 0.5 : 1} marginBottom={size ? -1.5 : -1}>
           <CountTypography
@@ -195,7 +198,6 @@ function InfoProduct({
           />
         </Box>
       </Box>
-      <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Size">
         <Box marginY={size ? 0.5 : 1}>
           <CountTypography
@@ -218,27 +220,26 @@ function InfoProduct({
             ))}
           </ImageList>
         </Box>
-      </Box>
-      <Box
-        display="flex"
-        marginY={size ? 0.5 : 1}
-        className="Main_Box_Right_Size_Guide"
-      >
-        <Button
-          onClick={openSizeGuideDialog}
-          padding="0px"
-          sx={{
-            padding: 0,
-            "&:last-child": {
-              padding: 0,
-            },
-          }}
+        <Box
+          display="flex"
+          marginY={size ? 0.5 : 1}
+          className="Main_Box_Right_Size_Guide"
         >
-          <StraightenIcon />
-          <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>SIZE GUIDE</h4>
-        </Button>
+          <Button
+            onClick={openSizeGuideDialog}
+            padding="0px"
+            sx={{
+              padding: 0,
+              "&:last-child": {
+                padding: 0,
+              },
+            }}
+          >
+            <StraightenIcon />
+            <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>SIZE GUIDE</h4>
+          </Button>
+        </Box>
       </Box>
-      <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Input_SL">
         <Box
           sx={{ alignContent: "center", display: "flex" }}
@@ -329,7 +330,7 @@ function InfoProduct({
           </Button>
         </Box>
       </Box>
-    </div>
+    </Stack>
   );
 }
 
