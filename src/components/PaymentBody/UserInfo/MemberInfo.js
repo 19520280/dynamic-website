@@ -6,8 +6,13 @@ import React from "react";
 const MemberInfo = ({ data, address }) => {
   const { home, town, district, province } = address;
   return (
-    <Stack direction="column" sx={{ marginTop: 2 }}>
-      <Typography fontWeight="bold" fontSize="large" display="inline">
+    <Stack direction="column" sx={{ marginTop: 2 }} spacing={0.5}>
+      <Typography
+        fontWeight="bold"
+        fontSize="large"
+        display="inline"
+        marginBottom={0.5}
+      >
         {data.realName}
         {data.address.isDefault === address.key ? (
           <Typography color="secondary" sx={{ marginLeft: 1 }} display="inline">
