@@ -1,27 +1,29 @@
-import * as React from "react";
-
-import { AuthContext } from "../../context/context";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import ConfirmModal from "../Modal/ConfirmModal";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Logout from "@mui/icons-material/Logout";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import { shadowColor } from "./../../color";
+import * as React from "react";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../context/context";
+import HoverMenu from "material-ui-popup-state/HoverMenu";
+import {
+  bindHover,
+  bindMenu,
+  usePopupState,
+} from "material-ui-popup-state/hooks";
+import { showAvatarPopover } from "./../../redux/actions/index";
+import { SystemColor } from "../../color";
 
 export default function AvatarPopover() {
   const history = useHistory();
   const { userData, logout } = React.useContext(AuthContext);
 
-  const [child, setChild] = React.useState(false);
+  const popupState = usePopupState({
+    variant: "popover",
+    popupId: "demoMenu",
+  });
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -34,45 +36,35 @@ export default function AvatarPopover() {
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Tooltip title={userData ? userData.accountName : "Tài khoản"}>
-          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-            <Avatar size="small" src={userData.avatarImage} />
-          </IconButton>
-        </Tooltip>
+        <IconButton
+          onClick={() => history.push("/Ca-nhan/Tai-khoan/Ho-so")}
+          size="small"
+          sx={{ ml: 2 }}
+          {...bindHover(popupState)}
+        >
+          <Avatar size="small" src={userData.avatarImage} />
+        </IconButton>
       </Box>
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: "visible",
-            boxShadow: shadowColor,
-            mt: 1.5,
-            "& .MuiAvatar-root": {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            "&:before": {
-              content: '""',
-              display: "block",
-              position: "absolute",
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: "background.paper",
-              transform: "translateY(-50%) rotate(45deg)",
-              zIndex: 0,
-            },
-          },
+      <HoverMenu
+        id="mouse-over-popover"
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
         }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        {...bindMenu(popupState)}
+        sx={{
+          "& .css-1q9g37b-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
+            {
+              padding: "12px 16px 12px 16px",
+              borderRadius: "4px",
+              border: "1px solid",
+              borderColor: SystemColor.gray,
+            },
+        }}
       >
         <MenuItem onClick={() => history.push("/Ca-nhan/Tai-khoan/Ho-so")}>
           Hồ sơ tài khoản
@@ -81,16 +73,8 @@ export default function AvatarPopover() {
           Đơn mua
         </MenuItem>
         <Divider />
-        <MenuItem onClick={() => setChild(true)}>Đăng xuất</MenuItem>
-      </Menu>
-      <ConfirmModal
-        header="Bạn có muốn đăng xuất?"
-        state={child}
-        setState={setChild}
-        action={logout}
-        messageText="Đăng xuất thành công"
-        typeMessage="success"
-      />
+        <MenuItem onClick={() => logout()}>Đăng xuất</MenuItem>
+      </HoverMenu>
     </React.Fragment>
   );
 }

@@ -107,8 +107,6 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
 
   const { logout } = useContext(AuthContext);
 
-  const [child, setChild] = useState(false);
-
   const body = (
     <List>
       <SiderAvatar
@@ -128,7 +126,7 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
                 ? history.push(item.path)
                 : item.key === "Tai-khoan"
                 ? dispatch(actions.expandMenu())
-                : setChild(true)
+                : logout()
             }
           >
             {pathnames[1] === item.key ? (
@@ -168,14 +166,6 @@ const AccountSider = ({ avatarImage, accountName, timeHasJoined }) => {
               ))}
             </Collapse>
           ) : null}
-          <ConfirmModal
-            header="Bạn có muốn đăng xuất?"
-            state={child}
-            setState={setChild}
-            action={logout}
-            messageText="Đăng xuất thành công"
-            typeMessage="success"
-          />
         </Container>
       ))}
     </List>

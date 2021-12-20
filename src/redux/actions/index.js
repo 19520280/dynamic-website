@@ -51,6 +51,8 @@ export const closeLoginModal = createAction("CLOSE_LOGIN_MODAL");
 export const openRegisterModal = createAction("OPEN_REGISTER_MODAL");
 export const closeRegisterModal = createAction("CLOSE_REGISTER_MODAL");
 
+export const showAvatarPopover = createAction("SHOW_AVATAR_POPOVER");
+export const hideAvatarPopover = createAction("HIDE_AVATAR_POPOVER");
 //#endrigion
 
 //#region Account

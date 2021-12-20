@@ -29,6 +29,7 @@ const Profile = ({ data, setData }) => {
           border: "1px solid",
           borderColor: SystemColor.gray,
           borderRadius: "4px",
+          backgroundColor: "white",
           p: "36px 40px",
         }}
       >
