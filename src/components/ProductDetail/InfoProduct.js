@@ -7,12 +7,6 @@ import {
   ButtonGroup,
   ImageList,
   InputBase,
-  Snackbar,
-  Alert,
-  Stack,
-  TextField,
-  IconButton,
-  Fab,
 } from "@mui/material";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ShareIcon from "@mui/icons-material/Share";
@@ -28,7 +22,7 @@ import { useDispatch } from "react-redux";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import CountTypography from "../Typographys/CountTypography";
 import MessageModal from "../Modal/MessageModal";
-import NumericTextField from "../TextFields/NumericTextField";
+import { SystemColor } from "../../color";
 function InfoProduct({
   sanPham,
   isMobile,
@@ -74,8 +68,10 @@ function InfoProduct({
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const [opencopy, setOpencopy] = React.useState(false);
+
+  const handleClickOpencopy = () => {
+    setOpencopy(true);
   };
   return (
     <div>
@@ -90,7 +86,24 @@ function InfoProduct({
         </Box>
         <Box sx={{ display: "flex" }} display={"none"}>
           <RatingInfolPanel size={size ? size : "medium"} />
-          <ShareIcon fontSize="small" sx={{ ":hover": { border: 1 } }} />
+          <ShareIcon
+            fontSize="small"
+            sx={{
+              ":hover": {
+                border: 1,
+                borderRadius: 1,
+                borderColor: SystemColor.gray,
+              },
+            }}
+            onClick={handleClickOpencopy}
+          />
+          <MessageModal
+            text={"Đã sao chép đường dẫn thành công"}
+            severity={"success"}
+            closeAfterSecond={true}
+            state={opencopy}
+            setState={setOpencopy}
+          />
         </Box>
         <Box marginTop={size ? 0.5 : 1} marginBottom={size ? -0.5 : 0}>
           <PriceTypography
@@ -234,7 +247,9 @@ function InfoProduct({
           />
         </Box>
         <Box marginTop={size ? 0.5 : 1}>
-          <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
+          <Typography fontSize={size ? 14 : 15}>
+            Số lượng sản phẩm còn {sanPham.tonKho}
+          </Typography>
         </Box>
         <Box display="flex" alignContent="center" marginY={size ? 0 : 1}>
           <Button

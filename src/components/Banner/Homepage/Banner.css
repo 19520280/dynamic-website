@@ -31,8 +31,16 @@
   position: absolute;
   left: 50%;
   top: 80%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -150%);
 }
+
+.fullwidthbanner-container .caption-fourth {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -150%);
+}
+
 
 .fullwidthbanner-container .caption-second p {
   width: max-content;
@@ -50,4 +58,20 @@
 
 .icon.left {
   left: 8px;
+}
+
+.slider--banner {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+
+  opacity: 0;
+  transform: scale(85%);
+  transition: 2s;
+}
+
+.slider--zoom--banner {
+  opacity: 1;
+  transform: scale(100%);
+  transition: 2s;
 }
