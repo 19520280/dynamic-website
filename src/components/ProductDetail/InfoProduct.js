@@ -9,6 +9,8 @@ import {
   InputBase,
   Snackbar,
   Alert,
+  Stack,
+  TextField,
 } from "@mui/material";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ShareIcon from "@mui/icons-material/Share";
@@ -24,6 +26,7 @@ import { useDispatch } from "react-redux";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import CountTypography from "../Typographys/CountTypography";
 import MessageModal from "../Modal/MessageModal";
+import NumericTextField from "../TextFields/NumericTextField";
 function InfoProduct({
   sanPham,
   isMobile,
@@ -165,34 +168,14 @@ function InfoProduct({
           sx={{ alignContent: "center", display: "flex" }}
           marginTop={size ? 1 : 2}
         >
-          <Button
-            variant="contained"
-            sx={{
-              alignItems: "center",
-              height: size ? 35 : 40,
-              width: "60%",
-              marginRight: 2,
-              background: "#303537",
-              borderRadius: 1,
-              marginTop: 0.2,
-            }}
-            disabled={!sp.soLuong}
-            onClick={handleClickOpen}
-          >
-            Thêm vào giỏ hàng
-          </Button>
           <ButtonGroup variant="outlined" size={size ? "small" : "medium"}>
-            <Button
-              width={10}
-              onClick={btnRemoveclick}
-              disabled={sp.soLuong <= 0}
-            >
+            <Button onClick={btnRemoveclick} disabled={sp.soLuong <= 0}>
               <RemoveIcon />
             </Button>
             <Button disableRipple>
               <InputBase
                 value={sp.soLuong}
-                size={size ? "small" : "medium"}
+                size={size ? "small" : null}
                 onChange={(e) => {
                   let value = Number(e.target.value);
                   setSP({
@@ -205,18 +188,41 @@ function InfoProduct({
                         : value,
                   });
                 }}
-                sx={{ flex: 1, width: 30 }}
+                inputProps={{
+                  style: {
+                    textAlign: "right",
+                    border: "0px solid gray",
+                    borderRadius: "0px",
+                    color: "secondary",
+                  },
+                }}
+                style={{ flex: 1, width: 30 }}
                 type="number"
               />
             </Button>
             <Button
-              width={10}
               onClick={btnAddclick}
               disabled={sp.soLuong >= sanPham.tonKho}
             >
               <AddIcon />
             </Button>
           </ButtonGroup>
+          <Button
+            variant="contained"
+            sx={{
+              alignItems: "center",
+              height: size ? 35 : 40,
+              width: "60%",
+              marginLeft: 2,
+              background: "#303537",
+              borderRadius: 1,
+              marginTop: 0.2,
+            }}
+            disabled={!sp.soLuong}
+            onClick={handleClickOpen}
+          >
+            Thêm vào giỏ hàng
+          </Button>
           <MessageModal
             text={"Thêm vào giỏ hàng thành công"}
             severity={"success"}

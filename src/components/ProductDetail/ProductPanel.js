@@ -184,7 +184,7 @@ function ProductPanel({ sanPham, isMobile }) {
               selectedColor={selectedColor}
               setSelectedColor={setSelectedColor}
             />
-            <Box backgroundColor="rgba(0, 0, 0, 0.04)">
+            <Box backgroundColor="rgba(0, 0, 0, 0.04)" borderRadius={1}>
               <ProductPolicy />
             </Box>
           </Box>

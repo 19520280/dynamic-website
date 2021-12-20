@@ -6,7 +6,9 @@ import {
   useMediaQuery,
   useTheme,
   Slide,
+  Button,
 } from "@mui/material";
+import { useHistory, useLocation } from "react-router-dom";
 import React from "react";
 import CustomeImage from "../../components/Banner/CustomeImage";
 import ImageBanner from "../../components/Banner/ImageBanner";
@@ -14,9 +16,13 @@ import ImageBanner from "../../components/Banner/ImageBanner";
 const video1 = "../../assets/videos/Video1.mp4";
 
 export default function CollectionPage() {
+  const history = useHistory();
   const vid = 1;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const handleClick = () => {
+    history.push("/");
+  };
   return (
     <div>
       <ImageBanner
@@ -68,7 +74,7 @@ export default function CollectionPage() {
         >
           <Typography fontSize={isMobile ? "1.8rem" : "2rem"}>
             <h3>
-            WITH ALL THE HISTORY IT CARRIES INSIDE, IT REPRESENTS MORE THAN A
+              WITH ALL THE HISTORY IT CARRIES INSIDE, IT REPRESENTS MORE THAN A
               BAG: IT’S LIKE CARRYING PARIS ON YOUR SHOULDER.
             </h3>
           </Typography>
@@ -76,7 +82,33 @@ export default function CollectionPage() {
       </Slide>
       <ImageBanner video={3} caption="O N T H E W A Y" />
       <ImageBanner image={2} caption="L U X U R Y" />
+      {isMobile ? (<ImageBanner image={3} caption="" />) : null}
+      <Slide direction="right" in={true}>
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent={"center"}
+          style={{ height: "80vh", margin: isMobile ? "10px" : "70px 70px" }}
+        >
+          {!isMobile ? (<CustomeImage image={2} />) : null}
 
+          <Stack direction="column" justifyContent="center" paddingTop="30px">
+            <Typography paddingLeft={isMobile?"50px":"0px"} fontSize={isMobile ? "1.6rem" : "2rem"}>
+              <h3>KHÁM PHÁ NHIỀU HƠN NHỮNG TRANG PHỤC MỚI TẠI DYNAMIC</h3>
+            </Typography>
+            <Stack
+              direction="row"
+              justifyContent={isMobile?"flex-end":"flex-start"}
+              paddingTop="30px"
+              paddingRight="30px"
+            >
+              <Button onClick={handleClick} variant="contained">
+                KHÁM PHÁ
+              </Button>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Slide>
     </div>
   );
 }

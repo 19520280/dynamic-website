@@ -5,9 +5,10 @@
   }
   .overlay {
     position: relative;
+    background-color: black;
   }
   .overlay:hover {
-    opacity: 1.5;
+    opacity: 0.9;
     background-color: black;
   }
   
