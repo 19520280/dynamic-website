@@ -74,8 +74,10 @@ function InfoProduct({
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const [opencopy, setOpencopy] = React.useState(false);
+
+  const handleClickOpencopy = () => {
+    setOpencopy(true);
   };
   return (
     <div>
@@ -90,7 +92,18 @@ function InfoProduct({
         </Box>
         <Box sx={{ display: "flex" }} display={"none"}>
           <RatingInfolPanel size={size ? size : "medium"} />
-          <ShareIcon fontSize="small" sx={{ ":hover": { border: 1 } }} />
+          <ShareIcon
+            fontSize="small"
+            sx={{ ":hover": { border: 1 } }}
+            onClick={handleClickOpencopy}
+          />
+          <MessageModal
+            text={"Đã sao chép đường dẫn thành công"}
+            severity={"success"}
+            closeAfterSecond={true}
+            state={opencopy}
+            setState={setOpencopy}
+          />
         </Box>
         <Box marginTop={size ? 0.5 : 1} marginBottom={size ? -0.5 : 0}>
           <PriceTypography
