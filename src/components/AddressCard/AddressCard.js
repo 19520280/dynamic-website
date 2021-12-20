@@ -11,7 +11,9 @@ import { MoreVert, StarRounded } from "@mui/icons-material";
 
 import ConfirmModal from "../Modal/ConfirmModal";
 import { SystemColor } from "../../color";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/context";
+import AddressModal from "../Modal/AddressModal";
 
 const info = (title, info, isDefault, isLaptop) => (
   <Stack
@@ -59,18 +61,22 @@ const info = (title, info, isDefault, isLaptop) => (
   </Stack>
 );
 
-const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
+const AddressCard = ({ address, isLaptop }) => {
   const [modalDeleteConfirmState, setModalDeleteConfirmState] = useState(false);
 
+  const { userData, setUserData } = useContext(AuthContext);
+
   const handleSetAddressDefault = () => {
-    setData({
-      ...data,
-      address: { ...data.address, isDefault: address.key },
+    setUserData({
+      ...userData,
+      address: { ...userData.address, isDefault: address.key },
     });
     if (!isLaptop) {
       handleClose();
     }
   };
+
+  const [child, setChild] = useState(false);
 
   const handleDeleteClick = () => {
     setModalDeleteConfirmState(true);
@@ -80,19 +86,19 @@ const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
   };
 
   const handleEditClick = () => {
-    onEdit();
+    setChild(true);
     if (!isLaptop) {
       handleClose();
     }
   };
 
   const handleDeleteConfirm = () => {
-    const newAddress = data.address.name;
+    const newAddress = userData.address.name;
     newAddress.splice(address.key, 1);
     newAddress.forEach((item, index) => {
       item.key = index;
     });
-    setData({ ...data, address: { ...data.address, name: newAddress } });
+    setUserData({ ...userData, address: { ...userData.address, name: newAddress } });
   };
 
   //region buttons for laptop size
@@ -118,7 +124,7 @@ const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
         >
           SỬA
         </Button>
-        {data.address.isDefault === address.key ? null : (
+        {userData.address.isDefault === address.key ? null : (
           <Button
             sx={{ height: "fit-content" }}
             variant="text"
@@ -130,7 +136,7 @@ const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
           </Button>
         )}
       </Stack>
-      {data.address.isDefault === address.key ? null : (
+      {userData.address.isDefault === address.key ? null : (
         <Button
           variant="outlined"
           color="primary"
@@ -158,7 +164,7 @@ const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
 
   const menu = (
     <Box>
-      {data.address.isDefault === address.key ? <StarRounded /> : null}
+      {userData.address.isDefault === address.key ? <StarRounded /> : null}
       <IconButton
         sx={{ ml: "4px", pt: "0px" }}
         id="menu-button"
@@ -187,10 +193,10 @@ const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
         }}
       >
         <MenuItem onClick={() => handleEditClick()}>Sửa</MenuItem>
-        {data.address.isDefault === address.key ? null : (
+        {userData.address.isDefault === address.key ? null : (
           <MenuItem onClick={() => handleDeleteClick()}>Xóa</MenuItem>
         )}
-        {data.address.isDefault === address.key ? null : (
+        {userData.address.isDefault === address.key ? null : (
           <MenuItem onClick={() => handleSetAddressDefault()}>
             Thiết lập mặc định
           </MenuItem>
@@ -215,11 +221,11 @@ const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
         <Stack direction="column" spacing="8px">
           {info(
             "Họ tên",
-            data.realName,
-            data.address.isDefault === address.key,
+            userData.realName,
+            userData.address.isDefault === address.key,
             isLaptop
           )}
-          {info("Số điện thoại", data.phoneNumber, false, isLaptop)}
+          {info("Số điện thoại", userData.phoneNumber, false, isLaptop)}
           {info("Địa chỉ", address, false, isLaptop)}
         </Stack>
         {isLaptop ? buttons : menu}
@@ -232,6 +238,7 @@ const AddressCard = ({ data, setData, address, isLaptop, onEdit }) => {
         messageText="Xóa thành công"
         typeMessage="success"
       />
+      <AddressModal address={address} state={child} setState={setChild} />
     </Box>
   );
 };

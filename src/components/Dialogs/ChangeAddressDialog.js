@@ -21,6 +21,7 @@ import MemberInfo from "./../PaymentBody/UserInfo/MemberInfo";
 import ModalWithButton from "../Modal/ModalWithButton";
 import React from "react";
 import { hideChangeAddressDialog } from "../../redux/actions";
+import AddressModal from "../Modal/AddressModal";
 
 const ChangeAddressDialog = ({ data }) => {
   const dispatch = useDispatch();
@@ -39,6 +40,8 @@ const ChangeAddressDialog = ({ data }) => {
       }
     }
   }, [open]);
+
+  const [child, setChild] = React.useState(false);
 
   return (
     <>
@@ -96,6 +99,7 @@ const ChangeAddressDialog = ({ data }) => {
                     justifyContent: "center",
                     minWidth: "0px",
                   }}
+                  onClick={() => setChild(true)}
                   //onClick={handleAddChangeAddressClick}
                 >
                   <AddIcon />
@@ -112,6 +116,7 @@ const ChangeAddressDialog = ({ data }) => {
         // state={stateSaveChangeAddress}
         // setState={setStateSaveChangeAddress}
       />
+      <AddressModal state={child} setState={setChild} />
     </>
   );
 };
