@@ -18,6 +18,7 @@ import {
   Snackbar,
   Alert,
   Divider,
+  Container,
 } from "@mui/material";
 
 import CommentPanel from "../../components/ProductDetail/CommentPanel";
@@ -87,374 +88,362 @@ const ProductDetailPage = () => {
     setOpen(false);
   };
   return sanPham ? (
-    <>
-      <Box width="100%">
-        <MessageModal
-          text={"Thêm thành công"}
-          severity={"success"}
-          closeAfterSecond={true}
-          state={open}
-          setState={setOpen}
-        />
-        <Box
-          component={Paper}
-          border={1}
-          borderRadius={1}
-          borderColor={SystemColor.gray}
-        >
-          <ProductPanel sanPham={sanPham} isMobile={isMobile} />
+    <Box width="100%">
+      <MessageModal
+        text={"Thêm thành công"}
+        severity={"success"}
+        closeAfterSecond={true}
+        state={open}
+        setState={setOpen}
+      />
+      <Box
+        component={Paper}
+        border={1}
+        borderRadius={1}
+        borderColor={SystemColor.gray}
+      >
+        <ProductPanel sanPham={sanPham} isMobile={isMobile} />
+      </Box>
+      <Box width={"100%"} marginY={4} paddingX={2}>
+        <Box>
+          <HeaderTypography
+            variant="button"
+            text={"Gợi ý phối đồ"}
+            color={"secondary"}
+          />
         </Box>
-        {isMobile ? (
-          <>
-            <Box width={"100%"} paddingY={4}>
-              <h3>Gợi ý phối đồ</h3>
-              <Box sx={{ flexGrow: 1 }}>
-                <ProducCardGrid phanLoai={sanPham.phanLoai} lengthGrid={4} />
+        <Box sx={{ flexGrow: 1 }}>
+          <ProducCardGrid phanLoai={sanPham.phanLoai} lengthGrid={4} />
+        </Box>
+      </Box>
+      {isMobile ? (
+        <>
+          <Box
+            width={"100%"}
+            paddingY={1}
+            //paddingX={2}
+            border={1}
+            borderRadius={1}
+            component={Paper}
+            borderColor={SystemColor.gray}
+          >
+            <Box>
+              <Box marginY={1}>
+                <CountTypography
+                  variant="button"
+                  text={"Thông tin sản phẩm"}
+                  color={"secondary"}
+                  size={18}
+                  padding={"1px 0px"}
+                />
               </Box>
+              <TableInfo sanPham={sanPham} />
             </Box>
+            <Box marginY={2}>
+              <Box marginY={1}>
+                <CountTypography
+                  variant="button"
+                  text={"Mô tả sản phẩm"}
+                  color={"secondary"}
+                  size={18}
+                  padding={"1px 0px"}
+                />
+              </Box>
+              <Box marginTop={1}>{sanPham.description}</Box>
+            </Box>
+          </Box>
+          <Box
+            width={"100%"}
+            paddingY={1}
+            //paddingX={2}
+            border={1}
+            marginY={2}
+            component={Paper}
+            borderColor={SystemColor.gray}
+            display={"flex"}
+          >
+            <RatingDetailPanel size={150} />
+          </Box>
+          <Box width={"100%"} component={Paper}>
             <Box
-              width={"100%"}
-              paddingY={1}
-              //paddingX={2}
-              border={1}
-              borderRadius={1}
-              borderColor={SystemColor.gray}
+              sx={{
+                display: "flex",
+                alignContent: "center",
+                float: "right",
+                marginBottom: 2,
+              }}
             >
-              <Box>
-                <Box marginY={1}>
-                  <h5>THÔNG TIN SẢN PHẨM</h5>
-                </Box>
-                <TableInfo sanPham={sanPham} />
-              </Box>
-              <Box marginY={2}>
-                <Box marginY={1}>
-                  <h5>MÔ TẢ SẢN PHẨM</h5>
-                </Box>
-                <Box marginTop={1}>{sanPham.description}</Box>
-              </Box>
-            </Box>
-            <Box
-              width={"100%"}
-              paddingY={1}
-              //paddingX={2}
-              border={1}
-              marginY={2}
-              borderColor={SystemColor.gray}
-              display={"flex"}
-            >
-              <RatingDetailPanel size={150} />
-            </Box>
-            <Box width={"100%"}>
               <Box
                 sx={{
                   display: "flex",
-                  alignContent: "center",
-                  float: "right",
-                  marginBottom: 2,
                 }}
               >
-                <Box
-                  sx={{
-                    display: "flex",
-                  }}
-                >
-                  <Box marginTop={1} minWidth={80}>
-                    <h5>Đánh giá</h5>
-                  </Box>
-                  <FormControl size="small">
-                    <InputLabel id="demo-simple-select-label-rate" />
-                    <Select
-                      id="demo-simple-select-rate"
-                      value={Rate}
-                      autoWidth
-                      onChange={handleChangeRate}
-                    >
-                      <MenuItem value={0}>Tất cả</MenuItem>
-                      <MenuItem value={5}>5 sao</MenuItem>
-                      <MenuItem value={4}>4 sao</MenuItem>
-                      <MenuItem value={3}>3 sao</MenuItem>
-                      <MenuItem value={2}>2 sao</MenuItem>
-                      <MenuItem value={1}>1 sao</MenuItem>
-                    </Select>
-                  </FormControl>
+                <Box marginTop={1} minWidth={80}>
+                  <h5>Đánh giá</h5>
                 </Box>
+                <FormControl size="small">
+                  <InputLabel id="demo-simple-select-label-rate" />
+                  <Select
+                    id="demo-simple-select-rate"
+                    value={Rate}
+                    autoWidth
+                    onChange={handleChangeRate}
+                  >
+                    <MenuItem value={0}>Tất cả</MenuItem>
+                    <MenuItem value={5}>5 sao</MenuItem>
+                    <MenuItem value={4}>4 sao</MenuItem>
+                    <MenuItem value={3}>3 sao</MenuItem>
+                    <MenuItem value={2}>2 sao</MenuItem>
+                    <MenuItem value={1}>1 sao</MenuItem>
+                  </Select>
+                </FormControl>
               </Box>
-              <Box marginX={1}>
-                {listfbfilter.map((e) => (
-                  <CommentPanel
-                    feedback={e}
-                    key={e.author}
-                    isMobile={isMobile}
-                  />
-                ))}
-              </Box>
-              <Pagination count={10} color="primary" />
             </Box>
-          </>
-        ) : (
-          <>
-            <Box width={"100%"} marginY={4} paddingX={2}>
+            <Box marginX={1}>
+              {listfbfilter.map((e) => (
+                <CommentPanel feedback={e} key={e.author} isMobile={isMobile} />
+              ))}
+            </Box>
+            <Pagination count={10} color="primary" />
+          </Box>
+          <Container sx={{ bottom: 0, left: 0, position: "fixed" }}>
+            <Button
+              onClick={openCollectionDialog}
+              sx={{
+                alignItems: "center",
+                width: "50%",
+                borderRadius: 0,
+                bottom: 0,
+                left: 0,
+                position: "fixed",
+                background: "white",
+              }}
+            >
               <Box>
-                <HeaderTypography
+                <AddBox />
+                <Typography marginTop={-1} fontSize={12}>
+                  Thêm vào danh sách
+                </Typography>
+              </Box>
+            </Button>
+            <Button
+              onClick={handleClickOpen}
+              variant="contained"
+              sx={{
+                width: "50%",
+                alignContent: "center",
+                borderRadius: 0,
+                background: "#303537",
+                bottom: 0,
+                right: 0,
+                position: "fixed",
+              }}
+            >
+              <Box>
+                <AddShoppingCartIcon height={20} />
+                <Typography marginTop={-1} fontSize={12}>
+                  Thêm vào giỏ hàng
+                </Typography>
+              </Box>
+            </Button>
+          </Container>
+        </>
+      ) : (
+        <>
+          <Box
+            width={"100%"}
+            paddingY={4}
+            paddingX={7}
+            border={1}
+            marginY={3}
+            borderRadius={1}
+            borderColor={SystemColor.gray}
+            component={Paper}
+          >
+            <Box>
+              <Box marginY={1}>
+                <CountTypography
                   variant="button"
-                  text={"Gợi ý phối đồ"}
+                  text={"Thông tin sản phẩm"}
                   color={"secondary"}
+                  size={18}
+                  padding={"1px 0px"}
                 />
               </Box>
-              <Box sx={{ flexGrow: 1 }}>
-                <ProducCardGrid phanLoai={sanPham.phanLoai} lengthGrid={4} />
-              </Box>
+              <TableInfo sanPham={sanPham} />
             </Box>
-            <Box
-              width={"100%"}
-              paddingY={4}
-              paddingX={7}
-              border={1}
-              marginY={3}
-              borderRadius={1}
-              borderColor={SystemColor.gray}
-              component={Paper}
-            >
-              <Box>
-                <Box marginY={1}>
-                  <CountTypography
-                    variant="button"
-                    text={"Thông tin sản phẩm"}
-                    color={"secondary"}
-                    size={18}
-                    padding={"1px 0px"}
-                  />
-                </Box>
-                <TableInfo sanPham={sanPham} />
+            <Box>
+              <Box marginY={1}>
+                <CountTypography
+                  variant="button"
+                  text={"Mô tả sản phẩm"}
+                  color={"secondary"}
+                  size={18}
+                  padding={"1px 0px"}
+                />
               </Box>
-              <Box>
-                <Box marginY={1}>
-                  <CountTypography
-                    variant="button"
-                    text={"Mô tả sản phẩm"}
-                    color={"secondary"}
-                    size={18}
-                    padding={"1px 0px"}
-                  />
-                </Box>
-                <Box marginTop={2}>{sanPham.description}</Box>
-              </Box>
+              <Box marginTop={2}>{sanPham.description}</Box>
             </Box>
-            <Box
-              width={"100%"}
-              paddingY={4}
-              paddingX={5}
-              border={1}
-              marginY={3}
-              borderRadius={1}
-              borderColor={SystemColor.gray}
-              display={"flex"}
-              component={Paper}
-            >
-              <RatingDetailPanel size={200} />
-              <Box marginLeft={5}>
-                <Typography marginBottom={3}>
-                  TẤT CẢ HÌNH ẢNH ({sanPham.imgs[0].length})
-                </Typography>
-                <ImageList
-                  cols={sanPham.imgs[0].length}
-                  gap={12}
-                  variant="woven"
-                >
-                  {sanPham.imgs[0].map((img) => (
-                    <Zoom>
-                      <img
-                        src={img}
-                        width={"100%"}
-                        height={190}
-                        loading="lazy"
-                      />
-                    </Zoom>
-                  ))}
-                </ImageList>
-              </Box>
+          </Box>
+          <Box
+            width={"100%"}
+            paddingY={4}
+            paddingX={5}
+            border={1}
+            marginY={3}
+            borderRadius={1}
+            borderColor={SystemColor.gray}
+            display={"flex"}
+            component={Paper}
+          >
+            <RatingDetailPanel size={200} />
+            <Box marginLeft={5}>
+              <Typography marginBottom={3}>
+                TẤT CẢ HÌNH ẢNH ({sanPham.imgs[0].length})
+              </Typography>
+              <ImageList cols={sanPham.imgs[0].length} gap={12} variant="woven">
+                {sanPham.imgs[0].map((img) => (
+                  <Zoom>
+                    <img src={img} width={"100%"} height={190} loading="lazy" />
+                  </Zoom>
+                ))}
+              </ImageList>
             </Box>
-            <Box
-              width={"100%"}
-              paddingTop={2}
-              paddingBottom={5}
-              component={Paper}
-            >
-              <TabContext value={value}>
+          </Box>
+          <Box
+            width={"100%"}
+            paddingTop={2}
+            paddingBottom={5}
+            component={Paper}
+          >
+            <TabContext value={value}>
+              <Box
+                sx={{
+                  borderBottom: 1,
+                  borderColor: "divider",
+                  display: "flex",
+                  width: "100%",
+                }}
+              >
+                <TabList onChange={handleChange}>
+                  <Tab label="Tất cả" value={0} />
+                  <Tab label="Có hình ảnh" value={1} />
+                </TabList>
                 <Box
                   sx={{
-                    borderBottom: 1,
-                    borderColor: "divider",
                     display: "flex",
-                    width: "100%",
+                    marginLeft: "26%",
                   }}
                 >
-                  <TabList onChange={handleChange}>
-                    <Tab label="Tất cả" value={0} />
-                    <Tab label="Có hình ảnh" value={1} />
-                  </TabList>
                   <Box
                     sx={{
                       display: "flex",
-                      marginLeft: "26%",
                     }}
                   >
-                    <Box
-                      sx={{
-                        display: "flex",
-                      }}
-                    >
-                      <Box marginTop={1} marginX={1.5}>
-                        <Typography fontWeight={"bold"} color="secondary">
-                          Đánh giá
-                        </Typography>
-                      </Box>
-                      <FormControl size="small">
-                        <InputLabel id="demo-simple-select-label-rate" />
-                        <Select
-                          id="demo-simple-select-rate"
-                          value={Rate}
-                          autoWidth
-                          onChange={handleChangeRate}
-                        >
-                          <MenuItem value={0}>Tất cả</MenuItem>
-                          <MenuItem value={5}>5 sao</MenuItem>
-                          <MenuItem value={4}>4 sao</MenuItem>
-                          <MenuItem value={3}>3 sao</MenuItem>
-                          <MenuItem value={2}>2 sao</MenuItem>
-                          <MenuItem value={1}>1 sao</MenuItem>
-                        </Select>
-                      </FormControl>
+                    <Box marginTop={1} marginX={1.5}>
+                      <Typography fontWeight={"bold"} color="secondary">
+                        Đánh giá
+                      </Typography>
                     </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                      }}
-                    >
-                      <Box marginTop={1} marginX={1.5}>
-                        <Typography fontWeight={"bold"} color="secondary">
-                          Màu sắc
-                        </Typography>
-                      </Box>
-                      <FormControl size="small">
-                        <InputLabel id="demo-simple-select-label-color" />
-                        <Select
-                          id="demo-simple-select-color"
-                          value={color}
-                          autoWidth
-                          onChange={handleChangeColor}
-                        >
-                          <MenuItem value={0}>Tất cả</MenuItem>
-                          <MenuItem value={"Đen"}>Đen</MenuItem>
-                          <MenuItem value={"Đỏ"}>Đỏ</MenuItem>
-                          <MenuItem value={"Trắng"}>Trắng</MenuItem>
-                          <MenuItem value={"Xanh"}>Xanh</MenuItem>
-                          <MenuItem value={"Vàng"}>Vàng</MenuItem>
-                        </Select>
-                      </FormControl>
+                    <FormControl size="small">
+                      <InputLabel id="demo-simple-select-label-rate" />
+                      <Select
+                        id="demo-simple-select-rate"
+                        value={Rate}
+                        autoWidth
+                        onChange={handleChangeRate}
+                      >
+                        <MenuItem value={0}>Tất cả</MenuItem>
+                        <MenuItem value={5}>5 sao</MenuItem>
+                        <MenuItem value={4}>4 sao</MenuItem>
+                        <MenuItem value={3}>3 sao</MenuItem>
+                        <MenuItem value={2}>2 sao</MenuItem>
+                        <MenuItem value={1}>1 sao</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                    }}
+                  >
+                    <Box marginTop={1} marginX={1.5}>
+                      <Typography fontWeight={"bold"} color="secondary">
+                        Màu sắc
+                      </Typography>
                     </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                      }}
-                    >
-                      <Box marginTop={1} marginX={1.5}>
-                        <Typography fontWeight={"bold"} color="secondary">
-                          Kích thước
-                        </Typography>
-                      </Box>
-                      <FormControl size="small">
-                        <InputLabel id="demo-simple-select-label-size" />
-                        <Select
-                          id="demo-simple-select-size"
-                          value={size}
-                          autoWidth
-                          onChange={handleChangeSize}
-                        >
-                          <MenuItem value={0}>Tất cả</MenuItem>
-                          <MenuItem value={"FS"}>FS</MenuItem>
-                          <MenuItem value={"S"}>S</MenuItem>
-                          <MenuItem value={"M"}>M</MenuItem>
-                          <MenuItem value={"L"}>L</MenuItem>
-                          <MenuItem value={"XL"}>XL</MenuItem>
-                        </Select>
-                      </FormControl>
+                    <FormControl size="small">
+                      <InputLabel id="demo-simple-select-label-color" />
+                      <Select
+                        id="demo-simple-select-color"
+                        value={color}
+                        autoWidth
+                        onChange={handleChangeColor}
+                      >
+                        <MenuItem value={0}>Tất cả</MenuItem>
+                        <MenuItem value={"Đen"}>Đen</MenuItem>
+                        <MenuItem value={"Đỏ"}>Đỏ</MenuItem>
+                        <MenuItem value={"Trắng"}>Trắng</MenuItem>
+                        <MenuItem value={"Xanh"}>Xanh</MenuItem>
+                        <MenuItem value={"Vàng"}>Vàng</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                    }}
+                  >
+                    <Box marginTop={1} marginX={1.5}>
+                      <Typography fontWeight={"bold"} color="secondary">
+                        Kích thước
+                      </Typography>
                     </Box>
+                    <FormControl size="small">
+                      <InputLabel id="demo-simple-select-label-size" />
+                      <Select
+                        id="demo-simple-select-size"
+                        value={size}
+                        autoWidth
+                        onChange={handleChangeSize}
+                      >
+                        <MenuItem value={0}>Tất cả</MenuItem>
+                        <MenuItem value={"FS"}>FS</MenuItem>
+                        <MenuItem value={"S"}>S</MenuItem>
+                        <MenuItem value={"M"}>M</MenuItem>
+                        <MenuItem value={"L"}>L</MenuItem>
+                        <MenuItem value={"XL"}>XL</MenuItem>
+                      </Select>
+                    </FormControl>
                   </Box>
                 </Box>
-                <TabPanel value={0}>
-                  {listfbfilter.map((e) => (
-                    <>
-                      <CommentPanel feedback={e} key={e.author} />
-                      <Divider variant={"fullWidth"} />
-                    </>
-                  ))}
-                </TabPanel>
-                <TabPanel value={1}>
-                  {listfbfilter.map((e) => (
-                    <>
-                      <CommentPanel feedback={e} key={e.author} />
-                      <Divider variant={"fullWidth"} />
-                    </>
-                  ))}
-                </TabPanel>
-              </TabContext>
-              <Pagination
-                count={10}
-                color="primary"
-                sx={{ float: "right", marginRight: 10 }}
-              />
-            </Box>
-          </>
-        )}
-      </Box>
-      {isMobile ? (
-        <Box
-          width="100%"
-          position="-webkit-sticky"
-          position="sticky"
-          bottom={0}
-          height={50}
-          display={"flex"}
-          component={Paper}
-        >
-          <Button
-            variant="outline"
-            onClick={openCollectionDialog}
-            sx={{
-              alignItems: "center",
-              width: "50%",
-              borderRadius: 0,
-              background: BgColor.mainBg,
-            }}
-          >
-            <Box>
-              <AddBox />
-              <Typography marginTop={-1} fontSize={12}>
-                Thêm vào danh sách
-              </Typography>
-            </Box>
-          </Button>
-          <Button
-            onClick={handleClickOpen}
-            variant="contained"
-            sx={{
-              width: "50%",
-              alignContent: "center",
-              borderRadius: 0,
-              background: "#303537",
-            }}
-          >
-            <Box>
-              <AddShoppingCartIcon height={20} />
-              <Typography marginTop={-1} fontSize={12}>
-                Thêm vào giỏ hàng
-              </Typography>
-            </Box>
-          </Button>
-        </Box>
-      ) : null}
-    </>
+              </Box>
+              <TabPanel value={0}>
+                {listfbfilter.map((e) => (
+                  <>
+                    <CommentPanel feedback={e} key={e.author} />
+                    <Divider variant={"fullWidth"} />
+                  </>
+                ))}
+              </TabPanel>
+              <TabPanel value={1}>
+                {listfbfilter.map((e) => (
+                  <>
+                    <CommentPanel feedback={e} key={e.author} />
+                    <Divider variant={"fullWidth"} />
+                  </>
+                ))}
+              </TabPanel>
+            </TabContext>
+            <Pagination
+              count={10}
+              color="primary"
+              sx={{ float: "right", marginRight: 10 }}
+            />
+          </Box>
+        </>
+      )}
+    </Box>
   ) : null;
 };
 
