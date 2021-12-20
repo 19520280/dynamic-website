@@ -15,6 +15,7 @@ import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import CartPage from "./pages/CartPage";
 import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
 import CollectionDialog from "./components/Dialogs/CollectionDialog/CollectionDialog";
+import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import ContactPage from "./pages/ContactPage";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -23,11 +24,10 @@ import OrdersCase from "./pages/UserPage/OrdersCase";
 import PaymentPage from "./pages/PaymentPage";
 import PointCase from "./pages/UserPage/PointCase";
 import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
+import ProtectedRoute from "./components/Route/ProtectedRoute";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
-import ProtectedRoute from "./components/Route/ProtectedRoute";
-import CollectionPage from "./pages/CollectionPage/CollectionPage";
 
 let theme = createTheme({
   palette: {
@@ -88,6 +88,7 @@ function App() {
               exact
               component={OrdersCase}
             />
+           
             <ProtectedRoute
               path="/Ca-nhan/Diem-thuong"
               exact
@@ -142,6 +143,13 @@ function App() {
                 exact
                 render={(props) => (
                   <AccountPage {...props} accountRoute="Doi-mat-khau" />
+                )}
+              />
+                 <ProtectedRoute
+                path="/Ca-nhan/Don-mua/Chi-tiet"
+                exact
+                render={(props) => (
+                  <AccountPage {...props} accountRoute="Order-tracking" />
                 )}
               />
               {/* <ProtectedRoute

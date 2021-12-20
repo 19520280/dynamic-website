@@ -6,12 +6,13 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
-import { SystemColor } from "../../color";
-import ProfileAvatar from "../Avatar/ProfileAvatar";
+
 import ConfirmModal from "../Modal/ConfirmModal";
-import ProfileTextFieldGroup from "../TextFields/ProfileTextFieldGroup";
 import HeaderTypography from "../Typographys/HeaderTypography";
+import ProfileAvatar from "../Avatar/ProfileAvatar";
+import ProfileTextFieldGroup from "../TextFields/ProfileTextFieldGroup";
+import { SystemColor } from "../../color";
+import { useState } from "react";
 
 const Profile = ({ data, setData }) => {
   const theme = useTheme();
@@ -31,6 +32,7 @@ const Profile = ({ data, setData }) => {
           borderRadius: "4px",
           backgroundColor: "white",
           p: "36px 40px",
+          marginTop: 3,
         }}
       >
         <Stack
