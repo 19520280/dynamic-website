@@ -84,25 +84,25 @@ function ShowSizeGuide({ sanPham }) {
 
   const tableHeadPant = [
     "Kích thước",
-    "Chiều dài",
-    "Vòng eo",
-    "Kích thước mông",
-    "Đùi",
+    "Chiều dài (cm)",
+    "Vòng eo (cm)",
+    "Kích thước mông (cm)",
+    "Đùi (cm)",
   ];
   const tableHeadAo = [
     "Kích thước",
-    "Vai",
-    "Chiều dài",
-    "Chiều dài tay",
-    "Ngực",
-    "Cổ tay áo",
-    "Chiều dài bắp tay",
+    "Vai (cm)",
+    "Chiều dài (cm)",
+    "Chiều dài tay (cm)",
+    "Ngực (cm)",
+    "Cổ tay áo (cm)",
+    "Chiều dài bắp tay (cm)",
   ];
   const tableHeadBody = [
     "Kích thước",
-    "Chiều dài",
-    "Vòng eo",
-    "Kích thước mông",
+    "Chiều dài (cm)",
+    "Vòng eo (cm)",
+    "Kích thước mông (cm)",
   ];
 
   function createDataPaint(Size, Height, Eo, Mong, Dui) {
@@ -186,7 +186,7 @@ function ShowSizeGuide({ sanPham }) {
 
   const CachDoBody = [
     {
-      name: "Bust của bạn",
+      name: "Ngực của bạn",
       info: "Đo chu vi trên phần đầy đủ nhất của bức tượng bán thân của bạn.",
     },
     { name: "Eo", info: "Đo vòng eo của bạn ở nơi gầy nhất." },
@@ -318,7 +318,7 @@ function ShowSizeGuide({ sanPham }) {
                 )}
               </Box>
             </Box>
-            <Divider />{" "}
+            <Divider />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <TableContainer component={Paper}>
