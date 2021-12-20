@@ -27,6 +27,7 @@ import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
+import CollectionPage from "./pages/CollectionPage/CollectionPage";
 
 let theme = createTheme({
   palette: {
@@ -56,6 +57,7 @@ function App() {
           <CollectionDialog />
           <Switch>
             <Route path="/" exact component={Homepage} />
+            <Route path="/Bo-suu-tap" exact component={CollectionPage} />
             <Route path="/Blog" exact component={BlogPage} />
             <Route path="/Ao" exact component={CategoryCasePage} />
             <Route path="/Ao/Ao-thun" exact component={CategoryCasePage} />
