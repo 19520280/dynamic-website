@@ -1,4 +1,4 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -13,10 +13,13 @@ import WishLists from "../../components/AccountPageBody/WishLists";
 import AccountSider from "../../components/Sider/AccountSider";
 import * as actions from "../../redux/actions/index";
 import { AccountState$ } from "../../redux/selectors";
+import { BgColor, SystemColor } from "../../color";
 
 const AccountPage = ({ accountRoute }) => {
   const dispatch = useDispatch();
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   //#region get data
   useEffect(() => {
     dispatch(actions.getAccount());
@@ -35,15 +38,28 @@ const AccountPage = ({ accountRoute }) => {
 
   return (
     <Grid container spacing={0}>
-      <Grid item xs={2.5}>
-        <AccountSider
-          avatarImage={data.avatarImage}
-          accountName={data.accountName}
-          timeHasJoined={data.timeHasJoined}
-        />
+      <Grid xs={isMobile?8:2.5} xl={2.5}>
+        <Container
+          style={{
+            backgroundColor: BgColor.mainBg,
+          }}
+        >
+          <AccountSider
+            avatarImage={data.avatarImage}
+            accountName={data.accountName}
+            timeHasJoined={data.timeHasJoined}
+          />
+        </Container>
       </Grid>
-      <Grid item xs={9.5}>
-        <Container style={{ paddingLeft: "40px", backgroundColor: "#FCFCFC" }}>
+      <Grid item xs={isMobile?12:9.5} xl={9.5}>
+        <Container
+          style={{
+            paddingLeft: isMobile ? "20px" : "40px",
+            paddingRight: isMobile ? "20px" : "0px",
+
+            backgroundColor: "#FCFCFC",
+          }}
+        >
           {accountRoute === "Ca-nhan" && (
             <Redirect to="/Ca-nhan/Tai-khoan/Ho-so" />
           )}
@@ -51,16 +67,10 @@ const AccountPage = ({ accountRoute }) => {
             <Redirect to="/Ca-nhan/Tai-khoan/Ho-so" />
           )}
           {accountRoute === "Ho-so" && (
-            <Profile
-              data={data}
-              setData={setData}
-            />
+            <Profile data={data} setData={setData} />
           )}
           {accountRoute === "Dia-chi" && (
-            <Address
-              data={data}
-              setData={setData}
-            />
+            <Address data={data} setData={setData} />
           )}
           {accountRoute === "Chi-so-co-the" && <Measure />}
           {accountRoute === "Doi-mat-khau" && <ChangePassword />}

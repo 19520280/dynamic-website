@@ -3,8 +3,14 @@ import Link from "@mui/material/Link";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import { withRouter } from "react-router-dom";
-
+import {
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 const Breadcrumb = (props) => {
+  
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const {
     history,
     location: { pathname },
@@ -15,7 +21,7 @@ const Breadcrumb = (props) => {
       style={{
         paddingTop: "2%",
         paddingBottom: "1%",
-        paddingLeft: "80px",
+        paddingLeft: isMobile? "20px":"80px",
         // margin: "5%",
         backgroundColor: "#FCFCFC",
       }}
@@ -77,6 +83,18 @@ const Breadcrumb = (props) => {
               ? "Giỏ hàng"
               : name === "Thanh-toan"
               ? "Thanh toán"
+              : name === "Diem-thuong"
+              ? "Điểm thưởng"
+              : name === "Ho-so"
+              ? "Hồ sơ"
+              : name === "Dia-chi"
+              ? "Địa chỉ"
+              : name === "Chi-so-co-the"
+              ? "Chỉ số cơ thể"
+              : name === "Doi-mat-khau"
+              ? "Đổi mật khẩu"
+              : name === "Danh-sach-quan-tam"
+              ? "Danh sách quan tâm"
               : name}
           </Typography>
         ) : (
@@ -91,6 +109,8 @@ const Breadcrumb = (props) => {
               ? "Liên hệ"
               : name === "Ca-nhan"
               ? "Cá nhân"
+              : name === "Tai-khoan"
+              ? "Tài khoản"
               : name}
           </Link>
         );

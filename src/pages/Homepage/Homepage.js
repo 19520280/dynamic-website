@@ -26,6 +26,7 @@ export const CustomTypography = ({ title }) => (
 const Homepage = () => {
   return (
     <section>
+      {/* <MixMatchDialog /> */}
       <section id="sliders">
         <Banner />
       </section>

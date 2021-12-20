@@ -9,6 +9,7 @@ import {
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import AccountPage from "./pages/AccountPage/AccountPage";
+import AuthContextProvider from "./context/context.js";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import CartPage from "./pages/CartPage";
@@ -25,6 +26,7 @@ import ProductDetailPage from "./pages/ProductPage/ProductDetailPage";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
+
 let theme = createTheme({
   palette: {
     primary: {
@@ -39,13 +41,13 @@ let theme = createTheme({
     secondary: "#313537",
   },
   backgroundColor: "#FCFCFC",
-  shadows: ["none"],
+  // shadows: ["none"],
 });
 theme = responsiveFontSizes(theme);
 function App() {
   const isMobile = useMediaQuery(useTheme().breakpoints.down("md"));
   return (
-    <>
+    <AuthContextProvider>
       <ThemeProvider theme={theme}>
         <Router>
           <Header />
@@ -164,7 +166,7 @@ function App() {
         </Router>
         <ScrollButton isMobile={isMobile} />
       </ThemeProvider>
-    </>
+    </AuthContextProvider>
   );
 }
 

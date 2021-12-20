@@ -13,15 +13,21 @@ import {
 
 import { Circle } from "@mui/icons-material";
 import EditIcon from "@mui/icons-material/Edit";
+import QuickViewDialog from "../Dialogs/QuickView/QuickViewDialog";
 import React from "react";
 import { SystemColor } from "../../color";
+import { products } from "../../dataSources/Products";
+import { showQuickViewDialog } from './../../redux/actions/index';
+import { useDispatch } from "react-redux";
 
 const CartProductDetail = ({ sanPham, readOnly, total }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+  const dispatch = useDispatch();
+  const openQuickViewDialog = React.useCallback(() => {
+    dispatch(showQuickViewDialog());
+  }, [dispatch]);
   return (
     <div className="product-item">
+      <QuickViewDialog sanPham={products[0]} />
       <Stack
         direction="row"
         justifyContent="flex-start"
@@ -63,6 +69,7 @@ const CartProductDetail = ({ sanPham, readOnly, total }) => {
                 <IconButton
                   title="Chỉnh sửa phân loại"
                   sx={{ marginLeft: "0px" }}
+                  onClick={openQuickViewDialog}
                 >
                   <EditIcon fontSize="small" />
                 </IconButton>

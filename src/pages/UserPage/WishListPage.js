@@ -15,12 +15,13 @@ import { useEffect, useState } from "react";
 
 import AccountSider from "../../components/Sider/AccountSider";
 import { AccountState$ } from "../../redux/selectors";
+import AddCollectionDialog from './../../components/Dialogs/AddCollectionDialog';
+import HeaderTypography from "../../components/Typographys/HeaderTypography";
 import React from "react";
 import WishListCard from "../../components/WishLishCard/WishListCard";
-import { useLocation } from "react-router-dom";
 import WishListCardGrid from "../../components/WishLishCard/WishListCardGrid";
-import HeaderTypography from "../../components/Typographys/HeaderTypography";
-import ModalWithButton from "../../components/Modal/ModalWithButton";
+import { showAddCollectionDialog } from "../../redux/actions/index";
+import { useLocation } from "react-router-dom";
 
 const WishListPage = () => {
   const dispatch = useDispatch();
@@ -29,11 +30,16 @@ const WishListPage = () => {
     dispatch(actions.getAccount());
   }, [dispatch]);
 
+  /* #region  open AddCollection */
+
+  const handleAddCollectionClick = () => {
+    dispatch(showAddCollectionDialog());
+  };
+  /* #endregion */
+
   const Account = useSelector(AccountState$);
 
   const [data, setData] = useState(Account);
-  const [stateAddList, setStateAddList] = useState(false);
-  const handleOpenAddList = () => setStateAddList(true);
   useEffect(() => {
     if (Account) {
       setData(Account);
@@ -50,7 +56,7 @@ const WishListPage = () => {
       <HeaderTypography text={text} />
       <Stack direction="row" justifyContent="flex-end">
         <Button
-          onClick={handleOpenAddList}
+          onClick={handleAddCollectionClick}
           variant="contained"
           style={{ margin: "0px 20px 20px" }}
         >
@@ -58,33 +64,25 @@ const WishListPage = () => {
         </Button>
       </Stack>
       <WishListCardGrid value={value} />
-      <ModalWithButton
-        state={stateAddList}
-        setState={setStateAddList}
-        listField={listField}
-        header="Thêm danh sách yêu thích"
-        btnText="Thêm mới"
-        messageText="Thêm mới thành công"
-        typeMessage="success"
-      />
+      <AddCollectionDialog />
     </>
   );
   if (isMobile) {
     return (
       <>
-        {/* <Grid item xs={8} xl={2.5}>
+        <Grid item xs={8} xl={2.5}>
           <Container
             style={{
               backgroundColor: BgColor.mainBg,
             }}
           >
             <AccountSider
-          avatarImage={data.avatarImage}
-          accountName={data.accountName}
-          timeHasJoined={data.timeHasJoined}
-        />
+              avatarImage={data.avatarImage}
+              accountName={data.accountName}
+              timeHasJoined={data.timeHasJoined}
+            />
           </Container>
-        </Grid> */}
+        </Grid>
         <Grid item xs={12} xl={9.5} style={{ marginBottom: "8%" }}>
           <Container
             style={{
@@ -100,41 +98,39 @@ const WishListPage = () => {
     );
   } else
     return (
-      <Slide direction="up" in={true}>
-        <Grid
-          container
-          spacing={0}
-          style={{
-            paddingLeft: "80px",
-            paddingRight: "80px",
-            background: BgColor.mainBg,
-          }}
-        >
-          <Grid item xs={2.5} xl={2.5}>
-            <Container
-              style={{
-                backgroundColor: BgColor.mainBg,
-              }}
-            >
-              <AccountSider
-                avatarImage={data.avatarImage}
-                accountName={data.accountName}
-                timeHasJoined={data.timeHasJoined}
-              />
-            </Container>
-          </Grid>
-          <Grid item xs={9.5} xl={9.5} style={{ marginBottom: "8%" }}>
-            <Container
-              style={{
-                paddingLeft: "40px",
-                backgroundColor: "transparent",
-              }}
-            >
-              {body}
-            </Container>
-          </Grid>
+      <Grid
+        container
+        spacing={0}
+        style={{
+          paddingLeft: "80px",
+          paddingRight: "80px",
+          background: BgColor.mainBg,
+        }}
+      >
+        <Grid item xs={2.5} xl={2.5}>
+          <Container
+            style={{
+              backgroundColor: BgColor.mainBg,
+            }}
+          >
+            <AccountSider
+              avatarImage={data.avatarImage}
+              accountName={data.accountName}
+              timeHasJoined={data.timeHasJoined}
+            />
+          </Container>
         </Grid>
-      </Slide>
+        <Grid item xs={9.5} xl={9.5} style={{ marginBottom: "8%" }}>
+          <Container
+            style={{
+              paddingLeft: "64px",
+              backgroundColor: "transparent",
+            }}
+          >
+            {body}
+          </Container>
+        </Grid>
+      </Grid>
     );
 };
 
