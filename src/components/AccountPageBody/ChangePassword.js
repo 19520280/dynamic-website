@@ -10,8 +10,8 @@ import {
   Alert,
 } from "@mui/material";
 import TextFieldWithTitlePassword from "../TextFields/TextFiledWithTittlePassword";
-const imgMeesure =
-  require("../../assets/images/meesure/measurements.png").default;
+import HeaderTypography from "../Typographys/HeaderTypography";
+
 const ChangePassword = ({ data, setData }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -52,15 +52,7 @@ const ChangePassword = ({ data, setData }) => {
           Mật khẩu không khớp
         </Alert>
       </Snackbar>
-      <Box height={60}>
-        <Typography
-          color={"#303537"}
-          fontSize={isMobile ? 20 : 28}
-          fontWeight={"bold"}
-        >
-          Đổi mật khẩu
-        </Typography>
-      </Box>
+      <HeaderTypography text="Đổi mật khẩu" padding={"12px 0px"} />
       <Box
         width="100%"
         display={isMobile ? null : "flex"}
@@ -95,8 +87,8 @@ const ChangePassword = ({ data, setData }) => {
               p: "8 32px",
               width: "fit-content",
               height: "fit-content",
-              float: "right",
               marginTop: 3,
+              marginLeft: "33%",
             }}
             variant="contained"
             size="large"
@@ -113,7 +105,7 @@ const ChangePassword = ({ data, setData }) => {
             Đổi mật khẩu
           </Button>
         </Box>
-        <Box marginTop={1} marginLeft={2}>
+        <Box marginTop={1} marginLeft={isMobile ? "20%" : 2}>
           <Button variant="text">Quên mật khẩu?</Button>
         </Box>
       </Box>

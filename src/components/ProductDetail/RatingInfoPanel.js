@@ -8,9 +8,9 @@ export default function RatingInfoPanel({ size }) {
     if (size === "small") {
       setSizeChar(12);
       setSizeNumber(14);
-    } else if (size === "large") {
-      setSizeChar(22);
-      setSizeNumber(28);
+    } else if (size === "middle") {
+      setSizeChar(16);
+      setSizeNumber(15);
     }
   }, [size]);
 

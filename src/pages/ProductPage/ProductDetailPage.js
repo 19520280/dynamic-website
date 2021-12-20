@@ -90,7 +90,11 @@ const ProductDetailPage = () => {
     <>
       <Box width="100%">
         <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-          <Alert severity="success" width="63%">
+          <Alert
+            severity="success"
+            width="100%"
+            sx={{ position: "fixed", top: "45%", left: "20%" }}
+          >
             Thêm vào giỏ hàng thành công
           </Alert>
         </Snackbar>

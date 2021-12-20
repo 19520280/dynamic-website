@@ -23,7 +23,7 @@ import PriceTypography from "../Typographys/PriceTypography";
 import { useDispatch } from "react-redux";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import CountTypography from "../Typographys/CountTypography";
-function InfoProduct({ sanPham, isMobile }) {
+function InfoProduct({ sanPham, isMobile, size }) {
   const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
   const [selectedSize, setSelectedSize] = React.useState(sanPham.kichThuocs[0]);
@@ -69,15 +69,16 @@ function InfoProduct({ sanPham, isMobile }) {
   return (
     <div>
       <Box className="Main_Box_Right_Name">
-        <Box marginTop={-2}>
+        <Box>
           <HeaderTypography
             variant="button"
             text={sanPham.ten}
             color={"primary"}
+            padding={"5px 0px"}
           />
         </Box>
         <Box sx={{ display: "flex" }} display={"none"}>
-          <RatingInfolPanel size={"medium"} />
+          <RatingInfolPanel size={size ? size : "medium"} />
           <ShareIcon sx={{ float: "right", width: "10%" }} />
         </Box>
         <Box marginTop={1}>
@@ -91,13 +92,13 @@ function InfoProduct({ sanPham, isMobile }) {
       </Box>
       <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Color">
-        <Box marginTop={1}>
+        <Box marginTop={1} marginBottom={-1}>
           <CountTypography
             variant="button"
             text={"Màu sắc"}
             color={"secondary"}
             size={18}
-            padding={"1px 0px"}
+            padding={"0px"}
           />
         </Box>
         <Box marginBottom={1}>
@@ -117,7 +118,7 @@ function InfoProduct({ sanPham, isMobile }) {
             text={"Kích thước"}
             color={"secondary"}
             size={18}
-            padding={"1px 0px"}
+            padding={"0px"}
           />
         </Box>
         <Box sx={{ display: "flex" }}>
@@ -144,7 +145,7 @@ function InfoProduct({ sanPham, isMobile }) {
       </Box>
       <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Input_SL">
-        <Box sx={{ alignContent: "center", display: "flex" }} marginY={1}>
+        <Box sx={{ alignContent: "center", display: "flex" }} marginTop={2}>
           <ButtonGroup variant="outlined">
             <Button
               sx={{ width: 10 }}
@@ -206,10 +207,10 @@ function InfoProduct({ sanPham, isMobile }) {
             </Alert>
           </Snackbar>
         </Box>
-        <Box marginY={1}>
+        <Box marginTop={1}>
           <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
         </Box>
-        <Box sx={{ display: "flex", alignContent: "center" }}>
+        <Box display="flex" alignContent="center" marginBottom={1}>
           <Button onClick={openCollectionDialog}>
             <AddBox />
             <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>
