@@ -29,6 +29,7 @@ import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
 import CollectionDetailPage from "./pages/CollectionPage/CollectionDetailPage";
+import CollectionProductPage from "./pages/CollectionPage/CollectionProductPage";
 
 let theme = createTheme({
   palette: {
@@ -60,6 +61,8 @@ function App() {
             <Route path="/" exact component={Homepage} />
             <Route path="/Bo-suu-tap" exact component={CollectionPage} />
             <Route path="/Bo-suu-tap/Mua-dong-2021" exact component={CollectionDetailPage} />
+            <Route path="/Bo-suu-tap/Mua-dong-2021/Chi-tiet-san-pham" exact component={CollectionProductPage} />
+            <Route path="/Ket-qua-tim-kiem" exact component={CategoryCasePage} />
 
             <Route path="/Blog" exact component={BlogPage} />
             <Route path="/Ao" exact component={CategoryCasePage} />

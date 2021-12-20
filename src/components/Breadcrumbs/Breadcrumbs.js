@@ -16,7 +16,7 @@ const Breadcrumb = (props) => {
     location: { pathname },
   } = props;
   const pathnames = pathname.split("/").filter((x) => x);
-  return pathnames.length > 0 && pathnames[0] !== "Blog" && pathnames[0] !== "Bo-suu-tap" ? (
+  return pathnames.length > 0 && pathnames[0] !== "Blog" && pathnames[0] !== "Bo-suu-tap" &&pathnames[0] !== "Ket-qua-tim-kiem" ? (
     <Breadcrumbs
       style={{
         paddingTop: "2%",

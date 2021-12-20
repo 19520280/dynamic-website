@@ -13,6 +13,7 @@ import React from "react";
 import CustomeImage from "../../components/Banner/CustomeImage";
 import ImageBanner from "../../components/Banner/ImageBanner";
 import { useInView } from "react-intersection-observer";
+import FooterCollection from "../../components/Footer/FooterCollection";
 
 const video1 = "../../assets/videos/Video1.mp4";
 
@@ -98,23 +99,7 @@ export default function CollectionPage() {
           justifyContent={"center"}
           style={{ height: "80vh", margin: isMobile ? "10px" : "70px 70px" }}
         >
-          {!isMobile ? (<CustomeImage image={2} />) : null}
-
-          <Stack direction="column" justifyContent="center" paddingTop="30px">
-            <Typography paddingLeft={isMobile?"50px":"0px"} fontSize={isMobile ? "1.6rem" : "2rem"}>
-              <h3>KHÁM PHÁ NHIỀU HƠN NHỮNG TRANG PHỤC MỚI TẠI DYNAMIC</h3>
-            </Typography>
-            <Stack
-              direction="row"
-              justifyContent={isMobile?"flex-end":"flex-start"}
-              paddingTop="30px"
-              paddingRight="30px"
-            >
-              <Button onClick={handleClick} variant="contained">
-                KHÁM PHÁ
-              </Button>
-            </Stack>
-          </Stack>
+          <FooterCollection/>
         </Stack>
       </Slide>
     </div>

@@ -1,7 +1,7 @@
 .slider {
   display: flex;
   align-items: center;
-  margin: 20px;
+  margin: 0px;
 
   opacity: 0;
   transform: scale(85%);
