@@ -74,10 +74,11 @@ export default function ModalWithButton({
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
       sx={{
-        maxHeight: "100%",
+        maxHeight: maxWidthDialog?"100%":"80%",
         "& .css-10jb4jx-MuiPaper-root-MuiDialog-paper": {
           maxWidth: maxWidthDialog,
           minWidth: "20%",
+          color: "primary",
         },
       }}
     >
