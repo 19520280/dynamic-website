@@ -5,6 +5,7 @@ export const CollectionDialogState$ = (state) => state.CollectionDialog.isShow;
 export const AddCollectionDialogState$ = (state) => state.AddCollectionDialog.isShow;
 export const MixMatchDialogState$ = (state) => state.MixMatchDialog.isShow;
 export const ChangeAddressDialogState$ = (state) => state.ChangeAddressDialog.isShow;
+export const BuyMoreDialogState$ = (state) => state.BuyMoreDialog.isShow;
 
 /* #endregion */
 export const ProductDialogState$ = (state) => state.ProductDialog.isShow;

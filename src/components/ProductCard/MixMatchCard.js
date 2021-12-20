@@ -14,13 +14,16 @@ const MixMatchCard = ({ sanPham, setCurrentSanPham }) => {
   }, [dispatch, sanPham]);
 
   return (
-    <Box sx={{ position: "relative", marginBottom: "8px" }}>
+    <Box
+      sx={{ position: "relative", marginBottom: "8px" }}
+      onClick={openMixMatchDialog}
+    >
       <div
         className={hovered !== 0 ? "image-card active-switcher" : "image-card"}
       >
         <ImageHover imgs={[sanPham.imgs[0], sanPham.imgs[1]]} />
         <div className="btn">
-          <Button variant="contained" onClick={openMixMatchDialog}>
+          <Button variant="contained">
             Xem thêm
           </Button>
         </div>

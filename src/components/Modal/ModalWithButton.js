@@ -53,6 +53,7 @@ export default function ModalWithButton({
       handleClick();
     } else {
       setChild(true);
+      setTimeout(handleClose, 2100);
     }
   };
 

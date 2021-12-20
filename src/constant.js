@@ -153,5 +153,8 @@ export const INIT_STATE = {
   MessageModal: {
     isShow: false,
   },
+ BuyMoreDialog: {
+    isShow: false,
+  },
   //#endregion
 };

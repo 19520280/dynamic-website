@@ -1,6 +1,7 @@
 import {
   Box,
   Checkbox,
+  Divider,
   IconButton,
   Table,
   TableBody,
@@ -19,13 +20,12 @@ import React from "react";
 import { cartProducts } from "../../dataSources/CartProducts";
 
 function EnhancedTableHead(props) {
-  const { onSelectAllClick, numSelected, rowCount } = props;
+  const { onSelectAllClick, numSelected, rowCount, contentOnly } = props;
 
   return (
     <TableHead
       sx={{
         position: "sticky",
-        top: "12px",
       }}
     >
       <TableRow>
@@ -55,17 +55,19 @@ function EnhancedTableHead(props) {
           Thành tiền
         </TableCell>
 
-        <TableCell align="right" padding="checkbox">
-          <IconButton title="Xóa mục đã chọn">
-            <DeleteOutlinedIcon fontSize="small" />
-          </IconButton>
-        </TableCell>
+        {contentOnly ? null : (
+          <TableCell align="right" padding="checkbox">
+            <IconButton title="Xóa mục đã chọn">
+              <DeleteOutlinedIcon fontSize="small" />
+            </IconButton>
+          </TableCell>
+        )}
       </TableRow>
     </TableHead>
   );
 }
 
-const CheckCartLeftTable = () => {
+const CheckCartLeftTable = ({ contentOnly }) => {
   /* #region  handleSelected */
   const [selected, setSelected] = React.useState([]);
 
@@ -104,14 +106,22 @@ const CheckCartLeftTable = () => {
   const [soLuong, setSoLuong] = React.useState(1);
   return (
     <Box
-      sx={{
-        width: "100%",
-        backgroundColor: "white",
-        border: "1px solid",
-        borderRadius: "4px",
-        borderColor: SystemColor.gray,
-        padding: "0px 12px",
-      }}
+      sx={
+        contentOnly
+          ? {
+              width: "100%",
+              borderTop:"1px solid",
+              borderColor: SystemColor.gray,
+            }
+          : {
+              width: "100%",
+              backgroundColor: "white",
+              border: "1px solid",
+              borderRadius: "4px",
+              borderColor: SystemColor.gray,
+              padding: "0px 12px",
+            }
+      }
     >
       <TableContainer>
         <Table
@@ -123,6 +133,7 @@ const CheckCartLeftTable = () => {
             numSelected={selected.length}
             onSelectAllClick={handleSelectAllClick}
             rowCount={cartProducts.length}
+            contentOnly={contentOnly}
           />
           <TableBody>
             {cartProducts.map((row, index) => {
@@ -170,11 +181,13 @@ const CheckCartLeftTable = () => {
                       justifyContent="flex-end"
                     />
                   </TableCell>
-                  <TableCell align="right" padding="checkbox">
-                    <IconButton>
-                      <DeleteOutlinedIcon fontSize="small" />
-                    </IconButton>
-                  </TableCell>
+                  {contentOnly ? null : (
+                    <TableCell align="right" padding="checkbox">
+                      <IconButton>
+                        <DeleteOutlinedIcon fontSize="small" />
+                      </IconButton>
+                    </TableCell>
+                  )}
                 </TableRow>
               );
             })}

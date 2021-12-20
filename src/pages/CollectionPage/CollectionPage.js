@@ -12,10 +12,15 @@ import { useHistory, useLocation } from "react-router-dom";
 import React from "react";
 import CustomeImage from "../../components/Banner/CustomeImage";
 import ImageBanner from "../../components/Banner/ImageBanner";
+import { useInView } from "react-intersection-observer";
 
 const video1 = "../../assets/videos/Video1.mp4";
 
 export default function CollectionPage() {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0.4,
+  });
   const history = useHistory();
   const vid = 1;
   const theme = useTheme();
@@ -36,7 +41,8 @@ export default function CollectionPage() {
           justifyContent={"center"}
           style={{ height: "60vh", margin: isMobile ? "50px" : "70px 250px" }}
         >
-          <Box>
+         {/* <div className={inView ? "slider--zoom--banner" : "slider--banner"} ref={ref}> */}
+         <Box>
             <Typography fontSize={isMobile ? "1.8rem" : "2rem"}>
               <h3>THE 2021/22 MÉTIERS D’ART COLLECTION</h3>
             </Typography>
@@ -51,6 +57,8 @@ export default function CollectionPage() {
               </h4>
             </Typography>
           </Box>
+         {/* </div> */}
+         
         </Stack>
       </Slide>
 
