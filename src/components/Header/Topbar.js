@@ -3,13 +3,14 @@ import "./Header.css";
 import * as actions from "../../redux/actions/index";
 
 import {
-  Avatar,
-  Badge,
   Box,
+  Divider,
+  Drawer,
   IconButton,
   InputAdornment,
   Stack,
   TextField,
+  Typography,
 } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import {
@@ -20,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { AuthContext } from "../../context/context";
 import AvatarPopover from "../Popovers/AvatarPopover";
+import CloseIcon from "@mui/icons-material/Close";
 import LoginModal from "../Modal/LoginModal";
 import Logo from "../../assets/images/Logo.png";
 import OTPModal from "../Modal/OTPModal";
@@ -38,13 +40,13 @@ export const TopbarDesktop = () => {
   const setSaleBanner = React.useCallback(
     (value) => {
       dispatch(actions.showSaleBanner(value));
+      history.push("/");
     },
     [dispatch]
   );
   useEffect(() => {}, [SaleBanner]);
 
   const { openLoginModal, userData } = useContext(AuthContext);
-
   return (
     <>
       <LoginModal />
@@ -135,14 +137,81 @@ export const TopbarDesktop = () => {
 
 export const TopbarMobile = () => {
   const history = useHistory();
+  const [openSearchBox, setOpenSearchBox] = useState(false);
   const { openLoginModal, userData } = useContext(AuthContext);
-
+  //Code vội nên ko chia nữa :'()
+  const searchBox = (
+    <Box sx={{ width: "100%", p: 2 }} role="presentation">
+      <Stack
+        flexDirection="column"
+        justifyContent="flex-start"
+        alignItems="stretch"
+        spacing={1}
+        sx={{ marginBottom: "50%"}}
+      >
+        <div>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            spacing={2}
+          >
+            <Typography variant="button" fontWeight="bold" color="secondary">
+              TÌM KIẾM
+            </Typography>
+            <IconButton
+              onClick={() => setOpenSearchBox(false)}
+              sx={{ cursor: "pointer" }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Stack>
+          <Divider />
+        </div>
+        <TextField
+          focused
+          variant="outlined"
+          color="secondary"
+          placeholder="Tìm kiếm sản phẩm"
+          sx={{
+            backgroundColor: "transparent",
+            width: "100%",
+          }}
+          InputProps={{
+            style: {
+              borderRadius: "4px",
+              height: "36px",
+              width: "100%",
+              fontSize: "14px",
+              padding: "8px",
+              marginTop: "5%" 
+            },
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Stack>
+    </Box>
+  );
   return (
     <>
       <LoginModal />
       <RegisterModal />
       <OTPModal />
       <WelcomeModal />
+      <Drawer
+        anchor="bottom"
+        open={openSearchBox}
+        onClose={() => setOpenSearchBox(false)}
+        sx={{ borderRadius: "4px" }}
+      >
+        {searchBox}
+      </Drawer>
       <Stack direction="row" className="topbar">
         <Box component="div" sx={{ display: "inline", flex: 1 }}>
           <img src={Logo} onClick={() => history.push("/")} />
@@ -154,7 +223,7 @@ export const TopbarMobile = () => {
           justifyContent="flex-end"
           alignItems="center"
         >
-          <IconButton>
+          <IconButton onClick={() => setOpenSearchBox(true)}>
             <SearchIcon style={{ color: "white" }} />
           </IconButton>
           <ShoppingCartPopoverMobile />
