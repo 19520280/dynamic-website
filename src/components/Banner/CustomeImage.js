@@ -43,7 +43,7 @@ export default function CustomeImage({ video, image }) {
           >
             XEM THÊM
           </Button>
-      </div>
+        </div>
     </div>
   );
 }
