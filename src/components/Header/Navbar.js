@@ -27,7 +27,7 @@ function Navbar({ isMobile }) {
           >
             <MenuIcon />
           </IconButton>
-          <Stack direction="column" spacing={2}>
+          <Stack direction="column" spacing={2} alignItems="center">
             {openMenu ? content : null}
           </Stack>
         </>
