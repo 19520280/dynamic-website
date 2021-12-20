@@ -115,7 +115,7 @@ const ProductDetailPage = () => {
             <Box
               width={"100%"}
               paddingY={1}
-              paddingX={2}
+              //paddingX={2}
               border={1}
               borderRadius={1}
               borderColor={SystemColor.gray}
@@ -136,7 +136,7 @@ const ProductDetailPage = () => {
             <Box
               width={"100%"}
               paddingY={1}
-              paddingX={2}
+              //paddingX={2}
               border={1}
               marginY={2}
               borderColor={SystemColor.gray}
@@ -416,9 +416,10 @@ const ProductDetailPage = () => {
           bottom={0}
           height={50}
           display={"flex"}
+          component={Paper}
         >
           <Button
-            variant="Outline"
+            variant="outline"
             onClick={openCollectionDialog}
             sx={{
               alignItems: "center",
