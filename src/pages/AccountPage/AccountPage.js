@@ -73,7 +73,7 @@ const AccountPage = ({ accountRoute }) => {
           )}
           {accountRoute === "Chi-so-co-the" && <Measure />}
           {accountRoute === "Doi-mat-khau" && <ChangePassword />}
-          {accountRoute === "Order-tracking" && <OrderTracking />}
+          {accountRoute === "Order-tracking" && <OrderTracking  data={data}/>}
           {/* {accountRoute === "Don-mua" && <Orders />}
           {accountRoute === "Diem-thuong" && <Points />}
           {accountRoute === "Danh-sach-quan-tam" && <WishLists />}

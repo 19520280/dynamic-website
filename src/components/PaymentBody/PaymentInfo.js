@@ -2,26 +2,13 @@ import { Box, Button, Divider, Link, Stack, Typography } from "@mui/material";
 import { SystemColor, TxtColor } from "../../color";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import { MoneyInfo } from "./MoneyInfo";
 import React from "react";
 import TextFieldWithButton from "../TextFields/TextFieldWithButton";
 import numberWithCommas from "../../utils/numberWithCommas";
 
 const moneyInfo = (title, info, isMoney) => (
-  <Stack direction="row" alignItems="stretch" justifyContent="space-between">
-    <Typography fontWeight="medium" color="secondary">
-      {title}
-    </Typography>
-    <Typography
-      fontWeight="bold"
-      color={title === "Giảm giá" ? SystemColor.error : "primary"}
-    >
-      {info
-        ? isMoney
-          ? `${title === "Giảm giá" ? "-" : ""} ${numberWithCommas(info)}`
-          : `${info} điểm`
-        : "Chưa có thông tin"}
-    </Typography>
-  </Stack>
+  <MoneyInfo title={title} info={info} isMoney={isMoney} />
 );
 const PaymentInfo = ({
   isMobile,
@@ -69,9 +56,9 @@ const PaymentInfo = ({
             justContent="flex-start"
             fullWidth
           />
-          {moneyInfo("Tạm tính", 200000, true)}
-          {shipFree ? moneyInfo("Phí vận chuyển", 50000, true) : null}
-          {moneyInfo("Giảm giá", 20000, true)}
+          {moneyInfo("Tạm tính", 550000, true)}
+          {shipFree ? moneyInfo("Phí vận chuyển", 25000, true) : null}
+          {moneyInfo("Giảm giá", 25000, true)}
           <Divider />
           <Stack
             direction="row"
@@ -90,7 +77,7 @@ const PaymentInfo = ({
               fontWeight="bold"
               color="primary"
             >
-              {numberWithCommas(500000)}
+              {numberWithCommas(550000)}
             </Typography>
           </Stack>
           {isAccount ? (

@@ -1,0 +1,15 @@
+/* @px-to-rem */
+
+.trackingRow {
+  position: relative;
+}
+
+.trackingRowConnector {
+  width: 1px;
+  height: 100%;
+
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  background: #BEBEBE;
+}
