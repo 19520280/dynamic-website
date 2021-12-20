@@ -1,4 +1,3 @@
-import { MoreVert, StarRounded } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -8,9 +7,11 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
-import { SystemColor } from "../../color";
+import { MoreVert, StarRounded } from "@mui/icons-material";
+
 import ConfirmModal from "../Modal/ConfirmModal";
+import { SystemColor } from "../../color";
+import { useState } from "react";
 
 const info = (title, info, isDefault, isLaptop) => (
   <Stack

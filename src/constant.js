@@ -15,6 +15,9 @@ export const INIT_STATE = {
   AddCollectionDialog: {
     isShow: false,
   },
+  ChangeAddressDialog: {
+    isShow: false,
+  },
   ProductDialog: {
     isShow: false,
   },
