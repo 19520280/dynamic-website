@@ -164,7 +164,7 @@ function ProductPanel({ sanPham, isMobile }) {
             display: "flex",
             width: "100%",
             paddingX: "2%",
-            paddingY: "1%",
+            paddingY: "2%",
           }}
         >
           <ShowSizeGuide sanPham={sanPham} />
