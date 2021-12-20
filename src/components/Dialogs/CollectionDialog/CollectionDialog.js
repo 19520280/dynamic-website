@@ -105,9 +105,12 @@ const CollectionDialog = () => {
                 tabIndex={-1}
               >
                 <Stack direction="column" spacing={2}>
-                  {[...new Array(10)].map(() =>
-                    collectionItem(imgMonarchButterflys11, "Áo")
-                  )}
+                  {[...new Array(6)].map((_, index) => (
+                    <>
+                      {collectionItem(imgMonarchButterflys11, "Áo")}
+                      {index < 5 ? <Divider /> : null}
+                    </>
+                  ))}
                 </Stack>
               </DialogContentText>
             </DialogContent>

@@ -4,7 +4,7 @@
   width:max-content;
   min-width: min-content;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .product-item img {
   border-radius: 4px;
