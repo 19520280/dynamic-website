@@ -1,19 +1,21 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
+
+import { AuthContext } from "../../context/context";
 import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
+import Box from "@mui/material/Box";
+import ConfirmModal from "../Modal/ConfirmModal";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Logout from "@mui/icons-material/Logout";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
-import { AuthContext } from "../../context/context";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import { shadowColor } from "./../../color";
 import { useHistory } from "react-router-dom";
-import ConfirmModal from "../Modal/ConfirmModal";
 
 export default function AvatarPopover() {
   const history = useHistory();
@@ -47,7 +49,7 @@ export default function AvatarPopover() {
           elevation: 0,
           sx: {
             overflow: "visible",
-            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+            boxShadow: shadowColor,
             mt: 1.5,
             "& .MuiAvatar-root": {
               width: 32,
