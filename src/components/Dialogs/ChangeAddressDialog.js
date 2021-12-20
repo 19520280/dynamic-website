@@ -57,7 +57,7 @@ const ChangeAddressDialog = ({ data }) => {
                 <FormControl component="fieldset">
                   <RadioGroup
                     aria-label="gender"
-                    defaultValue="saving"
+                    defaultValue={data.address.isDefault}
                     name="radio-buttons-group"
                   >
                     <Stack direction="column" spacing={2}>
@@ -66,7 +66,7 @@ const ChangeAddressDialog = ({ data }) => {
                           <FormControlLabel
                             sx={{ marginBottom: 2 }}
                             key={index}
-                            value="saving"
+                            value={index}
                             control={<Radio sx={{ marginRight: 1 }} />}
                             label={<MemberInfo data={data} address={add} />}
                           />
