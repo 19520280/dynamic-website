@@ -2,6 +2,7 @@ import {
   Avatar,
   Divider,
   IconButton,
+  Link,
   Stack,
   TextField,
   useMediaQuery,
@@ -17,6 +18,7 @@ import { AuthContext } from "../../context/context";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import MessageModal from "./MessageModal";
 import { facebook, google } from "../../constant";
+import { ChevronRight } from "@mui/icons-material";
 
 export default function LoginModal() {
   const theme = useTheme();
@@ -75,8 +77,14 @@ export default function LoginModal() {
                 <Avatar sx={{ width: 32, height: 32 }} src={google} />
               </IconButton>
             </Stack>
-            <Stack direction="row" justifyContent="center">
-              <Button onClick={() => handleRegisterClick()}>Đăng ký</Button>
+            <Stack direction="row" justifyContent="center" alignItems="center">
+              <Link
+                sx={{ cursor: "pointer" }}
+                onClick={() => handleRegisterClick()}
+              >
+                Đăng ký
+              </Link>
+              <ChevronRight />
             </Stack>
           </Stack>
           <MessageModal

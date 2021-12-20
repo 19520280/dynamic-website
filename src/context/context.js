@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   AccountState$,
   LoginModalState$,
+  OTPModalState$,
   RegisterModalState$,
+  WelcomeModalState$,
 } from "../redux/selectors/index";
 import * as actions from "../redux/actions/index";
 
@@ -23,6 +25,7 @@ const AuthContextProvider = ({ children }) => {
   }, [dispatch]);
 
   const closeLoginModal = useCallback(() => {
+    console.log(registerModalState);
     setLoginModalState(false);
     dispatch(actions.closeLoginModal());
   }, [dispatch]);
@@ -44,6 +47,38 @@ const AuthContextProvider = ({ children }) => {
   }, [dispatch]);
   //#endregion
 
+  //#region OTPModal
+  const OTPModal = useSelector(OTPModalState$);
+
+  const [OTPModalState, setOTPModalState] = useState(OTPModal.isShow);
+
+  const openOTPModal = useCallback(() => {
+    setOTPModalState(true);
+    dispatch(actions.openOTPModal());
+  }, [dispatch]);
+
+  const closeOTPModal = useCallback(() => {
+    setOTPModalState(false);
+    dispatch(actions.closeOTPModal());
+  }, [dispatch]);
+  //#endregion
+
+  //#region WelcomeModal
+  const welcomeModal = useSelector(WelcomeModalState$);
+
+  const [welcomeModalState, setWelcomeModalState] = useState(welcomeModal.isShow);
+
+  const openWelcomeModal = useCallback(() => {
+    setWelcomeModalState(true);
+    dispatch(actions.openWelcomeModal());
+  }, [dispatch]);
+
+  const closeWelcomeModal = useCallback(() => {
+    setWelcomeModalState(false);
+    dispatch(actions.closeWelcomeModal());
+  }, [dispatch]);
+  //#endregion
+
   //#region user info
   useEffect(() => {
     dispatch(actions.getAccount());
@@ -59,7 +94,6 @@ const AuthContextProvider = ({ children }) => {
 
   const login = useCallback(() => {
     setUserData({ ...userData, isLoggedin: true });
-    console.log("Ok")
     dispatch(actions.login());
   }, [dispatch]);
 
@@ -76,6 +110,12 @@ const AuthContextProvider = ({ children }) => {
     registerModalState,
     openRegisterModal,
     closeRegisterModal,
+    OTPModalState,
+    openOTPModal,
+    closeOTPModal,
+    welcomeModalState,
+    openWelcomeModal,
+    closeWelcomeModal,
     userData,
     setUserData,
     login,

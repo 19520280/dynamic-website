@@ -14,6 +14,8 @@ import RegisterModal from "./RegisterModal.js";
 import SaleBanner from "./SaleBanner.js";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.js";
 import SizeGuideDialog from "./SizeGuideDialog.js";
+import OTPModal from "./OTPModal.js";
+import WelcomeModal from "./WelcomeModal.js";
 import { combineReducers } from "redux";
 
 export default combineReducers({
@@ -32,5 +34,7 @@ export default combineReducers({
   RegisterModal,
   AddCollectionDialog,
   AvatarPopover,
-  ChangeAddressDialog
+  ChangeAddressDialog,
+  OTPModal,
+  WelcomeModal,
 });

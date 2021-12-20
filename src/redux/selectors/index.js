@@ -12,6 +12,8 @@ export const ProductDialogState$ = (state) => state.ProductDialog.isShow;
 //#region Auth
 export const LoginModalState$ = (state) => state.LoginModal;
 export const RegisterModalState$ = (state) => state.RegisterModal;
+export const OTPModalState$ = (state) => state.OTPModal;
+export const WelcomeModalState$ = (state) => state.WelcomeModal;
 //#endregion
 
 //#region Account

@@ -1,8 +1,13 @@
 import {
   Avatar,
+  Checkbox,
   Divider,
+  FormControlLabel,
+  IconButton,
+  Link,
   Stack,
   TextField,
+  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -16,18 +21,37 @@ import { AuthContext } from "../../context/context";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import MessageModal from "./MessageModal";
 import { facebook, google } from "../../constant";
+import { ChevronLeft } from "@mui/icons-material";
 
 export default function RegisterModal() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [child, setChild] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-  const { openLoginModal, registerModalState, closeRegisterModal, login } =
-    useContext(AuthContext);
+  const {
+    openLoginModal,
+    registerModalState,
+    closeRegisterModal,
+    openOTPModal,
+    openWelcomeModal,
+    login,
+  } = useContext(AuthContext);
 
   const handleClick = () => {
     setChild(true);
-    login();
+    if (checked) {
+      login();
+    }
+  };
+
+  const handleNextClick = () => {
+    if (checked) {
+      openOTPModal();
+      closeRegisterModal();
+    } else {
+      setChild(true);
+    }
   };
 
   const handleLoginClick = () => {
@@ -55,11 +79,22 @@ export default function RegisterModal() {
             <TextField label="Email / Số điện thoại" />
             <TextField label="Mật khẩu" type="password" />
             <TextField label="Nhập lại mật khẩu" type="password" />
-            <Button onClick={handleClick} size="large" variant="contained">
+            <Button onClick={handleNextClick} size="large" variant="contained">
               ĐĂNG KÝ
             </Button>
-            <Stack direction="row-reverse">
-              <Button sx={{ fontWeight: "bold" }}>QUÊN MẬT KHẨU</Button>
+            <Stack
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              <Checkbox
+                checked={checked}
+                onClick={(e) => setChecked(e.target.checked)}
+              />
+              <Typography>
+                Đồng ý với{" "}
+                <Link sx={{ cursor: "pointer" }}>Điều khoản sử dụng</Link>
+              </Typography>
             </Stack>
             <Divider>HOẶC</Divider>
             <Stack
@@ -68,19 +103,31 @@ export default function RegisterModal() {
               justifyContent="center"
               alignsItems="center"
             >
-              <Avatar src={facebook} onClick={() => handleClick()} />
-              <Avatar src={google} onClick={() => handleClick()} />
+              <IconButton size="small" onClick={() => handleClick()}>
+                <Avatar sx={{ width: 32, height: 32 }} src={facebook} />
+              </IconButton>
+              <IconButton size="small" onClick={() => handleNextClick()}>
+                <Avatar sx={{ width: 32, height: 32 }} src={google} />
+              </IconButton>
             </Stack>
             <Stack direction="row" justifyContent="center">
-              <Button onClick={() => handleLoginClick()}>Đăng nhập</Button>
+              <ChevronLeft />
+              <Link
+                sx={{ cursor: "pointer" }}
+                onClick={() => handleLoginClick()}
+              >
+                Đăng nhập
+              </Link>
             </Stack>
           </Stack>
           <MessageModal
             state={child}
             setState={setChild}
-            setStateParent={closeRegisterModal}
-            text="Đăng ký thành công"
-            severity="success"
+            action={checked ? openWelcomeModal : null}
+            text={
+              checked ? "Đăng ký thành công" : "Chưa đồng ý điều khoản sử dụng"
+            }
+            severity={checked ? "success" : "warning"}
             closeAfterSecond={true}
           />
         </Box>

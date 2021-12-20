@@ -26,6 +26,9 @@ import { AuthContext } from "../../context/context";
 import { Person } from "@mui/icons-material";
 import LoginModal from "../Modal/LoginModal";
 import AvatarPopover from "../Popovers/AvatarPopover";
+import RegisterModal from "../Modal/RegisterModal";
+import OTPModal from "../Modal/OTPModal";
+import WelcomeModal from "../Modal/WelcomeModal";
 
 export const TopbarDesktop = () => {
   const history = useHistory();
@@ -120,6 +123,9 @@ export const TopbarDesktop = () => {
           </IconButton>
         )}
         <LoginModal />
+        <RegisterModal />
+        <OTPModal />
+        <WelcomeModal />
       </Stack>
     </Stack>
   );
@@ -153,6 +159,9 @@ export const TopbarMobile = () => {
           </IconButton>
         )}
         <LoginModal />
+        <RegisterModal />
+        <OTPModal />
+        <WelcomeModal />
       </Stack>
     </Stack>
   );

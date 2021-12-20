@@ -40,6 +40,12 @@ export const INIT_STATE = {
   RegisterModal: {
     isShow: false,
   },
+  OTPModal: {
+    isShow: false,
+  },
+  WelcomeModal: {
+    isShow: false,
+  },
   AvatarPopover: {
     isShow: false,
   },

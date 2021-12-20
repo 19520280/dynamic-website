@@ -56,6 +56,10 @@ export const openLoginModal = createAction("OPEN_LOGIN_MODAL");
 export const closeLoginModal = createAction("CLOSE_LOGIN_MODAL");
 export const openRegisterModal = createAction("OPEN_REGISTER_MODAL");
 export const closeRegisterModal = createAction("CLOSE_REGISTER_MODAL");
+export const openOTPModal = createAction("OPEN_OTP_MODAL");
+export const closeOTPModal = createAction("CLOSE_OTP_MODAL");
+export const openWelcomeModal = createAction("OPEN_WELCOME_MODAL");
+export const closeWelcomeModal = createAction("CLOSE_WELCOME_MODAL");
 
 export const showAvatarPopover = createAction("SHOW_AVATAR_POPOVER");
 export const hideAvatarPopover = createAction("HIDE_AVATAR_POPOVER");
