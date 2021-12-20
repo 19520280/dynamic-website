@@ -24,11 +24,15 @@ function ShowMainImage({
   selectedColor,
 }) {
   const [listimg, setlistimg] = React.useState([]);
+  const [listImgfull, setlistfull] = React.useState([]);
   const indexSelected = sanPham.mauSacs.indexOf(selectedColor);
 
   if (sanPham.imgs.length && listimg.length === 0) {
     sanPham.imgs[0].map((img) => listimg.push(img));
   }
+  React.useEffect(() => {
+    sanPham.imgs.map((e) => e.map((img) => listImgfull.push(img)));
+  }, [sanPham]);
   React.useEffect(() => {
     while (listimg.length) {
       listimg.pop();
@@ -56,24 +60,7 @@ function ShowMainImage({
   const handleMouseMove = (e) => {
     setImgMain(e);
   };
-  const MainImage = (
-    <img src={imgMain} width={"100%"} height={sizeMainImg} />
-    // <ReactImageMagnify
-    //   {...{
-    //     smallImage: {
-    //       isFluidWidth: true,
-    //       src: imgMain,
-    //       width: "100%",
-    //       height: "120%",
-    //     },
-    //     largeImage: {
-    //       src: imgMain,
-    //       width: 1500,
-    //       height: 1800,
-    //     },
-    //   }}
-    // />
-  );
+  const MainImage = <img src={imgMain} width={"100%"} height={sizeMainImg} />;
   const showImage = (size) => (
     <Dialog open={openImg.show} onClose={handleIMGClose} maxWidth={size}>
       <DialogTitle id="scroll-dialog-title" marginBottom={2}>
@@ -157,7 +144,7 @@ function ShowMainImage({
             </Box>
             <Box width="45%" marginLeft={"2%"}>
               <ImageList cols={4} gap={9} variant="woven">
-                {listimg.map((img, index) => (
+                {listImgfull.map((img, index) => (
                   <Box onClick={() => handleClickShowIMGOpen(img)}>
                     <img src={img} width={"100%"} loading="lazy" />
                   </Box>
