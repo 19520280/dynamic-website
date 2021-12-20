@@ -160,6 +160,11 @@ function App() {
                 exact
                 component={ProductDetailPage}
               />
+              <Route
+                path="/Quan/Quan-ngan/:path"
+                exact
+                component={ProductDetailPage}
+              />
             </div>
           </Switch>
           <Footer />

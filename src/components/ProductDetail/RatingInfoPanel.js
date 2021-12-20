@@ -2,14 +2,14 @@ import * as React from "react";
 import { Box, Divider, Rating, Typography } from "@mui/material";
 
 export default function RatingInfoPanel({ size }) {
-  const [sizeNumber, setSizeNumber] = React.useState(20);
-  const [sizeChar, setSizeChar] = React.useState(16);
+  const [sizeNumber, setSizeNumber] = React.useState(19);
+  const [sizeChar, setSizeChar] = React.useState(14);
   React.useEffect(() => {
     if (size === "small") {
       setSizeChar(12);
       setSizeNumber(14);
     } else if (size === "middle") {
-      setSizeChar(16);
+      setSizeChar(14);
       setSizeNumber(15);
     }
   }, [size]);

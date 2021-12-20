@@ -28,7 +28,7 @@ function QuickViewDialog({ sanPham }) {
   }, [dispatch]);
   return (
     <div>
-      <Dialog open={open} onClose={handleClose} maxWidth="lg">
+      <Dialog open={open} onClose={handleClose} maxWidth="md">
         <DialogTitle sx={{ textAlign: "center" }}>
           <IconButton
             aria-label="close"
@@ -46,18 +46,18 @@ function QuickViewDialog({ sanPham }) {
           <Box display={isMobile ? null : "flex"}>
             <Box
               alignContent="center"
-              width="60%"
+              width="55%"
               height="100%"
               display={"flex"}
             >
               <ShowMainImage
-                sizeMainImg={500}
-                sizeSubImg={115}
+                sizeMainImg={490}
+                sizeSubImg={113}
                 isMobile={isMobile}
                 sanPham={sanPham}
               />
             </Box>
-            <Box width="40%" marginLeft={3}>
+            <Box width="45%" marginLeft={3}>
               <InfoProduct
                 sanPham={sanPham}
                 isMobile={isMobile}

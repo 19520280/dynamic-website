@@ -23,6 +23,7 @@ import PriceTypography from "../Typographys/PriceTypography";
 import { useDispatch } from "react-redux";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import CountTypography from "../Typographys/CountTypography";
+import MessageModal from "../Modal/MessageModal";
 function InfoProduct({ sanPham, isMobile, size }) {
   const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
@@ -79,7 +80,7 @@ function InfoProduct({ sanPham, isMobile, size }) {
         </Box>
         <Box sx={{ display: "flex" }} display={"none"}>
           <RatingInfolPanel size={size ? size : "medium"} />
-          <ShareIcon sx={{ float: "right", width: "10%" }} />
+          <ShareIcon sx={{ float: "right" }} />
         </Box>
         <Box marginTop={1}>
           <PriceTypography
@@ -91,7 +92,7 @@ function InfoProduct({ sanPham, isMobile, size }) {
         </Box>
       </Box>
       <Divider variant="fullWidth" orientation="horizontal" />
-      <Box className="Main_Box_Right_Color">
+      <Box className="Main_Box_Right_Color" marginBottom={1}>
         <Box marginTop={1} marginBottom={-1}>
           <CountTypography
             variant="button"
@@ -134,11 +135,17 @@ function InfoProduct({ sanPham, isMobile, size }) {
           </ImageList>
         </Box>
       </Box>
-      <Box
-        sx={{ display: "flex", marginTop: 1 }}
-        className="Main_Box_Right_Size_Guide"
-      >
-        <Button onClick={openSizeGuideDialog}>
+      <Box display="flex" marginY={1} className="Main_Box_Right_Size_Guide">
+        <Button
+          onClick={openSizeGuideDialog}
+          padding="0px"
+          sx={{
+            padding: 0,
+            "&:last-child": {
+              padding: 0,
+            },
+          }}
+        >
           <StraightenIcon />
           <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>SIZE GUIDE</h4>
         </Button>
@@ -146,6 +153,22 @@ function InfoProduct({ sanPham, isMobile, size }) {
       <Divider variant="fullWidth" orientation="horizontal" />
       <Box className="Main_Box_Right_Input_SL">
         <Box sx={{ alignContent: "center", display: "flex" }} marginTop={2}>
+          <Button
+            variant="contained"
+            sx={{
+              alignItems: "center",
+              height: 40,
+              width: "50%",
+              marginRight: 2,
+              background: "#303537",
+              borderRadius: 1,
+              marginTop: 0.2,
+            }}
+            disabled={!sp.soLuong}
+            onClick={handleClickOpen}
+          >
+            Thêm vào giỏ hàng
+          </Button>
           <ButtonGroup variant="outlined">
             <Button
               sx={{ width: 10 }}
@@ -181,37 +204,27 @@ function InfoProduct({ sanPham, isMobile, size }) {
               <AddIcon />
             </Button>
           </ButtonGroup>
-          <Button
-            variant="contained"
-            sx={{
-              alignItems: "center",
-              height: 40,
-              width: "50%",
-              marginLeft: 2,
-              background: "#303537",
-              borderRadius: 1,
-              marginTop: 0.2,
-            }}
-            disabled={!sp.soLuong}
-            onClick={handleClickOpen}
-          >
-            Thêm vào giỏ hàng
-          </Button>
-          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert
-              onClose={handleClose}
-              severity="success"
-              sx={{ width: "100%" }}
-            >
-              Thêm vào giỏ hàng thành công
-            </Alert>
-          </Snackbar>
+          <MessageModal
+            text={"Thêm vào giỏ hàng thành công"}
+            severity={"success"}
+            closeAfterSecond={true}
+            state={open}
+            setState={setOpen}
+          />
         </Box>
         <Box marginTop={1}>
           <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
         </Box>
-        <Box display="flex" alignContent="center" marginBottom={1}>
-          <Button onClick={openCollectionDialog}>
+        <Box display="flex" alignContent="center" marginY={1}>
+          <Button
+            onClick={openCollectionDialog}
+            sx={{
+              padding: 0,
+              "&:last-child": {
+                padding: 0,
+              },
+            }}
+          >
             <AddBox />
             <h4 style={{ marginTop: 2.7, marginLeft: 5 }}>
               THÊM VÀO DANH SÁCH

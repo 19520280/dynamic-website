@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import TextFieldWithTitlePassword from "../TextFields/TextFiledWithTittlePassword";
 import HeaderTypography from "../Typographys/HeaderTypography";
-
+import MessageModal from "../Modal/MessageModal";
 const ChangePassword = ({ data, setData }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -42,16 +42,20 @@ const ChangePassword = ({ data, setData }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box paddingY={3}>
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-        <Alert severity="success" width="100%">
-          Đổi mật khẩu thành công
-        </Alert>
-      </Snackbar>
-      <Snackbar open={openerr} autoHideDuration={3000} onClose={handleCloseerr}>
-        <Alert severity="error" width="100%">
-          Mật khẩu không khớp
-        </Alert>
-      </Snackbar>
+      <MessageModal
+        text={"Đổi mật khẩu thành công"}
+        severity={"success"}
+        closeAfterSecond={true}
+        state={open}
+        setState={setOpen}
+      />
+      <MessageModal
+        text={"Mật khẩu không khớp"}
+        severity={"error"}
+        closeAfterSecond={true}
+        state={openerr}
+        setState={setOpenerr}
+      />
       <HeaderTypography text="Đổi mật khẩu" padding={"12px 0px"} />
       <Box
         width="100%"
