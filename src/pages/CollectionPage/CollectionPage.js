@@ -93,7 +93,7 @@ export default function CollectionPage() {
           {!isMobile ? (<CustomeImage image={2} />) : null}
 
           <Stack direction="column" justifyContent="center" paddingTop="30px">
-            <Typography fontSize={isMobile ? "1.6rem" : "2rem"}>
+            <Typography paddingLeft={isMobile?"50px":"0px"} fontSize={isMobile ? "1.6rem" : "2rem"}>
               <h3>KHÁM PHÁ NHIỀU HƠN NHỮNG TRANG PHỤC MỚI TẠI DYNAMIC</h3>
             </Typography>
             <Stack
