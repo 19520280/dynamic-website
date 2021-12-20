@@ -1,12 +1,13 @@
 import { AddToPhotos, RemoveRedEye } from "@mui/icons-material";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { Stack, Tooltip } from "@mui/material";
-
-import CircleIconButton from "./CircleIconButton";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { showCollectionDialog, showQuickViewDialog } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+
+import { AuthContext } from "../../context/context";
+import CircleIconButton from "./CircleIconButton";
 import QuickViewDialog from "../Dialogs/QuickView/QuickViewDialog";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useDispatch } from "react-redux";
 
 const BtnProCardGroup = ({ sanPham }) => {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ const BtnProCardGroup = ({ sanPham }) => {
   const openQuickViewDialog = useCallback(() => {
     dispatch(showQuickViewDialog());
   }, [dispatch]);
+
+  const { userData } = useContext(AuthContext);
   return (
     <>
       {product ? <QuickViewDialog sanPham={product} /> : null}
@@ -33,11 +36,13 @@ const BtnProCardGroup = ({ sanPham }) => {
           title="Thêm vào giỏ hàng"
           icon={<ShoppingCartIcon style={{ color: "white" }} />}
         />
-        <CircleIconButton
-          title="Thêm vào danh sách"
-          onClick={openCollectionDialog}
-          icon={<AddToPhotos style={{ color: "white" }} />}
-        />
+        {userData && userData.isLoggedin ? (
+          <CircleIconButton
+            title="Thêm vào danh sách"
+            onClick={openCollectionDialog}
+            icon={<AddToPhotos style={{ color: "white" }} />}
+          />
+        ) : null}
       </Stack>
     </>
   );

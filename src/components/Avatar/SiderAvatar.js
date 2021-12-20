@@ -1,14 +1,18 @@
 import { Avatar, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { useContext } from "react";
+import { AuthContext } from "../../context/context";
 
-const SiderAvatar = ({ avatarImage, accountName, timeHasJoined }) => {
+const SiderAvatar = () => {
+  const { userData } = useContext(AuthContext);
+
   return (
     <ListItem alignItems="flex-center">
       <ListItemAvatar>
-          <Avatar alt="Minh Đinh" src={avatarImage} sx={{ width: 60, height: 60}} />
+          <Avatar alt={userData.accountName} src={userData.avatarImage} sx={{ width: 60, height: 60}} />
       </ListItemAvatar>
       <ListItemText
-        primary={accountName}
-        secondary={`Đã tham gia ${timeHasJoined}`}
+        primary={userData.accountName}
+        secondary={`Đã tham gia ${userData.timeHasJoined}`}
         style={{paddingLeft: "15px"}}
       />
     </ListItem>

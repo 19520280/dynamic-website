@@ -56,14 +56,14 @@ const ProfileTextFieldGroup = ({ data, setData, isLaptop, onSaveClick }) => {
         />
         <Stack direction="row" alignItems="center">
           <Typography
-            sx={{ width: "175px" }}
+            sx={{ width: "40%" }}
             fontWeight="bold"
             color="secondary"
             textAlign="left"
           >
             Giới tính
           </Typography>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ pl: " 12px" }}>
             <RadioGroup
               row
               value={data.gender}
@@ -96,7 +96,7 @@ const ProfileTextFieldGroup = ({ data, setData, isLaptop, onSaveClick }) => {
           spacing="12px"
         >
           <Typography
-            sx={{ width: "175px" }}
+            sx={{ width: "40%" }}
             fontWeight="bold"
             color="secondary"
             textAlign="left"
@@ -196,14 +196,20 @@ const ProfileTextFieldGroup = ({ data, setData, isLaptop, onSaveClick }) => {
             </FormGroup>
           </FormControl>
         </Stack>
-        <Button
-          sx={{ p: "8px 40px", width: "fit-content", height: "fit-content" }}
-          variant="contained"
-          size="large"
-          onClick={onSaveClick}
-        >
-          LƯU
-        </Button>
+        <Box sx={{pl: "29%"}}>
+          <Button
+            sx={{
+              p: "8px 40px",
+              width: "fit-content",
+              height: "fit-content",
+            }}
+            variant="contained"
+            size="large"
+            onClick={onSaveClick}
+          >
+            LƯU
+          </Button>
+        </Box>
       </Stack>
     </Box>
   );

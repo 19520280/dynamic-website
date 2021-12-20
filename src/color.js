@@ -26,3 +26,5 @@ export const SystemColor = {
   info: "#0288D1",
   star: "#FFBD00",
 };
+
+export const shadowColor ="rgb(0 0 0 / 18%) 0px 6px 12px 0px"

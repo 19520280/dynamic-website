@@ -37,6 +37,9 @@ export const INIT_STATE = {
   RegisterModal: {
     isShow: false,
   },
+  AvatarPopover: {
+    isShow: false,
+  },
   Account: {
     isLoggedin: false,
     avatarImage: avatarImage,

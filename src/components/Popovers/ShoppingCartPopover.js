@@ -23,7 +23,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingCartItem from "../CartProductDetail/ShoppingCartItem";
 import { SystemColor } from "../../color";
 import { cartProducts } from "../../dataSources/CartProducts";
-import { showShoppingCartDrawer } from './../../redux/actions/index';
+import { shadowColor } from "./../../color";
+import { showShoppingCartDrawer } from "./../../redux/actions/index";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -66,16 +67,35 @@ export const ShoppingCartPopoverDesktop = () => {
           vertical: "top",
           horizontal: "right",
         }}
-        {...bindMenu(popupState)}
-        sx={{
-          "& .css-1q9g37b-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
-            {
-              padding: "12px 16px 12px 16px",
-              borderRadius: "4px",
-              border: "1px solid",
-              borderColor: SystemColor.gray,
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            overflow: "visible",
+            boxShadow: shadowColor,
+            mt: 1.5,
+
+            padding: "12px 16px 12px 16px",
+            "& .MuiAvatar-root": {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
             },
+            "&:before": {
+              content: '""',
+              display: "block",
+              position: "absolute",
+              top: 0,
+              right: 14,
+              width: 10,
+              height: 10,
+              bgcolor: "background.paper",
+              transform: "translateY(-50%) rotate(45deg)",
+              zIndex: 0,
+            },
+          },
         }}
+        {...bindMenu(popupState)}
       >
         <Stack
           flexDirection="column"
@@ -119,7 +139,7 @@ export const ShoppingCartPopoverMobile = () => {
   const openShoppingCartDrawer = React.useCallback(() => {
     dispatch(showShoppingCartDrawer());
   }, [dispatch]);
-  
+
   return (
     <React.Fragment>
       <IconButton onClick={openShoppingCartDrawer} sx={{ cursor: "pointer" }}>

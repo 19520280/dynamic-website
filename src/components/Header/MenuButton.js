@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { SaleBannerState$ } from "../../redux/selectors/index";
+import { shadowColor } from './../../color';
 
 function MenuButton({ page, setOpenMenu }) {
   const dispatch = useDispatch();
@@ -62,6 +63,32 @@ function MenuButton({ page, setOpenMenu }) {
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              overflow: "visible",
+              boxShadow: shadowColor,
+              mt: 1.5,
+              "& .MuiAvatar-root": {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              "&:before": {
+                content: '""',
+                display: "block",
+                position: "absolute",
+                top: 0,
+                left: 14,
+                width: 10,
+                height: 10,
+                bgcolor: "background.paper",
+                transform: "translateY(-50%) rotate(45deg)",
+                zIndex: 0,
+              },
+            },
+          }}
           MenuListProps={{
             disablePadding: true,
             onMouseLeave: handleClose,
@@ -75,7 +102,7 @@ function MenuButton({ page, setOpenMenu }) {
             horizontal: "left",
           }}
         >
-          <Paper sx={{ p: "0px", borderColor: "secondary" }} variant="outlined">
+          <Paper>
             {page.menu.map((item, key) => (
               <MenuItem
                 key={key}

@@ -51,7 +51,7 @@ const AuthContextProvider = ({ children }) => {
 
   const user = useSelector(AccountState$);
 
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(user);
 
   useEffect(() => {
     setUserData(user);
