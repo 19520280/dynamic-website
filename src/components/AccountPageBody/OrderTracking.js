@@ -53,7 +53,7 @@ const OrderTracking = ({ data, isMobile }) => {
           />
           <InfoItem
             title="THÔNG TIN NGƯỜI NHẬN"
-            body={<MemberInfo data={data} address={data.address.name[0]} />}
+            body={<MemberInfo data={data} address={data.address.name[1]} />}
           />
           <InfoItem
             title="THÔNG TIN THANH TOÁN"
