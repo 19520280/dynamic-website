@@ -316,6 +316,7 @@ const Measure = () => {
         borderRadius={1}
         paddingX={4}
         paddingY={3.6}
+        backgroundColor="white"
       >
         <Box marginBottom={4}>
           <Typography>

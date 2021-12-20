@@ -64,6 +64,7 @@ const ChangePassword = ({ data, setData }) => {
         borderRadius={1}
         paddingX={4}
         paddingY={3.6}
+        backgroundColor="white"
       >
         <Box width={isMobile ? "100" : "60%"}>
           <Stack direction="column" spacing="20px">
