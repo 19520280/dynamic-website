@@ -40,6 +40,9 @@ export const showChangeAddressDialog = createAction(
 export const hideChangeAddressDialog = createAction(
   "HIDE_CHANGE_ADDRESS_DIALOG"
 );
+
+export const showBuyMoreDialog = createAction("SHOW_BUY_MORE_DIALOG");
+export const hideBuyMoreDialog = createAction("HIDE_BUY_MORE_DIALOG");
 /*
   getType(getPosts.getPostSuccess)
   =>  
