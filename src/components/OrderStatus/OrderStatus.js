@@ -1,16 +1,19 @@
-import { Button, Grid, Stack, Typography, Rating } from "@mui/material";
-import React, { useState } from "react";
 import * as actions from "../../redux/actions/index";
-import OrdersCaseTypography from "../Typographys/OrdersCaseTypography";
-import PaymentCartLeftTable from "../Tables/PaymentCartLeftTable";
-import CountTypography from "../Typographys/CountTypography";
-import { useHistory } from "react-router-dom";
+
+import { Button, Grid, Rating, Stack, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { OrderStatusState$ } from "../../redux/selectors";
+
+import { Box } from "@mui/system";
 import ConfirmModal from "../Modal/ConfirmModal";
+import CountTypography from "../Typographys/CountTypography";
 import MessageModal from "../Modal/MessageModal";
 import ModalWithButtonState from "../Modal/ModalWithButtonState";
-import { Box } from "@mui/system";
+import { OrderStatusState$ } from "../../redux/selectors";
+import OrdersCaseTypography from "../Typographys/OrdersCaseTypography";
+import PaymentCartLeftTable from "../Tables/PaymentCartLeftTable";
+import { useHistory } from "react-router-dom";
+
 export default function OrderStatus({ status }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -24,7 +27,6 @@ export default function OrderStatus({ status }) {
 
   const onClick = () => {
     setStatus(true);
-    console.log(Status);
   };
 
   const rating = (
@@ -56,7 +58,7 @@ export default function OrderStatus({ status }) {
     history.push("/Lien-he");
   };
   const handleClickDetail = () => {
-    history.push("/Don-mua/Chi-tiet-danh-sach");
+    history.push("/Ca-nhan/Don-mua/Chi-tiet");
   };
   const handleClickCancle = () => {
     setStatusConfirm(true);
@@ -161,8 +163,19 @@ export default function OrderStatus({ status }) {
   );
 
   return (
-    <Grid sx={{ paddingTop: "12px" }}>
-      <Box sx={{border:"1px solid gray", padding:"10px", borderRadius:"4px", backgroundColor:"#fff", borderColor: "#BEBEBE" }}>
+    <Grid
+      sx={{ paddingTop: "12px", cursor: "pointer" }}
+      onClick={handleClickDetail}
+    >
+      <Box
+        sx={{
+          border: "1px solid gray",
+          padding: "10px",
+          borderRadius: "4px",
+          backgroundColor: "#fff",
+          borderColor: "#BEBEBE",
+        }}
+      >
         <Grid item container justifyContent="flex-end">
           <OrdersCaseTypography
             text={status == "TẤT CẢ" ? "ĐÃ GIAO" : status ? status : ""}

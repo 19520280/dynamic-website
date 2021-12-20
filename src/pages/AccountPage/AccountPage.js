@@ -11,7 +11,7 @@ import Address from "../../components/AccountPageBody/Address";
 import ChangePassword from "../../components/AccountPageBody/ChangePassword";
 import Measure from "../../components/AccountPageBody/Measure";
 import Noti from "../../components/AccountPageBody/Noti";
-import OrderTracking from './../../components/AccountPageBody/OrderTracking';
+import OrderTracking from "./../../components/AccountPageBody/OrderTracking";
 import Orders from "../../components/AccountPageBody/Orders";
 import Points from "../../components/AccountPageBody/Points";
 import Profile from "../../components/AccountPageBody/Profile.js";
@@ -73,7 +73,9 @@ const AccountPage = ({ accountRoute }) => {
           )}
           {accountRoute === "Chi-so-co-the" && <Measure />}
           {accountRoute === "Doi-mat-khau" && <ChangePassword />}
-          {accountRoute === "Order-tracking" && <OrderTracking  data={data}/>}
+          {accountRoute === "Order-tracking" && (
+            <OrderTracking data={data} isMobile={isMobile} />
+          )}
           {/* {accountRoute === "Don-mua" && <Orders />}
           {accountRoute === "Diem-thuong" && <Points />}
           {accountRoute === "Danh-sach-quan-tam" && <WishLists />}
