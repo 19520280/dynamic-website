@@ -18,17 +18,17 @@ import {
 } from "../Popovers/ShoppingCartPopover";
 import { useDispatch, useSelector } from "react-redux";
 
+import { AuthContext } from "../../context/context";
+import AvatarPopover from "../Popovers/AvatarPopover";
+import LoginModal from "../Modal/LoginModal";
 import Logo from "../../assets/images/Logo.png";
+import OTPModal from "../Modal/OTPModal";
+import { Person } from "@mui/icons-material";
+import RegisterModal from "../Modal/RegisterModal";
 import { SaleBannerState$ } from "../../redux/selectors";
 import SearchIcon from "@mui/icons-material/Search";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "../../context/context";
-import { Person } from "@mui/icons-material";
-import LoginModal from "../Modal/LoginModal";
-import AvatarPopover from "../Popovers/AvatarPopover";
-import RegisterModal from "../Modal/RegisterModal";
-import OTPModal from "../Modal/OTPModal";
 import WelcomeModal from "../Modal/WelcomeModal";
+import { useHistory } from "react-router-dom";
 
 export const TopbarDesktop = () => {
   const history = useHistory();
@@ -46,88 +46,90 @@ export const TopbarDesktop = () => {
   const { openLoginModal, userData } = useContext(AuthContext);
 
   return (
-    <Stack direction="row" className="topbar">
-      <Box component="div" sx={{ display: "inline", flex: 1 }}>
-        <img
-          src={Logo}
-          onClick={() => history.push("/")}
-          style={{ cursor: "pointer" }}
-        />
-      </Box>
-      <Stack
-        direction="row"
-        spacing={2}
-        sx={{ flex: 2 }}
-        justifyContent="flex-end"
-        alignItems="center"
-      >
-        <Box component="form" noValidate autoComplete="off">
-          <TextField
-            focused
-            onKeyPress={(ev) => {
-              if (ev.key === "Enter") {
+    <>
+      <LoginModal />
+      <RegisterModal />
+      <OTPModal />
+      <WelcomeModal />
+      <Stack direction="row" className="topbar">
+        <Box component="div" sx={{ display: "inline", flex: 1 }}>
+          <img
+            src={Logo}
+            onClick={() => history.push("/")}
+            style={{ cursor: "pointer" }}
+          />
+        </Box>
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ flex: 2 }}
+          justifyContent="flex-end"
+          alignItems="center"
+        >
+          <Box component="form" noValidate autoComplete="off">
+            <TextField
+              focused
+              onKeyPress={(ev) => {
+                if (ev.key === "Enter") {
+                  if (text != "") {
+                    setSaleBanner(true);
+                  } else setSaleBanner(false);
+                  ev.preventDefault();
+                }
+              }}
+              onSubmit={() => {
                 if (text != "") {
                   setSaleBanner(true);
                 } else setSaleBanner(false);
-                ev.preventDefault();
-              }
-            }}
-            onSubmit={() => {
-              if (text != "") {
-                setSaleBanner(true);
-              } else setSaleBanner(false);
-            }}
-            variant="outlined"
-            onChange={(e) => {
-              setText(e.target.value);
-              // if (e.target.value == "") {
-              //   setSaleBanner(false);
-              // }
-            }}
-            color="secondary"
-            placeholder="Tìm kiếm sản phẩm"
-            style={{
-              border: "white",
-              backgroundColor: "transparent",
-            }}
-            InputProps={{
-              style: {
-                color: "white",
-                borderRadius: "30px",
-                height: "36px",
-                width: "auto",
-                fontSize: "14px",
-                padding: "8px",
-              },
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton>
-                    <SearchIcon
-                      style={{ color: "white" }}
-                      onClick={() => {
-                        if (text != "") setSaleBanner(true);
-                      }}
-                    />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Box>
-        <ShoppingCartPopoverDesktop />
-        {userData && userData.isLoggedin ? (
-          <AvatarPopover />
-        ) : (
-          <IconButton onClick={openLoginModal}>
-            <Person style={{ color: "white" }} />
-          </IconButton>
-        )}
-        <LoginModal />
-        <RegisterModal />
-        <OTPModal />
-        <WelcomeModal />
+              }}
+              variant="outlined"
+              onChange={(e) => {
+                setText(e.target.value);
+                // if (e.target.value == "") {
+                //   setSaleBanner(false);
+                // }
+              }}
+              color="secondary"
+              placeholder="Tìm kiếm sản phẩm"
+              style={{
+                border: "white",
+                backgroundColor: "transparent",
+              }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  borderRadius: "30px",
+                  height: "36px",
+                  width: "auto",
+                  fontSize: "14px",
+                  padding: "8px",
+                },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton>
+                      <SearchIcon
+                        style={{ color: "white" }}
+                        onClick={() => {
+                          if (text != "") setSaleBanner(true);
+                        }}
+                      />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+          <ShoppingCartPopoverDesktop />
+          {userData && userData.isLoggedin ? (
+            <AvatarPopover />
+          ) : (
+            <IconButton onClick={openLoginModal}>
+              <Person style={{ color: "white" }} />
+            </IconButton>
+          )}
+        </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
 
@@ -136,33 +138,35 @@ export const TopbarMobile = () => {
   const { openLoginModal, userData } = useContext(AuthContext);
 
   return (
-    <Stack direction="row" className="topbar">
-      <Box component="div" sx={{ display: "inline", flex: 1 }}>
-        <img src={Logo} onClick={() => history.push("/")} />
-      </Box>
-      <Stack
-        direction="row"
-        spacing={2}
-        sx={{ flex: 2 }}
-        justifyContent="flex-end"
-        alignItems="center"
-      >
-        <IconButton>
-          <SearchIcon style={{ color: "white" }} />
-        </IconButton>
-        <ShoppingCartPopoverMobile />
-        {userData && userData.isLoggedin ? (
-          <AvatarPopover />
-        ) : (
-          <IconButton onClick={openLoginModal}>
-            <Person style={{ color: "white" }} />
+    <>
+      <LoginModal />
+      <RegisterModal />
+      <OTPModal />
+      <WelcomeModal />
+      <Stack direction="row" className="topbar">
+        <Box component="div" sx={{ display: "inline", flex: 1 }}>
+          <img src={Logo} onClick={() => history.push("/")} />
+        </Box>
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ flex: 2 }}
+          justifyContent="flex-end"
+          alignItems="center"
+        >
+          <IconButton>
+            <SearchIcon style={{ color: "white" }} />
           </IconButton>
-        )}
-        <LoginModal />
-        <RegisterModal />
-        <OTPModal />
-        <WelcomeModal />
+          <ShoppingCartPopoverMobile />
+          {userData && userData.isLoggedin ? (
+            <AvatarPopover />
+          ) : (
+            <IconButton onClick={openLoginModal}>
+              <Person style={{ color: "white" }} />
+            </IconButton>
+          )}
+        </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
