@@ -8,6 +8,7 @@ import {
   IconButton,
   ImageList,
   Button,
+  Container,
 } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -15,6 +16,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import ReactImageMagnify from "react-image-magnify";
+import { BgColor } from "../../color";
 function ShowMainImage({ sizeMainImg, sizeSubImg, isMobile, sanPham }) {
   const [listimg, setlistimg] = React.useState([]);
   React.useEffect(() => {
@@ -42,25 +44,21 @@ function ShowMainImage({ sizeMainImg, sizeSubImg, isMobile, sanPham }) {
   };
   const MainImage = (
     <img src={imgMain} width={"100%"} height={sizeMainImg} />
-    /* <ReactImageMagnify
-          background={BgColor.mainBg}
-          position="absolute"
-          top={50}
-          right={20}
-          {...{
-            smallImage: {
-              isFluidWidth: true,
-              src: imgMain,
-              width: "100%",
-              height: "120%",
-            },
-            largeImage: {
-              src: imgMain,
-              width: 1500,
-              height: 1800,
-            },
-          }}
-        /> */
+    // <ReactImageMagnify
+    //   {...{
+    //     smallImage: {
+    //       isFluidWidth: true,
+    //       src: imgMain,
+    //       width: "100%",
+    //       height: "120%",
+    //     },
+    //     largeImage: {
+    //       src: imgMain,
+    //       width: 1500,
+    //       height: 1800,
+    //     },
+    //   }}
+    // />
   );
   const showImage = (size) => (
     <Dialog open={openImg.show} onClose={handleIMGClose} maxWidth={size}>
