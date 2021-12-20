@@ -41,7 +41,7 @@ let theme = createTheme({
     secondary: "#313537",
   },
   backgroundColor: "#FCFCFC",
-  // shadows: ["none"],
+  shadows: ["none"],
 });
 theme = responsiveFontSizes(theme);
 function App() {
