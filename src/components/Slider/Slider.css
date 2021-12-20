@@ -37,8 +37,13 @@
     flex-direction: column;
     background-color: rgb(236, 236, 236);
   }
+  .slider1 {
+    flex-direction: column;
+    background-color: "#fff";
+  }
 
   .slider__image {
     width: 100%;
   }
+  
 }

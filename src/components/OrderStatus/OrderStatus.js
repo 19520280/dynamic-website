@@ -165,7 +165,6 @@ export default function OrderStatus({ status }) {
   return (
     <Grid
       sx={{ paddingTop: "12px", cursor: "pointer" }}
-      onClick={handleClickDetail}
     >
       <Box
         sx={{

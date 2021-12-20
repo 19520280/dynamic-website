@@ -28,8 +28,7 @@ export default function ModalWithButton({
     setState(false);
   };
   const handleClick = () => {
-    messageText?
-    setChild(true): setState(false);
+    messageText ? setChild(true) : setState(false);
   };
   const style = {
     position: "absolute",
@@ -49,22 +48,25 @@ export default function ModalWithButton({
           <Stack direction="column" spacing={2}>
             <HeaderTypography padding="0px" text={header} />
 
-            {listField?listField.map((Field) => (
-              <TextField label={Field}></TextField>
-            )):custombody}
-
-            <Button onClick={handleClick} variant="contained">
-              {btnText}
-            </Button>
+            {listField
+              ? listField.map((Field) => <TextField label={Field}></TextField>)
+              : custombody}
+            <Stack direction="row" justifyContent="flex-end">
+              <Button onClick={handleClick} variant="contained">
+                {btnText}
+              </Button>
+            </Stack>
           </Stack>
-          {messageText?<MessageModal
-            state={child}
-            setState={setChild}
-            setStateParent={setState}
-            text={messageText}
-            severity={typeMessage}
-            closeAfterSecond={true}
-          />:null}
+          {messageText ? (
+            <MessageModal
+              state={child}
+              setState={setChild}
+              setStateParent={setState}
+              text={messageText}
+              severity={typeMessage}
+              closeAfterSecond={true}
+            />
+          ) : null}
         </Box>
       </Fade>
     </>

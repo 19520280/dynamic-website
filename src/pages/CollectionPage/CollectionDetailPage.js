@@ -26,15 +26,18 @@ function App() {
         imageSrc={image5}
         flipped={true}
         title={"LOOK 1"}
+        btnText="XEM THÊM"
         subtitle={"You can have anything you want in life if you dress for it."}
       />
       <Slider
         imageSrc={image2}
         title={"LOOK 2"}
+        btnText="XEM THÊM"
         subtitle={"Clothes mean nothing until someone lives in them."}
       />
       <Slider
         imageSrc={image3}
+        btnText="XEM THÊM"
         title={"LOOK 3"}
         subtitle={"Style is a way to say who you are without having to speak. "}
         flipped={true}
@@ -42,6 +45,7 @@ function App() {
 
       <Slider
         imageSrc={image4}
+        btnText="XEM THÊM"
         title={"LOOK 4"}
         subtitle={
           "Fashion is like eating, you shouldn't stick to the same menu."
@@ -49,6 +53,7 @@ function App() {
       />
       <Slider
         imageSrc={image6}
+        btnText="XEM THÊM"
         title={"LOOK 5"}
         subtitle={
           "I firmly believe that with the right footwear one can rule the world."
@@ -56,9 +61,17 @@ function App() {
         flipped={true}
       />
       <Slider
+        btnText="XEM THÊM"
         imageSrc={image7}
         title={"LOOK 6"}
         subtitle={"In difficult times, fashion is always outrageous."}
+      />
+      <Slider
+        btnText="XEM THÊM"
+        imageSrc={image8}
+        title={"LOOK 7"}
+        flipped={true}
+        subtitle={"Choose your clothes for your way of life. "}
       />
       <FooterCollection />
     </div>
