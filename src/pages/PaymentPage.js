@@ -8,11 +8,12 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getAccount, showChangeAddressDialog } from "./../redux/actions/index";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AccountState$ } from "../redux/selectors";
+import { AuthContext } from "./../context/context";
 import ChangeAddressDialog from "../components/Dialogs/ChangeAddressDialog";
 import EditIcon from "@mui/icons-material/Edit";
 import HeaderTypography from "../components/Typographys/HeaderTypography";
@@ -27,20 +28,22 @@ import { useHistory } from "react-router-dom";
 
 const PaymentPage = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-
-  /* #region  getAccountData */
   const dispatch = useDispatch();
+  const { userData } = useContext(AuthContext);
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const [data, setData] = useState(null);
+  /* #region  getAccountData */
   useEffect(() => {
-    dispatch(getAccount());
-  }, [dispatch]);
+    if (userData && userData.isLoggedin) {
+      dispatch(getAccount());
+    }
+  }, [dispatch, userData]);
   const Account = useSelector(AccountState$);
-  const [data, setData] = useState(Account);
   useEffect(() => {
-    if (Account) {
+    if (Account && userData && userData.isLoggedin) {
       setData(Account);
     }
-  }, [Account]);
+  }, [Account, userData]);
   /* #endregion */
 
   const history = useHistory();
@@ -50,7 +53,9 @@ const PaymentPage = () => {
   }, [dispatch, data]);
   return (
     <div>
-      <ChangeAddressDialog data={data}/>
+      {data ? (
+        <ChangeAddressDialog data={data} />
+      ) : null}
       <HeaderTypography text="Thanh toán" />
       <Stack
         direction={isMobile ? "column" : "row"}
