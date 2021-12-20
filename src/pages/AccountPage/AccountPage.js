@@ -1,19 +1,22 @@
+import * as actions from "../../redux/actions/index";
+
+import { BgColor, SystemColor } from "../../color";
 import { Container, Grid, useMediaQuery, useTheme } from "@mui/material";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import AccountSider from "../../components/Sider/AccountSider";
+import { AccountState$ } from "../../redux/selectors";
 import Address from "../../components/AccountPageBody/Address";
 import ChangePassword from "../../components/AccountPageBody/ChangePassword";
 import Measure from "../../components/AccountPageBody/Measure";
 import Noti from "../../components/AccountPageBody/Noti";
+import OrderTracking from './../../components/AccountPageBody/OrderTracking';
 import Orders from "../../components/AccountPageBody/Orders";
 import Points from "../../components/AccountPageBody/Points";
 import Profile from "../../components/AccountPageBody/Profile.js";
+import { Redirect } from "react-router-dom";
 import WishLists from "../../components/AccountPageBody/WishLists";
-import AccountSider from "../../components/Sider/AccountSider";
-import * as actions from "../../redux/actions/index";
-import { AccountState$ } from "../../redux/selectors";
-import { BgColor, SystemColor } from "../../color";
 
 const AccountPage = ({ accountRoute }) => {
   const dispatch = useDispatch();
@@ -70,6 +73,7 @@ const AccountPage = ({ accountRoute }) => {
           )}
           {accountRoute === "Chi-so-co-the" && <Measure />}
           {accountRoute === "Doi-mat-khau" && <ChangePassword />}
+          {accountRoute === "Order-tracking" && <OrderTracking />}
           {/* {accountRoute === "Don-mua" && <Orders />}
           {accountRoute === "Diem-thuong" && <Points />}
           {accountRoute === "Danh-sach-quan-tam" && <WishLists />}
