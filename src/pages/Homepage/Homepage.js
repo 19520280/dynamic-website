@@ -14,7 +14,7 @@ export const CustomTypography = ({ title }) => (
   <div className="title">
     <Typography
       textAlign="center"
-      fontSize="calc(1.2rem + 1vw)"
+      fontSize="calc(1rem + 1.5vw)"
       fontWeight="bold"
       color="primary"
     >
