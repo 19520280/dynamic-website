@@ -8,6 +8,7 @@ import {
   IconButton,
   ImageList,
   Button,
+  Fab,
 } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -63,7 +64,7 @@ function ShowMainImage({
   const MainImage = <img src={imgMain} width={"100%"} height={sizeMainImg} />;
   const showImage = (size) => (
     <Dialog open={openImg.show} onClose={handleIMGClose} maxWidth={size}>
-      <DialogTitle id="scroll-dialog-title" marginBottom={2}>
+      <DialogTitle id="scroll-dialog-title" marginBottom={0}>
         <IconButton
           aria-label="close"
           onClick={handleIMGClose}
@@ -109,16 +110,6 @@ function ShowMainImage({
         <DialogContent>
           <Box width="100%" display={"flex"}>
             <Box width={"55%"} display="flex" alignItems={"center"}>
-              <Box
-                onClick={() => {
-                  let index = openImg.src;
-                  if (index) handleClickShowIMGOpen(listImgfull[index - 1]);
-                  else
-                    handleClickShowIMGOpen(listImgfull[listImgfull.length - 1]);
-                }}
-              >
-                <ArrowBackIosNewIcon />
-              </Box>
               <ReactImageMagnify
                 {...{
                   smallImage: {
@@ -132,16 +123,30 @@ function ShowMainImage({
                   },
                 }}
               />
-              <Box
+              <Button
+                size="medium"
+                onClick={() => {
+                  let index = openImg.src;
+                  if (index) handleClickShowIMGOpen(listImgfull[index - 1]);
+                  else
+                    handleClickShowIMGOpen(listImgfull[listImgfull.length - 1]);
+                }}
+                sx={{ position: "absolute", left: 10, top: "40%" }}
+              >
+                <ArrowBackIosNewIcon />
+              </Button>
+              <Button
+                size="medium"
                 onClick={() => {
                   let index = openImg.src;
                   if (index < listImgfull.length - 1)
                     handleClickShowIMGOpen(listImgfull[index + 1]);
                   else handleClickShowIMGOpen(listImgfull[0]);
                 }}
+                sx={{ position: "absolute", right: "46%", top: "40%" }}
               >
                 <ArrowForwardIosIcon />
-              </Box>
+              </Button>
             </Box>
             <Box width="45%" marginLeft={"2%"}>
               <ImageList cols={4} gap={9} variant="woven">
@@ -155,10 +160,6 @@ function ShowMainImage({
           </Box>
         </DialogContent>
       )}
-
-      <DialogActions>
-        <Button onClick={handleIMGClose}>Đóng</Button>
-      </DialogActions>
     </Dialog>
   );
   return isMobile ? (

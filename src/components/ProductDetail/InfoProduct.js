@@ -234,7 +234,9 @@ function InfoProduct({
           />
         </Box>
         <Box marginTop={size ? 0.5 : 1}>
-          <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>
+          <Typography fontSize={size ? 14 : 15}>
+            Số lượng sản phẩm còn {sanPham.tonKho}
+          </Typography>
         </Box>
         <Box display="flex" alignContent="center" marginY={size ? 0 : 1}>
           <Button
