@@ -22,7 +22,6 @@ import ShowMainImage from "./ShowMainImage";
 import InfoProduct from "./InfoProduct";
 
 function ProductPanel({ sanPham, isMobile }) {
-  const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = React.useState(sanPham.mauSacs[0]);
   const [selectedSize, setSelectedSize] = React.useState(sanPham.kichThuocs[0]);
 
@@ -175,10 +174,16 @@ function ProductPanel({ sanPham, isMobile }) {
               sizeSubImg={150}
               isMobile={isMobile}
               sanPham={sanPham}
+              selectedColor={selectedColor}
             />
           </Box>
           <Box className="Main_Box_Right" width={"38%"} marginLeft={3}>
-            <InfoProduct sanPham={sanPham} isMobile={isMobile} />
+            <InfoProduct
+              sanPham={sanPham}
+              isMobile={isMobile}
+              selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
+            />
             <Box backgroundColor="rgba(0, 0, 0, 0.04)">
               <ProductPolicy />
             </Box>
