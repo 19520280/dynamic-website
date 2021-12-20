@@ -7,12 +7,6 @@ import {
   ButtonGroup,
   ImageList,
   InputBase,
-  Snackbar,
-  Alert,
-  Stack,
-  TextField,
-  IconButton,
-  Fab,
 } from "@mui/material";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ShareIcon from "@mui/icons-material/Share";
@@ -28,7 +22,7 @@ import { useDispatch } from "react-redux";
 import HeaderTypography from "../Typographys/HeaderTypography";
 import CountTypography from "../Typographys/CountTypography";
 import MessageModal from "../Modal/MessageModal";
-import NumericTextField from "../TextFields/NumericTextField";
+import { SystemColor } from "../../color";
 function InfoProduct({
   sanPham,
   isMobile,
@@ -94,7 +88,13 @@ function InfoProduct({
           <RatingInfolPanel size={size ? size : "medium"} />
           <ShareIcon
             fontSize="small"
-            sx={{ ":hover": { border: 1 } }}
+            sx={{
+              ":hover": {
+                border: 1,
+                borderRadius: 1,
+                borderColor: SystemColor.gray,
+              },
+            }}
             onClick={handleClickOpencopy}
           />
           <MessageModal
