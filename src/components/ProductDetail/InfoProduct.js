@@ -7,6 +7,8 @@ import {
   ButtonGroup,
   ImageList,
   InputBase,
+  Popover,
+  IconButton,
 } from "@mui/material";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ShareIcon from "@mui/icons-material/Share";
@@ -23,6 +25,9 @@ import HeaderTypography from "../Typographys/HeaderTypography";
 import CountTypography from "../Typographys/CountTypography";
 import MessageModal from "../Modal/MessageModal";
 import { SystemColor } from "../../color";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
 function InfoProduct({
   sanPham,
   isMobile,
@@ -68,10 +73,13 @@ function InfoProduct({
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const [opencopy, setOpencopy] = React.useState(false);
-
-  const handleClickOpencopy = () => {
-    setOpencopy(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openpop = Boolean(anchorEl);
+  const handleClickOpencopy = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
   return (
     <div>
@@ -88,22 +96,75 @@ function InfoProduct({
           <RatingInfolPanel size={size ? size : "medium"} />
           <ShareIcon
             fontSize="small"
-            sx={{
-              ":hover": {
-                border: 1,
-                borderRadius: 1,
-                borderColor: SystemColor.gray,
-              },
-            }}
+            onMouseEnter={handleClickOpencopy}
             onClick={handleClickOpencopy}
           />
-          <MessageModal
-            text={"Đã sao chép đường dẫn thành công"}
-            severity={"success"}
-            closeAfterSecond={true}
-            state={opencopy}
-            setState={setOpencopy}
-          />
+          <Popover
+            id="mouse-over-popover"
+            open={openpop}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+            PaperProps={{
+              style: {
+                backgroundColor: "transparent",
+                boxShadow: "none",
+                borderRadius: 0,
+              },
+            }}
+          >
+            <Box
+              sx={{
+                position: "relative",
+                mt: "10px",
+                "&::before": {
+                  boxShadow: 3,
+                  backgroundColor: "#ECECEC",
+                  content: '""',
+                  display: "block",
+                  position: "absolute",
+                  width: 12,
+                  height: 12,
+                  top: -6,
+                  transform: "rotate(45deg)",
+                  left: "calc(50% - 6px )",
+                },
+              }}
+            />
+            <Typography
+              sx={{ p: 0.5, backgroundColor: "#ECECEC", borderRadius: "4px" }}
+            >
+              <IconButton
+                aria-label="twitter"
+                className="icon-button"
+                size="small"
+              >
+                <TwitterIcon fontSize="inherit" />
+              </IconButton>
+              <IconButton
+                aria-label="facebook"
+                className="icon-button"
+                size="small"
+              >
+                <FacebookIcon fontSize="inherit" />
+              </IconButton>
+
+              <IconButton
+                aria-label="instagram"
+                className="icon-button"
+                size="small"
+              >
+                <InstagramIcon fontSize="inherit" />
+              </IconButton>
+            </Typography>
+          </Popover>
         </Box>
         <Box marginTop={size ? 0.5 : 1} marginBottom={size ? -0.5 : 0}>
           <PriceTypography
