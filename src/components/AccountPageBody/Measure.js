@@ -9,7 +9,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import NumericTextField from "./../TextFields/NumericTextField";
+import HeaderTypography from "../Typographys/HeaderTypography";
+
 const imgMeesure =
   require("../../assets/images/meesure/measurements.png").default;
 const Measure = () => {
@@ -308,11 +309,7 @@ const Measure = () => {
     </Box>
   ) : (
     <Box paddingY={3}>
-      <Box height={60}>
-        <Typography color={"#303537"} fontSize={28} fontWeight={"bold"}>
-          Chỉ số cơ thể
-        </Typography>
-      </Box>
+      <HeaderTypography text="Chỉ số cơ thể" padding={"12px 0px"} />
       <Box
         width="100%"
         border="1px solid #BEBEBE"

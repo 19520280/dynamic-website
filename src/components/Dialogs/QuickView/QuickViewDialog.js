@@ -16,8 +16,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { QuickViewDialogState$ } from "../../../redux/selectors";
 import ShowMainImage from "../../ProductDetail/ShowMainImage";
 import InfoProduct from "../../ProductDetail/InfoProduct";
+import { useHistory } from "react-router-dom";
 function QuickViewDialog({ sanPham }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const open = useSelector(QuickViewDialogState$);
@@ -41,7 +43,7 @@ function QuickViewDialog({ sanPham }) {
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <Box display={"flex"}>
+          <Box display={isMobile ? null : "flex"}>
             <Box
               alignContent="center"
               width="60%"
@@ -56,13 +58,17 @@ function QuickViewDialog({ sanPham }) {
               />
             </Box>
             <Box width="40%" marginLeft={3}>
-              <InfoProduct sanPham={sanPham} isMobile={isMobile} />
+              <InfoProduct
+                sanPham={sanPham}
+                isMobile={isMobile}
+                size="middle"
+              />
+              <Button onClick={() => history.push(sanPham.path)} variant="text">
+                Xem chi tiết
+              </Button>
             </Box>
           </Box>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Đóng</Button>
-        </DialogActions>
       </Dialog>
     </div>
   );
