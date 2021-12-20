@@ -49,7 +49,7 @@ function ShowMainImage({
   const handleClickShowIMGOpen = (img) => {
     setOpenIMG({
       show: true,
-      src: listimg.findIndex((e) => e === img),
+      src: listImgfull.findIndex((e) => e === img),
     });
   };
   const handleIMGClose = () => {
@@ -112,8 +112,9 @@ function ShowMainImage({
               <Box
                 onClick={() => {
                   let index = openImg.src;
-                  if (index) handleClickShowIMGOpen(listimg[index - 1]);
-                  else handleClickShowIMGOpen(listimg[listimg.length - 1]);
+                  if (index) handleClickShowIMGOpen(listImgfull[index - 1]);
+                  else
+                    handleClickShowIMGOpen(listImgfull[listImgfull.length - 1]);
                 }}
               >
                 <ArrowBackIosNewIcon />
@@ -122,10 +123,10 @@ function ShowMainImage({
                 {...{
                   smallImage: {
                     isFluidWidth: true,
-                    src: listimg[openImg.src],
+                    src: listImgfull[openImg.src],
                   },
                   largeImage: {
-                    src: listimg[openImg.src],
+                    src: listImgfull[openImg.src],
                     width: 1500,
                     height: 1800,
                   },
@@ -134,9 +135,9 @@ function ShowMainImage({
               <Box
                 onClick={() => {
                   let index = openImg.src;
-                  if (index < listimg.length - 1)
-                    handleClickShowIMGOpen(listimg[index + 1]);
-                  else handleClickShowIMGOpen(listimg[0]);
+                  if (index < listImgfull.length - 1)
+                    handleClickShowIMGOpen(listImgfull[index + 1]);
+                  else handleClickShowIMGOpen(listImgfull[0]);
                 }}
               >
                 <ArrowForwardIosIcon />
