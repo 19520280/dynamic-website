@@ -88,7 +88,7 @@ export default function CollectionPage() {
           direction="row"
           spacing={2}
           justifyContent={"center"}
-          style={{ height: "60vh", margin: isMobile ? "10px" : "70px 70px" }}
+          style={{ height: "80vh", margin: isMobile ? "10px" : "70px 70px" }}
         >
           {!isMobile ? (<CustomeImage image={2} />) : null}
 
