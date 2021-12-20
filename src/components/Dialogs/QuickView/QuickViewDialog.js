@@ -17,6 +17,8 @@ import { QuickViewDialogState$ } from "../../../redux/selectors";
 import ShowMainImage from "../../ProductDetail/ShowMainImage";
 import InfoProduct from "../../ProductDetail/InfoProduct";
 import { useHistory } from "react-router-dom";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 function QuickViewDialog({ sanPham }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -66,8 +68,20 @@ function QuickViewDialog({ sanPham }) {
                 selectedColor={selectedColor}
                 setSelectedColor={setSelectedColor}
               />
-              <Button onClick={() => history.push(sanPham.path)} variant="text">
+              <Button
+                onClick={() => history.push(sanPham.path)}
+                variant="text"
+                sx={{
+                  float: "right",
+                  padding: 0,
+                  "&:last-child": {
+                    padding: 0,
+                  },
+                }}
+                alignContent="center"
+              >
                 Xem chi tiết
+                <ArrowForwardIosIcon fontSize="small" />
               </Button>
             </Box>
           </Box>

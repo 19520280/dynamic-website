@@ -11,6 +11,8 @@ import {
   Alert,
   Stack,
   TextField,
+  IconButton,
+  Fab,
 } from "@mui/material";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ShareIcon from "@mui/icons-material/Share";
@@ -88,7 +90,7 @@ function InfoProduct({
         </Box>
         <Box sx={{ display: "flex" }} display={"none"}>
           <RatingInfolPanel size={size ? size : "medium"} />
-          <ShareIcon sx={{ float: "right" }} />
+          <ShareIcon fontSize="small" sx={{ ":hover": { border: 1 } }} />
         </Box>
         <Box marginTop={size ? 0.5 : 1} marginBottom={size ? -0.5 : 0}>
           <PriceTypography

@@ -308,14 +308,15 @@ const Measure = () => {
       </Box>
     </Box>
   ) : (
-    <Box paddingY={3}>
-      <HeaderTypography text="Chỉ số cơ thể" padding={"12px 0px"} />
+    <Box>
+      <HeaderTypography text="Chỉ số cơ thể" />
       <Box
         width="100%"
         border="1px solid #BEBEBE"
         borderRadius={1}
         paddingX={4}
         paddingY={3.6}
+        marginTop={3}
         backgroundColor="white"
       >
         <Box marginBottom={4}>

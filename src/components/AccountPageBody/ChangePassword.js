@@ -8,6 +8,7 @@ import {
   Button,
   Snackbar,
   Alert,
+  Container,
 } from "@mui/material";
 import TextFieldWithTitlePassword from "../TextFields/TextFiledWithTittlePassword";
 import HeaderTypography from "../Typographys/HeaderTypography";
@@ -41,7 +42,7 @@ const ChangePassword = ({ data, setData }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Box paddingY={3}>
+    <Container>
       <MessageModal
         text={"Đổi mật khẩu thành công"}
         severity={"success"}
@@ -56,7 +57,7 @@ const ChangePassword = ({ data, setData }) => {
         state={openerr}
         setState={setOpenerr}
       />
-      <HeaderTypography text="Đổi mật khẩu" padding={"12px 0px"} />
+      <HeaderTypography text="Đổi mật khẩu" />
       <Box
         width="100%"
         display={isMobile ? null : "flex"}
@@ -64,6 +65,7 @@ const ChangePassword = ({ data, setData }) => {
         borderRadius={1}
         paddingX={4}
         paddingY={3.6}
+        marginTop={3}
         backgroundColor="white"
       >
         <Box width={isMobile ? "100" : "60%"}>
@@ -114,7 +116,7 @@ const ChangePassword = ({ data, setData }) => {
           <Button variant="text">Quên mật khẩu?</Button>
         </Box>
       </Box>
-    </Box>
+    </Container>
   );
 };
 
