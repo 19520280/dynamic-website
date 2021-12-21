@@ -101,7 +101,6 @@ const Breadcrumb = (props) => {
               ? "Monarch Butterflys"
               : name === "signature-short"
               ? "Signature Short"
-              
               : name}
           </Typography>
         ) : (
