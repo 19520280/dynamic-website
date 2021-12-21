@@ -95,6 +95,13 @@ const Breadcrumb = (props) => {
               ? "Đổi mật khẩu"
               : name === "Danh-sach-quan-tam"
               ? "Danh sách quan tâm"
+              : name === "basic-tee"
+              ? "Basic tee"
+              : name === "monarch-butterflys"
+              ? "Monarch Butterflys"
+              : name === "signature-short"
+              ? "Signature Short"
+              
               : name}
           </Typography>
         ) : (
@@ -111,6 +118,10 @@ const Breadcrumb = (props) => {
               ? "Cá nhân"
               : name === "Tai-khoan"
               ? "Tài khoản"
+              : name === "Ao-thun"
+              ? "Áo thun"
+              : name === "Quan-ngan"
+              ? "Quần ngắn"
               : name}
           </Link>
         );
