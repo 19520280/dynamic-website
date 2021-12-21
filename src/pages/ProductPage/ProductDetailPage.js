@@ -162,6 +162,7 @@ const ProductDetailPage = () => {
             paddingY={1}
             //paddingX={2}
             border={1}
+            borderRight={1}
             marginY={2}
             component={Paper}
             borderColor={SystemColor.gray}
@@ -281,7 +282,7 @@ const ProductDetailPage = () => {
               <TableInfo sanPham={sanPham} />
             </Box>
             <Box>
-              <Box marginTop={2}>
+              <Box marginTop={3}>
                 <CountTypography
                   variant="button"
                   text={"Mô tả sản phẩm"}
@@ -323,6 +324,7 @@ const ProductDetailPage = () => {
             paddingTop={2}
             paddingBottom={5}
             component={Paper}
+            border={1}
             borderRadius={1}
             borderColor={SystemColor.gray}
             style={{ border:"1px solid", borderColor: SystemColor.gray}}
