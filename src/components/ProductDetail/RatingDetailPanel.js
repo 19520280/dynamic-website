@@ -27,7 +27,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 export default function RatingDetailPanel({ size }) {
   const ItemRatingProgressCount = (rate, e, total) => (
-    <Box sx={{ display: "flex", alignItems: "center" }}>
+    <Box sx={{ padding:"0px 0px 0px 20px", display: "flex", alignItems: "center" }}>
       <Box>
         <Rating
           name="read-only"
@@ -52,7 +52,7 @@ export default function RatingDetailPanel({ size }) {
   return (
     <Box>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Box>
+        <Box sx={{ padding:"0px 0px 0px 20px"}}>
           <h1>4.5</h1>
           <Divider
             orientation="horizontal"

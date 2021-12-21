@@ -129,8 +129,10 @@ const ProductDetailPage = () => {
             borderRadius={1}
             component={Paper}
             borderColor={SystemColor.gray}
+            style={{ border:"1px solid", borderColor: SystemColor.gray}}
+
           >
-            <Box>
+            <Box style={{margin:"10px 10px"}}>
               <Box marginY={1}>
                 <CountTypography
                   variant="button"
@@ -142,7 +144,7 @@ const ProductDetailPage = () => {
               </Box>
               <TableInfo sanPham={sanPham} />
             </Box>
-            <Box marginY={2}>
+            <Box marginY={2} style={{margin:"10px 10px"}}>
               <Box marginY={1}>
                 <CountTypography
                   variant="button"
@@ -164,6 +166,7 @@ const ProductDetailPage = () => {
             component={Paper}
             borderColor={SystemColor.gray}
             display={"flex"}
+            // style={{margin:"10px 10px"}}
           >
             <RatingDetailPanel size={150} />
           </Box>
@@ -320,6 +323,7 @@ const ProductDetailPage = () => {
             component={Paper}
             borderRadius={1}
             borderColor={SystemColor.gray}
+            style={{ border:"1px solid", borderColor: SystemColor.gray}}
           >
             <TabContext value={value}>
               <Box
