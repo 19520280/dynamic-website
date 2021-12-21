@@ -41,11 +41,11 @@ export const accountMenuItems = [
         key: "Danh-sach-quan-tam",
         path: "/Ca-nhan/Danh-sach-quan-tam",
     },
-    {
-        text: "THÔNG BÁO",
-        key: "Thong-bao",
-        path: "/Ca-nhan/Thong-bao",
-    },
+    // {
+    //     text: "THÔNG BÁO",
+    //     key: "Thong-bao",
+    //     path: "/Ca-nhan/Thong-bao",
+    // },
     {
         text: "ĐĂNG XUẤT",
         key: "Dang-xuat",
