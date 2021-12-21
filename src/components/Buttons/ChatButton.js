@@ -1,4 +1,5 @@
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
+
 import ForumIcon from "@mui/icons-material/Forum";
 import React from "react";
 
@@ -7,7 +8,12 @@ const ChatButton = () => {
     <Button
       variant="contained"
       startIcon={<ForumIcon />}
-      sx={{ position: "fixed", bottom: "0", right: "16px", zIndex: 999999}}
+      sx={{
+        position: "fixed",
+        bottom: "0",
+        right: "16px",
+        zIndex: 999999,
+      }}
     >
       Chat
     </Button>

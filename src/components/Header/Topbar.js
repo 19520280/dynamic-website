@@ -146,6 +146,7 @@ export const TopbarMobile = () => {
     (value) => {
       dispatch(actions.showSaleBanner(value));
       if (value == true) {
+        setOpenSearchBox(false);
         history.push("/Ket-qua-tim-kiem");
       } else history.push("/");
     },
@@ -255,8 +256,7 @@ export const TopbarMobile = () => {
               height: "36px",
               width: "100%",
               fontSize: "14px",
-              padding: "8px",
-              marginTop: "5%",
+              padding: "12px",
               color: "#fff",
               border: "1px solid white",
             },
@@ -303,8 +303,12 @@ export const TopbarMobile = () => {
             justifyContent="flex-end"
             alignItems="center"
           >
-            <IconButton onClick={() => setOpenSearchBox(true)}>
-              <SearchIcon style={{ color: "white" }} />
+            <IconButton onClick={() => setOpenSearchBox(!openSearchBox)}>
+              {openSearchBox ? (
+                <CloseIcon style={{ color: "white" }} />
+              ) : (
+                <SearchIcon style={{ color: "white" }} />
+              )}
             </IconButton>
             <ShoppingCartPopoverMobile />
             {userData && userData.isLoggedin ? (
