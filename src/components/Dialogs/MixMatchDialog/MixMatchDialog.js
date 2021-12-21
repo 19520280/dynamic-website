@@ -69,7 +69,7 @@ const MixMatchDialog = ({ sanPham }) => {
       direction="row"
       spacing={2}
       justifyContent="space-between"
-      sx={{ width: isMobile ? "100%" : "50%" }}
+      sx={{ width: isMobile ? "100%" : "60%" }}
     >
       <Stack direction="column">
         <Stack direction="row" spacing={2}>

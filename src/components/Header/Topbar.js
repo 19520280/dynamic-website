@@ -40,7 +40,9 @@ export const TopbarDesktop = () => {
   const setSaleBanner = React.useCallback(
     (value) => {
       dispatch(actions.showSaleBanner(value));
-      if (value==true) {history.push("/Ket-qua-tim-kiem")}
+      if (value == true) {
+        history.push("/Ket-qua-tim-kiem");
+      } else history.push("/");
     },
     [dispatch]
   );
@@ -137,6 +139,19 @@ export const TopbarDesktop = () => {
 
 export const TopbarMobile = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const SaleBanner = useSelector(SaleBannerState$);
+  const [text, setText] = useState("");
+  const setSaleBanner = React.useCallback(
+    (value) => {
+      dispatch(actions.showSaleBanner(value));
+      if (value == true) {
+        setOpenSearchBox(false);
+        history.push("/Ket-qua-tim-kiem");
+      } else history.push("/");
+    },
+    [dispatch]
+  );
   const [openSearchBox, setOpenSearchBox] = useState(false);
   const { openLoginModal, userData } = useContext(AuthContext);
   //Code vội nên ko chia nữa :'()
@@ -147,7 +162,7 @@ export const TopbarMobile = () => {
         justifyContent="flex-start"
         alignItems="stretch"
         spacing={1}
-        sx={{ marginBottom: "50%"}}
+        sx={{ marginBottom: "50%" }}
       >
         <div>
           <Stack
@@ -170,6 +185,7 @@ export const TopbarMobile = () => {
         </div>
         <TextField
           focused
+          style={{ display: openSearchBox ? "none" : "block" }}
           variant="outlined"
           color="secondary"
           placeholder="Tìm kiếm sản phẩm"
@@ -184,12 +200,75 @@ export const TopbarMobile = () => {
               width: "100%",
               fontSize: "14px",
               padding: "8px",
-              marginTop: "5%" 
+              marginTop: "5%",
             },
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton>
                   <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Stack>
+    </Box>
+  );
+  const SearchBox = (
+    <Box sx={{ width: "100%", p: 2 }} role="presentation">
+      <Stack
+        flexDirection="column"
+        justifyContent="flex-start"
+        alignItems="stretch"
+        spacing={1}
+      >
+        <TextField
+          focused
+          variant="outlined"
+          placeholder="Tìm kiếm sản phẩm"
+          sx={{
+            backgroundColor: "transparent",
+            width: "100%",
+          }}
+          onKeyPress={(ev) => {
+            if (ev.key === "Enter") {
+              if (text != "") {
+                setSaleBanner(true);
+              } else setSaleBanner(false);
+              ev.preventDefault();
+            }
+          }}
+          onSubmit={() => {
+            if (text != "") {
+              setSaleBanner(true);
+            } else setSaleBanner(false);
+          }}
+          variant="outlined"
+          onChange={(e) => {
+            setText(e.target.value);
+            // if (e.target.value == "") {
+            //   setSaleBanner(false);
+            // }
+          }}
+          InputProps={{
+            style: {
+              borderRadius: "4px",
+              height: "36px",
+              width: "100%",
+              fontSize: "14px",
+              padding: "12px",
+              color: "#fff",
+              border: "1px solid white",
+            },
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton>
+                  <SearchIcon
+                    style={{ color: "white" }}
+                    onClick={() => {
+                      if (text != "") setSaleBanner(true);
+                    }}
+                  />
                 </IconButton>
               </InputAdornment>
             ),
@@ -204,36 +283,51 @@ export const TopbarMobile = () => {
       <RegisterModal />
       <OTPModal />
       <WelcomeModal />
-      <Drawer
+      {/* <Drawer
         anchor="bottom"
         open={openSearchBox}
         onClose={() => setOpenSearchBox(false)}
         sx={{ borderRadius: "4px" }}
       >
         {searchBox}
-      </Drawer>
-      <Stack direction="row" className="topbar">
-        <Box component="div" sx={{ display: "inline", flex: 1 }}>
-          <img src={Logo} onClick={() => history.push("/")} />
-        </Box>
+      </Drawer> */}
+      <Stack direction="column" className="topbar">
+        <Stack direction="row">
+          <Box component="div" sx={{ display: "inline", flex: 1 }}>
+            <img src={Logo} onClick={() => history.push("/")} />
+          </Box>
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{ flex: 2 }}
+            justifyContent="flex-end"
+            alignItems="center"
+          >
+            <IconButton onClick={() => setOpenSearchBox(!openSearchBox)}>
+              {openSearchBox ? (
+                <CloseIcon style={{ color: "white" }} />
+              ) : (
+                <SearchIcon style={{ color: "white" }} />
+              )}
+            </IconButton>
+            <ShoppingCartPopoverMobile />
+            {userData && userData.isLoggedin ? (
+              <AvatarPopover />
+            ) : (
+              <IconButton onClick={openLoginModal}>
+                <Person style={{ color: "white" }} />
+              </IconButton>
+            )}
+          </Stack>
+        </Stack>
         <Stack
           direction="row"
-          spacing={2}
-          sx={{ flex: 2 }}
+          sx={{ flex: 1 }}
           justifyContent="flex-end"
           alignItems="center"
+          style={{ display: openSearchBox ? "block" : "none" }}
         >
-          <IconButton onClick={() => setOpenSearchBox(true)}>
-            <SearchIcon style={{ color: "white" }} />
-          </IconButton>
-          <ShoppingCartPopoverMobile />
-          {userData && userData.isLoggedin ? (
-            <AvatarPopover />
-          ) : (
-            <IconButton onClick={openLoginModal}>
-              <Person style={{ color: "white" }} />
-            </IconButton>
-          )}
+          {SearchBox}
         </Stack>
       </Stack>
     </>

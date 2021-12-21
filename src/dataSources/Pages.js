@@ -1,10 +1,5 @@
 export const navbar = [
   {
-    title: "Best seller",
-    path: "/Best-seller",
-    menu: [],
-  },
-  {
     title: "Bộ sưu tập",
     path: "/Bo-suu-tap",
     menu: [
@@ -14,7 +9,7 @@ export const navbar = [
       },
       {
         title: "Tết Canh Dần 2022",
-        path: "/Tet-Canh-Dan-2022",
+        path: "/Bo-suu-tap/Tet-Canh-Dan-2022",
       },
     ],
   },

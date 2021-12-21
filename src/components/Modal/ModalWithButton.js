@@ -70,7 +70,7 @@ export default function ModalWithButton({
     <Dialog
       open={open}
       fullScreen={isMobile}
-      onClose={handleClose?handleClose:null}
+      onClose={handleClose ? handleClose : null}
       scroll="paper"
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
@@ -78,7 +78,7 @@ export default function ModalWithButton({
         maxHeight: maxWidthDialog ? "100%" : "80%",
         "& .css-10jb4jx-MuiPaper-root-MuiDialog-paper": {
           maxWidth: maxWidthDialog,
-          minWidth: "20%",
+          minWidth: "25%",
           color: "primary",
         },
       }}
@@ -92,6 +92,7 @@ export default function ModalWithButton({
             position: "absolute",
             right: 8,
             top: 8,
+            marginLeft: 3,
           }}
         >
           <CloseIcon />

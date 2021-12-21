@@ -91,17 +91,9 @@ export default function CollectionPage() {
       </Slide>
       <ImageBanner video={3} title="O N T H E W A Y" />
       <ImageBanner image={2} title="L U X U R Y" />
-      {isMobile ? (<ImageBanner image={3} caption="" />) : null}
-      <Slide direction="right" in={true}>
-        <Stack
-          direction="row"
-          spacing={2}
-          justifyContent={"center"}
-          style={{ height: "80vh", margin: isMobile ? "10px" : "70px 70px" }}
-        >
-          <FooterCollection/>
-        </Stack>
-      </Slide>
+
+      <FooterCollection/>
+
     </div>
   );
 }

@@ -14,8 +14,11 @@ import BlogPage from "./pages/BlogPage/BlogPage";
 import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import CartPage from "./pages/CartPage";
 import CategoryCasePage from "./pages/ProductPage/CategoryCasePage";
+import ChatButton from "./components/Buttons/ChatButton";
+import CollectionDetailPage from "./pages/CollectionPage/CollectionDetailPage";
 import CollectionDialog from "./components/Dialogs/CollectionDialog/CollectionDialog";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
+import CollectionProductPage from "./pages/CollectionPage/CollectionProductPage";
 import ContactPage from "./pages/ContactPage";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -28,8 +31,6 @@ import ProtectedRoute from "./components/Route/ProtectedRoute";
 import { ScrollButton } from "./components/Buttons/ScrollButton";
 import WishListDetailPage from "./pages/UserPage/WishListDetailPage";
 import WishListPage from "./pages/UserPage/WishListPage";
-import CollectionDetailPage from "./pages/CollectionPage/CollectionDetailPage";
-import CollectionProductPage from "./pages/CollectionPage/CollectionProductPage";
 
 let theme = createTheme({
   palette: {
@@ -60,9 +61,31 @@ function App() {
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path="/Bo-suu-tap" exact component={CollectionPage} />
-            <Route path="/Bo-suu-tap/Mua-dong-2021" exact component={CollectionDetailPage} />
-            <Route path="/Bo-suu-tap/Mua-dong-2021/Chi-tiet-san-pham" exact component={CollectionProductPage} />
-            <Route path="/Ket-qua-tim-kiem" exact component={CategoryCasePage} />
+            <Route
+              path="/Bo-suu-tap/Mua-dong-2021"
+              exact
+              component={CollectionDetailPage}
+            />
+            <Route
+              path="/Bo-suu-tap/Mua-dong-2021/Chi-tiet-san-pham"
+              exact
+              component={CollectionProductPage}
+            />
+            <Route
+              path="/Bo-suu-tap/Tet-Canh-Dan-2022"
+              exact
+              component={CollectionDetailPage}
+            />
+            <Route
+              path="/Bo-suu-tap/Tet-Canh-Dan-2022/Chi-tiet-san-pham"
+              exact
+              component={CollectionProductPage}
+            />
+            <Route
+              path="/Ket-qua-tim-kiem"
+              exact
+              component={CategoryCasePage}
+            />
 
             <Route path="/Blog" exact component={BlogPage} />
             <Route path="/Ao" exact component={CategoryCasePage} />
@@ -94,7 +117,7 @@ function App() {
               exact
               component={OrdersCase}
             />
-           
+
             <ProtectedRoute
               path="/Ca-nhan/Diem-thuong"
               exact
@@ -151,7 +174,7 @@ function App() {
                   <AccountPage {...props} accountRoute="Doi-mat-khau" />
                 )}
               />
-                 <ProtectedRoute
+              <ProtectedRoute
                 path="/Ca-nhan/Don-mua/Chi-tiet"
                 exact
                 render={(props) => (
@@ -194,6 +217,8 @@ function App() {
           </Switch>
           <Footer />
         </Router>
+
+        <ChatButton />
         <ScrollButton isMobile={isMobile} />
       </ThemeProvider>
     </AuthContextProvider>

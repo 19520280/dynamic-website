@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { Button, useTheme, useMediaQuery } from "@mui/material";
 import { useHistory } from "react-router-dom";
 
-const Slider = ({ imageSrc, title, subtitle, flipped }) => {
+const Slider = ({ imageSrc, title, subtitle, flipped, btnText }) => {
   const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0.4,
@@ -28,7 +28,7 @@ const Slider = ({ imageSrc, title, subtitle, flipped }) => {
               variant="outlined"
               style={{ marginTop: isMobile ? "10px" : "20px" }}
             >
-              MUA NGAY
+              {btnText}
             </Button>
           </div>
         </>
@@ -44,7 +44,7 @@ const Slider = ({ imageSrc, title, subtitle, flipped }) => {
               onClick={handleClick}
               style={{ marginTop: isMobile ? "10px" : "20px" }}
             >
-              MUA NGAY
+              {btnText}
             </Button>
           </div>
           <img src={imageSrc} alt="Travel" className="slider__image" />

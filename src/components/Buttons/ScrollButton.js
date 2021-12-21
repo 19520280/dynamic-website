@@ -24,7 +24,7 @@ export const ScrollButton = ({ isMobile }) => {
   }
   return (
     <div id="myBtn">
-      <Fab onClick={topFunction} title="Go to top">
+      <Fab onClick={topFunction} title="Go to top" sx={{bottom:"30px", right:"0px"}}>
         <UpIcon />,
       </Fab>
     </div>

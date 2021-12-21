@@ -12,10 +12,11 @@ import {
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { itemData } from "../../../dataSources/Catalogs";
+import { useHistory } from "react-router-dom";
 
-const imageItem = (item) => {
+const ImageItem = ({ item, onClick }) => {
   return (
-    <div className="imageItem">
+    <div className="imageItem" onClick={onClick}>
       <img src={item.img} />
       <div className="hoverLabel">
         <Typography
@@ -52,6 +53,8 @@ const imageItem = (item) => {
 };
 
 export default function CatalogBanners() {
+  const history = useHistory();
+
   return (
     <ImageList variant="quilted" cols={6} gap="calc(8px + 0.5vw)">
       {itemData.map((item) => (
@@ -60,7 +63,7 @@ export default function CatalogBanners() {
           cols={item.cols || 1}
           rows={item.rows || 1}
         >
-          {imageItem(item)}
+          <ImageItem item={item} onClick={() => history.push(item.path)} />
         </ImageListItem>
       ))}
     </ImageList>

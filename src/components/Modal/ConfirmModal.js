@@ -35,6 +35,7 @@ export default function ConfirmModal({
   return (
     <div>
       <ModalWithButton
+        action={action ? action : null}
         open={state}
         handleClose={handleClose}
         header={header}
