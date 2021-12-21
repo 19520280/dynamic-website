@@ -218,7 +218,7 @@ function App() {
           <Footer />
         </Router>
 
-        <ChatButton />
+        {isMobile?null:<ChatButton />}
         <ScrollButton isMobile={isMobile} />
       </ThemeProvider>
     </AuthContextProvider>
