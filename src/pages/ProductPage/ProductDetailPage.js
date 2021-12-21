@@ -49,6 +49,9 @@ const ProductDetailPage = () => {
   const [sanPham, setSP] = useState(
     products.find((sp) => sp.path === history.location.pathname)
   );
+  React.useEffect(() => {
+    setSP(products.find((sp) => sp.path === history.location.pathname));
+  }, [history.location.pathname]);
   const dispatch = useDispatch();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -261,7 +264,7 @@ const ProductDetailPage = () => {
             component={Paper}
           >
             <Box>
-              <Box marginY={1}>
+              <Box marginBottom={2}>
                 <CountTypography
                   variant="button"
                   text={"Thông tin sản phẩm"}
@@ -273,7 +276,7 @@ const ProductDetailPage = () => {
               <TableInfo sanPham={sanPham} />
             </Box>
             <Box>
-              <Box marginY={1}>
+              <Box marginTop={2}>
                 <CountTypography
                   variant="button"
                   text={"Mô tả sản phẩm"}
@@ -315,6 +318,8 @@ const ProductDetailPage = () => {
             paddingTop={2}
             paddingBottom={5}
             component={Paper}
+            borderRadius={1}
+            borderColor={SystemColor.gray}
           >
             <TabContext value={value}>
               <Box

@@ -69,7 +69,10 @@ function QuickViewDialog({ sanPham }) {
                 setSelectedColor={setSelectedColor}
               />
               <Button
-                onClick={() => history.push(sanPham.path)}
+                onClick={() => {
+                  history.push(sanPham.path);
+                  handleClose();
+                }}
                 variant="text"
                 sx={{
                   float: "right",

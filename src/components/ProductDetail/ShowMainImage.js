@@ -38,10 +38,15 @@ function ShowMainImage({
     while (listimg.length) {
       listimg.pop();
     }
-    if (sanPham.imgs.length) {
-      sanPham.imgs[indexSelected].map((img) => listimg.push(img));
+    if (indexSelected >= 0) {
+      if (sanPham.imgs.length) {
+        sanPham.imgs[indexSelected].map((img) => listimg.push(img));
+      }
+      setImgMain(sanPham.imgs[indexSelected][0]);
+    } else {
+      sanPham.imgs[0].map((img) => listimg.push(img));
+      setImgMain(sanPham.imgs[0][0]);
     }
-    setImgMain(sanPham.imgs[indexSelected][0]);
   }, [indexSelected]);
   const [openImg, setOpenIMG] = React.useState({
     show: false,

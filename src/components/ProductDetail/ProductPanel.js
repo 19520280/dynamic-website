@@ -60,6 +60,7 @@ function ProductPanel({ sanPham, isMobile }) {
             sizeSubImg={null}
             isMobile={isMobile}
             sanPham={sanPham}
+            selectedColor={selectedColor}
           />
           <Box marginTop={1}>
             <h3>{sanPham.ten}</h3>
