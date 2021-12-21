@@ -175,7 +175,7 @@ function InfoProduct({
             giaCu={sanPham.giaCu}
             gia={sanPham.gia}
             isMobile={isMobile}
-            fontSize={size ? 20 : 24}
+            fontSize={size ? 18 : 20}
           />
         </Box>
       </Box>
@@ -313,7 +313,7 @@ function InfoProduct({
             Số lượng sản phẩm còn {sanPham.tonKho}
           </Typography>
         </Box>
-        <Box display="flex" alignContent="center" marginY={size ? 0 : 1}>
+        <Box display="flex" alignContent="center" marginY={size ? 0 : 1.5}>
           <Button
             onClick={openCollectionDialog}
             sx={{
