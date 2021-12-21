@@ -7,6 +7,7 @@ import {
   ButtonGroup,
   ImageList,
   InputBase,
+  Stack,
 } from "@mui/material";
 import RatingInfolPanel from "./RatingInfoPanel";
 import ColorButtonGroup from "../Buttons/ColorButtonGroup";
@@ -54,7 +55,7 @@ function ProductPanel({ sanPham, isMobile }) {
   if (sanPham) {
     if (isMobile) {
       return (
-        <Box marginX={1}>
+        <Box marginX={1} style={{ paddingTop: isMobile ? "10px" : "0px" }}>
           <ShowMainImage
             sizeMainImg={null}
             sizeSubImg={null}
@@ -62,7 +63,7 @@ function ProductPanel({ sanPham, isMobile }) {
             sanPham={sanPham}
             selectedColor={selectedColor}
           />
-          <Box marginTop={1}>
+          <Box marginTop={1} style={{ paddingTop: isMobile ? "10px" : "0px" }}>
             <h3>{sanPham.ten}</h3>
             <PriceTypography
               giaCu={sanPham.giaCu}
@@ -86,10 +87,17 @@ function ProductPanel({ sanPham, isMobile }) {
           </Box>
           <Divider variant="fullWidth" orientation="horizontal" />
           <Box className="Main_Box_Right_Size" marginBottom={1}>
-            <Box marginTop={1}>
+            <Box
+              marginTop={1}
+              style={{ paddingTop: isMobile ? "10px" : "0px" }}
+            >
               <h4>Kích thước</h4>
             </Box>
-            <Box sx={{ display: "flex" }}>
+            <Box
+              sx={{ display: "flex" }}
+              style={{ paddingTop: isMobile ? "10px" : "0px" }}
+              style={{ paddingTop: isMobile ? "10px" : "0px" }}
+            >
               <ImageList
                 cols={sanPham.kichThuocs.length}
                 gap={15}
@@ -109,42 +117,49 @@ function ProductPanel({ sanPham, isMobile }) {
           <Divider variant="fullWidth" orientation="horizontal" />
           <Box className="Main_Box_Right_Input_SL">
             <Box sx={{ alignContent: "center", display: "flex" }} marginY={2}>
-              <ButtonGroup variant="outlined">
-                <Button
-                  sx={{ width: 10, height: 41 }}
-                  onClick={btnRemoveclick}
-                  disabled={sp.soLuong <= 0}
-                >
-                  <RemoveIcon />
-                </Button>
-                <Button disableRipple height={41}>
-                  <InputBase
-                    value={sp.soLuong}
-                    onChange={(e) => {
-                      let value = Number(e.target.value);
-                      setSP({
-                        ...sp,
-                        soLuong:
-                          value < 0
-                            ? 0
-                            : value > sanPham.tonKho
-                            ? sanPham.tonKho
-                            : value,
-                      });
-                    }}
-                    sx={{ flex: 1, width: 30 }}
-                    type="number"
-                    size="small"
-                  />
-                </Button>
-                <Button
-                  sx={{ width: 10, height: 41 }}
-                  onClick={btnAddclick}
-                  disabled={sp.soLuong >= sanPham.tonKho}
-                >
-                  <AddIcon />
-                </Button>
-              </ButtonGroup>
+              <Stack direction="column">
+                <Box marginTop={1}>
+                  <h4>Số lượng</h4>
+                </Box>
+                <Box style={{ paddingTop: isMobile ? "10px" : "0px" }}>
+                  <ButtonGroup variant="outlined">
+                    <Button
+                      sx={{ width: 10, height: 41 }}
+                      onClick={btnRemoveclick}
+                      disabled={sp.soLuong <= 0}
+                    >
+                      <RemoveIcon />
+                    </Button>
+                    <Button disableRipple height={41}>
+                      <InputBase
+                        value={sp.soLuong}
+                        onChange={(e) => {
+                          let value = Number(e.target.value);
+                          setSP({
+                            ...sp,
+                            soLuong:
+                              value < 0
+                                ? 0
+                                : value > sanPham.tonKho
+                                ? sanPham.tonKho
+                                : value,
+                          });
+                        }}
+                        sx={{ flex: 1, width: 30 }}
+                        type="number"
+                        size="small"
+                      />
+                    </Button>
+                    <Button
+                      sx={{ width: 10, height: 41 }}
+                      onClick={btnAddclick}
+                      disabled={sp.soLuong >= sanPham.tonKho}
+                    >
+                      <AddIcon />
+                    </Button>
+                  </ButtonGroup>
+                </Box>
+              </Stack>
             </Box>
             <Box marginY={1}>
               <Typography>Số lượng sản phẩm còn {sanPham.tonKho}</Typography>

@@ -166,17 +166,19 @@ const ProductDetailPage = () => {
             component={Paper}
             borderColor={SystemColor.gray}
             display={"flex"}
-            // style={{margin:"10px 10px"}}
           >
             <RatingDetailPanel size={150} />
           </Box>
-          <Box width={"100%"} component={Paper}>
+          <Box
+            style={{ border:"1px solid", borderColor: SystemColor.gray, padding:"10px"}}
+           width={"100%"} component={Paper}>
             <Box
               sx={{
                 display: "flex",
                 alignContent: "center",
                 float: "right",
                 marginBottom: 2,
+                
               }}
             >
               <Box
