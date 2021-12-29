@@ -24,7 +24,11 @@ You can experience the deployment version before installing.
 ### Deployment
 
 [Click here](https://dynamic-ecommerce.netlify.app/)
+<<<<<<< HEAD
 If you want to use special features, log in with any account you like.
+=======
+</br>If you want to use special features, log in with any account you like.
+>>>>>>> 492339b40bfec5f8c5493f3a284fa78d0c8c9a76
 
 ### Installation
 
