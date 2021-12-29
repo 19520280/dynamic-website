@@ -8,14 +8,14 @@
 - Carousel Slider
 - Animation component
 - Mix&Match products
-- [Shopping Cart] (https://dynamic-ecommerce.netlify.app/Gio-hang)
-- [Blog] (https://dynamic-ecommerce.netlify.app/Blog)
+- [Shopping Cart](https://dynamic-ecommerce.netlify.app/Gio-hang)
+- [Blog](https://dynamic-ecommerce.netlify.app/Blog)
 
 Here are some special features that login required:
 
-- [Wish Lists] (https://dynamic-ecommerce.netlify.app/Ca-nhan/Danh-sach-quan-tam)
-- [Order Tracking] (https://dynamic-ecommerce.netlify.app/Ca-nhan/Don-mua/Chi-tiet)
-- [Profile Management] (https://dynamic-ecommerce.netlify.app/Ca-nhan/Tai-khoan/Ho-so)
+- [Wish Lists](https://dynamic-ecommerce.netlify.app/Ca-nhan/Danh-sach-quan-tam)
+- [Order Tracking](https://dynamic-ecommerce.netlify.app/Ca-nhan/Don-mua/Chi-tiet)
+- [Profile Management](https://dynamic-ecommerce.netlify.app/Ca-nhan/Tai-khoan/Ho-so)
 
 ## How to use
 
@@ -45,20 +45,20 @@ npm start
 
 Youtube
 
-![Homepage] (https://drive.google.com/file/d/1SH-8ZZUN0ytWl2rKKn0k8oZJzdmRdXR5/view?usp=sharing)
+![Homepage](https://drive.google.com/file/d/1SH-8ZZUN0ytWl2rKKn0k8oZJzdmRdXR5/view?usp=sharing)
 
-![Products] (https://drive.google.com/file/d/19kWt6-bD6sq35GnWLrTg6T_svDtmAwkJ/view?usp=sharing)
+![Products](https://drive.google.com/file/d/19kWt6-bD6sq35GnWLrTg6T_svDtmAwkJ/view?usp=sharing)
 
-![Category] (https://drive.google.com/file/d/1qmto4LEZbOsUM-v1-_BB-8iZy82gh-tf/view?usp=sharing)
+![Category](https://drive.google.com/file/d/1qmto4LEZbOsUM-v1-_BB-8iZy82gh-tf/view?usp=sharing)
 
-![Detail] (https://drive.google.com/file/d/1pyKTU25U7Fe3F9kVSX0y2y7mFUZ6UrrS/view?usp=sharing)
+![Detail](https://drive.google.com/file/d/1pyKTU25U7Fe3F9kVSX0y2y7mFUZ6UrrS/view?usp=sharing)
 
-![Cart] (https://drive.google.com/file/d/1sHh0-eljNB7KwvlqVye3_RSnnvSmd6iX/view?usp=sharing)
+![Cart](https://drive.google.com/file/d/1sHh0-eljNB7KwvlqVye3_RSnnvSmd6iX/view?usp=sharing)
 
-![Blog] (https://drive.google.com/file/d/1_3fM02POKBWpM3kU0sXEr7ak8tDuj79h/view?usp=sharing)
+![Blog](https://drive.google.com/file/d/1_3fM02POKBWpM3kU0sXEr7ak8tDuj79h/view?usp=sharing)
 
-![Contact] (https://drive.google.com/file/d/1HQCYJf8EmT5WMpfDyZqkwbdF2YhYjuCS/view?usp=sharing)
+![Contact](https://drive.google.com/file/d/1HQCYJf8EmT5WMpfDyZqkwbdF2YhYjuCS/view?usp=sharing)
 
-![History] (https://drive.google.com/file/d/1qVZ47c9ndjUg5Cr0RZfAyMKDOw6UUpSP/view?usp=sharing)
+![History](https://drive.google.com/file/d/1qVZ47c9ndjUg5Cr0RZfAyMKDOw6UUpSP/view?usp=sharing)
 
-![Tracking] (https://drive.google.com/file/d/1OhnySwlvy03gp1sHQbF2nW7PvBklKqr5/view?usp=sharing)
+![Tracking](https://drive.google.com/file/d/1OhnySwlvy03gp1sHQbF2nW7PvBklKqr5/view?usp=sharing)
