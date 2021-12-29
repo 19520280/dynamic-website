@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Dynamic - Fashion Ecommerce Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Dynamic](https://dynamic-ecommerce.netlify.app/) is fashion ecommerce website. The website using MUI with ReactJS is just the front end and is fully responsive.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Responsive
+- Carousel Slider
+- Animation component
+- Mix&Match products
+- [Shopping Cart] (https://dynamic-ecommerce.netlify.app/Gio-hang)
+- [Blog] (https://dynamic-ecommerce.netlify.app/Blog)
 
-### `npm start`
+Here are some special features that login required:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Wish Lists] (https://dynamic-ecommerce.netlify.app/Ca-nhan/Danh-sach-quan-tam)
+- [Order Tracking] (https://dynamic-ecommerce.netlify.app/Ca-nhan/Don-mua/Chi-tiet)
+- [Profile Management] (https://dynamic-ecommerce.netlify.app/Ca-nhan/Tai-khoan/Ho-so)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to use
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You can experience the deployment version before installing.
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[Click here](https://dynamic-ecommerce.netlify.app/)
 
-### `npm run build` fails to minify
+If you want to use special features, log in with any account you like.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation
+
+```sh
+git clone https://github.com/19520280/dynamic-website
+```
+
+```sh
+npm install
+```
+
+```sh
+npm start
+```
+
+## Preview
+
+Youtube
+
+![Homepage] (https://drive.google.com/file/d/1SH-8ZZUN0ytWl2rKKn0k8oZJzdmRdXR5/view?usp=sharing)
+
+![Products] (https://drive.google.com/file/d/19kWt6-bD6sq35GnWLrTg6T_svDtmAwkJ/view?usp=sharing)
+
+![Category] (https://drive.google.com/file/d/1qmto4LEZbOsUM-v1-_BB-8iZy82gh-tf/view?usp=sharing)
+
+![Detail] (https://drive.google.com/file/d/1pyKTU25U7Fe3F9kVSX0y2y7mFUZ6UrrS/view?usp=sharing)
+
+![Cart] (https://drive.google.com/file/d/1sHh0-eljNB7KwvlqVye3_RSnnvSmd6iX/view?usp=sharing)
+
+![Blog] (https://drive.google.com/file/d/1_3fM02POKBWpM3kU0sXEr7ak8tDuj79h/view?usp=sharing)
+
+![Contact] (https://drive.google.com/file/d/1HQCYJf8EmT5WMpfDyZqkwbdF2YhYjuCS/view?usp=sharing)
+
+![History] (https://drive.google.com/file/d/1qVZ47c9ndjUg5Cr0RZfAyMKDOw6UUpSP/view?usp=sharing)
+
+![Tracking] (https://drive.google.com/file/d/1OhnySwlvy03gp1sHQbF2nW7PvBklKqr5/view?usp=sharing)
