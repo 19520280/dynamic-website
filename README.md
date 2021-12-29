@@ -1,6 +1,6 @@
 # Dynamic - Fashion Ecommerce Website
 
-[Dynamic](https://dynamic-ecommerce.netlify.app/) is fashion ecommerce website. The website using MUI with ReactJS is just the front end and is fully responsive.
+[Dynamic](https://dynamic-ecommerce.netlify.app/) is a fashion ecommerce website. The website using MUI with ReactJS is just the front end and is fully responsive.
 
 ## Features
 
