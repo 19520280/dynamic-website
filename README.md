@@ -24,7 +24,7 @@ You can experience the deployment version before installing.
 ### Deployment
 
 [Click here](https://dynamic-ecommerce.netlify.app/)
-If you want to use special features, log in with any account you like.
+</br>If you want to use special features, log in with any account you like.
 
 ### Installation
 
@@ -44,7 +44,7 @@ npm start
 
 Youtube
 
-![Homepage](https://drive.google.com/file/d/1SH-8ZZUN0ytWl2rKKn0k8oZJzdmRdXR5/view?usp=sharing)
+![Homepage](https://drive.google.com/uc?export=view&id=1SH-8ZZUN0ytWl2rKKn0k8oZJzdmRdXR5)
 
 ![Products](https://drive.google.com/file/d/19kWt6-bD6sq35GnWLrTg6T_svDtmAwkJ/view?usp=sharing)
 
