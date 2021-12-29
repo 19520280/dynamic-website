@@ -24,7 +24,6 @@ You can experience the deployment version before installing.
 ### Deployment
 
 [Click here](https://dynamic-ecommerce.netlify.app/)
-
 If you want to use special features, log in with any account you like.
 
 ### Installation
@@ -43,22 +42,28 @@ npm start
 
 ## Preview
 
-Youtube
+[Youtube](https://youtu.be/lf4HcLEG0fM)
 
-![Homepage](https://drive.google.com/file/d/1SH-8ZZUN0ytWl2rKKn0k8oZJzdmRdXR5/view?usp=sharing)
 
-![Products](https://drive.google.com/file/d/19kWt6-bD6sq35GnWLrTg6T_svDtmAwkJ/view?usp=sharing)
+![Homepage](https://drive.google.com/uc?export=view&id=1SH-8ZZUN0ytWl2rKKn0k8oZJzdmRdXR5)
 
-![Category](https://drive.google.com/file/d/1qmto4LEZbOsUM-v1-_BB-8iZy82gh-tf/view?usp=sharing)
+![Products](https://drive.google.com/uc?export=view&id=19kWt6-bD6sq35GnWLrTg6T_svDtmAwkJ)
 
-![Detail](https://drive.google.com/file/d/1pyKTU25U7Fe3F9kVSX0y2y7mFUZ6UrrS/view?usp=sharing)
+![Category](https://drive.google.com/uc?export=view&id=1qmto4LEZbOsUM-v1-_BB-8iZy82gh-tf)
 
-![Cart](https://drive.google.com/file/d/1sHh0-eljNB7KwvlqVye3_RSnnvSmd6iX/view?usp=sharing)
+![Detail](https://drive.google.com/uc?export=view&id=1pyKTU25U7Fe3F9kVSX0y2y7mFUZ6UrrS)
 
-![Blog](https://drive.google.com/file/d/1_3fM02POKBWpM3kU0sXEr7ak8tDuj79h/view?usp=sharing)
+![Cart](https://drive.google.com/uc?export=view&id=1sHh0-eljNB7KwvlqVye3_RSnnvSmd6iX)
 
-![Contact](https://drive.google.com/file/d/1HQCYJf8EmT5WMpfDyZqkwbdF2YhYjuCS/view?usp=sharing)
+![Blog](https://drive.google.com/uc?export=view&id=1_3fM02POKBWpM3kU0sXEr7ak8tDuj79h)
 
-![History](https://drive.google.com/file/d/1qVZ47c9ndjUg5Cr0RZfAyMKDOw6UUpSP/view?usp=sharing)
+![Contact](https://drive.google.com/uc?export=view&id=1HQCYJf8EmT5WMpfDyZqkwbdF2YhYjuCS)
 
-![Tracking](https://drive.google.com/file/d/1OhnySwlvy03gp1sHQbF2nW7PvBklKqr5/view?usp=sharing)
+![History](https://drive.google.com/uc?export=view&id=1qVZ47c9ndjUg5Cr0RZfAyMKDOw6UUpSP)
+
+![Tracking](https://drive.google.com/uc?export=view&id=1OhnySwlvy03gp1sHQbF2nW7PvBklKqr5)
+
+## Contact
+
+Email: thao.nguyenthiphuong.2001@gmail.com
+Linkedin: [www.linkedin.com/in/ntpthaodh/](www.linkedin.com/in/ntpthaodh/) 
