@@ -32,6 +32,9 @@ function ShowMainImage({
     sanPham.imgs[0].map((img) => listimg.push(img));
   }
   React.useEffect(() => {
+    while (listImgfull.length) {
+      listImgfull.pop();
+    }
     sanPham.imgs.map((e) => e.map((img) => listImgfull.push(img)));
   }, [sanPham]);
   React.useEffect(() => {
